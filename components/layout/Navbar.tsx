@@ -88,25 +88,19 @@ export default function Navbar() {
                 })}
               </nav>
 
-              {/* Desktop CTA */}
+              {/* Desktop CTA — phone in white pill */}
               <div className="hidden lg:flex items-center gap-3">
                 {sitePhone() && (
                   <a
                     href={sitePhoneHref()}
-                    className="inline-flex items-center gap-2 text-white/70 hover:text-[#8a6e3f] text-sm font-medium px-3 py-2 rounded-md transition-colors duration-150 cursor-pointer"
+                    className="bg-white hover:bg-[#fafaf7] text-[#8a6e3f] font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 cursor-pointer min-h-[44px] inline-flex items-center gap-2"
                     style={{ fontFamily: 'var(--font-inter-tight)' }}
+                    aria-label={`Call ${sitePhone()}`}
                   >
                     <Phone size={14} aria-hidden />
                     {sitePhone()}
                   </a>
                 )}
-                <Link
-                  href="/contact"
-                  className="bg-white hover:bg-[#fafaf7] text-[#8a6e3f] font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 cursor-pointer min-h-[44px] flex items-center"
-                  style={{ fontFamily: 'var(--font-inter-tight)' }}
-                >
-                  Get a quote
-                </Link>
               </div>
 
               {/* Mobile hamburger */}
