@@ -8,7 +8,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { SITE } from '@/lib/constants'
 import { IMAGES } from '@/lib/images'
 
-const FOUNDER_PHOTO_PATH = '/founder/pargat.jpg'
+const FOUNDER_PHOTO_PATH = '/founder/founder.jpg'
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -159,10 +159,10 @@ export default function FounderStory() {
                 className="font-display text-lg text-[#1a1a1a]"
                 style={{ fontWeight: 500 }}
               >
-                Pargat Singh
+                Founder
               </p>
               <p className="text-xs tracking-[0.2em] uppercase text-[#5a5650] mt-1">
-                Founder · Adelaide
+                Adelaide
               </p>
             </div>
             <Link

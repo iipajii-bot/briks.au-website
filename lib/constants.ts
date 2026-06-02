@@ -15,7 +15,7 @@ export const SITE = {
   postalCode: '5000',
   addressCountry: 'AU',
   geo: { latitude: -34.9285, longitude: 138.6007 },
-  founderName: 'Pargat Singh',
+  founderName: 'Founder',
   abn: '90 697 367 721',
   // WhatsApp — international format digits only, no + or spaces
   whatsapp: '61451975879',

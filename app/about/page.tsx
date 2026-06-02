@@ -15,9 +15,7 @@ export const metadata: Metadata = {
     "Briks Building Services — built by experienced Adelaide tradies. The story, the values, what we won't compromise on.",
   alternates: { canonical: '/about' },
   openGraph: {
-    type: 'profile',
-    firstName: 'Pargat',
-    lastName: 'Singh',
+    type: 'website',
   },
 }
 
