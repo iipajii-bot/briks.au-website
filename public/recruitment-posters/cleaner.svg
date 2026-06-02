@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      .display { font-family: 'Bricolage Grotesque', 'Times New Roman', serif; font-weight: 600; }
+      .sans    { font-family: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1080" height="1350" fill="#ffffff"/>
+  <rect x="48" y="48" width="984" height="1254" fill="none" stroke="#e2ddd3" stroke-width="1"/>
+
+  <text x="80" y="118" class="sans" font-size="20" fill="#8a6e3f" letter-spacing="6">ADELAIDE  ·  CLEANER  ·  REF 1507</text>
+  <line x1="80" y1="138" x2="1000" y2="138" stroke="#e2ddd3" stroke-width="1"/>
+
+  <!-- Headline 2-line -->
+  <text x="80" y="310" class="display" font-size="88" fill="#1a1a1a" letter-spacing="-2">End of lease clean</text>
+  <text x="80" y="410" class="display" font-size="88" fill="#1a1a1a" letter-spacing="-2">needed.</text>
+
+  <!-- Description 2-line -->
+  <text x="80" y="490" class="sans" font-size="28" fill="#5a5650">Full end of lease clean needed for a property</text>
+  <text x="80" y="528" class="sans" font-size="28" fill="#5a5650">in Adelaide. Professional cleaner only.</text>
+
+  <line x1="80" y1="590" x2="1000" y2="590" stroke="#e2ddd3" stroke-width="1"/>
+
+  <!-- Contact card -->
+  <g transform="translate(80, 780) rotate(-0.6)">
+    <rect x="0" y="0" width="920" height="310" fill="#ffffff" stroke="#8a6e3f" stroke-width="2"/>
+    <text x="40" y="55" class="sans" font-size="18" fill="#8a6e3f" letter-spacing="6">MSG THIS NUMBER  ·  READ BOXES LEFT TO RIGHT</text>
+    <rect x="40" y="80" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="62" y="188" class="display" font-size="80" fill="#1a1a1a" transform="rotate(-2, 80, 163)">0</text><text x="112" y="188" class="display" font-size="80" fill="#8a6e3f" transform="rotate(3, 130, 163)">4</text><text x="177" y="155" class="display" font-size="38" fill="#e2ddd3">·</text><rect x="200" y="80" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="222" y="188" class="display" font-size="80" fill="#8a6e3f" transform="rotate(-3, 240, 163)">4</text><text x="272" y="188" class="display" font-size="80" fill="#1a1a1a" transform="rotate(4, 290, 163)">9</text><text x="337" y="155" class="display" font-size="38" fill="#e2ddd3">·</text><rect x="360" y="80" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="371" y="188" class="display" font-size="80" fill="#1a1a1a" transform="rotate(-4, 389, 163)">5</text><text x="407" y="188" class="display" font-size="80" fill="#8a6e3f" transform="rotate(2, 425, 163)">1</text><text x="443" y="188" class="display" font-size="80" fill="#1a1a1a" transform="rotate(-3, 461, 163)">7</text><text x="497" y="155" class="display" font-size="38" fill="#e2ddd3">·</text><rect x="520" y="80" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="531" y="188" class="display" font-size="80" fill="#8a6e3f" transform="rotate(-2, 549, 163)">3</text><text x="567" y="188" class="display" font-size="80" fill="#1a1a1a" transform="rotate(3, 585, 163)">6</text><text x="603" y="188" class="display" font-size="80" fill="#8a6e3f" transform="rotate(-4, 621, 163)">7</text>
+  </g>
+
+  <text x="80" y="1240" class="sans" font-size="18" fill="#5a5650" letter-spacing="4">ADELAIDE  ·  REF 1507</text>
+  <line x1="80" y1="1255" x2="1000" y2="1255" stroke="#e2ddd3" stroke-width="1"/>
+</svg>

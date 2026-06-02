@@ -1,0 +1,14 @@
+/* TEAM */
+Founder: Pargat Singh
+Location: Adelaide, South Australia, Australia
+
+/* SITE */
+Company: Briks Building Services Pty Ltd
+Category: Residential property maintenance management
+Launched: 2026
+Last update: 2026-04-22
+Standards: HTML5, JSON-LD, Core Web Vitals
+Components: Next.js 16, Tailwind CSS, React 19
+
+/* THANKS */
+To every tradesperson in Adelaide who has ever waited 90 days to get paid. We're building this for you too.

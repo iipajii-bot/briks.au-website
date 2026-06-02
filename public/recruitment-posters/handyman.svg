@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs>
+    <style>
+      .display { font-family: 'Bricolage Grotesque', 'Times New Roman', serif; font-weight: 600; }
+      .mono    { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+      .sans    { font-family: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Paper -->
+  <rect width="1080" height="1350" fill="#ffffff"/>
+
+  <!-- Outer hairline frame -->
+  <rect x="48" y="48" width="984" height="1254" fill="none" stroke="#e2ddd3" stroke-width="1"/>
+
+  <!-- Top eyebrow row -->
+  <text x="80" y="118" class="sans" font-size="20" fill="#8a6e3f" letter-spacing="6">ADELAIDE METRO  ·  ONGOING WORK  ·  REF 3625</text>
+  <line x1="80" y1="138" x2="1000" y2="138" stroke="#e2ddd3" stroke-width="1"/>
+
+  <!-- Trade label small caps -->
+  <text x="80" y="220" class="sans" font-size="22" fill="#5a5650" letter-spacing="8">HANDYMAN</text>
+
+  <!-- Headline -->
+  <text x="80" y="340" class="display" font-size="104" fill="#1a1a1a" letter-spacing="-3">Handyman needed.</text>
+
+  <!-- Subhead -->
+  <text x="80" y="430" class="display" font-size="44" fill="#5a5650" letter-spacing="-1">Reliable, multi-skilled handypeople.</text>
+  <text x="80" y="488" class="display" font-size="44" fill="#5a5650" letter-spacing="-1">Reliable. Fair price. Extra work.</text>
+
+  <!-- Hairline divider -->
+  <line x1="80" y1="560" x2="1000" y2="560" stroke="#e2ddd3" stroke-width="1"/>
+
+  <!-- Three bullets -->
+  <g transform="translate(80, 620)">
+    <circle cx="6" cy="-8" r="4" fill="#8a6e3f"/>
+    <text x="28" y="-3" class="sans" font-size="28" fill="#1a1a1a">Ongoing work — not one-off. Pick suburbs + days.</text>
+
+    <circle cx="6" cy="62" r="4" fill="#8a6e3f"/>
+    <text x="28" y="68" class="sans" font-size="28" fill="#1a1a1a">Paid within seven days of invoice. No chasing.</text>
+
+    <circle cx="6" cy="132" r="4" fill="#8a6e3f"/>
+    <text x="28" y="138" class="sans" font-size="28" fill="#1a1a1a">Coordinated jobs — scope, address, photos provided.</text>
+  </g>
+
+  <!-- Big contact card -->
+  <g transform="translate(80, 830) rotate(-0.6)">
+    <rect x="0" y="0" width="920" height="350" fill="#ffffff" stroke="#8a6e3f" stroke-width="2"/>
+
+    <text x="40" y="60" class="sans" font-size="18" fill="#8a6e3f" letter-spacing="6">TEXT ONLY  ·  READ BOXES LEFT TO RIGHT</text>
+
+    <!-- Phone as 4 chunked code boxes -->
+    <rect x="40" y="100" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="50" y="122" class="sans" font-size="12" fill="#8a6e3f" letter-spacing="3">BOX 1</text><text x="62" y="210" class="display" font-size="80" fill="#1a1a1a" transform="rotate(-2, 80, 185)">0</text><text x="112" y="210" class="display" font-size="80" fill="#8a6e3f" transform="rotate(3, 130, 185)">4</text><text x="176" y="178" class="display" font-size="40" fill="#e2ddd3">·</text><rect x="200" y="100" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="210" y="122" class="sans" font-size="12" fill="#8a6e3f" letter-spacing="3">BOX 2</text><text x="222" y="210" class="display" font-size="80" fill="#8a6e3f" transform="rotate(-3, 240, 185)">4</text><text x="272" y="210" class="display" font-size="80" fill="#1a1a1a" transform="rotate(4, 290, 185)">9</text><text x="336" y="178" class="display" font-size="40" fill="#e2ddd3">·</text><rect x="360" y="100" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="370" y="122" class="sans" font-size="12" fill="#8a6e3f" letter-spacing="3">BOX 3</text><text x="371" y="210" class="display" font-size="80" fill="#1a1a1a" transform="rotate(-4, 389, 185)">5</text><text x="407" y="210" class="display" font-size="80" fill="#8a6e3f" transform="rotate(2, 425, 185)">1</text><text x="443" y="210" class="display" font-size="80" fill="#1a1a1a" transform="rotate(-3, 461, 185)">7</text><text x="496" y="178" class="display" font-size="40" fill="#e2ddd3">·</text><rect x="520" y="100" width="130" height="130" fill="#ffffff" stroke="#e2ddd3" stroke-width="1.5"/><text x="530" y="122" class="sans" font-size="12" fill="#8a6e3f" letter-spacing="3">BOX 4</text><text x="531" y="210" class="display" font-size="80" fill="#8a6e3f" transform="rotate(-2, 549, 185)">3</text><text x="567" y="210" class="display" font-size="80" fill="#1a1a1a" transform="rotate(3, 585, 185)">6</text><text x="603" y="210" class="display" font-size="80" fill="#8a6e3f" transform="rotate(-4, 621, 185)">7</text>
+
+    <text x="40" y="290" class="sans" font-size="20" fill="#5a5650" letter-spacing="2">Text your licence + ABN. First job within the week.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="80" y="1240" class="sans" font-size="18" fill="#5a5650" letter-spacing="4">FIRST JOB WITHIN THE WEEK  ·  ADELAIDE METRO  ·  REF 3625</text>
+  <line x1="80" y1="1255" x2="1000" y2="1255" stroke="#e2ddd3" stroke-width="1"/>
+</svg>
