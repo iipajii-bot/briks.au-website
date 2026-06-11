@@ -7,7 +7,7 @@ import TrustStrip from '@/components/sections/TrustStrip'
 import FAQAccordion from '@/components/sections/FAQAccordion'
 import MovingBorder from '@/components/effects/MovingBorder'
 import { IMAGES } from '@/lib/images'
-import { SITE, whatsappHref } from '@/lib/constants'
+import { SITE, whatsappHref, sitePhone, sitePhoneHref } from '@/lib/constants'
 
 const PRIMARY_KEYWORD = '24/7 emergency tradie Adelaide'
 
@@ -98,9 +98,16 @@ export default function EmergencyPage() {
               <p className="text-white text-base md:text-lg" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}>Text the details — fastest response.</p>
             </div>
           </div>
-          <a href={whatsappHref(`EMERGENCY — Adelaide. Address + issue:`)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#8a6e3f] hover:bg-[#b89868] text-white px-6 py-3 rounded-sm min-h-[48px] transition-colors" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}>
-            <MessageCircle size={16} aria-hidden />WhatsApp now · {SITE.whatsappDisplay}
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3">
+            {sitePhone() && (
+              <a href={sitePhoneHref()} className="inline-flex items-center justify-center gap-2 bg-white hover:bg-[#fafaf7] text-[#1a1a1a] px-6 py-3 rounded-sm min-h-[48px] transition-colors" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }} aria-label={`Call Briks now on ${sitePhone()}`}>
+                <Phone size={16} aria-hidden className="text-[#8a6e3f]" />Call now · {sitePhone()}
+              </a>
+            )}
+            <a href={whatsappHref(`EMERGENCY — Adelaide. Address + issue:`)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#8a6e3f] hover:bg-[#b89868] text-white px-6 py-3 rounded-sm min-h-[48px] transition-colors" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}>
+              <MessageCircle size={16} aria-hidden />WhatsApp · {SITE.whatsappDisplay}
+            </a>
+          </div>
         </div>
       </section>
 
@@ -201,6 +208,11 @@ export default function EmergencyPage() {
           <h2 className="text-white text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Active emergency right now?{' '}<span className="text-[#8a6e3f]">Text us — fastest path.</span></h2>
           <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">WhatsApp the address + a one-line description. Tradie dispatched inside 60 minutes across Adelaide metro.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            {sitePhone() && (
+              <a href={sitePhoneHref()} className="inline-flex items-center justify-center gap-2 bg-white hover:bg-[#fafaf7] text-[#1a1a1a] px-8 py-4 rounded-full min-h-[48px] transition-colors" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }} aria-label={`Call Briks now on ${sitePhone()}`}>
+                <Phone size={16} aria-hidden className="text-[#8a6e3f]" />Call · {sitePhone()}
+              </a>
+            )}
             <a href={whatsappHref(`EMERGENCY — Adelaide. Address + issue:`)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#8a6e3f] hover:bg-[#b89868] text-white px-8 py-4 rounded-full min-h-[48px] transition-colors" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}>
               <MessageCircle size={16} aria-hidden />WhatsApp · {SITE.whatsappDisplay}
             </a>

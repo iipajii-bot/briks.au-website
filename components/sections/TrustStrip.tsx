@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ShieldCheck, Wrench, MapPin, Clock } from 'lucide-react'
 import { SITE } from '@/lib/constants'
 
@@ -9,7 +10,12 @@ import { SITE } from '@/lib/constants'
  * No insurance dollar figure — kept private.
  */
 export default function TrustStrip() {
-  const items = [
+  const items: Array<{
+    Icon: typeof Wrench
+    label: string
+    sub: string
+    href?: string
+  }> = [
     {
       Icon: Wrench,
       label: 'Licensed tradies',
@@ -29,6 +35,7 @@ export default function TrustStrip() {
       Icon: MapPin,
       label: 'Adelaide metro',
       sub: '38+ suburbs',
+      href: '/areas',
     },
   ]
 
@@ -39,27 +46,41 @@ export default function TrustStrip() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-6">
         <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {items.map(({ Icon, label, sub }) => (
-            <li
-              key={label}
-              className="flex items-center gap-3"
-            >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-[#e2ddd3] bg-white">
-                <Icon size={14} className="text-[#8a6e3f]" aria-hidden />
-              </div>
-              <div className="min-w-0">
-                <p
-                  className="text-[#1a1a1a] text-xs md:text-sm tracking-[-0.01em]"
-                  style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}
-                >
-                  {label}
-                </p>
-                <p className="text-[10px] tracking-[0.16em] uppercase text-[#5a5650] truncate">
-                  {sub}
-                </p>
-              </div>
-            </li>
-          ))}
+          {items.map(({ Icon, label, sub, href }) => {
+            const inner = (
+              <>
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-[#e2ddd3] bg-white">
+                  <Icon size={14} className="text-[#8a6e3f]" aria-hidden />
+                </div>
+                <div className="min-w-0">
+                  <p
+                    className="text-[#1a1a1a] text-xs md:text-sm tracking-[-0.01em]"
+                    style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}
+                  >
+                    {label}
+                  </p>
+                  <p className="text-[10px] tracking-[0.16em] uppercase text-[#5a5650] truncate">
+                    {sub}
+                  </p>
+                </div>
+              </>
+            )
+            return (
+              <li key={label}>
+                {href ? (
+                  <Link
+                    href={href}
+                    className="flex items-center gap-3 group cursor-pointer"
+                    aria-label={`${label} — see service areas`}
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div className="flex items-center gap-3">{inner}</div>
+                )}
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

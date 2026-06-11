@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, MessageCircle } from 'lucide-react'
-import { whatsappHref } from '@/lib/constants'
+import { ArrowRight, MessageCircle, Phone } from 'lucide-react'
+import { whatsappHref, sitePhoneHref, sitePhone } from '@/lib/constants'
 
 /**
  * Mobile-only sticky quote bar.
@@ -44,6 +44,15 @@ export default function StickyQuoteBar() {
           Get a quote
           <ArrowRight size={14} aria-hidden />
         </Link>
+        {sitePhone() && (
+          <a
+            href={sitePhoneHref()}
+            aria-label={`Call Briks on ${sitePhone()}`}
+            className="flex items-center justify-center w-12 border-l border-white/15 text-white"
+          >
+            <Phone size={18} aria-hidden />
+          </a>
+        )}
         <a
           href={whatsappHref(
             "Hi Briks — I'd like a quote on a job in Adelaide. Quick details:"

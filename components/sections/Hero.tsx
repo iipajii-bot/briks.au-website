@@ -7,7 +7,8 @@ import SplitText from '@/components/motion/SplitText'
 import WordRotator from '@/components/motion/WordRotator'
 import MovingBorder from '@/components/effects/MovingBorder'
 import Link from 'next/link'
-import { whatsappHref } from '@/lib/constants'
+import { Phone } from 'lucide-react'
+import { whatsappHref, sitePhone, sitePhoneHref } from '@/lib/constants'
 
 const ROTATING_SERVICES = [
   'Maintenance.',
@@ -71,7 +72,7 @@ export default function Hero() {
           <span className="block text-[#8a6e3f]">
             <WordRotator
               words={ROTATING_SERVICES}
-              intervalMs={1500}
+              intervalMs={2200}
               startDelayMs={350}
             />
           </span>
@@ -103,7 +104,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
         >
           <MovingBorder href="/contact">
-            Book a 15-min call
+            Get a free quote
             <ArrowRight size={18} aria-hidden="true" />
           </MovingBorder>
           <a
@@ -119,12 +120,32 @@ export default function Hero() {
           </a>
         </motion.div>
 
+        {/* Phone — direct line, large tap target for phone-first buyers */}
+        {sitePhone() && (
+          <motion.div
+            initial={prefersReduced ? {} : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease, delay: 1.45 }}
+            className="-mt-8 mb-6"
+          >
+            <a
+              href={sitePhoneHref()}
+              className="inline-flex items-center gap-2.5 text-[#8a6e3f] hover:text-[#1a1a1a] text-xl md:text-2xl tracking-[-0.01em] transition-colors min-h-[44px] py-2"
+              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 700 }}
+              aria-label={`Call Briks on ${sitePhone()}`}
+            >
+              <Phone size={20} aria-hidden />
+              {sitePhone()}
+            </a>
+          </motion.div>
+        )}
+
         {/* Tertiary text link — soft entry for users not ready to commit */}
         <motion.div
           initial={prefersReduced ? {} : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease, delay: 1.5 }}
-          className="-mt-8 mb-12 text-center"
+          className="mb-12 text-center"
         >
           <Link
             href="/how-it-works"

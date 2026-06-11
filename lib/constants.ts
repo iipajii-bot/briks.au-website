@@ -111,7 +111,7 @@ export const MEGA_MENUS: Record<MegaKey, ReadonlyArray<MegaCol>> = {
         { label: 'Property Managers', href: '/for-property-managers', blurb: 'Tapi-native, one invoice.' },
         { label: 'Businesses', href: '/for-businesses', blurb: 'Shopfront, office, strata.' },
       ],
-      seeAll: { label: 'Case studies', href: '/case-studies' },
+      seeAll: { label: 'How we work', href: '/how-it-works' },
     },
   ],
   about: [
@@ -121,6 +121,7 @@ export const MEGA_MENUS: Record<MegaKey, ReadonlyArray<MegaCol>> = {
       items: [
         { label: 'About Briks', href: '/about', blurb: 'The story and four rules.' },
         { label: 'Trade network', href: '/about/network', blurb: 'Standards, vetting, allocation.' },
+        { label: 'Reviews', href: '/reviews', blurb: 'What Adelaide customers say.' },
       ],
       seeAll: { label: 'Read the story', href: '/about' },
     },

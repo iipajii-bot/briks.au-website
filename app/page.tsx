@@ -10,8 +10,8 @@ import TrustStrip from '@/components/sections/TrustStrip'
 import TestimonialsGrid from '@/components/sections/TestimonialsGrid'
 import CaseStudiesGrid from '@/components/sections/CaseStudiesGrid'
 import PricingPhilosophy from '@/components/sections/PricingPhilosophy'
-import ManifestoBand from '@/components/sections/ManifestoBand'
 import RoomsBand from '@/components/sections/RoomsBand'
+import ScopeCards from '@/components/sections/ScopeCards'
 import { SITE } from '@/lib/constants'
 import { ALL_SUBURBS } from '@/lib/suburbs'
 
@@ -144,13 +144,13 @@ export default function HomePage() {
       <AudienceTiles />
       <Promises />
       <ServicesGrid />
-      <RoomsBand />
+      <ScopeCards />
       <CaseStudiesGrid />
+      <QuickQuote />
       <TestimonialsGrid limit={3} />
-      <ManifestoBand />
+      <RoomsBand />
       <PricingPhilosophy />
       <FounderStory />
-      <QuickQuote />
       <HomeFAQ />
       <FooterCTA />
     </>
