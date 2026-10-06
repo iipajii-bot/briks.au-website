@@ -18,8 +18,8 @@ export const SITE = {
   founderName: 'Founder',
   abn: '90 697 367 721',
   // WhatsApp — international format digits only, no + or spaces
-  whatsapp: '61451975879',
-  whatsappDisplay: '+61 451 975 879',
+  whatsapp: '61449517367',
+  whatsappDisplay: '+61 449 517 367',
   social: {
     linkedin: 'https://www.linkedin.com/company/briks-building-services',
     facebook: 'https://www.facebook.com/briksbuilding',
