@@ -166,12 +166,14 @@ export default function TradePartners() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Apply to join the bench</p>
           <h2 className="text-white text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Send us your details.</h2>
-          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">WhatsApp is fastest. Send your trade, license number, public liability cert, years experience, suburbs you cover, and availability. We come back within one business day.</p>
+          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Apply online in about 5 minutes: your trades, licence, insurance and best rates. Prefer to chat first? Message us on WhatsApp. We come back within one business day.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={whatsappHref("Hi Briks — applying for the tradie bench. My details: \n- Trade: \n- License: \n- Public liability: \n- Years experience: \n- Suburbs covered: \n- Availability: ")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#8a6e3f] hover:bg-[#b89868] text-white px-7 py-3.5 rounded-full min-h-[48px] transition-colors" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}>
-              <MessageCircle size={16} aria-hidden />Apply via WhatsApp
+            <Link href="/join" className="inline-flex items-center justify-center gap-2 bg-[#8a6e3f] hover:bg-[#b89868] text-white px-7 py-3.5 rounded-full min-h-[48px] transition-colors" style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}>
+              Apply online<ArrowRight size={16} aria-hidden />
+            </Link>
+            <a href={whatsappHref("Hi Briks — I'm a tradie interested in joining the bench. My trade: ")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 hover:border-white text-white/90 hover:text-white px-7 py-3.5 transition-colors min-h-[48px]">
+              <MessageCircle size={16} aria-hidden />Chat on WhatsApp
             </a>
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 hover:border-white text-white/90 hover:text-white px-7 py-3.5 transition-colors min-h-[48px]">Use the form instead</Link>
           </div>
         </div>
       </section>

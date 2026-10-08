@@ -67,7 +67,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://api.resend.com",
+              "connect-src 'self' https://api.resend.com https://ops.briks.au",
               "frame-ancestors 'none'",
               "form-action 'self'",
               "base-uri 'self'",
