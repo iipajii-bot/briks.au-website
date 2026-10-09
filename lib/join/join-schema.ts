@@ -4,13 +4,33 @@
 import { z } from 'zod'
 import { isValidAbn } from '@/lib/join/abn'
 import { normaliseAuMobile } from '@/lib/join/phone'
-import { AREA_KEYS, JOBS_PER_WEEK, RESPONSE_TIMES, TRADES, TRADE_KEYS, itemsFor, type TradeKey } from '@/lib/join/rate-card'
+import {
+  AREA_KEYS,
+  AVAILABILITY,
+  BILLING_BLOCKS,
+  CALLOUT_MINUTES,
+  CAPABILITIES,
+  JOBS_PER_WEEK,
+  PAYMENT_TERMS_DAYS,
+  POLICE_CHECKS,
+  RESPONSE_TIMES,
+  TEAM_SIZES,
+  TRADES,
+  TRADE_KEYS,
+  TRAVEL_FREE_KM,
+  WARRANTY_MONTHS,
+  WASTE_OPTIONS,
+  YEARS_BANDS,
+  jobsFor,
+  type TradeKey,
+} from '@/lib/join/rate-card'
 
 /**
  * Validation for the public /join form. Pure: the 'use client' form runs the
  * same validateJoin() step by step and /api/join runs it again — the server
- * never trusts the browser. Unknown trade / area / rate keys are rejected, not
- * ignored.
+ * never trusts the browser. Unknown trade / area / rate / capability keys are
+ * rejected, not ignored. A job price is a dollar amount or the literal 'POI'
+ * (price on inspection); nothing else.
  */
 
 const MAX_RATE = 100_000
@@ -30,13 +50,58 @@ const optText = (max: number) =>
     .optional()
     .transform((s) => (s ? s : undefined))
 
+/** A fixed set of numbers, e.g. 15 | 30 | 60. */
+function oneOfNums<const T extends number>(vals: readonly T[], message = 'Pick one') {
+  return z.union(vals.map((v) => z.literal(v)) as unknown as [z.ZodLiteral<T>, z.ZodLiteral<T>, ...z.ZodLiteral<T>[]], { error: message })
+}
+/** A fixed set of strings. */
+const oneOfKeys = (keys: readonly string[], message = 'Pick one') => z.enum(keys as [string, ...string[]], { error: message })
+
+const CALLOUT_VALUES = CALLOUT_MINUTES.map((c) => c.value)
+
+const JOB_PRICE = z.union([rate, z.literal('POI')], { error: 'Enter a price, or tick “Price on inspection”' })
+
 const tradeRates = z
   .object({
     hourly: rate,
     callout: rate,
-    after_hours: rate.optional(),
-    min_charge: rate.optional(),
-    items: z.record(z.string().max(40), rate).optional(),
+    calloutMinutes: oneOfNums(CALLOUT_VALUES, 'Pick the minutes the call-out covers'),
+    items: z.record(z.string().max(40), JOB_PRICE).optional(),
+  })
+  .strict()
+
+const terms = z
+  .object({
+    billingIncrement: oneOfNums(BILLING_BLOCKS.map((b) => b.value), 'Pick a billing block'),
+    /** null = the quote / inspection visit is free */
+    quoteFee: rate.nullable(),
+    afterHours: rate.optional(),
+    emergencyCallout: rate.optional(),
+    materialsMarkupPct: z
+      .number({ error: 'Pick a materials mark-up' })
+      .finite('Pick a materials mark-up')
+      .min(0, 'Cannot be negative')
+      .max(100, 'Keep it between 0 and 100')
+      .refine(dp2, 'Use at most 2 decimal places'),
+    travelFreeKm: oneOfNums(TRAVEL_FREE_KM, 'Pick a distance').optional(),
+    travelPerKm: rate.optional(),
+    waste: oneOfKeys(WASTE_OPTIONS.map((w) => w.key), 'Pick one'),
+    wastePerLoad: rate.optional(),
+  })
+  .strict()
+
+const profile = z
+  .object({
+    yearsBand: oneOfKeys(YEARS_BANDS.map((y) => y.key), 'Pick one'),
+    team: oneOfKeys(TEAM_SIZES.map((t) => t.key), 'Pick one'),
+    policeCheck: oneOfKeys(POLICE_CHECKS.map((p) => p.key), 'Pick one'),
+    warrantyMonths: oneOfNums(WARRANTY_MONTHS.map((w) => w.value), 'Pick one'),
+    paymentTermsDays: z
+      .array(oneOfNums(PAYMENT_TERMS_DAYS.map((p) => p.value), 'Pick one'), { error: 'Pick at least one' })
+      .min(1, 'Pick at least one'),
+    availability: z
+      .array(oneOfKeys(AVAILABILITY.map((a) => a.key), 'Pick one'), { error: 'Pick at least one' })
+      .min(1, 'Pick at least one'),
   })
   .strict()
 
@@ -83,6 +148,9 @@ const joinBase = z
     responseTime: z.enum(RESPONSE_TIMES.map((r) => r.key) as [string, ...string[]], { error: 'Pick one' }),
     rates: z.record(z.string(), tradeRates),
     ratesNote: optText(1000),
+    terms,
+    capabilities: z.record(z.string().max(40), z.array(z.string().max(40)).max(20)).optional(),
+    profile,
     agree: z.literal(true, { error: 'Please tick the box to confirm' }),
     /** ms epoch when the form loaded — the server rejects instant submits. */
     startedAt: z.number().int().optional(),
@@ -96,9 +164,10 @@ type Issue = { path: PropertyKey[]; message: string }
 
 /**
  * Rules that span fields (licence needed for licensed trades, insurance
- * details, rates for exactly the ticked trades). Runs on the RAW input,
- * independently of the field schema, so the wizard can report one step's
- * conditional errors even while later steps are still empty.
+ * details, rates for exactly the ticked trades, job keys and capabilities
+ * belonging to ticked trades, waste amount when billed per load). Runs on the
+ * RAW input, independently of the field schema, so the wizard can report one
+ * step's conditional errors even while later steps are still empty.
  */
 function crossIssues(raw: unknown): Issue[] {
   const out: Issue[] = []
@@ -125,7 +194,7 @@ function crossIssues(raw: unknown): Issue[] {
     else if (exp < new Date().toISOString().slice(0, 10)) out.push({ path: ['insuranceExpiry'], message: 'That date has already passed' })
   }
 
-  // Rates: exactly the ticked trades, hourly + callout each, only known item keys.
+  // Rates: exactly the ticked trades, hourly + callout each, only this trade's job keys.
   const rates = (v.rates && typeof v.rates === 'object' ? v.rates : {}) as Record<string, Record<string, unknown> | undefined>
   for (const key of Object.keys(rates)) {
     if (!tradeSet.has(key)) out.push({ path: ['rates', key], message: 'Rates for a trade you did not pick' })
@@ -138,9 +207,27 @@ function crossIssues(raw: unknown): Issue[] {
       continue
     }
     if (!TRADE_KEYS.includes(key as TradeKey)) continue
-    const known = new Set(itemsFor(key as TradeKey).map((i) => i.key))
+    const known = new Set(jobsFor(key as TradeKey).map((i) => i.key))
     const items = (r.items && typeof r.items === 'object' ? r.items : {}) as Record<string, unknown>
     for (const k of Object.keys(items)) if (!known.has(k)) out.push({ path: ['rates', key, 'items', k], message: 'Unknown item' })
+  }
+
+  // Capabilities: only ticked trades, only this trade's options.
+  const caps = (v.capabilities && typeof v.capabilities === 'object' ? v.capabilities : {}) as Record<string, unknown>
+  for (const key of Object.keys(caps)) {
+    if (!TRADE_KEYS.includes(key as TradeKey) || !tradeSet.has(key)) {
+      out.push({ path: ['capabilities', key], message: 'Options for a trade you did not pick' })
+      continue
+    }
+    const known = new Set((CAPABILITIES[key as TradeKey] ?? []).map((c) => c.key))
+    const list = Array.isArray(caps[key]) ? (caps[key] as unknown[]) : []
+    for (const c of list) if (typeof c !== 'string' || !known.has(c)) out.push({ path: ['capabilities', key], message: 'Unknown option' })
+  }
+
+  // Waste billed per load needs the amount.
+  const t = (v.terms && typeof v.terms === 'object' ? v.terms : {}) as Record<string, unknown>
+  if (t.waste === 'PER_LOAD' && (t.wastePerLoad === undefined || t.wastePerLoad === null || t.wastePerLoad === '')) {
+    out.push({ path: ['terms', 'wastePerLoad'], message: 'Enter the $ per load' })
   }
   return out
 }
@@ -159,21 +246,41 @@ export function validateJoin(input: unknown): { ok: true; data: JoinData } | { o
   const parsed = joinBase.safeParse(input)
   const errors = toErrors([...(parsed.success ? [] : (parsed.error.issues as Issue[])), ...crossIssues(input)])
   if (!parsed.success || Object.keys(errors).length) return { ok: false, errors }
-  return { ok: true, data: parsed.data }
+  return { ok: true, data: { ...parsed.data, capabilities: parsed.data.capabilities ?? {} } }
 }
 
-/** Which field keys belong to which wizard step (matched by first path segment). */
-export const STEP_FIELDS: Record<number, string[]> = {
-  1: ['name', 'businessName', 'phone', 'email', 'baseSuburb', 'areas'],
-  2: ['trades', 'otherTrade'],
-  3: ['abn', 'gstRegistered', 'licenceNumber', 'hasInsurance', 'insuranceCover', 'insuranceOther', 'insurer', 'insuranceExpiry', 'maxJobsPerWeek', 'responseTime'],
-  4: ['rates', 'ratesNote'],
-  5: ['agree'],
+/**
+ * Which wizard step a field error belongs to. Rates are split: call-out,
+ * hourly (step 3) vs everyday job prices (step 4). Keys are dotted paths.
+ */
+export function stepOfField(key: string): number {
+  const [head, , third] = key.split('.')
+  switch (head) {
+    case 'name':
+    case 'businessName':
+    case 'phone':
+    case 'email':
+    case 'baseSuburb':
+    case 'areas':
+      return 1
+    case 'trades':
+    case 'otherTrade':
+      return 2
+    case 'rates':
+      return third === 'items' ? 4 : 3
+    case 'terms':
+      return 3
+    case 'capabilities':
+    case 'ratesNote':
+      return 4
+    default:
+      // ABN, GST, licence, insurance, profile, jobs/response, agreement
+      return 5
+  }
 }
 
 export function errorsForStep(step: number, errors: Record<string, string>): Record<string, string> {
-  const fields = STEP_FIELDS[step] ?? []
   const out: Record<string, string> = {}
-  for (const [k, v] of Object.entries(errors)) if (fields.includes(k.split('.')[0])) out[k] = v
+  for (const [k, v] of Object.entries(errors)) if (stepOfField(k) === step) out[k] = v
   return out
 }
