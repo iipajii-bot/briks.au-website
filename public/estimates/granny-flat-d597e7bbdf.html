@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Granny Flat Estimate · Briks Building Services</title>
+<style>
+/* Layout: 3D model left (sticky on desktop), proposal panel right; stacked on phones. */
+:root{
+  --bg:#f4f3ef; --panel:#ffffff; --fg:#1b1c1d; --muted:#5e625f; --line:#e2e0d9; --accent:#8a6e3f; --on-accent:#ffffff;
+  --new:#c2462f; --old:#2f7a63; --chip:#f0eee8;
+  --display:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --body:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#151617;--panel:#1c1d1f;--fg:#ecebe6;--muted:#a3a29c;--line:#2d2e30;--accent:#d2b07a;--on-accent:#1a1508;--new:#ec8a74;--old:#7fc3a9;--chip:#26272a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151617;--panel:#1c1d1f;--fg:#ecebe6;--muted:#a3a29c;--line:#2d2e30;--accent:#d2b07a;--on-accent:#1a1508;--new:#ec8a74;--old:#7fc3a9;--chip:#26272a;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+.wrap{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;padding-inline:16px;padding-block:16px 32px;max-width:1500px;margin:0 auto}
+.stage{position:sticky;top:16px;align-self:start;height:calc(100vh - 32px);min-height:520px;border-radius:12px;overflow:hidden;background:#e9e6df;border:1px solid var(--line)}
+#three{position:absolute;inset:0}
+.views{position:absolute;left:12px;top:12px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}
+.views button,.tog button{font:600 13px/1 var(--body);padding:9px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.92);color:#1b1c1d;cursor:pointer;min-height:38px}
+.views button[aria-pressed="true"]{background:#1b1c1d;color:#fff;border-color:#1b1c1d}
+.hint{position:absolute;left:12px;bottom:12px;z-index:2;font-size:12px;color:#3d3f3c;background:rgba(255,255,255,.85);padding:6px 10px;border-radius:999px}
+.lbl{font:600 12px/1.2 var(--body);color:#1b1c1d;background:rgba(255,255,255,.9);padding:4px 8px;border-radius:6px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.15);pointer-events:none}
+.lbl small{display:block;font-weight:400;color:#555;font-size:11px}
+.lbl.new{background:#c2462f;color:#fff}.lbl.new small{color:#fde3dc}
+.lbl.old{background:#2f7a63;color:#fff}.lbl.old small{color:#dff2ea}
+.lbl.dim{font-family:var(--mono);font-weight:500;background:#1b1c1d;color:#fff}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px 24px 28px;min-width:0}
+h1{font:700 30px/1.08 var(--display);letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
+h2{font:600 18px/1.2 var(--display);margin:28px 0 10px}
+.lede{color:var(--muted);margin:0 0 16px;max-width:60ch}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.facts span{font-size:13px;background:var(--chip);padding:5px 9px;border-radius:999px}
+.tog{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.tog button{background:var(--chip);color:var(--fg);border-color:var(--line)}
+.tog button[aria-pressed="true"]{background:var(--fg);color:var(--panel);border-color:var(--fg)}
+ul.plan{margin:0;padding-left:18px}
+ul.plan li{margin:4px 0}
+.tblwrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--line)}
+td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:12px}
+td small{display:block;color:var(--muted);font-size:12px}
+tr.sum td{font-weight:600;border-bottom:0;padding-top:10px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:1px}
+.tag.new{background:var(--new);color:#fff}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:18px;padding:16px 18px;border-radius:10px;background:var(--fg);color:var(--panel)}
+.total strong{font:700 26px/1 var(--display);font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;margin-top:6px}
+.legend i{display:inline-block;width:18px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+@media (max-width: 920px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  .stage{position:relative;top:0;height:62vh;min-height:380px}
+  h1{font-size:25px}
+}
+
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.brand img{width:44px;height:44px;border-radius:8px;object-fit:cover;background:#fff}
+.brand b{display:block;font-size:15px}.brand span{font-size:13px;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);margin:0 0 14px}
+.opt td{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="stage" id="stage">
+    <div id="three" role="img" aria-label="3D model of the 7.00 by 5.60 metre granny flat studio with bathroom, kitchen, wardrobe, bed, living and dining areas"></div>
+    <div class="views" id="views">
+      <button type="button" data-v="over" aria-pressed="true">Overview</button>
+      <button type="button" data-v="top" aria-pressed="false">Floor plan</button>
+      <button type="button" data-v="in" aria-pressed="false">Standing inside</button>
+      <button type="button" data-v="bath" aria-pressed="false">Bathroom</button>
+    </div>
+    <div class="hint">Drag to turn · scroll or pinch to zoom</div>
+  </div>
+
+  <div class="panel">
+    <div class="brand"><img src="/logo.png" alt="Briks Building Services logo"><div><b>Briks Building Services</b><span>Adelaide · ABN 90 697 367 721</span></div></div>
+    <h1>Studio granny flat fit-out</h1>
+    <p class="meta"><span>Estimate prepared 14 October 2026</span><span>Valid for 30 days</span></p>
+    <p class="lede">We'll turn your 7.00 × 5.60 m studio (39.2 m²) into a self-contained granny flat: a new bathroom, an updated kitchen, a built-in robe and a split-system air conditioner. The model is drawn to scale. Turn it around to see the layout.</p>
+    <div class="facts"><span>Floor 39.2 m²</span><span>Ceiling 2.4 m</span><span>Bathroom 1.81 × 2.11 m</span><span>Kitchen 3.3 m of bench</span><span>Robe 2.0 m</span></div>
+
+    <div class="tog" id="tog">
+      <button type="button" data-t="cut" aria-pressed="false">Cut walls down</button>
+      <button type="button" data-t="pipes" aria-pressed="true">Show plumbing</button>
+      <button type="button" data-t="labels" aria-pressed="true">Labels</button>
+    </div>
+    <div class="legend"><span><i style="background:#2f7a63"></i>Existing water and drain</span><span><i style="background:#c2462f"></i>New plumbing we'll install</span></div>
+
+    <h2>What we'll do</h2>
+    <ul class="plan">
+      <li><b>Bathroom</b>: built in the far left corner with new walls and a cavity sliding door. It has a 900 × 900 mm shower with a glass screen, a toilet, a 600 mm vanity with a mirror cabinet and an exhaust fan. The floor and shower are fully waterproofed and tiled.</li>
+      <li><b>Kitchen</b>: a new IKEA L-shaped kitchen with drawers and overhead cupboards, a laminate benchtop, an inset sink and mixer, a 60 cm induction cooktop with an oven under it, and a rangehood. There's space for a fridge up to 700 mm wide.</li>
+      <li><b>Built-in robe</b>: IKEA PAX, 2.0 m wide and 2.36 m high, with sliding doors and hanging and shelf space.</li>
+      <li><b>Air conditioning</b>: we remove the old wall unit and patch the wall, then install a 2.5 kW reverse-cycle split system that heats and cools.</li>
+      <li><b>Plumbing and electrical</b>: new hot, cold and waste lines to the bathroom and a new toilet connection to the sewer. New circuits for the cooktop, oven and air conditioner, plus bathroom lighting and fan, LED downlights, power points and a smoke alarm. All work is done by licensed trades with compliance certificates.</li>
+      <li><b>Finish</b>: patch and paint the walls, then clean up and take all rubbish away.</li>
+    </ul>
+
+    <h2>Estimate</h2>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Work</th><th class="n">Incl. GST</th></tr></thead>
+      <tbody>
+        <tr><td>Bathroom<small>walls and door, waterproofing, tiles, shower, toilet, vanity, fan</small></td><td class="n">$13,590</td></tr>
+        <tr><td>Plumbing<small>new water and waste lines, sewer connection, fit-off</small></td><td class="n">$10,080</td></tr>
+        <tr><td>Kitchen<small>IKEA cabinets, benchtop, sink and tap, cooktop, oven, rangehood, installed</small></td><td class="n">$8,350</td></tr>
+        <tr><td>Electrical</td><td class="n">$4,880</td></tr>
+        <tr><td>2.5 kW split system air conditioner, installed</td><td class="n">$3,120</td></tr>
+        <tr><td>Built-in robe, installed</td><td class="n">$2,280</td></tr>
+        <tr><td>Patch, paint and clean-up</td><td class="n">$1,950</td></tr>
+        <tr class="sum"><td>Total (GST $4,022.73)</td><td class="n">$44,250</td></tr>
+        <tr class="opt"><td>Optional: hot water system<small>only needed if the studio doesn't already have hot water</small></td><td class="n">$3,120</td></tr>
+      </tbody>
+    </table></div>
+    <div class="total"><span>Estimated total, incl. GST</span><strong>$44,250</strong></div>
+
+    <h2>Good to know</h2>
+    <ul class="plan note">
+      <li>This estimate is based on the floor plan. We'll confirm the final price after a site visit, in particular how the new toilet connects to the sewer.</li>
+      <li>Adding a bathroom may need council approval. We'll check this for you before work starts. Council fees aren't included.</li>
+      <li>The bed, sofa, tables, TV and fridge in the model show how the space can be used. They aren't included in the price.</li>
+    </ul>
+    <p style="margin-top:22px"><b>Questions or ready to go ahead?</b><br>Call Pargat on <b>0449 517 367</b> or email <b>admin@briks.au</b></p>
+  </div>
+</div>
+<script src="/estimates/vendor/three.min.js"></script>
+<script src="/estimates/vendor/OrbitControls.js"></script>
+<script src="/estimates/vendor/CSS2DRenderer.js"></script>
+<script>
+(function(){
+const host = document.getElementById('three');
+if (!window.THREE) { host.innerHTML = '<p style="padding:20px">The 3D view needs WebGL to load.</p>'; return; }
+const W = 7.0, D = 5.6, H = 2.4, T = 0.2, P = 0.09; // metres: interior, ceiling, external wall, partition
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#e9e6df');
+const camera = new THREE.PerspectiveCamera(45, 1, 0.05, 100);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputEncoding = THREE.sRGBEncoding;
+host.appendChild(renderer.domElement);
+const labelR = new THREE.CSS2DRenderer();
+labelR.domElement.style.position = 'absolute'; labelR.domElement.style.inset = '0'; labelR.domElement.style.pointerEvents = 'none';
+host.appendChild(labelR.domElement);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.maxPolarAngle = Math.PI * 0.495; controls.minDistance = 1; controls.maxDistance = 25;
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd8cfc0, 0.75));
+const sun = new THREE.DirectionalLight(0xfff4e0, 0.75);
+sun.position.set(-4, 9, 7); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -6, right: 10, top: 8, bottom: -4, near: 1, far: 30 });
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0xffffff, 0.25); fill.position.set(8, 6, -4); scene.add(fill);
+
+const M = (c, o = {}) => new THREE.MeshStandardMaterial(Object.assign({ color: c, roughness: 0.85, metalness: 0 }, o));
+const mat = {
+  wall: M('#f3f1ec'), wallTop: M('#d9d5cc'), floor: M('#c9a882', { roughness: 0.7 }), tile: M('#d7d8d4', { roughness: 0.5 }),
+  front: M('#f6f4ef', { roughness: 0.55 }), bench: M('#b98d5e', { roughness: 0.6 }), dark: M('#2b2c2e', { roughness: 0.4 }),
+  steel: M('#b9bcbf', { roughness: 0.3, metalness: 0.6 }), glass: M('#bcd7e3', { transparent: true, opacity: 0.32, roughness: 0.05 }),
+  robe: M('#ece8df', { roughness: 0.6 }), fabric: M('#7f8a83'), bed: M('#e9e4da'), wood: M('#8f6a45'), white: M('#ffffff', { roughness: 0.3 }),
+  rug: M('#cbb89d'), ac: M('#fbfbfb', { roughness: 0.4 }), outdoor: M('#dadad6'), tv: M('#111214', { roughness: 0.3 }), plant: M('#5f7f58'),
+};
+
+// Plan coordinates: x across (0..7), z down the page (0..5.6), y up. One unit = 1 m.
+function box(x0, x1, y0, y1, z0, z1, m, grp, shadow = true) {
+  const g = new THREE.BoxGeometry(Math.abs(x1 - x0), Math.abs(y1 - y0), Math.abs(z1 - z0));
+  const mesh = new THREE.Mesh(g, m);
+  mesh.position.set((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2);
+  mesh.castShadow = shadow; mesh.receiveShadow = true;
+  (grp || scene).add(mesh); return mesh;
+}
+function cyl(x, z, r, y0, y1, m, grp, seg = 32) {
+  const mesh = new THREE.Mesh(new THREE.CylinderGeometry(r, r, y1 - y0, seg), m);
+  mesh.position.set(x, (y0 + y1) / 2, z); mesh.castShadow = true; mesh.receiveShadow = true; (grp || scene).add(mesh); return mesh;
+}
+
+// Ground + floors
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), M('#dcd8cf'));
+ground.rotation.x = -Math.PI / 2; ground.position.set(3.5, -0.02, 2.8); ground.receiveShadow = true; scene.add(ground);
+box(-T, W + T, -0.02, 0, -T, D + T, mat.floor, null, false);
+box(0, 1.81, 0, 0.004, 0, 2.11, mat.tile, null, false);
+
+// Walls, built twice: full height and cut down to 1.0 m.
+function walls(h) {
+  const g = new THREE.Group();
+  const B = (x0, x1, y0, y1, z0, z1, m = mat.wall) => { if (y0 >= h) return; box(x0, x1, y0, Math.min(y1, h), z0, z1, m, g); };
+  // top wall with window over the bed (sill 1.0, head 2.1)
+  B(-T, 2.4, 0, H, -T, 0); B(2.4, 3.8, 0, 1.0, -T, 0); B(2.4, 3.8, 2.1, H, -T, 0); B(3.8, W + T, 0, H, -T, 0);
+  if (h > 1.0) box(2.4, 3.8, 1.0, Math.min(2.1, h), -0.11, -0.09, mat.glass, g, false);
+  // bottom wall with 2.4 m sliding door
+  B(-T, 4.4, 0, H, D, D + T); B(4.4, 6.8, 2.1, H, D, D + T); B(6.8, W + T, 0, H, D, D + T);
+  box(4.45, 5.65, 0.02, Math.min(2.08, h), D + 0.08, D + 0.1, mat.glass, g, false);
+  box(5.55, 6.75, 0.02, Math.min(2.08, h), D + 0.12, D + 0.14, mat.glass, g, false);
+  // side walls
+  B(-T, 0, 0, H, 0, D); B(W, W + T, 0, H, 0, D);
+  // bathroom partitions (90 mm studs + board), 720 mm cavity slider
+  // bathroom in the top-left corner: east wall + south wall with door
+  B(1.9 - P, 1.9, 0, H, 0, 2.2);
+  B(0, 1.0, 0, H, 2.2 - P, 2.2); B(1.72, 1.9, 0, H, 2.2 - P, 2.2); B(1.0, 1.72, 2.04, H, 2.2 - P, 2.2);
+  return g;
+}
+const wallsFull = walls(H), wallsCut = walls(1.0); wallsCut.visible = false; scene.add(wallsFull, wallsCut);
+
+// Bathroom: shower 900×900, toilet, 600 vanity, mirror cabinet
+const bath = new THREE.Group(); scene.add(bath);
+box(0, 0.9, 0, 0.05, 0, 0.9, mat.white, bath);
+box(0.89, 0.9, 0.05, 2.0, 0, 0.9, mat.glass, bath, false);
+box(0, 0.46, 0.05, 2.0, 0.89, 0.9, mat.glass, bath, false);
+cyl(0.3, 0.08, 0.1, 1.95, 1.97, mat.steel, bath);
+box(0.01, 0.89, 0.05, 2.0, 0, 0.01, mat.tile, bath, false); box(0, 0.01, 0.05, 2.0, 0, 0.9, mat.tile, bath, false);
+box(1.2, 1.58, 0, 0.4, 0.02, 0.7, mat.white, bath); box(1.18, 1.6, 0.4, 0.8, 0.02, 0.2, mat.white, bath);
+box(0, 0.46, 0.2, 0.85, 1.15, 1.75, mat.front, bath); box(0, 0.47, 0.85, 0.88, 1.13, 1.77, mat.white, bath);
+box(0, 0.08, 1.2, 1.9, 1.18, 1.72, mat.white, bath);
+
+// Kitchen: fridge space, L-shaped METOD run, sink at the existing water/drain, cooktop on the return
+const kit = new THREE.Group(); scene.add(kit);
+box(4.83, 5.5, 0, 1.8, 0.02, 0.7, mat.steel, kit);
+box(5.5, W, 0.1, 0.88, 0, 0.58, mat.front, kit); box(6.42, W, 0.1, 0.88, 0.58, 2.4, mat.front, kit);
+box(5.5, W, 0, 0.1, 0.05, 0.55, mat.dark, kit); box(6.45, W, 0, 0.1, 0.58, 2.35, mat.dark, kit);
+box(5.5, W, 0.88, 0.92, 0, 0.62, mat.bench, kit); box(6.38, W, 0.88, 0.92, 0.62, 2.4, mat.bench, kit);
+box(5.65, 6.35, 0.86, 0.921, 0.1, 0.5, mat.steel, kit); cyl(6.0, 0.06, 0.012, 0.92, 1.2, mat.steel, kit, 12);
+box(6.5, 6.95, 0.922, 0.93, 1.45, 2.05, mat.dark, kit);
+box(6.44, 6.45, 0.15, 0.75, 1.45, 2.05, mat.dark, kit);
+box(5.5, W, 0.92, 1.5, 0, 0.01, mat.tile, kit, false); box(6.99, W, 0.92, 1.5, 0.6, 2.4, mat.tile, kit, false);
+box(5.5, W, 1.5, 2.2, 0, 0.35, mat.front, kit); box(6.65, W, 1.62, 1.72, 1.45, 2.05, mat.steel, kit); box(6.82, W, 1.72, 2.2, 1.6, 1.9, mat.steel, kit);
+
+// Robe: PAX 2.0 m × 0.58 × 2.36 with sliding doors, against the bathroom wall
+const robe = new THREE.Group(); scene.add(robe);
+box(0, 0.58, 0, 2.36, 2.35, 4.35, mat.robe, robe); box(0.58, 0.59, 0.05, 2.3, 2.37, 3.37, mat.front, robe); box(0.59, 0.60, 0.05, 2.3, 3.33, 4.33, mat.front, robe);
+
+// Furniture (scale only)
+const fur = new THREE.Group(); scene.add(fur);
+box(2.3, 3.93, 0.1, 0.38, 0.05, 2.14, mat.wood, fur); box(2.34, 3.89, 0.38, 0.6, 0.08, 2.12, mat.bed, fur); box(2.3, 3.93, 0.1, 1.0, 0.0, 0.06, mat.wood, fur);
+box(2.44, 3.0, 0.6, 0.7, 0.15, 0.55, mat.white, fur); box(3.23, 3.79, 0.6, 0.7, 0.15, 0.55, mat.white, fur);
+box(1.93, 2.28, 0, 0.55, 0.02, 0.42, mat.wood, fur); box(3.95, 4.3, 0, 0.55, 0.02, 0.42, mat.wood, fur);
+box(1.0, 2.8, 0, 0.5, 5.18, 5.6, mat.front, fur); box(1.3, 2.5, 0.95, 1.65, 5.54, 5.58, mat.tv, fur);
+box(1.0, 2.8, 0, 0.01, 3.9, 5.1, mat.rug, fur, false); box(1.6, 2.2, 0.3, 0.42, 4.3, 4.8, mat.wood, fur);
+box(1.0, 2.8, 0.1, 0.45, 3.0, 3.9, mat.fabric, fur); box(1.0, 2.8, 0.45, 0.85, 3.0, 3.25, mat.fabric, fur); box(1.0, 1.18, 0.45, 0.65, 3.0, 3.9, mat.fabric, fur); box(2.62, 2.8, 0.45, 0.65, 3.0, 3.9, mat.fabric, fur);
+cyl(5.2, 3.4, 0.45, 0.72, 0.75, mat.wood, fur); cyl(5.2, 3.4, 0.05, 0, 0.72, mat.dark, fur, 12);
+box(4.98, 5.42, 0, 0.46, 2.6, 2.98, mat.wood, fur); box(4.98, 5.42, 0, 0.46, 3.82, 4.2, mat.wood, fur);
+cyl(3.4, 5.3, 0.16, 0, 0.35, mat.dark, fur, 20); cyl(3.4, 5.3, 0.25, 0.35, 1.0, mat.plant, fur, 12);
+
+// 2.5 kW split system: wall head inside, outdoor unit outside the same wall
+const ac = new THREE.Group(); scene.add(ac);
+box(6.79, W, 2.02, 2.32, 3.0, 3.82, mat.ac, ac); box(W + T + 0.1, W + T + 0.4, 0.05, 0.6, 3.05, 3.85, mat.outdoor, ac);
+
+// Plumbing: existing (kitchen) and new runs to the bathroom
+const pipes = new THREE.Group(); scene.add(pipes);
+const pipe = (pts, color) => { const curve = new THREE.CatmullRomCurve3(pts.map(p => new THREE.Vector3(...p)), false, 'catmullrom', 0); const t = new THREE.Mesh(new THREE.TubeGeometry(curve, 64, 0.025, 8, false), new THREE.MeshBasicMaterial({ color })); pipes.add(t); };
+pipe([[6.0, 0.02, 0.05], [6.0, 0.5, 0.05]], '#2f7a63');
+pipe([[5.9, 0.04, 0.12], [1.85, 0.04, 0.12], [1.4, 0.04, 0.3]], '#c2462f');
+pipe([[1.85, 0.04, 0.12], [0.45, 0.04, 0.12], [0.45, 0.04, 0.45]], '#c2462f');
+pipe([[0.45, 0.04, 0.12], [0.12, 0.04, 0.4], [0.12, 0.04, 1.45], [0.25, 0.5, 1.45]], '#c2462f');
+
+// Labels
+const labels = new THREE.Group(); scene.add(labels);
+const L = (html, x, y, z, cls = '') => { const d = document.createElement('div'); d.className = 'lbl ' + cls; d.innerHTML = html; const o = new THREE.CSS2DObject(d); o.position.set(x, y, z); labels.add(o); };
+L('Bathroom<small>1.81 × 2.11 m · shower, toilet, vanity</small>', 0.9, 2.6, 1.1);
+L('Kitchen<small>IKEA METOD · L-shape</small>', 6.1, 2.6, 1.0);
+L('Robe<small>IKEA PAX 2.0 m, sliding</small>', 0.3, 2.6, 3.35);
+L('Queen bed', 3.1, 1.0, 1.2); L('Living', 1.9, 1.1, 4.4); L('Dining', 5.2, 1.1, 3.4);
+L('2.5 kW split system<small>replaces the wall unit</small>', 6.4, 2.6, 3.4);
+L('Sliding door', 5.6, 2.3, D + 0.2);
+L('Existing water + drain', 6.0, 1.15, 0.3, 'old');
+L('New plumbing<small>about 5 m run</small>', 3.6, 0.45, 0.35, 'new');
+L('7.00 m', 3.5, 0.05, D + 0.55, 'dim'); L('5.60 m', -0.6, 0.05, 2.8, 'dim');
+
+// Camera views
+const VIEWS = {
+  over: { p: [-3.6, 7.2, 10.5], t: [3.5, 0.6, 2.8], cut: false },
+  top: { p: [3.5, 13.5, 2.81], t: [3.5, 0, 2.8], cut: true },
+  in: { p: [1.5, 1.6, 4.6], t: [6.2, 1.1, 0.6], cut: false },
+  bath: { p: [1.9, 3.8, 3.8], t: [0.9, 0.6, 0.9], cut: true },
+};
+let cutOn = false;
+function setCut(on) { cutOn = on; wallsFull.visible = !on; wallsCut.visible = on; press('#tog [data-t="cut"]', on); }
+function press(sel, on) { const b = document.querySelector(sel); if (b) b.setAttribute('aria-pressed', String(on)); }
+function view(k) {
+  const v = VIEWS[k]; camera.position.set(...v.p); controls.target.set(...v.t); controls.update(); setCut(v.cut);
+  document.querySelectorAll('#views button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === k)));
+}
+document.querySelectorAll('#views button').forEach(b => b.addEventListener('click', () => view(b.dataset.v)));
+document.querySelectorAll('#tog button').forEach(b => b.addEventListener('click', () => {
+  const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on));
+  if (b.dataset.t === 'cut') setCut(on);
+  if (b.dataset.t === 'pipes') pipes.visible = on;
+  if (b.dataset.t === 'labels') labels.visible = on, labelR.domElement.style.display = on ? '' : 'none';
+}));
+
+function size() { const w = host.clientWidth, h = host.clientHeight; renderer.setSize(w, h); labelR.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+new ResizeObserver(size).observe(host); size(); view('over');
+(function loop() { requestAnimationFrame(loop); controls.update(); renderer.render(scene, camera); labelR.render(scene, camera); })();
+})();
+</script>
+</body>
+</html>
