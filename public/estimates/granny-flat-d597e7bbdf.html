@@ -57,8 +57,21 @@ tr.sum td{font-weight:600;border-bottom:0;padding-top:10px}
 .legend i{display:inline-block;width:18px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
 @media (max-width: 920px){
   .wrap{grid-template-columns:minmax(0,1fr)}
-  .stage{position:relative;top:0;height:62vh;min-height:380px}
+  .stage{position:relative;top:0;height:58vh;min-height:360px}
   h1{font-size:25px}
+}
+@media (max-width: 520px){
+  body{font-size:15px}
+  .wrap{padding-inline:12px;gap:14px}
+  .panel{padding:18px 16px 22px}
+  .views{left:8px;right:8px;top:8px;gap:5px}
+  .views button{font-size:12px;padding:8px 10px;min-height:36px}
+  .hint{display:none}
+  .lbl{font-size:10.5px;padding:3px 6px}
+  .lbl small{font-size:9.5px}
+  td.n{font-size:13px}
+  .total{flex-direction:column;align-items:flex-start;gap:4px}
+  .total strong{font-size:24px}
 }
 
 .brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
@@ -107,24 +120,24 @@ tr.sum td{font-weight:600;border-bottom:0;padding-top:10px}
 
     <h2>Estimate</h2>
     <div class="tblwrap"><table>
-      <thead><tr><th>Work</th><th class="n">Incl. GST</th></tr></thead>
+      <thead><tr><th>Work</th><th class="n">Estimate incl. GST</th></tr></thead>
       <tbody>
-        <tr><td>Bathroom<small>walls and door, waterproofing, tiles, shower, toilet, vanity, fan</small></td><td class="n">$13,590</td></tr>
-        <tr><td>Plumbing<small>new water and waste lines, sewer connection, fit-off</small></td><td class="n">$10,080</td></tr>
-        <tr><td>Kitchen<small>IKEA cabinets, benchtop, sink and tap, cooktop, oven, rangehood, installed</small></td><td class="n">$8,350</td></tr>
-        <tr><td>Electrical</td><td class="n">$4,880</td></tr>
-        <tr><td>2.5 kW split system air conditioner, installed</td><td class="n">$3,120</td></tr>
-        <tr><td>Built-in robe, installed</td><td class="n">$2,280</td></tr>
-        <tr><td>Patch, paint and clean-up</td><td class="n">$1,950</td></tr>
-        <tr class="sum"><td>Total (GST $4,022.73)</td><td class="n">$44,250</td></tr>
-        <tr class="opt"><td>Optional: hot water system<small>only needed if the studio doesn't already have hot water</small></td><td class="n">$3,120</td></tr>
+        <tr><td>Plumbing connections<small>new water and waste lines from the kitchen to the bathroom, sewer connection, fit-off</small></td><td class="n">$9,500–11,000</td></tr>
+        <tr><td>Bathroom<small>walls and door, waterproofing, tiles, shower, toilet, vanity, fan</small></td><td class="n">$9,000–10,000</td></tr>
+        <tr><td>Kitchen<small>IKEA cabinets, benchtop, sink and tap, cooktop, oven, rangehood, installed</small></td><td class="n">$7,000–8,000</td></tr>
+        <tr><td>Electrical<small>new circuits, lights, power points, smoke alarm</small></td><td class="n">$4,000–4,600</td></tr>
+        <tr><td>Built-in robe, installed</td><td class="n">$2,000–2,300</td></tr>
+        <tr><td>Patch, paint and clean-up</td><td class="n">$1,900–2,500</td></tr>
+        <tr><td>2.5 kW split system air conditioner, installed</td><td class="n">$1,600</td></tr>
+        <tr class="sum"><td>Estimated total (incl. GST)</td><td class="n">$35,000–40,000</td></tr>
+        <tr class="opt"><td>Optional: hot water system<small>only needed if the studio doesn't already have hot water</small></td><td class="n">$2,800–3,200</td></tr>
       </tbody>
     </table></div>
-    <div class="total"><span>Estimated total, incl. GST</span><strong>$44,250</strong></div>
+    <div class="total"><span>Estimated total, incl. GST</span><strong>$35,000 – $40,000</strong></div>
 
     <h2>Good to know</h2>
     <ul class="plan note">
-      <li>This estimate is based on the floor plan. We'll confirm the final price after a site visit, in particular how the new toilet connects to the sewer.</li>
+      <li>This estimate is based on the floor plan. We'll confirm a fixed price after a site visit, once we've checked how the new bathroom connects to the existing water and sewer lines.</li>
       <li>Adding a bathroom may need council approval. We'll check this for you before work starts. Council fees aren't included.</li>
       <li>The bed, sofa, tables, TV and fridge in the model show how the space can be used. They aren't included in the price.</li>
     </ul>
