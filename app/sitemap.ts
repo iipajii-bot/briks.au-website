@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE.url}/about/network`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE.url}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE.url}/estimate`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/faq/homeowners`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE.url}/faq/landlords`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },

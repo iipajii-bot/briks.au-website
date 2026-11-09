@@ -107,6 +107,12 @@ export default function Hero() {
             Get a free quote
             <ArrowRight size={18} aria-hidden="true" />
           </MovingBorder>
+          <Link
+            href="/estimate"
+            className="inline-flex items-center gap-2 rounded-full border border-[#8a6e3f]/50 hover:border-[#8a6e3f] text-[#8a6e3f] hover:text-[#1a1a1a] px-7 py-3.5 transition-colors duration-300 min-h-[44px]"
+          >
+            Instant estimate
+          </Link>
           <a
             href={whatsappHref(
               "Hi Briks — I'd like a quote on a job in Adelaide. Quick details:"

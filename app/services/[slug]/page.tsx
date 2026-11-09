@@ -538,6 +538,12 @@ export default async function ServicePage(props: { params: Params }) {
               <ArrowRight size={16} aria-hidden />
             </MovingBorder>
             <Link
+              href="/estimate"
+              className="inline-flex items-center gap-2 rounded-full border border-[#8a6e3f]/50 hover:border-[#8a6e3f] text-[#8a6e3f] hover:text-[#1a1a1a] px-7 py-3.5 transition-colors duration-300 min-h-[44px]"
+            >
+              Instant estimate
+            </Link>
+            <Link
               href="/"
               className="inline-flex items-center gap-2 rounded-md border border-[#c0bcb4] hover:border-[#8a6e3f]/60 text-[#1a1a1a]/80 hover:text-[#1a1a1a] px-7 py-3.5 transition-colors duration-300 min-h-[44px]"
             >
