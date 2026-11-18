@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Granny Flat Options · Briks Building Services</title>
+<style>
+/* Layout: drafting-sheet — title block header, option tabs, then a two-column sheet (model + drawings | specs + costs). */
+:root{
+  --paper:#f3f4f1; --sheet:#ffffff; --ink:#1c2228; --muted:#5d6670; --line:#d5d9d4; --hair:#e6e9e4;
+  --brass:#94733f; --brass-soft:#efe6d6; --blue:#2f5d8a; --ok:#2e7d4f; --warn:#a2611a; --bad:#a83a3a;
+  --f-display:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --f-body:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --f-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --scene:#eef0ec;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#14181c; --sheet:#1b2026; --ink:#e7eaec; --muted:#9aa4ad; --line:#323a42; --hair:#262d34;
+  --brass:#cfa96a; --brass-soft:#2c2619; --blue:#7fb0dc; --ok:#6fcf97; --warn:#e3a35c; --bad:#e07a7a; --scene:#20262c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#14181c; --sheet:#1b2026; --ink:#e7eaec; --muted:#9aa4ad; --line:#323a42; --hair:#262d34;
+  --brass:#cfa96a; --brass-soft:#2c2619; --blue:#7fb0dc; --ok:#6fcf97; --warn:#e3a35c; --bad:#e07a7a; --scene:#20262c; color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:20px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(26px,4vw,38px);font-weight:800}
+h2{font-size:20px;font-weight:700}
+h3{font-size:15px;font-weight:700}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+/* title block */
+.tb{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:14px}
+.tb p{margin:6px 0 0;color:var(--muted);max-width:68ch}
+.tb .meta{display:grid;grid-template-columns:auto auto;gap:2px 14px;font-family:var(--f-mono);font-size:12px;text-align:right}
+.tb .meta span:nth-child(odd){color:var(--muted)}
+.draft{display:inline-block;background:var(--brass-soft);color:var(--brass);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:8px}
+/* tabs */
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tab{all:unset;cursor:pointer;background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:grid;gap:2px}
+.tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.tab[aria-selected="true"]{border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--brass)}
+.tab .t1{font-family:var(--f-display);font-weight:700;font-size:16px}
+.tab .t2{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.tab .pill{justify-self:start;margin-top:4px;font-family:var(--f-mono);font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid currentColor}
+.ok{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+/* sheet */
+.sheet{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.viewer{position:relative;height:420px;border-radius:4px;overflow:hidden;background:var(--scene)}
+.viewer canvas{display:block;width:100%;height:100%}
+.vctl{position:absolute;right:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.vctl button{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:12px;background:var(--sheet);color:var(--ink);border:1px solid var(--line);padding:4px 9px;border-radius:4px}
+.vctl button[aria-pressed="true"]{border-color:var(--ink)}
+.vctl button:focus-visible{outline:2px solid var(--blue)}
+.vhint{position:absolute;left:10px;bottom:8px;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.drawings{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.svgbox{overflow-x:auto}
+.svgbox svg{width:100%;height:auto;display:block}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
+.spec{display:grid;gap:0}
+.spec b{font-family:var(--f-mono);font-weight:500;font-size:16px}
+ul.tight{margin:0;padding-left:18px;display:grid;gap:4px}
+.note{border-left:3px solid var(--warn);padding:8px 12px;background:color-mix(in srgb,var(--warn) 8%,transparent);font-size:14px}
+.note.blue{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 8%,transparent)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:6px 6px;border-bottom:1px solid var(--hair);text-align:left;vertical-align:top}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tfoot td{font-weight:600;border-bottom:none;border-top:2px solid var(--ink)}
+.src{color:var(--muted);font-size:12px}
+.tablebox{overflow-x:auto}
+.margin{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+.margin input{width:72px;font-family:var(--f-mono);font-size:14px;padding:5px 8px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink)}
+.margin input:focus-visible{outline:2px solid var(--blue)}
+.cmp td,.cmp th{font-size:13px}
+footer{color:var(--muted);font-size:12px}
+footer a{color:var(--blue)}
+@media (max-width:900px){.sheet{grid-template-columns:minmax(0,1fr)}.drawings{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.tabs{grid-template-columns:minmax(0,1fr)}.tb{grid-template-columns:minmax(0,1fr)}.tb .meta{text-align:left}.viewer{height:320px}.specs{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
+*{box-sizing:border-box}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="tb">
+    <div>
+      <span class="draft">Proposal · design options &amp; estimate</span>
+      <h1>Your granny flat, Woodfield St Enfield</h1>
+      <p>Three 2-bedroom designs for the left half of your backyard, so you keep the right half for yourselves. Tap an option to see its 3D model, floor plan, where it sits on your block, and the estimated cost. Drag the model to look around it.</p>
+    </div>
+    <div class="meta">
+      <span>Property</span><span>Woodfield St, Enfield SA 5085</span>
+      <span>Council</span><span>Port Adelaide Enfield</span>
+      <span>Prepared by</span><span>Briks Building Services</span>
+      <span>Date</span><span>18 Nov 2026</span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Design options" id="tabs"></nav>
+
+  <section class="sheet">
+    <div class="panel">
+      <div class="viewer" id="viewer">
+        <div class="vctl">
+          <button id="btnRoof" aria-pressed="false">Roof</button>
+          <button id="btnLevel" aria-pressed="false" hidden>Upper floor</button>
+          <button id="btnReset">Reset view</button>
+        </div>
+        <div class="vhint">Drag to orbit · scroll or pinch to zoom</div>
+      </div>
+      <div class="drawings">
+        <div class="svgbox"><div class="label" id="planLabel">Floor plan</div><div id="plan"></div></div>
+        <div class="svgbox"><div class="label">Site plan, rear yard</div><div id="site"></div></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div>
+        <div class="label" id="optEyebrow"></div>
+        <h2 id="optTitle"></h2>
+      </div>
+      <div class="specs" id="specs"></div>
+      <div id="compliance"></div>
+      <div>
+        <h3>Rooms</h3>
+        <ul class="tight" id="rooms"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end">
+      <div><div class="label">Cost build-up</div><h2 id="costTitle">Estimated build cost</h2></div>
+      
+    </div>
+    <div class="tablebox"><table id="costs"></table></div>
+    <p class="src" id="costNote"></p>
+  </section>
+
+  <section class="panel">
+    <h2>Side by side</h2>
+    <div class="tablebox"><table class="cmp" id="cmp"></table></div>
+  </section>
+
+  <section class="panel">
+    <h2>What happens next</h2>
+    <ul class="tight">
+      <li><b>Pick an option</b> (or a mix, for example Option A's size with Option B's separate laundry) and we'll refine the design with you.</li>
+      <li><b>Site survey and soil test</b> confirm the exact levels, boundaries and slab design. Sizes on this page are based on the property's floor plan and may move slightly.</li>
+      <li><b>Approvals:</b> Options A and B are designed to meet South Australia's granny-flat rules (up to 70 m², single storey). Option C would need a full council application as a second house.</li>
+      <li><b>Fixed quote:</b> once the design and site checks are done, we'll give you a fixed, itemised quote and a build timeline.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Prepared by Briks Building Services · 0449 517 367 · www.briks.au · admin@briks.au<br>
+    Estimates include GST and are a guide only, valid for 30 days. Final pricing depends on the site survey, soil test, council conditions and your choice of finishes. Plans are concept designs, not for construction.
+  </footer>
+</div>
+
+<script src="/estimates/vendor/three.min.js"></script>
+<script src="/estimates/vendor/OrbitControls.js"></script>
+<script>
+(function(){
+
+/* ---------- Design data (metres; plan origin = flat's rear-left corner, x → east, y → toward the house) ---------- */
+const D = 0.82;  // internal door width
+const OPTIONS = {
+  A: {
+    key:'A', name:'Option A · Compact', short:'Compact', area:45.6, w:6.0, d:7.6, storeys:1,
+    status:['ok','Granny flat · within the rules'],
+    summary:'Two bedrooms across the back, a combined bathroom-laundry, galley kitchen, and a living-dining room facing the house with a sliding door.',
+    site:{x:1.0, y:2.0},
+    rooms:[
+      {n:'Bedroom 1', x:0, y:0, w:3.2, d:3.0},
+      {n:'Bedroom 2', x:3.2, y:0, w:2.8, d:3.0},
+      {n:'Bath + laundry', x:0, y:3.0, w:2.4, d:2.0},
+      {n:'Kitchen', x:2.4, y:3.0, w:3.6, d:2.0},
+      {n:'Living / dining', x:0, y:5.0, w:6.0, d:2.6},
+    ],
+    walls:[
+      {a:[0,0],b:[6.0,0],ext:1,op:[{at:1.6,w:1.2,t:'win'},{at:4.6,w:1.2,t:'win'}]},
+      {a:[6.0,0],b:[6.0,7.6],ext:1,op:[{at:1.5,w:1.0,t:'win'},{at:6.3,w:1.5,t:'win'}]},
+      {a:[0,7.6],b:[6.0,7.6],ext:1,op:[{at:1.4,w:1.2,t:'win'},{at:4.2,w:2.4,t:'slide'}]},
+      {a:[0,0],b:[0,7.6],ext:1,op:[{at:1.5,w:1.0,t:'win'},{at:4.0,w:0.6,t:'hi'},{at:6.3,w:1.2,t:'win'}]},
+      {a:[0,3.0],b:[6.0,3.0],op:[{at:2.75,w:D,t:'door'},{at:3.75,w:D,t:'door'}]},
+      {a:[3.2,0],b:[3.2,3.0]},
+      {a:[2.4,3.0],b:[2.4,5.0],op:[{at:4.4,w:0.78,t:'door'}]},
+      {a:[0,5.0],b:[2.4,5.0]},
+    ],
+    furn:[
+      {t:'bed',x:0.6,y:0.3,w:1.53,d:2.03},{t:'bed',x:3.8,y:0.3,w:1.53,d:2.03},
+      {t:'robe',x:2.55,y:0.1,w:0.6,d:1.6},{t:'robe',x:5.35,y:0.9,w:0.6,d:1.6},
+      {t:'bench',x:5.35,y:3.1,w:0.6,d:1.85},{t:'bench',x:2.5,y:3.1,w:0.5,d:0.1},
+      {t:'table',x:0.5,y:5.5,w:1.2,d:0.9},{t:'sofa',x:2.8,y:5.4,w:2.2,d:0.9},
+      {t:'shower',x:0.1,y:3.1,w:0.9,d:0.9},{t:'wc',x:1.6,y:3.1,w:0.45,d:0.65},{t:'laundry',x:0.1,y:4.3,w:0.9,d:0.6},
+    ],
+  },
+  B: {
+    key:'B', name:'Option B · A little bigger', short:'Bigger', area:55.2, w:6.0, d:9.2, storeys:1,
+    status:['ok','Granny flat · within the rules'],
+    summary:'Bigger bedrooms with robes, a separate bathroom and laundry, a proper kitchen, and a living-dining room opening to a small deck facing the house.',
+    site:{x:1.0, y:2.0},
+    rooms:[
+      {n:'Bedroom 1', x:0, y:0, w:3.2, d:3.4},
+      {n:'Bedroom 2', x:3.2, y:0, w:2.8, d:3.4},
+      {n:'Bathroom', x:0, y:3.4, w:2.4, d:2.2},
+      {n:'Laundry', x:0, y:5.6, w:2.4, d:1.0},
+      {n:'Kitchen', x:2.4, y:3.4, w:3.6, d:3.2},
+      {n:'Living / dining', x:0, y:6.6, w:6.0, d:2.6},
+    ],
+    walls:[
+      {a:[0,0],b:[6.0,0],ext:1,op:[{at:1.6,w:1.5,t:'win'},{at:4.6,w:1.2,t:'win'}]},
+      {a:[6.0,0],b:[6.0,9.2],ext:1,op:[{at:1.7,w:1.2,t:'win'},{at:5.0,w:1.2,t:'win'},{at:7.9,w:1.5,t:'win'}]},
+      {a:[0,9.2],b:[6.0,9.2],ext:1,op:[{at:1.4,w:1.2,t:'win'},{at:4.2,w:2.4,t:'slide'}]},
+      {a:[0,0],b:[0,9.2],ext:1,op:[{at:1.7,w:1.2,t:'win'},{at:4.5,w:0.6,t:'hi'},{at:7.9,w:1.2,t:'win'}]},
+      {a:[0,3.4],b:[6.0,3.4],op:[{at:2.75,w:D,t:'door'},{at:3.75,w:D,t:'door'}]},
+      {a:[3.2,0],b:[3.2,3.4]},
+      {a:[2.4,3.4],b:[2.4,6.6],op:[{at:4.9,w:0.78,t:'door'},{at:6.1,w:0.78,t:'door'}]},
+      {a:[0,5.6],b:[2.4,5.6]},{a:[0,6.6],b:[2.4,6.6]},
+    ],
+    furn:[
+      {t:'bed',x:0.6,y:0.4,w:1.53,d:2.03},{t:'bed',x:3.7,y:0.4,w:1.53,d:2.03},
+      {t:'robe',x:2.55,y:0.1,w:0.6,d:2.0},{t:'robe',x:5.35,y:1.0,w:0.6,d:2.0},
+      {t:'bench',x:5.35,y:3.5,w:0.6,d:3.0},{t:'island',x:3.0,y:4.6,w:1.5,d:0.8},
+      {t:'table',x:0.5,y:7.2,w:1.4,d:0.9},{t:'sofa',x:2.8,y:7.1,w:2.4,d:0.9},
+      {t:'shower',x:0.1,y:3.5,w:0.9,d:0.9},{t:'vanity',x:1.3,y:3.5,w:0.9,d:0.5},{t:'wc',x:1.6,y:4.8,w:0.45,d:0.65},
+      {t:'laundry',x:0.1,y:5.7,w:1.4,d:0.6},
+      {t:'deck',x:2.6,y:9.2,w:3.2,d:1.5},
+    ],
+  },
+  C: {
+    key:'C', name:'Option C · Two-storey', short:'Two-storey', area:72.0, w:6.0, d:6.0, storeys:2,
+    status:['bad','Not a granny flat · needs council approval as a second house'],
+    summary:'Kitchen, living, laundry and WC downstairs; two bedrooms and the bathroom upstairs, on the smallest footprint. It exceeds the 3 m wall / 5 m roof height limits for a granny flat.',
+    site:{x:1.0, y:3.0},
+    rooms:[
+      {n:'Ground · Laundry + WC', x:0, y:0, w:2.4, d:2.2, lvl:0},
+      {n:'Ground · Stairs', x:5.0, y:0, w:1.0, d:3.6, lvl:0},
+      {n:'Ground · Kitchen / living / dining', x:0, y:2.2, w:6.0, d:3.8, lvl:0},
+      {n:'Upper · Bedroom 1', x:0, y:0, w:3.2, d:3.2, lvl:1},
+      {n:'Upper · Bathroom', x:3.2, y:0, w:1.8, d:2.4, lvl:1},
+      {n:'Upper · Bedroom 2', x:0, y:3.2, w:3.2, d:2.8, lvl:1},
+      {n:'Upper · Landing', x:3.2, y:2.4, w:2.8, d:3.6, lvl:1},
+    ],
+    walls:[
+      {a:[0,0],b:[6.0,0],ext:1,lvl:0,op:[{at:1.2,w:0.6,t:'hi'},{at:3.7,w:1.2,t:'win'}]},
+      {a:[6.0,0],b:[6.0,6.0],ext:1,lvl:0,op:[{at:4.8,w:1.5,t:'win'}]},
+      {a:[0,6.0],b:[6.0,6.0],ext:1,lvl:0,op:[{at:1.5,w:1.5,t:'win'},{at:4.3,w:2.4,t:'slide'}]},
+      {a:[0,0],b:[0,6.0],ext:1,lvl:0,op:[{at:4.2,w:1.5,t:'win'}]},
+      {a:[0,2.2],b:[2.4,2.2],lvl:0,op:[{at:1.9,w:0.78,t:'door'}]},{a:[2.4,0],b:[2.4,2.2],lvl:0},
+      {a:[5.0,0],b:[5.0,3.6],lvl:0},
+      {a:[0,0],b:[6.0,0],ext:1,lvl:1,op:[{at:1.6,w:1.5,t:'win'},{at:4.1,w:0.6,t:'hi'}]},
+      {a:[6.0,0],b:[6.0,6.0],ext:1,lvl:1,op:[{at:4.6,w:1.2,t:'win'}]},
+      {a:[0,6.0],b:[6.0,6.0],ext:1,lvl:1,op:[{at:1.6,w:1.5,t:'win'},{at:4.6,w:1.2,t:'win'}]},
+      {a:[0,0],b:[0,6.0],ext:1,lvl:1,op:[{at:1.6,w:1.2,t:'win'},{at:4.6,w:1.2,t:'win'}]},
+      {a:[3.2,0],b:[3.2,6.0],lvl:1,op:[{at:2.75,w:D,t:'door'},{at:3.7,w:D,t:'door'}]},
+      {a:[0,3.2],b:[3.2,3.2],lvl:1},
+      {a:[3.2,2.4],b:[5.0,2.4],lvl:1,op:[{at:4.1,w:0.78,t:'door'}]},
+    ],
+    furn:[
+      {t:'bench',x:2.5,y:0.1,w:2.4,d:0.65,lvl:0},{t:'island',x:2.7,y:2.8,w:1.6,d:0.8,lvl:0},
+      {t:'sofa',x:0.4,y:4.9,w:2.2,d:0.9,lvl:0},{t:'table',x:0.5,y:2.8,w:1.2,d:0.9,lvl:0},
+      {t:'laundry',x:0.1,y:0.1,w:0.9,d:0.6,lvl:0},{t:'wc',x:1.7,y:0.15,w:0.45,d:0.65,lvl:0},
+      {t:'stairs',x:5.0,y:0,w:1.0,d:3.6,lvl:0},
+      {t:'bed',x:0.8,y:0.3,w:1.53,d:2.03,lvl:1},{t:'bed',x:0.8,y:3.5,w:1.53,d:2.03,lvl:1},
+      {t:'robe',x:2.55,y:0.2,w:0.6,d:1.8,lvl:1},{t:'robe',x:2.55,y:3.4,w:0.6,d:1.8,lvl:1},
+      {t:'shower',x:3.3,y:0.1,w:0.9,d:0.9,lvl:1},{t:'vanity',x:4.0,y:1.7,w:0.9,d:0.5,lvl:1},{t:'wc',x:4.3,y:0.15,w:0.45,d:0.65,lvl:1},
+    ],
+  },
+};
+
+/* Estimated cost by stage, AUD inc GST */
+const EST = {"A":{"groups":[["Approvals & site preparation","Council and building approvals, engineering, soil test, survey, energy rating; removing the old shed, clearing and levelling the site",9660,13020],["Slab & structure","Concrete slab, wall frames, roof trusses",17010,19740],["Roof, walls & windows","Colorbond roof and gutters, external cladding, aluminium windows and doors, insulation, plasterboard",26390,31080],["Plumbing, electrical & air-con","Sewer, water and stormwater connections, hot water, wiring, lights and power points, smoke alarms, split-system air-con",18390,22260],["Kitchen, bathroom & laundry","Kitchen cabinets, benchtops and appliances; waterproofed and tiled bathroom; laundry",16090,18900],["Floors, painting & joinery","Flooring throughout, internal and external painting, internal doors, built-in robes, skirting",9200,11340],["Outdoor","Paths, entry landing, site clean-up, dividing fence down the middle of the yard (optional)",3680,5040],["Construction management & insurance","Licensed builder supervision, home building indemnity and contract works insurance",4140,5880],["Contingency","Allowance for things only found once work starts (rock, soil, service upgrades, council conditions)",10440,12740]],"tlo":115000,"thi":140000},"B":{"groups":[["Approvals & site preparation","Council and building approvals, engineering, soil test, survey, energy rating; removing the old shed, clearing and levelling the site",11030,14450],["Slab & structure","Concrete slab, wall frames, roof trusses",22050,24830],["Roof, walls & windows","Colorbond roof and gutters, external cladding, aluminium windows and doors, insulation, plasterboard",33290,37640],["Plumbing, electrical & air-con","Sewer, water and stormwater connections, hot water, wiring, lights and power points, smoke alarms, split-system air-con",21050,24830],["Kitchen, bathroom & laundry","Kitchen cabinets, benchtops and appliances; waterproofed and tiled bathroom; laundry",19540,23470],["Floors, painting & joinery","Flooring throughout, internal and external painting, internal doors, built-in robes, skirting",11530,13530],["Outdoor","Paths, entry landing, site clean-up, small deck, dividing fence down the middle of the yard (optional)",6520,9030],["Construction management & insurance","Licensed builder supervision, home building indemnity and contract works insurance",5010,6770],["Contingency","Allowance for things only found once work starts (rock, soil, service upgrades, council conditions)",12980,15450]],"tlo":143000,"thi":170000},"C":{"groups":[["Approvals & site preparation","Council and building approvals, engineering, soil test, survey, energy rating; removing the old shed, clearing and levelling the site",16500,26000],["Slab & structure","Concrete slab, two-level frame and upper floor, roof trusses, staircase, scaffolding",35600,49000],["Roof, walls & windows","Colorbond roof and gutters, external cladding, aluminium windows and doors, insulation, plasterboard",39500,52300],["Plumbing, electrical & air-con","Sewer, water and stormwater connections, hot water, wiring, lights and power points, smoke alarms, split-system air-con",23000,32000],["Kitchen, bathroom & laundry","Kitchen cabinets, benchtops and appliances; waterproofed and tiled bathroom; laundry",22500,31000],["Floors, painting & joinery","Flooring throughout, internal and external painting, internal doors, built-in robes, skirting",15500,21000],["Outdoor","Paths, entry landing, site clean-up, dividing fence down the middle of the yard (optional)",4000,6500],["Construction management & insurance","Licensed builder supervision, home building indemnity and contract works insurance",6500,10000],["Contingency","Allowance for things only found once work starts (rock, soil, service upgrades, council conditions)",16310,22780]],"tlo":179410,"thi":250580}};
+
+/* ---------- helpers ---------- */
+const $ = (s)=>document.querySelector(s);
+const fmt = (n)=>'$'+Math.round(n).toLocaleString('en-AU');
+const k = (n)=>'$'+(Math.round(n/1000)).toLocaleString('en-AU')+'k';
+const css = (v)=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function totals(key){ const e=EST[key]; return {tlo:e.tlo, thi:e.thi}; }
+
+/* ---------- tabs ---------- */
+let cur = 'B', showUpper = true, showRoof = false;
+try{ const s = localStorage.getItem('wf-opt'); if(s && OPTIONS[s]) cur = s; }catch(e){}
+function renderTabs(){
+  $('#tabs').innerHTML = Object.values(OPTIONS).map(o=>{
+    const t = totals(o.key);
+    return `<button class="tab" role="tab" id="tab-${o.key}" aria-selected="${o.key===cur}" data-k="${o.key}">
+      <span class="t1">${o.name}</span>
+      <span class="t2">${o.area} m² · ${o.storeys===2?'2 storeys':'single storey'} · ${k(t.tlo)}–${k(t.thi)}</span>
+      <span class="pill ${o.status[0]}">${o.status[1]}</span></button>`}).join('');
+  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{cur=b.dataset.k;try{localStorage.setItem('wf-opt',cur)}catch(e){};render()});
+}
+
+/* ---------- 2D floor plan ---------- */
+function planSVG(o, lvl){
+  const s = 44, pad = 34, W = o.w*s+pad*2, H = o.d*s+pad*2;
+  const ink = 'var(--ink)', muted='var(--muted)', fill='var(--sheet)';
+  let g = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${o.name} floor plan${o.storeys===2?(lvl?' upper':' ground'):''}">`;
+  g += `<rect x="0" y="0" width="${W}" height="${H}" fill="${fill}"/>`;
+  const rooms = o.rooms.filter(r=>(r.lvl??0)===lvl);
+  rooms.forEach(r=>{
+    const label = r.n.replace(/^(Ground|Upper) · /,'');
+    g += `<rect x="${pad+r.x*s}" y="${pad+r.y*s}" width="${r.w*s}" height="${r.d*s}" fill="none" stroke="var(--hair)" stroke-width="1"/>`;
+    const cx = pad+(r.x+r.w/2)*s, cy = pad+(r.y+r.d/2)*s;
+    g += `<text x="${cx}" y="${cy-3}" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" fill="${ink}">${label.replace(/&/g,'&amp;')}</text>`;
+    g += `<text x="${cx}" y="${cy+11}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="${muted}">${r.w.toFixed(1)} × ${r.d.toFixed(1)}</text>`;
+  });
+  (o.furn||[]).filter(f=>(f.lvl??0)===lvl && f.t!=='deck').forEach(f=>{
+    g += `<rect x="${pad+f.x*s}" y="${pad+f.y*s}" width="${f.w*s}" height="${f.d*s}" fill="none" stroke="var(--line)" stroke-width="1" rx="2"/>`;
+    if(f.t==='stairs'){ for(let i=1;i<14;i++) g += `<line x1="${pad+f.x*s}" x2="${pad+(f.x+f.w)*s}" y1="${pad+(f.y+i*f.d/14)*s}" y2="${pad+(f.y+i*f.d/14)*s}" stroke="var(--line)"/>`; }
+  });
+  o.walls.filter(w=>(w.lvl??0)===lvl).forEach(w=>{
+    const th = w.ext? 6 : 3.5;
+    const horiz = w.a[1]===w.b[1];
+    const len = horiz? w.b[0]-w.a[0] : w.b[1]-w.a[1];
+    const start = horiz? w.a[0] : w.a[1];
+    const ops = (w.op||[]).slice().sort((p,q)=>p.at-q.at);
+    let pos = start;
+    const seg = (a,b,col,t)=>{ if(b-a<=0.001) return '';
+      return horiz ? `<line x1="${pad+a*s}" y1="${pad+w.a[1]*s}" x2="${pad+b*s}" y2="${pad+w.a[1]*s}" stroke="${col}" stroke-width="${t}"/>`
+                   : `<line x1="${pad+w.a[0]*s}" y1="${pad+a*s}" x2="${pad+w.a[0]*s}" y2="${pad+b*s}" stroke="${col}" stroke-width="${t}"/>`; };
+    ops.forEach(p=>{
+      const a = p.at-p.w/2, b = p.at+p.w/2;
+      g += seg(pos,a,ink,th);
+      if(p.t==='win'||p.t==='hi'||p.t==='slide') g += seg(a,b,'var(--blue)',p.t==='slide'?4:2.5);
+      if(p.t==='door'){ // swing arc
+        const r = p.w*s;
+        if(horiz){ const x=pad+a*s, y=pad+w.a[1]*s; g += `<path d="M${x} ${y} L${x} ${y-r} A${r} ${r} 0 0 1 ${x+r} ${y}" fill="none" stroke="var(--muted)" stroke-width="1"/>`; }
+        else { const x=pad+w.a[0]*s, y=pad+a*s; g += `<path d="M${x} ${y} L${x+r} ${y} A${r} ${r} 0 0 1 ${x} ${y+r}" fill="none" stroke="var(--muted)" stroke-width="1"/>`; }
+      }
+      pos = b;
+    });
+    g += seg(pos,start+len,ink,th);
+  });
+  // overall dims
+  g += `<g font-family="IBM Plex Mono,monospace" font-size="10" fill="${muted}">`;
+  g += `<line x1="${pad}" y1="${pad-16}" x2="${pad+o.w*s}" y2="${pad-16}" stroke="${muted}" stroke-width=".8"/><text x="${pad+o.w*s/2}" y="${pad-20}" text-anchor="middle">${o.w.toFixed(1)} m</text>`;
+  g += `<line x1="${pad-16}" y1="${pad}" x2="${pad-16}" y2="${pad+o.d*s}" stroke="${muted}" stroke-width=".8"/><text x="${pad-20}" y="${pad+o.d*s/2}" text-anchor="middle" transform="rotate(-90 ${pad-20} ${pad+o.d*s/2})">${o.d.toFixed(1)} m</text>`;
+  g += `<text x="${W-pad}" y="${H-10}" text-anchor="end">N ↓ (toward house)</text></g></svg>`;
+  return g;
+}
+
+/* ---------- site plan (rear part of block) ---------- */
+function siteSVG(o){
+  const s = 17, W = 15.2*s+40, Y1 = 27, H = Y1*s+40, ox=20, oy=20;
+  const T = (x)=>ox+x*s, U=(y)=>oy+y*s;
+  let g = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Site plan showing ${o.name} in the rear-left corner">`;
+  g += `<rect x="${T(0)}" y="${U(0)}" width="${15.2*s}" height="${Y1*s}" fill="color-mix(in srgb,var(--ok) 10%,var(--sheet))" stroke="var(--ink)" stroke-width="1.5"/>`;
+  // levelling zone
+  const lw = 7.2, ld = o.d+4.0;
+  g += `<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--brass)" stroke-width="1.2"/></pattern></defs>`;
+  g += `<rect x="${T(0.2)}" y="${U(0.3)}" width="${Math.min(lw,14.8)*s}" height="${ld*s}" fill="url(#hatch)" opacity=".55"/>`;
+  // existing: paved, deck, house
+  g += `<rect x="${T(10.2)}" y="${U(16.2)}" width="${4.0*s}" height="${7.0*s}" fill="var(--hair)" stroke="var(--line)"/><text x="${T(12.2)}" y="${U(19.9)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--muted)">Paved</text>`;
+  g += `<rect x="${T(4.2)}" y="${U(21.1)}" width="${5.9*s}" height="${4.0*s}" fill="var(--hair)" stroke="var(--line)"/><text x="${T(7.15)}" y="${U(23.3)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--muted)">Deck</text>`;
+  g += `<rect x="${T(3.7)}" y="${U(25.1)}" width="${6.8*s}" height="${(Y1-25.1)*s}" fill="var(--line)" stroke="var(--ink)"/><text x="${T(7.1)}" y="${U(26.3)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--ink)">Existing house</text>`;
+  // old shed (to remove)
+  g += `<rect x="${T(0.65)}" y="${U(1.1)}" width="${2.5*s}" height="${2.0*s}" fill="none" stroke="var(--bad)" stroke-dasharray="3 2"/><text x="${T(1.9)}" y="${U(0.85)}" text-anchor="middle" font-size="8" font-family="IBM Plex Mono" fill="var(--bad)">shed – remove</text>`;
+  // trees
+  [[2.6,8.3],[4.8,8.7],[3.4,10.6],[4.4,12.6],[1.2,13.8],[12.2,2.2],[13.7,1.5],[8.0,3.6]].forEach(([x,y])=>{
+    const hit = x+0.6>o.site.x && x-0.6<o.site.x+o.w && y+0.6>o.site.y && y-0.6<o.site.y+o.d;
+    g += `<circle cx="${T(x)}" cy="${U(y)}" r="${0.8*s}" fill="${hit?'none':'color-mix(in srgb,var(--ok) 35%,transparent)'}" stroke="${hit?'var(--bad)':'var(--ok)'}" stroke-dasharray="${hit?'3 2':'0'}"/>`;
+  });
+  // sewer route
+  g += `<path d="M${T(3.5)} ${U(Y1)} L${T(0.5)} ${U(Y1-1)} L${T(0.5)} ${U(o.site.y+o.d*0.3)} L${T(o.site.x)} ${U(o.site.y+o.d*0.3)}" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-dasharray="5 3"/>`;
+  // yard split (family keeps the right half)
+  g += `<line x1="${T(7.6)}" y1="${U(0)}" x2="${T(7.6)}" y2="${U(16.1)}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="6 4"/>`;
+  g += `<text x="${T(11.4)}" y="${U(12.6)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--ink)">Family's half · ≈7.6 × 16 m</text>`;
+  g += `<text x="${T(3.8)}" y="${U(15.4)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--ink)">Granny flat half</text>`;
+  // flat footprint
+  g += `<rect x="${T(o.site.x)}" y="${U(o.site.y)}" width="${o.w*s}" height="${o.d*s}" fill="var(--brass)" opacity=".9"/>`;
+  g += `<text x="${T(o.site.x+o.w/2)}" y="${U(o.site.y+o.d/2)+4}" text-anchor="middle" font-size="11" font-weight="700" font-family="Archivo" fill="var(--sheet)">Option ${o.key} · ${o.area} m²</text>`;
+  // setbacks
+  g += `<g font-family="IBM Plex Mono" font-size="8.5" fill="var(--muted)">`;
+  g += `<text x="${T(o.site.x+o.w/2)}" y="${U(o.site.y/2)+3}" text-anchor="middle">${o.site.y.toFixed(1)} m rear</text>`;
+  g += `<text x="${T(0.05)}" y="${U(o.site.y+o.d+0.9)}">${o.site.x.toFixed(1)} m side</text>`;
+  g += `<text x="${T(o.site.x+o.w/2)}" y="${U((o.site.y+o.d+21.1)/2)}" text-anchor="middle">${(21.1-o.site.y-o.d).toFixed(1)} m to deck · yard kept for the house</text></g>`;
+  // legend
+  g += `<g font-family="IBM Plex Mono" font-size="8" fill="var(--muted)"><rect x="${T(9.6)}" y="${U(5.6)}" width="9" height="9" fill="url(#hatch)"/><text x="${T(9.6)+13}" y="${U(5.6)+8}">level (cut/fill)</text>
+    <line x1="${T(9.6)}" x2="${T(9.6)+9}" y1="${U(6.9)+4}" y2="${U(6.9)+4}" stroke="var(--blue)" stroke-dasharray="3 2" stroke-width="1.5"/><text x="${T(9.6)+13}" y="${U(6.9)+8}">sewer route ≈22 m</text>
+    <circle cx="${T(9.6)+4.5}" cy="${U(8.2)+4}" r="4" fill="none" stroke="var(--bad)" stroke-dasharray="2 2"/><text x="${T(9.6)+13}" y="${U(8.2)+8}">tree to be removed</text></g>`;
+  g += `<text x="${W-8}" y="${H-6}" text-anchor="end" font-size="9" font-family="IBM Plex Mono" fill="var(--muted)">N ↓ · approximate scale</text></svg>`;
+  return g;
+}
+
+/* ---------- 3D ---------- */
+const viewer = $('#viewer');
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.shadowMap.enabled = true;
+viewer.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40,1,0.1,200);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.maxPolarAngle = Math.PI*0.49;
+scene.add(new THREE.HemisphereLight(0xffffff,0x8a8f84,0.9));
+const sun = new THREE.DirectionalLight(0xffffff,1.6); sun.position.set(-8,16,14); sun.castShadow = true;
+sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-15,right:15,top:15,bottom:-15}); scene.add(sun);
+const M = (c,o={})=>new THREE.MeshStandardMaterial({color:c,roughness:.85,...o});
+const mat = {
+  slab:M(0xbdb8ae), wallE:M(0xe9e5dc), wallI:M(0xf6f4ef), roof:M(0x4a5157,{metalness:.3,roughness:.5,transparent:true,opacity:.95}),
+  glass:M(0x9cc3dc,{transparent:true,opacity:.45,roughness:.1}), frame:M(0x2f3437), floor:M(0xc9a97e), wet:M(0xd9dcde),
+  bed:M(0xdedad2), robe:M(0x8b7355), bench:M(0x6d757b), top:M(0xeeeeea), sofa:M(0x5c6b78), table:M(0x9a7b55),
+  grass:M(0x7fa36b), deck:M(0x8a6a48), shower:M(0xcfd8de,{transparent:true,opacity:.6}), white:M(0xf3f3f0), stair:M(0xa7865c),
+};
+let group = null;
+const WALL_H = 2.7, T_EXT = 0.2, T_INT = 0.1, LVL_H = 3.0;
+function box(w,h,d,m,x,y,z,parent){ const b = new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m); b.position.set(x,y,z); b.castShadow=b.receiveShadow=true; parent.add(b); return b; }
+function build(o){
+  if(group){ scene.remove(group); group.traverse(n=>{ if(n.geometry) n.geometry.dispose(); }); }
+  group = new THREE.Group(); scene.add(group);
+  const cx = o.w/2, cz = o.d/2;
+  // ground + slab
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(40,40), mat.grass); ground.rotation.x=-Math.PI/2; ground.position.set(cx,-0.15,cz); ground.receiveShadow=true; group.add(ground);
+  box(o.w+0.3,0.3,o.d+0.3,mat.slab,cx,-0.0,cz,group);
+  const levels = o.storeys;
+  for(let L=0; L<levels; L++){
+    const lg = new THREE.Group(); lg.userData.level = L; group.add(lg);
+    const y0 = 0.15 + L*LVL_H;
+    if(L===1) box(o.w,0.25,o.d,mat.slab,cx,y0-0.12,cz,lg);
+    // floors per room
+    o.rooms.filter(r=>(r.lvl??0)===L).forEach(r=>{
+      const wet = /bath|laundry|wc/i.test(r.n);
+      const f = new THREE.Mesh(new THREE.PlaneGeometry(r.w,r.d), wet?mat.wet:mat.floor);
+      f.rotation.x=-Math.PI/2; f.position.set(r.x+r.w/2,y0+0.005,r.y+r.d/2); f.receiveShadow=true; lg.add(f);
+    });
+    // walls
+    o.walls.filter(w=>(w.lvl??0)===L).forEach(w=>{
+      const horiz = w.a[1]===w.b[1], t = w.ext?T_EXT:T_INT, m = w.ext?mat.wallE:mat.wallI;
+      const start = horiz?w.a[0]:w.a[1], end = horiz?w.b[0]:w.b[1], fixed = horiz?w.a[1]:w.a[0];
+      const piece = (a,b,yb,yt,mm)=>{ const len=b-a; if(len<=0.01||yt-yb<=0.01) return; const mid=(a+b)/2;
+        if(horiz) box(len,yt-yb,t,mm,mid,y0+(yb+yt)/2,fixed,lg); else box(t,yt-yb,len,mm,fixed,y0+(yb+yt)/2,mid,lg); };
+      let pos = start;
+      (w.op||[]).slice().sort((p,q)=>p.at-q.at).forEach(p=>{
+        const a=p.at-p.w/2, b=p.at+p.w/2;
+        piece(pos,a,0,WALL_H,m);
+        if(p.t==='door'){ piece(a,b,2.1,WALL_H,m); }
+        else if(p.t==='slide'){ piece(a,b,2.15,WALL_H,m); piece(a,b,0,2.15,mat.glass); }
+        else { const sill = p.t==='hi'?1.5:0.9; piece(a,b,0,sill,m); piece(a,b,2.1,WALL_H,m); piece(a,b,sill,2.1,mat.glass); }
+        pos=b;
+      });
+      piece(pos,end,0,WALL_H,m);
+    });
+    // furniture
+    (o.furn||[]).filter(f=>(f.lvl??0)===L).forEach(f=>{
+      const X=f.x+f.w/2, Z=f.y+f.d/2;
+      switch(f.t){
+        case 'bed': box(f.w,0.45,f.d,mat.bed,X,y0+0.23,Z,lg); box(f.w,0.9,0.08,mat.robe,X,y0+0.45,f.y+0.04,lg); break;
+        case 'robe': box(f.w,2.1,f.d,mat.robe,X,y0+1.05,Z,lg); break;
+        case 'bench': box(f.w,0.9,f.d,mat.bench,X,y0+0.45,Z,lg); box(f.w,0.04,f.d,mat.top,X,y0+0.92,Z,lg); box(f.w,0.7,0.35,mat.bench,X,y0+1.85,f.y+0.18,lg); break;
+        case 'island': box(f.w,0.9,f.d,mat.bench,X,y0+0.45,Z,lg); box(f.w+0.05,0.04,f.d+0.05,mat.top,X,y0+0.92,Z,lg); break;
+        case 'sofa': box(f.w,0.42,f.d,mat.sofa,X,y0+0.21,Z,lg); box(f.w,0.4,0.2,mat.sofa,X,y0+0.6,f.y+f.d-0.1,lg); break;
+        case 'table': box(f.w,0.05,f.d,mat.table,X,y0+0.75,Z,lg); box(0.06,0.73,0.06,mat.table,f.x+0.1,y0+0.37,f.y+0.1,lg); box(0.06,0.73,0.06,mat.table,f.x+f.w-0.1,y0+0.37,f.y+f.d-0.1,lg); break;
+        case 'shower': box(f.w,2.0,0.02,mat.shower,X,y0+1.0,f.y+f.d,lg); break;
+        case 'wc': box(f.w,0.4,f.d,mat.white,X,y0+0.2,Z,lg); break;
+        case 'vanity': box(f.w,0.85,f.d,mat.white,X,y0+0.43,Z,lg); break;
+        case 'laundry': box(f.w,0.9,f.d,mat.white,X,y0+0.45,Z,lg); break;
+        case 'deck': box(f.w,0.12,f.d,mat.deck,X,0.05,Z+0.12,lg); break;
+        case 'stairs': { const n=15; for(let i=0;i<n;i++){ box(f.w,0.04,f.d/n+0.02,mat.stair,X,y0+(i+1)*(LVL_H/n)-0.02,f.y+f.d-(i+0.5)*(f.d/n),lg); } break; }
+      }
+    });
+  }
+  // roof (low skillion over top level)
+  const topY = 0.15 + (levels-1)*LVL_H + WALL_H;
+  const roofG = new THREE.Group(); roofG.userData.roof = true; group.add(roofG);
+  const pitch = 0.09; // ~5°
+  const rw = o.w+0.9, rd = o.d+0.9;
+  const roof = box(rw,0.08,rd/Math.cos(pitch),mat.roof,cx,topY+0.35,cz,roofG); roof.rotation.x = pitch;
+  box(rw,0.35,0.08,mat.frame,cx,topY+0.12,-0.45,roofG);
+  applyVis();
+  // camera
+  const span = Math.max(o.w,o.d)*(levels===2?2.0:1.75);
+  controls.target.set(cx, levels===2?2.2:1.0, cz);
+  camera.position.set(cx+span*0.75, span*0.95, cz+span*1.05);
+  controls.update();
+  scene.background = new THREE.Color(css('--scene')||'#eef0ec');
+}
+function applyVis(){
+  if(!group) return;
+  group.traverse(n=>{
+    if(n.userData.roof) n.visible = showRoof;
+    if(n.userData.level===1) n.visible = showUpper;
+  });
+}
+function resize(){ const w=viewer.clientWidth, h=viewer.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+new ResizeObserver(resize).observe(viewer);
+(function loop(){ controls.update(); renderer.render(scene,camera); requestAnimationFrame(loop); })();
+$('#btnRoof').onclick=(e)=>{ showRoof=!showRoof; e.currentTarget.setAttribute('aria-pressed',showRoof); applyVis(); };
+$('#btnLevel').onclick=(e)=>{ showUpper=!showUpper; e.currentTarget.setAttribute('aria-pressed',showUpper); applyVis(); };
+$('#btnReset').onclick=()=>build(OPTIONS[cur]);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{ scene.background = new THREE.Color(css('--scene')); });
+
+/* ---------- panel content ---------- */
+function render(){
+  const o = OPTIONS[cur]; renderTabs();
+  $('#optEyebrow').textContent = o.status[1];
+  $('#optEyebrow').className = 'label '+o.status[0];
+  $('#optTitle').textContent = o.name;
+  const t = totals(cur);
+  const yardLeft = Math.max(0, Math.round(7.6*16.1 - o.w*o.d - 7.6*o.site.y*0.0));
+  $('#specs').innerHTML = [
+    ['Floor area', `${o.area} m²`], ['Footprint', `${o.w.toFixed(1)} × ${o.d.toFixed(1)} m`],
+    ['Bedrooms', '2'], ['Storeys', o.storeys===2?'2 (≈6.3 m wall height)':'1 (2.7 m walls)'],
+    ['Estimated cost', `${k(t.tlo)}–${k(t.thi)}`], ['Per m²', `${fmt(t.tlo/o.area)}–${fmt(t.thi/o.area)}`],
+    ['Family keeps', `right half ≈122 m² + ≈${yardLeft} m² left beside the flat`], ['Time to build', o.storeys===2?'≈6–9 months incl. DA':'≈4–6 months incl. approvals'],
+  ].map(([a,b])=>`<div class="spec"><span class="label">${a}</span><b>${b}</b></div>`).join('');
+  $('#compliance').innerHTML = o.key==='C'
+    ? `<div class="note"><b>Not allowed as a granny flat.</b> SA's granny-flat rules (ancillary accommodation) cap walls at 3 m and the roof at 5 m above ground, and floor area at 70 m². A two-storey building here would need a full planning application as a second house: assessed on its merits, likely notified to neighbours, with dwelling setbacks (about 3 m rear for the ground floor and 5 m for the upper floor) and possibly its own services. Approval is at council's discretion.</div>`
+    : `<div class="note blue"><b>Fits South Australia's granny-flat rules:</b> ${o.area} m² (limit 70 m²), single storey with 2.7 m walls (limit 3 m) and a low skillion roof under 5 m. It can be fully self-contained (own kitchen, bathroom, laundry). Setbacks shown (${o.site.y.toFixed(1)} m from the back fence, ${o.site.x.toFixed(1)} m from the side fence) are confirmed during approval.</div>`;
+  $('#rooms').innerHTML = o.rooms.map(r=>`<li>${r.n} <span class="mono src">${r.w.toFixed(1)} × ${r.d.toFixed(1)} m (${(r.w*r.d).toFixed(1)} m²)</span></li>`).join('') + `<li class="src">${o.summary}</li>`;
+  // plans
+  $('#planLabel').textContent = o.storeys===2 ? 'Floor plans · ground (left) and upper (right)' : 'Floor plan';
+  $('#plan').innerHTML = o.storeys===2 ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${planSVG(o,0)}${planSVG(o,1)}</div>` : planSVG(o,0);
+  $('#site').innerHTML = siteSVG(o);
+  $('#btnLevel').hidden = o.storeys!==2;
+  $('#btnLevel').setAttribute('aria-pressed', showUpper);
+  build(o);
+  renderCosts();
+  renderCmp();
+}
+function renderCosts(){
+  const o = OPTIONS[cur], e = EST[cur];
+  $('#costTitle').textContent = `Estimated cost · ${o.name.replace(/^Option /,'Option ')}`;
+  const rows = e.groups.map(g=>`<tr><td>${g[0]}<div class="src">${g[1]}</div></td><td class="n">${fmt(g[2])}</td><td class="n">${fmt(g[3])}</td></tr>`).join('');
+  $('#costs').innerHTML = `<thead><tr><th>Stage</th><th class="n">From</th><th class="n">To</th></tr></thead><tbody>${rows}</tbody>
+    <tfoot><tr><td>Estimated total inc GST</td><td class="n">${fmt(e.tlo)}</td><td class="n">${fmt(e.thi)}</td></tr></tfoot>`;
+  $('#costNote').textContent = 'A guide range, not a fixed quote. The lower figure assumes standard finishes and no surprises on site; the higher figure allows for upgraded finishes and site conditions found during the survey and soil test.';
+}
+function renderCmp(){
+  const head = `<thead><tr><th></th>${Object.values(OPTIONS).map(o=>`<th>${o.name.replace(/^Option /,'')}</th>`).join('')}</tr></thead>`;
+  const line = (label,fn)=>`<tr><td>${label}</td>${Object.values(OPTIONS).map(o=>`<td class="mono">${fn(o)}</td>`).join('')}</tr>`;
+  $('#cmp').innerHTML = head + '<tbody>' +
+    line('Floor area',o=>`${o.area} m²`) + line('Footprint',o=>`${o.w}×${o.d} m (${(o.w*o.d).toFixed(0)} m²)`) +
+    line('Approval path',o=>o.key==='C'?'<span class="bad">Full DA, second dwelling</span>':'<span class="ok">Granny flat</span>') +
+    line('Estimated cost',o=>{const t=totals(o.key);return `${k(t.tlo)}–${k(t.thi)}`}) +
+    line('Per m²',o=>{const t=totals(o.key);return `${fmt(t.tlo/o.area)}–${fmt(t.thi/o.area)}`}) +
+    line('Main living room',o=>{const r=o.rooms.find(r=>/living/i.test(r.n));return `${(r.w*r.d).toFixed(0)} m²`}) +
+    '</tbody>';
+}
+render();
+})();
+</script>
+</body>
+</html>
