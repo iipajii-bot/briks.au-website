@@ -4,160 +4,265 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Granny Flat Options · Briks Building Services</title>
+<title>Granny Flat Proposal · Briks Building Services</title>
+<link rel="preload" href="/estimates/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/estimates/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* Layout: drafting-sheet — title block header, option tabs, then a two-column sheet (model + drawings | specs + costs). */
+/* Briks design system (briks-building-services/DESIGN.md). Single light theme by design: the site ships no dark mode. */
+@font-face{font-family:"Bricolage Grotesque";src:url(/estimates/fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url(/estimates/fonts/inter-tight.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Inter";src:url(/estimates/fonts/inter.woff2) format("woff2");font-weight:100 900;font-display:swap}
 :root{
-  --paper:#f3f4f1; --sheet:#ffffff; --ink:#1c2228; --muted:#5d6670; --line:#d5d9d4; --hair:#e6e9e4;
-  --brass:#94733f; --brass-soft:#efe6d6; --blue:#2f5d8a; --ok:#2e7d4f; --warn:#a2611a; --bad:#a83a3a;
-  --f-display:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --f-body:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --f-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --scene:#eef0ec;
+  color-scheme:light;
+  --paper:#ffffff; --soft:#fafaf7; --warm:#f3efe5; --warm-2:#ebe4d4;
+  --ink:#1a1a1a; --body:#3a3735; --dim:#5a5650;
+  --brass:#8a6e3f; --brass-light:#b89868; --brass-deep:#6a5530;
+  --hair:#e2ddd3; --hair-strong:#c0bcb4; --steel:#4a5863; --ok:#3d6b4f; --caution:#9a4a1c;
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-head:"Inter Tight",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --gutter:max(20px,env(safe-area-inset-left,0px));
+  --sheet:#ffffff; --muted:#5a5650; --line:#c0bcb4; --blue:#4a5863; --bad:#9a4a1c; --scene:#f3efe5;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#14181c; --sheet:#1b2026; --ink:#e7eaec; --muted:#9aa4ad; --line:#323a42; --hair:#262d34;
-  --brass:#cfa96a; --brass-soft:#2c2619; --blue:#7fb0dc; --ok:#6fcf97; --warn:#e3a35c; --bad:#e07a7a; --scene:#20262c; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#14181c; --sheet:#1b2026; --ink:#e7eaec; --muted:#9aa4ad; --line:#323a42; --hair:#262d34;
-  --brass:#cfa96a; --brass-soft:#2c2619; --blue:#7fb0dc; --ok:#6fcf97; --warn:#e3a35c; --bad:#e07a7a; --scene:#20262c; color-scheme:dark}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
-.wrap{max-width:1180px;margin:0 auto;display:grid;gap:20px}
-h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(26px,4vw,38px);font-weight:800}
-h2{font-size:20px;font-weight:700}
-h3{font-size:15px;font-weight:700}
-.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-/* title block */
-.tb{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:14px}
-.tb p{margin:6px 0 0;color:var(--muted);max-width:68ch}
-.tb .meta{display:grid;grid-template-columns:auto auto;gap:2px 14px;font-family:var(--f-mono);font-size:12px;text-align:right}
-.tb .meta span:nth-child(odd){color:var(--muted)}
-.draft{display:inline-block;background:var(--brass-soft);color:var(--brass);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:8px}
-/* tabs */
-.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.tab{all:unset;cursor:pointer;background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:grid;gap:2px}
-.tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.tab[aria-selected="true"]{border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--brass)}
-.tab .t1{font-family:var(--f-display);font-weight:700;font-size:16px}
-.tab .t2{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
-.tab .pill{justify-self:start;margin-top:4px;font-family:var(--f-mono);font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid currentColor}
-.ok{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)}
-/* sheet */
-.sheet{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px}
-.panel{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
-.viewer{position:relative;height:420px;border-radius:4px;overflow:hidden;background:var(--scene)}
-.viewer canvas{display:block;width:100%;height:100%}
-.vctl{position:absolute;right:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.vctl button{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:12px;background:var(--sheet);color:var(--ink);border:1px solid var(--line);padding:4px 9px;border-radius:4px}
-.vctl button[aria-pressed="true"]{border-color:var(--ink)}
-.vctl button:focus-visible{outline:2px solid var(--blue)}
-.vhint{position:absolute;left:10px;bottom:8px;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
-.drawings{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
-.svgbox{overflow-x:auto}
-.svgbox svg{width:100%;height:auto;display:block}
-.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
-.spec{display:grid;gap:0}
-.spec b{font-family:var(--f-mono);font-weight:500;font-size:16px}
-ul.tight{margin:0;padding-left:18px;display:grid;gap:4px}
-.note{border-left:3px solid var(--warn);padding:8px 12px;background:color-mix(in srgb,var(--warn) 8%,transparent);font-size:14px}
-.note.blue{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 8%,transparent)}
-table{border-collapse:collapse;width:100%;font-size:13px}
-th,td{padding:6px 6px;border-bottom:1px solid var(--hair);text-align:left;vertical-align:top}
-td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-tfoot td{font-weight:600;border-bottom:none;border-top:2px solid var(--ink)}
-.src{color:var(--muted);font-size:12px}
-.tablebox{overflow-x:auto}
-.margin{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
-.margin input{width:72px;font-family:var(--f-mono);font-size:14px;padding:5px 8px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink)}
-.margin input:focus-visible{outline:2px solid var(--blue)}
-.cmp td,.cmp th{font-size:13px}
-footer{color:var(--muted);font-size:12px}
-footer a{color:var(--blue)}
-@media (max-width:900px){.sheet{grid-template-columns:minmax(0,1fr)}.drawings{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:560px){.tabs{grid-template-columns:minmax(0,1fr)}.tb{grid-template-columns:minmax(0,1fr)}.tb .meta{text-align:left}.viewer{height:320px}.specs{grid-template-columns:minmax(0,1fr)}}
-@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--soft);color:var(--body);font-family:var(--f-body);font-size:16px;line-height:1.6;font-feature-settings:"ss01","cv11"}
+a{color:var(--brass-deep)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{color:var(--ink);margin:0;text-wrap:balance}
+.eyebrow{font-family:var(--f-head);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+.num{font-family:var(--f-head);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* top bar */
+.bar{background:var(--paper);border-bottom:1px solid var(--hair)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .tile{width:36px;height:36px;border-radius:4px;background:#fff;box-shadow:0 1px 2px rgba(26,26,26,.08);display:grid;place-items:center;overflow:hidden}
+.brand .tile img{width:100%;height:100%;object-fit:contain;padding:2px}
+.brand .word{font-family:var(--f-head);font-weight:800;font-size:14px;letter-spacing:.15em;color:var(--ink);white-space:nowrap}
+.bar .doc{font-family:var(--f-head);font-size:13px;color:var(--dim);white-space:nowrap}
+
+/* hero */
+.hero{background:var(--paper);border-bottom:1px solid var(--hair)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:56px 56px}
+.hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,5.2vw,58px);line-height:1.02;letter-spacing:-.02em;margin-top:14px}
+.hero .dek{font-size:18px;line-height:1.6;max-width:56ch;margin:20px 0 0}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:32px;border-top:1px solid var(--hair)}
+.facts div{padding:14px 16px 0 0}
+.facts dt{font-family:var(--f-head);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.facts dd{margin:4px 0 0;font-family:var(--f-head);font-weight:600;color:var(--ink);font-size:15px}
+.hero figure{margin:0;position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3.4;max-width:100%;background:var(--warm)}
+.hero figure img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* option picker */
+.picker{padding-block:40px 8px}
+.picker h2{font-family:var(--f-head);font-weight:700;font-size:20px;letter-spacing:-.01em}
+.picker p.sub{margin:6px 0 0;color:var(--dim)}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.tab{all:unset;box-sizing:border-box;cursor:pointer;background:var(--paper);border:1px solid var(--hair);border-radius:8px;padding:20px 20px 18px;display:grid;gap:6px;transition:border-color .25s var(--ease),box-shadow .25s var(--ease);min-height:44px}
+.tab:hover{border-color:var(--hair-strong)}
+.tab:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.tab[aria-selected="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink),0 10px 30px -18px rgba(26,26,26,.35)}
+.tab .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.tab .letter{font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--brass)}
+.tab .t1{font-family:var(--f-head);font-weight:700;font-size:18px;color:var(--ink)}
+.tab .size{font-family:var(--f-head);font-size:14px;color:var(--dim)}
+.tab .price{font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.chip{justify-self:start;display:inline-flex;align-items:center;gap:6px;font-family:var(--f-head);font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;border:1px solid currentColor}
+.chip.ok{color:var(--ok)} .chip.bad{color:var(--caution)}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* option detail */
+.detail{padding-block:28px 24px}
+.dhead{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--hair)}
+.dhead h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,3.4vw,36px);letter-spacing:-.02em;margin-top:6px}
+.viewer{position:relative;height:clamp(320px,52vw,520px);border-radius:8px;overflow:hidden;background:var(--warm);margin-top:24px;border:1px solid var(--hair)}
+.viewer canvas{display:block;width:100%;height:100%;touch-action:none}
+.vctl{position:absolute;right:12px;top:12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.vctl button{all:unset;box-sizing:border-box;cursor:pointer;font-family:var(--f-head);font-size:13px;font-weight:600;background:var(--paper);color:var(--ink);border:1px solid var(--hair);padding:8px 12px;border-radius:4px;min-height:36px}
+.vctl button:hover{border-color:var(--hair-strong)}
+.vctl button[hidden]{display:none}
+.vctl button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.vctl button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.vhint{position:absolute;left:12px;bottom:10px;font-family:var(--f-head);font-size:12px;color:var(--dim);background:color-mix(in srgb,var(--paper) 80%,transparent);padding:3px 8px;border-radius:4px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;margin-top:32px}
+.block h3{font-family:var(--f-head);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.sheet{background:var(--paper);border:1px solid var(--hair);border-radius:8px;padding:16px;overflow-x:auto}
+.sheet svg{width:100%;height:auto;display:block}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px;margin-top:22px}
+.spec .k{font-family:var(--f-head);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.spec .v{font-family:var(--f-head);font-weight:600;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px}
+.note{border:1px solid var(--hair);background:var(--warm);border-radius:8px;padding:14px 16px;font-size:15px;margin-top:22px}
+.note.bad{background:color-mix(in srgb,var(--caution) 7%,var(--paper));border-color:color-mix(in srgb,var(--caution) 30%,var(--hair))}
+.note b{color:var(--ink)}
+ul.rooms{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
+ul.rooms li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--hair);color:var(--ink)}
+ul.rooms li span{font-family:var(--f-head);color:var(--dim);font-variant-numeric:tabular-nums;white-space:nowrap}
+p.summary{margin:14px 0 0;color:var(--body);max-width:62ch}
+
+/* costs */
+table{border-collapse:collapse;width:100%}
+.costs td,.costs th{padding:12px 0;border-bottom:1px solid var(--hair);text-align:left;vertical-align:top}
+.costs th{font-family:var(--f-head);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-weight:600;padding-top:0}
+.costs td.n,.costs th.n{text-align:right;font-family:var(--f-head);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:16px;color:var(--ink)}
+.costs td .t{color:var(--ink);font-weight:500}
+.costs td .d{color:var(--dim);font-size:14px;margin-top:2px;max-width:46ch}
+.costs tfoot td{border-top:2px solid var(--ink);border-bottom:none;padding-top:14px;font-family:var(--f-head);font-weight:700;color:var(--ink);font-size:17px}
+.costs tfoot td.n{font-family:var(--f-display);font-size:22px;letter-spacing:-.01em}
+p.cnote{color:var(--dim);font-size:14px;margin:14px 0 0;max-width:70ch}
+
+/* compare */
+.compare{padding-block:40px 8px}
+.compare h2,.next h2{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em}
+.cmpbox{overflow-x:auto;margin-top:18px;background:var(--paper);border:1px solid var(--hair);border-radius:8px}
+.cmp{min-width:560px}
+.cmp th,.cmp td{padding:14px 16px;border-bottom:1px solid var(--hair);text-align:left;font-size:15px}
+.cmp thead th{font-family:var(--f-head);font-weight:700;color:var(--ink);background:var(--warm)}
+.cmp td:first-child{font-family:var(--f-head);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.cmp td{font-family:var(--f-head);color:var(--ink);font-variant-numeric:tabular-nums}
+.cmp tr:last-child td{border-bottom:none}
+.cmp .ok{color:var(--ok)} .cmp .bad{color:var(--caution)}
+
+/* next steps + contact */
+.next{padding-block:40px 24px}
+ol.steps{list-style:none;counter-reset:s;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+ol.steps li{counter-increment:s;border-top:1px solid var(--ink);padding-top:14px}
+ol.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-head);font-weight:700;font-size:13px;color:var(--brass);letter-spacing:.08em}
+ol.steps b{display:block;font-family:var(--f-head);color:var(--ink);font-size:17px;margin:6px 0 4px}
+ol.steps p{margin:0;font-size:15px}
+.contact{margin-top:48px;background:var(--ink);color:#f3efe5;border-radius:8px;padding:32px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:center}
+.contact h3{color:#fafaf7;font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:-.01em}
+.contact p{margin:8px 0 0;color:#cfc8b8;max-width:52ch}
+.contact dl{margin:0;display:grid;gap:10px}
+.contact dt{font-family:var(--f-head);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-light)}
+.contact dd{margin:2px 0 0;font-family:var(--f-head);font-weight:600;font-size:17px;color:#fafaf7}
+.contact a{color:#fafaf7;text-decoration:none;border-bottom:1px solid rgba(250,250,247,.25)}
+.contact a:hover{border-bottom-color:var(--brass-light)}
+footer{padding-block:28px 48px;color:var(--dim);font-size:13px;max-width:80ch}
+
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:32px;padding-block:36px 40px}
+  .hero figure{aspect-ratio:16/9}
+  .grid2{grid-template-columns:minmax(0,1fr)}
+  ol.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:620px){
+  .bar .doc{display:none}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tabs{grid-template-columns:minmax(0,1fr)}
+  .specs{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  ol.steps{grid-template-columns:minmax(0,1fr)}
+  .contact{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="https://briks.au" aria-label="Briks Building Services home">
+      <span class="tile"><img src="/estimates/img/logo-160.png" alt="" width="36" height="36"></span>
+      <span class="word">BRIKS BUILDING SERVICES</span>
+    </a>
+    <span class="doc">Proposal · 18 November 2026</span>
+  </div>
+</header>
 
-<div class="wrap">
-  <header class="tb">
+<section class="hero">
+  <div class="wrap">
     <div>
-      <span class="draft">Proposal · design options &amp; estimate</span>
-      <h1>Your granny flat, Woodfield St Enfield</h1>
-      <p>Three 2-bedroom designs for the left half of your backyard, so you keep the right half for yourselves. Tap an option to see its 3D model, floor plan, where it sits on your block, and the estimated cost. Drag the model to look around it.</p>
+      <div class="eyebrow">Granny flat proposal</div>
+      <h1>Granny flat options for Woodfield St, Enfield</h1>
+      <p class="dek">Three 2-bedroom designs for the left half of your backyard, so the right half stays yours. Choose an option to see it in 3D, where it sits on the block, and what it costs.</p>
+      <dl class="facts">
+        <div><dt>Property</dt><dd>Woodfield St, Enfield</dd></div>
+        <div><dt>Options</dt><dd>3 designs, 2 bed</dd></div>
+        <div><dt>Valid until</dt><dd>18 Dec 2026</dd></div>
+      </dl>
     </div>
-    <div class="meta">
-      <span>Property</span><span>Woodfield St, Enfield SA 5085</span>
-      <span>Council</span><span>Port Adelaide Enfield</span>
-      <span>Prepared by</span><span>Briks Building Services</span>
-      <span>Date</span><span>18 Nov 2026</span>
-    </div>
-  </header>
+    <figure><img src="/estimates/img/proposal-hero.jpg" alt="" loading="eager" width="1400" height="933"></figure>
+  </div>
+</section>
 
-  <nav class="tabs" role="tablist" aria-label="Design options" id="tabs"></nav>
+<main>
+  <section class="picker wrap" aria-labelledby="pickH">
+    <h2 id="pickH">Choose an option</h2>
+    <p class="sub">All prices are estimates including GST.</p>
+    <nav class="tabs" role="tablist" aria-label="Design options" id="tabs"></nav>
+  </section>
 
-  <section class="sheet">
-    <div class="panel">
-      <div class="viewer" id="viewer">
-        <div class="vctl">
-          <button id="btnRoof" aria-pressed="false">Roof</button>
-          <button id="btnLevel" aria-pressed="false" hidden>Upper floor</button>
-          <button id="btnReset">Reset view</button>
-        </div>
-        <div class="vhint">Drag to orbit · scroll or pinch to zoom</div>
-      </div>
-      <div class="drawings">
-        <div class="svgbox"><div class="label" id="planLabel">Floor plan</div><div id="plan"></div></div>
-        <div class="svgbox"><div class="label">Site plan, rear yard</div><div id="site"></div></div>
-      </div>
-    </div>
-
-    <div class="panel">
+  <section class="detail wrap" aria-live="polite">
+    <div class="dhead">
       <div>
-        <div class="label" id="optEyebrow"></div>
+        <div class="eyebrow" id="optEyebrow"></div>
         <h2 id="optTitle"></h2>
       </div>
-      <div class="specs" id="specs"></div>
-      <div id="compliance"></div>
-      <div>
-        <h3>Rooms</h3>
-        <ul class="tight" id="rooms"></ul>
+      <span id="optChip"></span>
+    </div>
+
+    <div class="viewer" id="viewer">
+      <div class="vctl">
+        <button id="btnRoof" aria-pressed="false">Show roof</button>
+        <button id="btnLevel" aria-pressed="true" hidden>Upper floor</button>
+        <button id="btnReset">Reset view</button>
+      </div>
+      <div class="vhint">Drag to turn · pinch or scroll to zoom</div>
+    </div>
+
+    <div class="grid2">
+      <div class="block"><h3 id="planLabel">Floor plan</h3><div class="sheet" id="plan"></div></div>
+      <div class="block"><h3>Where it sits on your block</h3><div class="sheet" id="site"></div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="block">
+        <h3>The design</h3>
+        <ul class="rooms" id="rooms"></ul>
+        <p class="summary" id="summary"></p>
+        <div class="specs" id="specs"></div>
+        <div id="compliance"></div>
+      </div>
+      <div class="block">
+        <h3 id="costTitle">Estimated cost</h3>
+        <table class="costs" id="costs"></table>
+        <p class="cnote" id="costNote"></p>
       </div>
     </div>
   </section>
 
-  <section class="panel">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end">
-      <div><div class="label">Cost build-up</div><h2 id="costTitle">Estimated build cost</h2></div>
-      
-    </div>
-    <div class="tablebox"><table id="costs"></table></div>
-    <p class="src" id="costNote"></p>
+  <section class="compare wrap">
+    <h2>Compare the options</h2>
+    <div class="cmpbox"><table class="cmp" id="cmp"></table></div>
   </section>
 
-  <section class="panel">
-    <h2>Side by side</h2>
-    <div class="tablebox"><table class="cmp" id="cmp"></table></div>
-  </section>
-
-  <section class="panel">
+  <section class="next wrap">
     <h2>What happens next</h2>
-    <ul class="tight">
-      <li><b>Pick an option</b> (or a mix, for example Option A's size with Option B's separate laundry) and we'll refine the design with you.</li>
-      <li><b>Site survey and soil test</b> confirm the exact levels, boundaries and slab design. Sizes on this page are based on the property's floor plan and may move slightly.</li>
-      <li><b>Approvals:</b> Options A and B are designed to meet South Australia's granny-flat rules (up to 70 m², single storey). Option C would need a full council application as a second house.</li>
-      <li><b>Fixed quote:</b> once the design and site checks are done, we'll give you a fixed, itemised quote and a build timeline.</li>
-    </ul>
+    <ol class="steps">
+      <li><b>Choose a design</b><p>Pick an option, or mix them. For example, Option A's size with Option B's separate laundry.</p></li>
+      <li><b>Site survey and soil test</b><p>Confirms exact levels, boundaries and the slab design. Sizes here are from the property's floor plan and may move slightly.</p></li>
+      <li><b>Approvals</b><p>Options A and B are designed to South Australia's granny-flat rules. Option C needs a full council application.</p></li>
+      <li><b>Fixed quote and timeline</b><p>You receive a fixed, itemised quote and build program before anything starts.</p></li>
+    </ol>
+    <div class="contact">
+      <div>
+        <h3>Questions about these options?</h3>
+        <p>Call or email and we'll talk it through, or arrange a time on site.</p>
+      </div>
+      <dl>
+        <div><dt>Phone</dt><dd><a href="tel:0449517367">0449 517 367</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:admin@briks.au">admin@briks.au</a></dd></div>
+        <div><dt>Web</dt><dd><a href="https://briks.au">briks.au</a></dd></div>
+      </dl>
+    </div>
   </section>
+</main>
 
-  <footer>
-    Prepared by Briks Building Services · 0449 517 367 · www.briks.au · admin@briks.au<br>
-    Estimates include GST and are a guide only, valid for 30 days. Final pricing depends on the site survey, soil test, council conditions and your choice of finishes. Plans are concept designs, not for construction.
-  </footer>
-</div>
+<footer class="wrap">
+  Estimates include GST and are a guide only, valid for 30 days. Final pricing depends on the site survey, soil test, council conditions and your choice of finishes. Plans and 3D views are concept designs, not for construction. Briks Building Services Pty Ltd · ABN 90 697 367 721.
+</footer>
 
 <script src="/estimates/vendor/three.min.js"></script>
 <script src="/estimates/vendor/OrbitControls.js"></script>
@@ -286,11 +391,12 @@ let cur = 'B', showUpper = true, showRoof = false;
 try{ const s = localStorage.getItem('wf-opt'); if(s && OPTIONS[s]) cur = s; }catch(e){}
 function renderTabs(){
   $('#tabs').innerHTML = Object.values(OPTIONS).map(o=>{
-    const t = totals(o.key);
+    const t = totals(o.key), nm = o.name.split(' · ')[1];
     return `<button class="tab" role="tab" id="tab-${o.key}" aria-selected="${o.key===cur}" data-k="${o.key}">
-      <span class="t1">${o.name}</span>
-      <span class="t2">${o.area} m² · ${o.storeys===2?'2 storeys':'single storey'} · ${k(t.tlo)}–${k(t.thi)}</span>
-      <span class="pill ${o.status[0]}">${o.status[1]}</span></button>`}).join('');
+      <span class="row"><span class="letter">Option ${o.key}</span><span class="size">${o.area} m² · ${o.storeys===2?'2 storeys':'single storey'}</span></span>
+      <span class="t1">${nm}</span>
+      <span class="price">${k(t.tlo)}–${k(t.thi)}</span>
+      <span class="chip ${o.status[0]}">${o.key==='C'?'Needs council approval':'Granny flat rules'}</span></button>`}).join('');
   document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{cur=b.dataset.k;try{localStorage.setItem('wf-opt',cur)}catch(e){};render()});
 }
 
@@ -305,8 +411,8 @@ function planSVG(o, lvl){
     const label = r.n.replace(/^(Ground|Upper) · /,'');
     g += `<rect x="${pad+r.x*s}" y="${pad+r.y*s}" width="${r.w*s}" height="${r.d*s}" fill="none" stroke="var(--hair)" stroke-width="1"/>`;
     const cx = pad+(r.x+r.w/2)*s, cy = pad+(r.y+r.d/2)*s;
-    g += `<text x="${cx}" y="${cy-3}" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" fill="${ink}">${label.replace(/&/g,'&amp;')}</text>`;
-    g += `<text x="${cx}" y="${cy+11}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="${muted}">${r.w.toFixed(1)} × ${r.d.toFixed(1)}</text>`;
+    g += `<text x="${cx}" y="${cy-3}" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="${ink}">${label.replace(/&/g,'&amp;')}</text>`;
+    g += `<text x="${cx}" y="${cy+11}" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="9.5" fill="${muted}">${r.w.toFixed(1)} × ${r.d.toFixed(1)}</text>`;
   });
   (o.furn||[]).filter(f=>(f.lvl??0)===lvl && f.t!=='deck').forEach(f=>{
     g += `<rect x="${pad+f.x*s}" y="${pad+f.y*s}" width="${f.w*s}" height="${f.d*s}" fill="none" stroke="var(--line)" stroke-width="1" rx="2"/>`;
@@ -336,7 +442,7 @@ function planSVG(o, lvl){
     g += seg(pos,start+len,ink,th);
   });
   // overall dims
-  g += `<g font-family="IBM Plex Mono,monospace" font-size="10" fill="${muted}">`;
+  g += `<g font-family="Inter Tight,sans-serif" font-size="10" fill="${muted}">`;
   g += `<line x1="${pad}" y1="${pad-16}" x2="${pad+o.w*s}" y2="${pad-16}" stroke="${muted}" stroke-width=".8"/><text x="${pad+o.w*s/2}" y="${pad-20}" text-anchor="middle">${o.w.toFixed(1)} m</text>`;
   g += `<line x1="${pad-16}" y1="${pad}" x2="${pad-16}" y2="${pad+o.d*s}" stroke="${muted}" stroke-width=".8"/><text x="${pad-20}" y="${pad+o.d*s/2}" text-anchor="middle" transform="rotate(-90 ${pad-20} ${pad+o.d*s/2})">${o.d.toFixed(1)} m</text>`;
   g += `<text x="${W-pad}" y="${H-10}" text-anchor="end">N ↓ (toward house)</text></g></svg>`;
@@ -354,11 +460,11 @@ function siteSVG(o){
   g += `<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--brass)" stroke-width="1.2"/></pattern></defs>`;
   g += `<rect x="${T(0.2)}" y="${U(0.3)}" width="${Math.min(lw,14.8)*s}" height="${ld*s}" fill="url(#hatch)" opacity=".55"/>`;
   // existing: paved, deck, house
-  g += `<rect x="${T(10.2)}" y="${U(16.2)}" width="${4.0*s}" height="${7.0*s}" fill="var(--hair)" stroke="var(--line)"/><text x="${T(12.2)}" y="${U(19.9)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--muted)">Paved</text>`;
-  g += `<rect x="${T(4.2)}" y="${U(21.1)}" width="${5.9*s}" height="${4.0*s}" fill="var(--hair)" stroke="var(--line)"/><text x="${T(7.15)}" y="${U(23.3)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--muted)">Deck</text>`;
-  g += `<rect x="${T(3.7)}" y="${U(25.1)}" width="${6.8*s}" height="${(Y1-25.1)*s}" fill="var(--line)" stroke="var(--ink)"/><text x="${T(7.1)}" y="${U(26.3)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--ink)">Existing house</text>`;
+  g += `<rect x="${T(10.2)}" y="${U(16.2)}" width="${4.0*s}" height="${7.0*s}" fill="var(--hair)" stroke="var(--line)"/><text x="${T(12.2)}" y="${U(19.9)}" text-anchor="middle" font-size="9" font-family="Inter" fill="var(--muted)">Paved</text>`;
+  g += `<rect x="${T(4.2)}" y="${U(21.1)}" width="${5.9*s}" height="${4.0*s}" fill="var(--hair)" stroke="var(--line)"/><text x="${T(7.15)}" y="${U(23.3)}" text-anchor="middle" font-size="9" font-family="Inter" fill="var(--muted)">Deck</text>`;
+  g += `<rect x="${T(3.7)}" y="${U(25.1)}" width="${6.8*s}" height="${(Y1-25.1)*s}" fill="var(--line)" stroke="var(--ink)"/><text x="${T(7.1)}" y="${U(26.3)}" text-anchor="middle" font-size="9" font-family="Inter" fill="var(--ink)">Existing house</text>`;
   // old shed (to remove)
-  g += `<rect x="${T(0.65)}" y="${U(1.1)}" width="${2.5*s}" height="${2.0*s}" fill="none" stroke="var(--bad)" stroke-dasharray="3 2"/><text x="${T(1.9)}" y="${U(0.85)}" text-anchor="middle" font-size="8" font-family="IBM Plex Mono" fill="var(--bad)">shed – remove</text>`;
+  g += `<rect x="${T(0.65)}" y="${U(1.1)}" width="${2.5*s}" height="${2.0*s}" fill="none" stroke="var(--bad)" stroke-dasharray="3 2"/><text x="${T(1.9)}" y="${U(0.85)}" text-anchor="middle" font-size="8" font-family="Inter Tight" fill="var(--bad)">old shed removed</text>`;
   // trees
   [[2.6,8.3],[4.8,8.7],[3.4,10.6],[4.4,12.6],[1.2,13.8],[12.2,2.2],[13.7,1.5],[8.0,3.6]].forEach(([x,y])=>{
     const hit = x+0.6>o.site.x && x-0.6<o.site.x+o.w && y+0.6>o.site.y && y-0.6<o.site.y+o.d;
@@ -368,21 +474,21 @@ function siteSVG(o){
   g += `<path d="M${T(3.5)} ${U(Y1)} L${T(0.5)} ${U(Y1-1)} L${T(0.5)} ${U(o.site.y+o.d*0.3)} L${T(o.site.x)} ${U(o.site.y+o.d*0.3)}" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-dasharray="5 3"/>`;
   // yard split (family keeps the right half)
   g += `<line x1="${T(7.6)}" y1="${U(0)}" x2="${T(7.6)}" y2="${U(16.1)}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="6 4"/>`;
-  g += `<text x="${T(11.4)}" y="${U(12.6)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--ink)">Family's half · ≈7.6 × 16 m</text>`;
-  g += `<text x="${T(3.8)}" y="${U(15.4)}" text-anchor="middle" font-size="9" font-family="IBM Plex Sans" fill="var(--ink)">Granny flat half</text>`;
+  g += `<text x="${T(11.4)}" y="${U(12.6)}" text-anchor="middle" font-size="9" font-family="Inter" fill="var(--ink)">Family's half · ≈7.6 × 16 m</text>`;
+  g += `<text x="${T(3.8)}" y="${U(15.4)}" text-anchor="middle" font-size="9" font-family="Inter" fill="var(--ink)">Granny flat half</text>`;
   // flat footprint
   g += `<rect x="${T(o.site.x)}" y="${U(o.site.y)}" width="${o.w*s}" height="${o.d*s}" fill="var(--brass)" opacity=".9"/>`;
-  g += `<text x="${T(o.site.x+o.w/2)}" y="${U(o.site.y+o.d/2)+4}" text-anchor="middle" font-size="11" font-weight="700" font-family="Archivo" fill="var(--sheet)">Option ${o.key} · ${o.area} m²</text>`;
+  g += `<text x="${T(o.site.x+o.w/2)}" y="${U(o.site.y+o.d/2)+4}" text-anchor="middle" font-size="11" font-weight="700" font-family="Inter Tight" fill="var(--sheet)">Option ${o.key} · ${o.area} m²</text>`;
   // setbacks
-  g += `<g font-family="IBM Plex Mono" font-size="8.5" fill="var(--muted)">`;
+  g += `<g font-family="Inter Tight" font-size="8.5" fill="var(--muted)">`;
   g += `<text x="${T(o.site.x+o.w/2)}" y="${U(o.site.y/2)+3}" text-anchor="middle">${o.site.y.toFixed(1)} m rear</text>`;
   g += `<text x="${T(0.05)}" y="${U(o.site.y+o.d+0.9)}">${o.site.x.toFixed(1)} m side</text>`;
   g += `<text x="${T(o.site.x+o.w/2)}" y="${U((o.site.y+o.d+21.1)/2)}" text-anchor="middle">${(21.1-o.site.y-o.d).toFixed(1)} m to deck · yard kept for the house</text></g>`;
   // legend
-  g += `<g font-family="IBM Plex Mono" font-size="8" fill="var(--muted)"><rect x="${T(9.6)}" y="${U(5.6)}" width="9" height="9" fill="url(#hatch)"/><text x="${T(9.6)+13}" y="${U(5.6)+8}">level (cut/fill)</text>
+  g += `<g font-family="Inter Tight" font-size="8" fill="var(--muted)"><rect x="${T(9.6)}" y="${U(5.6)}" width="9" height="9" fill="url(#hatch)"/><text x="${T(9.6)+13}" y="${U(5.6)+8}">level (cut/fill)</text>
     <line x1="${T(9.6)}" x2="${T(9.6)+9}" y1="${U(6.9)+4}" y2="${U(6.9)+4}" stroke="var(--blue)" stroke-dasharray="3 2" stroke-width="1.5"/><text x="${T(9.6)+13}" y="${U(6.9)+8}">sewer route ≈22 m</text>
     <circle cx="${T(9.6)+4.5}" cy="${U(8.2)+4}" r="4" fill="none" stroke="var(--bad)" stroke-dasharray="2 2"/><text x="${T(9.6)+13}" y="${U(8.2)+8}">tree to be removed</text></g>`;
-  g += `<text x="${W-8}" y="${H-6}" text-anchor="end" font-size="9" font-family="IBM Plex Mono" fill="var(--muted)">N ↓ · approximate scale</text></svg>`;
+  g += `<text x="${W-8}" y="${H-6}" text-anchor="end" font-size="9" font-family="Inter Tight" fill="var(--muted)">N ↓ · approximate scale</text></svg>`;
   return g;
 }
 
@@ -396,15 +502,15 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(40,1,0.1,200);
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; controls.maxPolarAngle = Math.PI*0.49;
-scene.add(new THREE.HemisphereLight(0xffffff,0x8a8f84,0.9));
-const sun = new THREE.DirectionalLight(0xffffff,1.6); sun.position.set(-8,16,14); sun.castShadow = true;
+scene.add(new THREE.HemisphereLight(0xfffdf7,0x8a8574,0.75));
+const sun = new THREE.DirectionalLight(0xfff6e6,0.85); sun.position.set(-8,16,14); sun.castShadow = true;
 sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-15,right:15,top:15,bottom:-15}); scene.add(sun);
 const M = (c,o={})=>new THREE.MeshStandardMaterial({color:c,roughness:.85,...o});
 const mat = {
-  slab:M(0xbdb8ae), wallE:M(0xe9e5dc), wallI:M(0xf6f4ef), roof:M(0x4a5157,{metalness:.3,roughness:.5,transparent:true,opacity:.95}),
-  glass:M(0x9cc3dc,{transparent:true,opacity:.45,roughness:.1}), frame:M(0x2f3437), floor:M(0xc9a97e), wet:M(0xd9dcde),
+  slab:M(0xbdb8ae), wallE:M(0xe9e5dc), wallI:M(0xf6f4ef), roof:M(0x4a5863,{metalness:.3,roughness:.5,transparent:true,opacity:.95}),
+  glass:M(0x9cc3dc,{transparent:true,opacity:.45,roughness:.1}), frame:M(0x2a2a28), floor:M(0xc7a97c), wet:M(0xd9dcde),
   bed:M(0xdedad2), robe:M(0x8b7355), bench:M(0x6d757b), top:M(0xeeeeea), sofa:M(0x5c6b78), table:M(0x9a7b55),
-  grass:M(0x7fa36b), deck:M(0x8a6a48), shower:M(0xcfd8de,{transparent:true,opacity:.6}), white:M(0xf3f3f0), stair:M(0xa7865c),
+  grass:M(0x9aa588), deck:M(0x8a6a48), shower:M(0xcfd8de,{transparent:true,opacity:.6}), white:M(0xf3f3f0), stair:M(0xa7865c),
 };
 let group = null;
 const WALL_H = 2.7, T_EXT = 0.2, T_INT = 0.1, LVL_H = 3.0;
@@ -476,7 +582,7 @@ function build(o){
   controls.target.set(cx, levels===2?2.2:1.0, cz);
   camera.position.set(cx+span*0.75, span*0.95, cz+span*1.05);
   controls.update();
-  scene.background = new THREE.Color(css('--scene')||'#eef0ec');
+  scene.background = new THREE.Color('#f3efe5');
 }
 function applyVis(){
   if(!group) return;
@@ -487,32 +593,30 @@ function applyVis(){
 }
 function resize(){ const w=viewer.clientWidth, h=viewer.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
 new ResizeObserver(resize).observe(viewer);
+resize(); addEventListener('resize', resize);
 (function loop(){ controls.update(); renderer.render(scene,camera); requestAnimationFrame(loop); })();
-$('#btnRoof').onclick=(e)=>{ showRoof=!showRoof; e.currentTarget.setAttribute('aria-pressed',showRoof); applyVis(); };
+$('#btnRoof').onclick=(e)=>{ showRoof=!showRoof; e.currentTarget.setAttribute('aria-pressed',showRoof); e.currentTarget.textContent = showRoof?'Hide roof':'Show roof'; applyVis(); };
 $('#btnLevel').onclick=(e)=>{ showUpper=!showUpper; e.currentTarget.setAttribute('aria-pressed',showUpper); applyVis(); };
 $('#btnReset').onclick=()=>build(OPTIONS[cur]);
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{ scene.background = new THREE.Color(css('--scene')); });
 
 /* ---------- panel content ---------- */
 function render(){
   const o = OPTIONS[cur]; renderTabs();
-  $('#optEyebrow').textContent = o.status[1];
-  $('#optEyebrow').className = 'label '+o.status[0];
-  $('#optTitle').textContent = o.name;
+  $('#optEyebrow').textContent = 'Option '+o.key;
+  $('#optTitle').textContent = o.name.split(' · ')[1];
+  $('#optChip').innerHTML = `<span class="chip ${o.status[0]}">${o.key==='C'?'Needs council approval':'Meets granny-flat rules'}</span>`;
   const t = totals(cur);
-  const yardLeft = Math.max(0, Math.round(7.6*16.1 - o.w*o.d - 7.6*o.site.y*0.0));
   $('#specs').innerHTML = [
     ['Floor area', `${o.area} m²`], ['Footprint', `${o.w.toFixed(1)} × ${o.d.toFixed(1)} m`],
-    ['Bedrooms', '2'], ['Storeys', o.storeys===2?'2 (≈6.3 m wall height)':'1 (2.7 m walls)'],
-    ['Estimated cost', `${k(t.tlo)}–${k(t.thi)}`], ['Per m²', `${fmt(t.tlo/o.area)}–${fmt(t.thi/o.area)}`],
-    ['Family keeps', `right half ≈122 m² + ≈${yardLeft} m² left beside the flat`], ['Time to build', o.storeys===2?'≈6–9 months incl. DA':'≈4–6 months incl. approvals'],
-  ].map(([a,b])=>`<div class="spec"><span class="label">${a}</span><b>${b}</b></div>`).join('');
+    ['Bedrooms', '2'], ['Storeys', o.storeys===2?'Two':'Single'],
+    ['Estimate', `${k(t.tlo)}–${k(t.thi)}`], ['Build time', o.storeys===2?'6–9 months':'4–6 months'],
+  ].map(([a,b])=>`<div class="spec"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
   $('#compliance').innerHTML = o.key==='C'
-    ? `<div class="note"><b>Not allowed as a granny flat.</b> SA's granny-flat rules (ancillary accommodation) cap walls at 3 m and the roof at 5 m above ground, and floor area at 70 m². A two-storey building here would need a full planning application as a second house: assessed on its merits, likely notified to neighbours, with dwelling setbacks (about 3 m rear for the ground floor and 5 m for the upper floor) and possibly its own services. Approval is at council's discretion.</div>`
-    : `<div class="note blue"><b>Fits South Australia's granny-flat rules:</b> ${o.area} m² (limit 70 m²), single storey with 2.7 m walls (limit 3 m) and a low skillion roof under 5 m. It can be fully self-contained (own kitchen, bathroom, laundry). Setbacks shown (${o.site.y.toFixed(1)} m from the back fence, ${o.site.x.toFixed(1)} m from the side fence) are confirmed during approval.</div>`;
-  $('#rooms').innerHTML = o.rooms.map(r=>`<li>${r.n} <span class="mono src">${r.w.toFixed(1)} × ${r.d.toFixed(1)} m (${(r.w*r.d).toFixed(1)} m²)</span></li>`).join('') + `<li class="src">${o.summary}</li>`;
-  // plans
-  $('#planLabel').textContent = o.storeys===2 ? 'Floor plans · ground (left) and upper (right)' : 'Floor plan';
+    ? `<div class="note bad"><b>Needs council approval as a second house.</b> South Australia's granny-flat rules cap walls at 3 m, the roof at 5 m and floor area at 70 m². A two-storey building goes through a full planning application, assessed on its merits and possibly notified to neighbours, so approval is at council's discretion.</div>`
+    : `<div class="note"><b>Designed to South Australia's granny-flat rules:</b> ${o.area} m² (limit 70 m²), single storey with 2.7 m walls (limit 3 m), low roof under 5 m. Fully self-contained with its own kitchen, bathroom and laundry. Setbacks of ${o.site.y.toFixed(1)} m from the back fence and ${o.site.x.toFixed(1)} m from the side fence are confirmed during approval.</div>`;
+  $('#rooms').innerHTML = o.rooms.map(r=>`<li>${r.n.replace(/^(Ground|Upper) · /,(m,l)=>l+': ')}<span>${r.w.toFixed(1)} × ${r.d.toFixed(1)} m</span></li>`).join('');
+  $('#summary').textContent = o.summary;
+  $('#planLabel').textContent = o.storeys===2 ? 'Floor plans: ground and upper' : 'Floor plan';
   $('#plan').innerHTML = o.storeys===2 ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${planSVG(o,0)}${planSVG(o,1)}</div>` : planSVG(o,0);
   $('#site').innerHTML = siteSVG(o);
   $('#btnLevel').hidden = o.storeys!==2;
@@ -523,18 +627,18 @@ function render(){
 }
 function renderCosts(){
   const o = OPTIONS[cur], e = EST[cur];
-  $('#costTitle').textContent = `Estimated cost · ${o.name.replace(/^Option /,'Option ')}`;
-  const rows = e.groups.map(g=>`<tr><td>${g[0]}<div class="src">${g[1]}</div></td><td class="n">${fmt(g[2])}</td><td class="n">${fmt(g[3])}</td></tr>`).join('');
+  $('#costTitle').textContent = 'Estimated cost by stage';
+  const rows = e.groups.map(g=>`<tr><td><div class="t">${g[0]}</div><div class="d">${g[1]}</div></td><td class="n">${fmt(g[2])}</td><td class="n">${fmt(g[3])}</td></tr>`).join('');
   $('#costs').innerHTML = `<thead><tr><th>Stage</th><th class="n">From</th><th class="n">To</th></tr></thead><tbody>${rows}</tbody>
-    <tfoot><tr><td>Estimated total inc GST</td><td class="n">${fmt(e.tlo)}</td><td class="n">${fmt(e.thi)}</td></tr></tfoot>`;
+    <tfoot><tr><td>Estimated total, inc GST</td><td class="n">${fmt(e.tlo)}</td><td class="n">${fmt(e.thi)}</td></tr></tfoot>`;
   $('#costNote').textContent = 'A guide range, not a fixed quote. The lower figure assumes standard finishes and no surprises on site; the higher figure allows for upgraded finishes and site conditions found during the survey and soil test.';
 }
 function renderCmp(){
-  const head = `<thead><tr><th></th>${Object.values(OPTIONS).map(o=>`<th>${o.name.replace(/^Option /,'')}</th>`).join('')}</tr></thead>`;
+  const head = `<thead><tr><th></th>${Object.values(OPTIONS).map(o=>`<th>Option ${o.key} · ${o.name.split(' · ')[1]}</th>`).join('')}</tr></thead>`;
   const line = (label,fn)=>`<tr><td>${label}</td>${Object.values(OPTIONS).map(o=>`<td class="mono">${fn(o)}</td>`).join('')}</tr>`;
   $('#cmp').innerHTML = head + '<tbody>' +
     line('Floor area',o=>`${o.area} m²`) + line('Footprint',o=>`${o.w}×${o.d} m (${(o.w*o.d).toFixed(0)} m²)`) +
-    line('Approval path',o=>o.key==='C'?'<span class="bad">Full DA, second dwelling</span>':'<span class="ok">Granny flat</span>') +
+    line('Approval',o=>o.key==='C'?'<span class="bad">Full council application</span>':'<span class="ok">Granny-flat approval</span>') +
     line('Estimated cost',o=>{const t=totals(o.key);return `${k(t.tlo)}–${k(t.thi)}`}) +
     line('Per m²',o=>{const t=totals(o.key);return `${fmt(t.tlo/o.area)}–${fmt(t.thi/o.area)}`}) +
     line('Main living room',o=>{const r=o.rooms.find(r=>/living/i.test(r.n));return `${(r.w*r.d).toFixed(0)} m²`}) +
