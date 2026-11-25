@@ -6,17 +6,17 @@ import Footer from '@/components/layout/Footer'
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB'
 import StickyQuoteBar from '@/components/layout/StickyQuoteBar'
 
-const SITE_URL = 'https://briks.au'
+const SITE_URL = 'https://www.briks.au'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
       'Briks Building Services | Adelaide Maintenance, Repairs, Renovations',
-    template: '%s | Briks Building Services',
+    template: '%s',
   },
   description:
-    'Adelaide building services — maintenance, repairs, handyman, renovations, fit-outs. One local team across plumbing, electrical, carpentry, painting, tiling, roofing. Homeowners, landlords, agencies, businesses. One call. Every trade. Zero hassle.',
+    'Briks organises repairs and maintenance in Adelaide. One number, licensed independent trades, written quotes, before and after photos and one invoice.',
   keywords: [
     'Adelaide building services',
     'Adelaide maintenance',
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     title:
       'Briks Building Services | Adelaide Maintenance, Repairs, Renovations',
     description:
-      'Adelaide building services — maintenance, repairs, handyman, renovations and fit-outs. One local team. Homeowners, landlords, real estate agencies, businesses.',
+      'Briks organises repairs and maintenance in Adelaide for homeowners, landlords, property managers and agencies. One number, licensed independent trades.',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'Briks Building Services — One Call. Every Trade. Zero Hassle.',
+        alt: 'Briks Building Services, Adelaide repairs and maintenance',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Briks Building Services | Adelaide Maintenance, Repairs, Renovations',
     description:
-      'Adelaide builders, plumbers, electricians, painters and handymen — one local team. Maintenance, repairs, renovations, fit-outs.',
+      'Briks organises repairs and maintenance in Adelaide. One number, licensed independent trades, one invoice.',
   },
   robots: {
     index: true,

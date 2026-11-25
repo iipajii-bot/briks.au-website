@@ -62,18 +62,26 @@ const SOCIAL_LINKS: { url: string; name: 'linkedin' | 'facebook' | 'instagram' |
 ]
 
 const serviceLinks = [
-  { label: 'General Maintenance', href: '/services#general-maintenance' },
-  { label: 'Emergency Repairs', href: '/services#emergency-repairs' },
-  { label: 'Preventative Maintenance', href: '/services#preventative-maintenance' },
-  { label: 'End of Lease', href: '/services#end-of-lease' },
-  { label: 'Plumbing', href: '/services#plumbing' },
-  { label: 'Electrical', href: '/services#electrical' },
+  { label: 'All services', href: '/services' },
+  { label: 'Property maintenance', href: '/maintenance' },
+  { label: 'Urgent repairs', href: '/emergency' },
+  { label: 'Handyman jobs', href: '/handyman' },
+  { label: 'Renovations', href: '/renovations' },
+  { label: 'End of lease', href: '/services/end-of-lease' },
+  { label: 'Plumbing', href: '/services/plumbing' },
+  { label: 'Electrical', href: '/services/electrical' },
+  { label: 'Service areas', href: '/areas' },
 ]
 
 const companyLinks = [
-  { label: 'About Us', href: '/about' },
-  { label: 'How It Works', href: '/how-it-works' },
-  { label: 'Reviews', href: '/reviews' },
+  { label: 'For agencies', href: '/for-agencies' },
+  { label: 'For property managers', href: '/for-property-managers' },
+  { label: 'For landlords', href: '/for-landlords' },
+  { label: 'For homeowners', href: '/for-homeowners' },
+  { label: 'Check this first', href: '/help' },
+  { label: 'Guides', href: '/guides' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'About us', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -155,7 +163,7 @@ export default function Footer() {
               className="text-white font-semibold text-xs tracking-[0.15em] uppercase mb-5"
               style={{ fontFamily: 'var(--font-inter-tight)' }}
             >
-              Company
+              Explore
             </h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
@@ -222,7 +230,7 @@ export default function Footer() {
               <li className="pt-2">
                 <div className="text-white/35 text-xs">
                   <span className="block">Mon – Fri: 8am – 6pm ACST</span>
-                  <span className="block text-[#8a6e3f]">Emergency: 24 / 7 via Tapi</span>
+                  <span className="block text-[#8a6e3f]">Emergency? Call 000 first</span>
                 </div>
               </li>
             </ul>
@@ -234,14 +242,14 @@ export default function Footer() {
       <div className="border-t border-white/7">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/35 text-xs">
-            © {new Date().getFullYear()} {SITE.legalName}. ABN {SITE.abn}. Insured + compliant. All rights reserved.
+            © {new Date().getFullYear()} {SITE.legalName}. ABN {SITE.abn}. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className="text-white/35 hover:text-white/60 text-xs transition-colors">
+            <Link href="/legal/privacy" className="text-white/35 hover:text-white/60 text-xs transition-colors">
               Privacy Policy
             </Link>
             <span className="text-white/20 text-xs" aria-hidden="true">|</span>
-            <Link href="/terms" className="text-white/35 hover:text-white/60 text-xs transition-colors">
+            <Link href="/legal/terms" className="text-white/35 hover:text-white/60 text-xs transition-colors">
               Terms
             </Link>
           </div>

@@ -4,8 +4,9 @@ import { FAQ_BUSINESSES } from '@/lib/faqs'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'FAQ for Businesses — Commercial Maintenance & Fit-Out Adelaide',
-  description: 'Briks FAQ for Adelaide businesses, shopfronts, offices, strata. After-hours work, commercial fit-outs, compliance.',
+  title: { absolute: 'FAQ for Businesses | Briks Adelaide' },
+  description:
+    'Answers for Adelaide shops, offices and strata: repairs, maintenance and fit-out work organised by Briks with licensed trades.',
   alternates: { canonical: '/faq/businesses' },
 }
 
@@ -33,7 +34,7 @@ export default function FAQBusinesses() {
       <FAQSubPage
         eyebrow="FAQ · Businesses"
         title={<>For <span className="text-[#8a6e3f]">businesses.</span></>}
-        subtitle={<>After-hours work, fit-outs, strata billing, compliance schedules. For Adelaide shopfronts, cafés, offices, body corporates.</>}
+        subtitle={<>Repairs, maintenance and renovations for Adelaide shopfronts, cafés, offices and body corporates.</>}
         faqs={FAQ_BUSINESSES}
         primaryLabel="Talk to us"
       />

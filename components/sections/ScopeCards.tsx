@@ -70,11 +70,8 @@ export default function ScopeCards() {
                     Repairs + maintenance
                   </h3>
                 </div>
-                <p className="text-[#3a3735] text-base md:text-[17px] leading-relaxed max-w-lg">
-                  Leaks, sticking doors, gutters, wall patching, small carpentry,
-                  painting touch-ups. One visit, written price before work starts —
-                  and no call-out fee on jobs over an hour.
-                </p>
+                <p className="text-[#3a3735] text-base md:text-[17px] leading-relaxed max-w-lg">Leaks, sticking doors, gutters, wall patching, small carpentry,
+                  painting touch-ups. Briks organises the repair. Homeowners and businesses get a written quote before work starts.</p>
               </div>
               <div className="mt-8">
                 <Link
@@ -143,14 +140,9 @@ export default function ScopeCards() {
                     <h3
                       className="text-white text-lg md:text-xl tracking-[-0.01em]"
                       style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                    >
-                      24/7 emergency
-                    </h3>
+                    >Emergency contacts</h3>
                   </div>
-                  <p className="text-white/70 text-sm leading-relaxed">
-                    Burst pipe, no power, no hot water, storm damage. After-hours
-                    premium quoted before dispatch.
-                  </p>
+                  <p className="text-white/70 text-sm leading-relaxed">Burst pipe: turn water off at the meter if safe. Power out or wires down: call SA Power Networks on 13 13 66. If anyone is in danger, call 000. Briks can organise repairs afterwards once it is safe.</p>
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
                   {sitePhone() && (

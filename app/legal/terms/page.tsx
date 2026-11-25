@@ -4,9 +4,9 @@ import PageHero from '@/components/sections/PageHero'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Briks Building Services',
+  title: { absolute: 'Terms of Service | Briks Building Services' },
   description:
-    'Terms of Service for Briks Building Services Pty Ltd (ABN 90 697 367 721). Service terms, payment, warranty, liability limitations + Australian Consumer Law acknowledgements.',
+    'Terms of service for Briks Building Services Pty Ltd: quotes, payment, liability and Australian Consumer Law.',
   alternates: { canonical: '/legal/terms' },
 }
 
@@ -222,7 +222,7 @@ function Body() {
       ]} />
       <P>
         Where these limitations would not be enforceable under the ACL because you are a
-        consumer (as defined in section 3 of the ACL), then Briks\' liability for failure to
+        consumer (as defined in section 3 of the ACL), then Briks\’ liability for failure to
         comply with an ACL consumer guarantee is, to the maximum extent permitted by law,
         limited to: (a) for services — the supplying of the services again, or payment of the
         cost of having the services supplied again; (b) for goods — the replacement or
@@ -241,7 +241,7 @@ function Body() {
         were obliged to obtain but did not obtain.
       </P>
       <P>
-        This indemnity does not apply to loss or damage caused by Briks\' own negligence,
+        This indemnity does not apply to loss or damage caused by Briks\’ own negligence,
         wilful misconduct, or breach of these Terms or the ACL.
       </P>
 
@@ -254,7 +254,7 @@ function Body() {
       </P>
       <P>
         Photos taken by Briks during the course of a job (including before/after photos)
-        remain Briks\' property and may be used for portfolio, training, marketing, and case
+        remain Briks\’ property and may be used for portfolio, training, marketing, and case
         study purposes in de-identified form. We will not publish photos that identify your
         Property, address, or you personally without your prior written consent.
       </P>
@@ -295,7 +295,7 @@ function Body() {
 
       <H2 id="assignment">16. Assignment</H2>
       <P>
-        You may not assign your rights or obligations under these Terms without Briks\' prior
+        You may not assign your rights or obligations under these Terms without Briks\’ prior
         written consent. Briks may assign or sub-contract any of our rights or obligations
         under these Terms in the ordinary course of business.
       </P>

@@ -4,9 +4,9 @@ import PageHero from '@/components/sections/PageHero'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Briks Building Services',
+  title: { absolute: 'Privacy Policy | Briks Building Services' },
   description:
-    'Privacy Policy for Briks Building Services Pty Ltd (ABN 90 697 367 721). How we collect, use, store, and protect your personal information under the Australian Privacy Act 1988.',
+    'How Briks Building Services Pty Ltd collects, uses, stores and protects personal information under the Australian Privacy Act 1988.',
   alternates: { canonical: '/legal/privacy' },
 }
 

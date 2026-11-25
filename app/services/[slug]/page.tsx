@@ -27,6 +27,7 @@ import MovingBorder from '@/components/effects/MovingBorder'
 import FAQAccordion from '@/components/sections/FAQAccordion'
 import TradePage from '@/components/sections/TradePage'
 import { SERVICES, SITE } from '@/lib/constants'
+import { metaDesc, brandTitle } from '@/lib/seo'
 import { TRADES, getTrade } from '@/lib/trades'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -64,8 +65,8 @@ export async function generateMetadata(props: { params: Params }): Promise<Metad
   const trade = getTrade(slug)
   if (trade) {
     return {
-      title: trade.metaTitle,
-      description: trade.metaDescription,
+      title: brandTitle(trade.metaTitle),
+      description: metaDesc(trade.metaDescription),
       alternates: { canonical: `/services/${trade.slug}` },
       openGraph: {
         title: trade.metaTitle,
@@ -79,8 +80,8 @@ export async function generateMetadata(props: { params: Params }): Promise<Metad
   if (!svc) return { title: 'Service Not Found' }
 
   return {
-    title: `${svc.title} Adelaide — ${svc.tagline}`,
-    description: svc.description,
+    title: `${svc.title} in Adelaide | Briks`,
+    description: metaDesc(svc.description),
     alternates: { canonical: `/services/${svc.id}` },
   }
 }
@@ -328,14 +329,14 @@ export default async function ServicePage(props: { params: Params }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
-              Recent work
+              Typical jobs
             </p>
             <h2
               className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-[-0.02em] text-[#1a1a1a]"
               style={{ fontWeight: 700 }}
             >
-              Common jobs we{' '}
-              <span className="text-[#8a6e3f]">handle.</span>
+              Jobs we{' '}
+              <span className="text-[#8a6e3f]">organise.</span>
             </h2>
           </div>
 
@@ -380,10 +381,7 @@ export default async function ServicePage(props: { params: Params }) {
                 What you{' '}
                 <span className="text-[#8a6e3f]">walk away with.</span>
               </h2>
-              <p className="text-[#3a3735] text-base md:text-lg leading-relaxed">
-                Every job closes with paperwork, photos, and warranties — not a
-                shrug and a handshake.
-              </p>
+              <p className="text-[#3a3735] text-base md:text-lg leading-relaxed">Each finished job has one invoice from Briks and before and after photos, not a shrug and a handshake.</p>
             </div>
             <div className="md:col-span-7">
               <SpotlightCard className="p-7 md:p-8">
@@ -431,7 +429,7 @@ export default async function ServicePage(props: { params: Params }) {
             {[
               { n: '01', t: 'Tell us', b: 'Phone, online form, or email. Two sentences is enough.' },
               { n: '02', t: 'Quote', b: 'Written price back fast. Renovations get a site visit + itemised quote without delay.' },
-              { n: '03', t: 'On-site', b: 'Vetted, licensed tradie dispatched. Photos before and after.' },
+              { n: '03', t: 'On-site', b: 'An independent tradie licensed in South Australia does the work. Photos before and after.' },
               { n: '04', t: 'Invoice', b: 'Single tax invoice on completion. Pay direct, card, or EFT.' },
             ].map((step) => (
               <li

@@ -9,9 +9,9 @@ import { SITE } from '@/lib/constants'
 import { IMAGES } from '@/lib/images'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Adelaide Building Services & Renovations',
+  title: { absolute: 'Pricing: Repairs and Desk Fee | Briks Adelaide' },
   description:
-    'How Briks prices jobs in Adelaide. No call-out fee on jobs over an hour. Per-job pricing — no subscription, no lock-in. Itemised quotes on renovations.',
+    'Free phone help, repairs priced per job, and a flat $19 including GST desk fee on rental jobs when a trade is sent. No desk fee for homeowners.',
   alternates: { canonical: '/pricing' },
 }
 
@@ -19,11 +19,11 @@ const tiers = [
   {
     label: 'Maintenance & repairs',
     price: 'Quoted per job',
-    body: 'Every job priced on its own scope. We come back with a written number before any work starts. No call-out fee on jobs over an hour.',
+    body: 'Homeowners and businesses get a written quote before work starts. Landlords and agencies can set an approval limit.',
     bullets: [
       'Fast quote turnaround',
       'Written price before work starts',
-      'No call-out fee on jobs over 1 hour',
+      'Phone help is free for simple problems',
       'Photos + invoice on completion',
     ],
   },
@@ -50,13 +50,13 @@ const tiers = [
     ],
   },
   {
-    label: '24/7 Emergency',
-    price: 'Quoted at dispatch',
-    body: 'Genuine emergencies dispatch immediately. After-hours premium baked into the quote up front. Burst pipes, no power, no hot water, broken access.',
+    label: 'Repairs after emergencies',
+    price: 'Written quotes available',
+    body: 'Emergencies: call 000 if anyone is in danger. Gas smell: leave the area, do not use switches or flames, call Australian Gas Networks on 1800 427 532. Power out or wires down: SA Power Networks 13 13 66. Burst pipe: turn water off at the meter if safe. Briks can organise repairs afterwards once it is safe.',
     bullets: [
-      'Immediate dispatch',
-      'After-hours premium quoted up front',
-      '24/7 real humans answering',
+      'Repair coordination',
+      'Written quote for homeowners and businesses',
+      'Free phone help for simple problems',
       'No subscription required',
     ],
   },
@@ -65,7 +65,7 @@ const tiers = [
 const faqs = [
   {
     q: 'How is each job priced?',
-    a: 'On its own scope. We assess the work, come back with a written number before any tradie is dispatched. You see the price before you commit.',
+    a: 'On its own scope. We assess the work and give homeowners and businesses a written quote before work starts. Landlords and agencies set an approval limit; anything over it is quoted first.',
   },
   {
     q: 'Is there a subscription or retainer?',

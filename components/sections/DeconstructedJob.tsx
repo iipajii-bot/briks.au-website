@@ -58,7 +58,7 @@ const PAPERS: Paper[] = [
   {
     id: 'e', Icon: Receipt,
     chaosLabel: 'Invoice #1', chaosSub: 'Plumber · $420',
-    rowLabel: 'Documented', rowSub: 'Audit trail in Tapi',
+    rowLabel: 'Documented', rowSub: 'Photos and notes on every job',
     scatterX: '-18vw', scatterY: '-42vh', scatterR: -30, rowX:  '20vw',
   },
   {

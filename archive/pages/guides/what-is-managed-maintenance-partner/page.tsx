@@ -271,18 +271,18 @@ export default function Page() {
           </li>
           <li>
             <Link
-              href="/guides/property-maintenance-outsourcing-australia"
+              href="/guides/outsourcing-property-maintenance"
               className="underline underline-offset-4"
             >
-              Property maintenance outsourcing in Australia — 2026 guide
+              How agencies outsource tenant maintenance
             </Link>
           </li>
           <li>
             <Link
-              href="/guides/tapi-preferred-supplier-setup"
+              href="/guides/adding-a-maintenance-supplier"
               className="underline underline-offset-4"
             >
-              Setting up as a Tapi preferred supplier
+              Adding a new maintenance supplier: checklist
             </Link>
           </li>
           <li>

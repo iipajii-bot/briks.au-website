@@ -38,7 +38,7 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
     suburb: 'Norwood',
     trade: 'plumbing',
     span: 'large',
-    blurb: 'Same-day hot-water unit swap. Tenant back to hot water before dinner.',
+    blurb: 'Hot-water unit swap: a plumber licensed in South Australia replaces the unit and tests the hot water.',
   },
   {
     id: 'placeholder-2',
@@ -47,7 +47,7 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
     suburb: 'Glenelg',
     trade: 'electrical',
     span: 'medium',
-    blurb: 'Old fuse box replaced with RCD-protected switchboard, certified.',
+    blurb: 'Old fuse box replacement: an electrician licensed in South Australia for electrical work installs an RCD-protected switchboard.',
   },
   {
     id: 'placeholder-3',
@@ -56,7 +56,7 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
     suburb: 'Mitcham',
     trade: 'roofing',
     span: 'small',
-    blurb: 'Storm-damage flashing replaced. Documented for insurance.',
+    blurb: 'Storm-damage flashing replacement: a tradesperson licensed in South Australia replaces the flashing, and Briks provides before and after photos and one invoice.',
   },
   {
     id: 'placeholder-4',
@@ -74,7 +74,7 @@ export const PLACEHOLDER_PROJECTS: Project[] = [
     suburb: 'Prospect',
     trade: 'hvac',
     span: 'small',
-    blurb: 'Reverse-cycle unit installed and certified same morning.',
+    blurb: 'Reverse-cycle unit installation: trades licensed in South Australia install and test the unit.',
   },
   {
     id: 'placeholder-6',

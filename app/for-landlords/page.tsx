@@ -1,449 +1,197 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Phone,
-  KeyRound,
-  FileCheck,
-  MessageCircle,
-  CheckCircle2,
-  type LucideIcon,
-} from 'lucide-react'
-import PageHero from '@/components/sections/PageHero'
-import TrustStrip from '@/components/sections/TrustStrip'
-import FAQAccordion from '@/components/sections/FAQAccordion'
-import MovingBorder from '@/components/effects/MovingBorder'
-import { IMAGES } from '@/lib/images'
-import { SITE, whatsappHref } from '@/lib/constants'
+import Chooser from '@/components/site/Chooser'
+import LeadForm from '@/components/site/LeadForm'
+import CopyBlock from '@/components/site/CopyBlock'
+import QuickFixes from '@/components/site/QuickFixes'
+import TradeStrip, { Photo } from '@/components/site/TradeStrip'
+import { FEE } from '@/components/site/fee'
+import { cleanChoice, cleanText, type SearchParams } from '@/components/site/personal'
+import { Arrow, CtaLink, Faq, FactList, JsonLd, SectionHead, Steps, cls, faqJsonLd, ground } from '@/components/site/ui'
+import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
 
-const PRIMARY_KEYWORD = 'Adelaide rental property maintenance'
+/*
+ * /for-landlords: self-managing landlords. Keep managing it yourself; stop being the repair desk.
+ * Personal link: ?suburb=&rentals=1|2-5|6+
+ */
 
 export const metadata: Metadata = {
-  title:
-    'Rental Property Maintenance Adelaide — Landlords | Briks Building Services',
+  title: { absolute: 'Repairs for Self-Managing Landlords in Adelaide | Briks' },
   description:
-    'Adelaide rental property maintenance for landlords. After-hours emergency response, tenant access protocols, insurance-ready PDF reports, SA Residential Tenancies Act compliance. One coordinator, one invoice.',
+    `Self-managing a rental in Adelaide? Tenants report repairs to Briks, phone help is free, and a licensed trade is booked when needed. ${FEE.amount} per job.`,
   alternates: { canonical: '/for-landlords' },
+  robots: { index: true, follow: true },
 }
 
-const breadcrumb = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
-    { '@type': 'ListItem', position: 2, name: 'For Landlords', item: `${SITE.url}/for-landlords` },
-  ],
-}
-
-const SCENARIOS: { title: string; body: string; Icon: LucideIcon }[] = [
-  {
-    Icon: Phone,
-    title: '11pm tenant emergency call',
-    body: 'Burst pipe. No hot water. Power out. Tenant calls you while you are interstate or asleep. Briks dispatches inside 60 minutes across metro Adelaide, make-safes the property, sends you a photo report by morning. You do not get out of bed.',
-  },
-  {
-    Icon: KeyRound,
-    title: 'Between-tenants make-ready',
-    body: 'Wall patch, paint touch-up, regrout, lock change, smoke alarm test, RCD check, garden tidy. Standard turnaround inside 5 working days from key handover. One quote, photo evidence for the bond office, ready to re-let.',
-  },
-  {
-    Icon: FileCheck,
-    title: 'Insurance + compliance documentation',
-    body: 'Storm damage. Water ingress. Tenant-caused damage. Every Briks-coordinated job ends with an insurance-ready PDF: photos, written cause-and-effect, line-item costs. Most insurers accept Briks reports without a separate assessor visit.',
-  },
-]
-
-const COMPLIANCE_ITEMS = [
-  {
-    label: 'Smoke alarms',
-    body: 'SA residential tenancy law requires hardwired or 10-year sealed-battery smoke alarms in every bedroom and on every level. Briks A-grade sparks replace + certify; Certificate of Compliance lodged with the SA Office of the Technical Regulator.',
-  },
-  {
-    label: 'RCD (safety switch) testing',
-    body: 'Mandatory in SA residential tenancies. Periodic testing + replacement coordinated by Briks, with dated test logs supplied for your records.',
-  },
-  {
-    label: 'Pool fence compliance',
-    body: 'Where applicable, Briks coordinates fence inspection + remediation to current SA pool fence regulations. Certificate of currency supplied.',
-  },
-  {
-    label: 'Gas appliance certification',
-    body: 'Gas hot water, cooktops, heaters — every installation lodged via the eCoC (electronic Certificate of Compliance) system under PIC Type A gas-fitter authorisation.',
-  },
-  {
-    label: 'Asbestos pre-1990 awareness',
-    body: 'Pre-1990 SA homes routinely contain asbestos sheet, eaves, vinyl. Briks does not disturb suspect material without testing first. Where present, we coordinate licensed asbestos removalists separately and document for your records.',
-  },
-]
-
-const DELIVERABLES = [
-  '60-minute emergency dispatch across Adelaide metro, 24/7',
-  'Tenant communication handled by Briks — tradies do not have your number',
-  'Key safe / lockbox access protocols supported',
-  'Insurance-ready PDF reports inside 24 hours of inspection',
-  '5-working-day end-of-lease make-ready turnaround',
-  'GST tax invoice issued in landlord name — tax-deductible per ATO rental-property rules',
-  'Per-property cost tracking when you own multiple investments',
-  'Certificates of Compliance for plumbing, electrical, gas work',
-  '12-month workmanship guarantee on Briks-coordinated work',
-]
+const STEPS = [
+  { title: 'Your tenant reports it to us', body: 'They call or text the Briks number. We work out how urgent it is.' },
+  { title: 'We book a licensed trade', body: 'We arrange access with the tenant and keep them updated, so they stop calling you.' },
+  { title: 'Over your limit, you decide', body: 'Jobs under your limit go ahead. Anything over it is quoted to you first.' },
+  { title: 'You get photos and one invoice', body: `Before and after photos with each finished job, and one invoice from Briks: the repair plus a flat ${FEE.amount} Briks maintenance desk fee.` },
+] as const
 
 const FAQS = [
-  {
-    q: 'Can you let yourselves in for emergencies when I am not contactable?',
-    a: 'Yes, with prior written authority. Briks supports key safes, lockbox codes, and pre-agreed entry instructions. For emergencies where life or property is at immediate risk (active leak, gas smell, fire) we attend under the make-safe duty implied by SA tenancy law and notify you on arrival.',
-  },
-  {
-    q: 'How do you handle tenant complaints + access?',
-    a: 'Briks acts as the single point of contact. We text the tenant ahead of every visit with the tradie name, ETA, and a brief description. We do not give tenants the tradie\'s number. Complaints flow through Briks and are documented in the job report.',
-  },
-  {
-    q: 'Are smoke alarm + RCD checks included in routine maintenance?',
-    a: 'They are not bundled by default — but they are easy add-ons. Many landlords set Briks up with a yearly compliance sweep that covers smoke alarms (replacement at 10-year mark or sooner), RCD testing, pool fence inspection, and gas appliance servicing. We schedule, attend, and report.',
-  },
-  {
-    q: 'Do you do end-of-lease make-good?',
-    a: 'Yes. Briks runs a standard 5-working-day end-of-lease turnaround for a 3-bedroom property — patch, paint, regrout where needed, fitting replacements, smoke alarm test, RCD check, photo report for the bond office. Larger properties + multi-trade jobs are quoted on inspection.',
-  },
-  {
-    q: 'Can you invoice multiple properties separately?',
-    a: 'Yes. Each property gets its own job number, scope, and invoice. Useful for tax reporting and per-property profit tracking. We supply a monthly summary PDF if you ask for one.',
-  },
-  {
-    q: 'What is the after-hours emergency response time?',
-    a: 'Inside 60 minutes across Adelaide metropolitan area for genuine emergencies (active leak, no power, no hot water, gas smell, security breach, storm damage). Hills suburbs add 15-30 minutes depending on conditions.',
-  },
-  {
-    q: 'Are your reports insurance-ready?',
-    a: 'Yes. Briks documents every fault with multi-angle photos, written cause-and-effect summary, and itemised cost breakdown. Most home and landlord insurers accept Briks reports without an additional assessor visit. We email the PDF inside 24 hours of inspection.',
-  },
-  {
-    q: 'Do you work with my interstate property manager?',
-    a: 'Yes. Briks accepts work orders via Tapi, MaintenanceManager, PropertyMe, REST Professional, or plain email. We can sit alongside your existing manager as the dispatched contractor, or replace them entirely if you self-manage.',
-  },
-  {
-    q: 'Are Briks invoices tax-deductible as rental property expenses?',
-    a: 'Yes. Briks invoices are issued in the landlord (or company) name with full ABN and GST detail, structured for direct deduction under ATO rental-property expense rules. We can split capital improvements vs repairs on the invoice if you specify — useful for tax-time clarity.',
-  },
-  {
-    q: 'What if the tenant claims damage that I think was their fault?',
-    a: 'Briks documents the issue with photos at attendance. We do not adjudicate fault — that is between you and the tenant under your tenancy agreement. The photo + written record gives you defensible evidence either way.',
-  },
-]
+  { q: 'Do I need a property manager to use Briks?', a: 'No. Briks works directly with landlords who manage their own rentals. You stay the landlord; we handle the repair calls.' },
+  { q: 'What does it cost?', a: `No sign-up fee and no subscription, and phone help for your tenants is free. When a job needs a licensed trade sent, you pay the repair (priced on its own) plus a flat ${FEE.amount} ${FEE.gst} Briks maintenance desk fee: booking the trade, arranging access with your tenant, checking the work and sending you the photos.` },
+  { q: 'What is my approval limit?', a: 'An amount you choose. Jobs under it go ahead without asking you. Anything over it is quoted to you first and waits for your yes.' },
+  { q: 'What about emergencies?', a: 'Your tenant calls the same number. We triage it when it comes in, organise a make-safe or a licensed trade, then tell you what was done. We do not offer 24-hour cover. In a life-threatening emergency, call 000 first.' },
+  { q: 'Do you do flooring?', a: 'Yes. Hybrid, laminate, vinyl and carpet, supplied and installed, with a written quote first. Useful between tenancies.' },
+  { q: 'What does Briks not do?', a: 'Renovations, structural work and building projects are outside what we coordinate for landlords.' },
+  { q: 'Which areas do you cover?', a: 'The Adelaide metropolitan area.' },
+] as const
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-}
+const TENANT_NOTE = `Hi, for any repair at the property please contact Briks Building Services on ${'0449 517 367'} (call or text). They will arrange the right licensed tradesperson, book a time with you and keep you updated. For anything urgent, use the same number. In an emergency where someone is in danger, call 000 first. Thanks.`
 
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Rental property maintenance for landlords',
-  name: 'Adelaide Rental Property Maintenance for Landlords',
-  description:
-    'Briks coordinates maintenance, repair, and emergency response for Adelaide investment properties. SA Residential Tenancies Act compliance, insurance-ready reports, 60-minute emergency dispatch, 5-day end-of-lease turnaround.',
-  provider: { '@id': `${SITE.url}/#organization` },
-  areaServed: { '@type': 'City', name: 'Adelaide' },
-  audience: { '@type': 'Audience', audienceType: 'Landlord' },
-  url: `${SITE.url}/for-landlords`,
-}
+export default async function ForLandlordsPage({ searchParams }: { searchParams: SearchParams }) {
+  const sp = await searchParams
+  const suburb = cleanText(sp.suburb)
+  const rentals = cleanChoice(sp.rentals, ['1', '2-5', '6+'] as const)
+  const phone = sitePhone()
 
-export default function ForLandlords() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': `${SITE.url}/for-landlords#service`,
+        name: 'Repair coordination for self-managing landlords',
+        serviceType: 'Rental property repair and maintenance coordination',
+        provider: { '@id': `${SITE.url}/#organization` },
+        areaServed: { '@type': 'City', name: 'Adelaide' },
+        audience: { '@type': 'Audience', audienceType: 'Self-managing residential landlords' },
+      },
+      faqJsonLd(`${SITE.url}/for-landlords#faq`, FAQS),
+    ],
+  }
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb).replace(/</g, '\\u003c') }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, '\\u003c') }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }}
-      />
+      <JsonLd data={jsonLd} />
 
-      <PageHero
-        eyebrow="For landlords"
-        title={
-          <>
-            {PRIMARY_KEYWORD}{' '}
-            <span className="text-[#8a6e3f]">that stops at the property line.</span>
-          </>
-        }
-        subtitle={
-          <>
-            One coordinator handles every trade your Adelaide investment needs —
-            emergency response after hours, between-tenant make-ready,
-            compliance sweeps, repair documentation for your insurer. We talk
-            to your tenant. You read the report at breakfast.
-          </>
-        }
-      />
-
-      <TrustStrip />
-
-      <section className="relative py-16 md:py-24 bg-[#ffffff]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-                The pitch in one paragraph
-              </p>
-              <h2
-                className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6"
-                style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-              >
-                You hire Briks. We deal with your tenant. You read the report.
-              </h2>
-              <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
-                <p>
-                  Adelaide rental property maintenance is a logistics job, not a
-                  tradie job. The tradie is the easy part — Briks already runs a
-                  vetted bench of licensed South Australian professionals. The
-                  hard part is tenant coordination, access, reporting,
-                  compliance, and keeping you out of the loop until there is
-                  something to actually decide.
-                </p>
-                <p>
-                  Briks handles the logistics. Tenant calls us, we triage,
-                  dispatch, attend, photograph, fix, document, invoice. You see
-                  a single email summary at the end. Emergencies get a
-                  60-minute metro dispatch and a photo report by morning.
-                  Routine work follows the SA Residential Tenancies Act
-                  notification windows so nothing comes back as a dispute.
-                </p>
-              </div>
+      {/* HERO: typographic, warm ground; the tenant note as the object */}
+      <section aria-labelledby="hero-h" className="border-b border-[#e2ddd3] bg-[#f3efe5]">
+        <div className={`${cls.wrap} ${cls.heroPad} grid items-center gap-12 lg:grid-cols-12`}>
+          <div className="home-enter min-w-0 lg:col-span-7">
+            <p className={cls.eyebrow}>{suburb ? `For landlords in ${suburb}` : 'For self-managing landlords · Adelaide'}</p>
+            <h1 id="hero-h" className={`${cls.h1} mt-5`}>
+              Keep managing it yourself. Stop being the repair desk.
+            </h1>
+            <p className={`${cls.lead} mt-6 max-w-[34rem]`}>
+              Your tenants report repairs straight to Briks. We organise a licensed trade, keep the tenant updated and send you
+              the photos. You set the approval limit, and nothing over it starts without your yes.{' '}
+              <strong className="font-semibold text-[#1a1a1a]">No sign-up fee, and calls are free.</strong> When a trade is sent you pay the repair plus a flat {FEE.amount}{' '}Briks maintenance desk fee (including GST).
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <CtaLink href="#setup">
+                {suburb ? `Set up your ${suburb} rental` : 'Set up your rental'} <Arrow />
+              </CtaLink>
+              {phone ? (
+                <CtaLink href={sitePhoneHref()} variant="secondary">
+                  Call {phone}
+                </CtaLink>
+              ) : null}
             </div>
-            <div className="lg:col-span-5">
-              <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-[#e2ddd3] bg-[#fafaf7]">
-                <Image
-                  src={IMAGES.extension}
-                  alt="Modern Adelaide investment property exterior"
-                  fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
-                />
+          </div>
+          <div className="home-enter home-enter--late min-w-0 lg:col-span-5">
+            <div className="rounded-lg border border-[#c0bcb4] bg-white p-6 shadow-[0_24px_60px_-36px_rgba(26,26,26,0.45)] sm:p-7">
+              <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8a6e3f]">The note you send your tenant</p>
+              <p className="mt-4 text-[16px] leading-relaxed text-[#1a1a1a]">{TENANT_NOTE}</p>
+              <div className="mt-5">
+                <CopyBlock text={TENANT_NOTE} label="Copy the note" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              How landlords use Briks
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Three jobs we run every week.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {SCENARIOS.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white border border-[#e2ddd3] rounded-md p-6 md:p-7"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-sm border border-[#e2ddd3] bg-[#fafaf7] mb-5">
-                  <s.Icon size={16} className="text-[#8a6e3f]" aria-hidden />
-                </div>
-                <h3
-                  className="text-[#1a1a1a] text-lg md:text-xl tracking-[-0.01em] mb-3"
-                  style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                >
-                  {s.title}
-                </h3>
-                <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                  {s.body}
-                </p>
-              </div>
-            ))}
+      <TradeStrip title="The licensed trades your rental needs, through one number." note="Independent trades, each licensed in South Australia for their work." />
+
+      {/* STEPS */}
+      <section aria-labelledby="how-h" className={ground.paper}>
+        <div className={`${cls.wrap} ${cls.section}`}>
+          <SectionHead id="how-h" eyebrow="When a tenant reports a repair" title="Your phone stays quiet. You still decide." />
+          <Steps steps={STEPS} cols={4} />
+        </div>
+      </section>
+
+      {/* FREE HELP FIRST */}
+      <section aria-labelledby="fix-h" className={ground.warm}>
+        <div className={`${cls.wrap} ${cls.section}`}>
+          <SectionHead id="fix-h" eyebrow="Free help first" title="Some repairs don't need a trade at all.">
+            <p>Your tenant gets walked through the simple checks before anyone is sent. That saves you call-outs. Pick a problem to see them.</p>
+          </SectionHead>
+          <div className="mt-10">
+            <QuickFixes contactHref={phone ? sitePhoneHref() : '/contact'} contactLabel={phone ? `Still stuck? Call ${phone}` : 'Contact us'} />
           </div>
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 bg-[#ffffff]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              SA compliance — what gets checked
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              The non-negotiables for SA rentals.
-            </h2>
-            <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
-              South Australian residential tenancy law sets specific compliance
-              items the landlord (not the tenant) is responsible for. Briks
-              tracks the renewal cycle on each so you do not get caught by an
-              expired certificate at handover.
-            </p>
-          </div>
-          <ul className="space-y-3">
-            {COMPLIANCE_ITEMS.map((c) => (
-              <li
-                key={c.label}
-                className="relative bg-[#fafaf7] border border-[#e2ddd3] rounded-md p-5 md:p-6 pl-7"
-              >
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-5 bottom-5 w-[3px] bg-[#8a6e3f] rounded-r-sm"
-                />
-                <p
-                  className="text-[#1a1a1a] text-base md:text-lg tracking-[-0.01em] mb-2"
-                  style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                >
-                  {c.label}
-                </p>
-                <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                  {c.body}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-5">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-                What you get on every job
-              </p>
-              <h2
-                className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-                style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-              >
-                The deliverables.
-              </h2>
-              <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
-                Same checklist whether your investment is a single Glenelg
-                cottage or a 12-property portfolio across the metro.
-              </p>
-            </div>
-            <div className="lg:col-span-7">
-              <ul className="space-y-2.5">
-                {DELIVERABLES.map((d) => (
-                  <li
-                    key={d}
-                    className="flex items-start gap-3 bg-white border border-[#e2ddd3] rounded-md p-4"
-                  >
-                    <CheckCircle2
-                      size={16}
-                      className="text-[#8a6e3f] shrink-0 mt-0.5"
-                      aria-hidden
-                    />
-                    <span className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                      {d}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+      {/* CONTROL + CHOOSER */}
+      <section aria-labelledby="control-h" className={ground.soft}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-12 md:grid-cols-12`}>
+          <div className="md:col-span-5">
+            <SectionHead id="control-h" eyebrow="What you control" title="Your limit. Your yes or no. Every photo.">
+              <p>Each repair is priced on its own, plus a flat {FEE.amount}{' '}Briks maintenance desk fee when a trade is sent. Nothing over your limit starts until you reply.</p>
+            </SectionHead>
+            <div className="mt-8">
+              <FactList
+                items={[
+                  { k: 'Your approval limit', v: 'You set the amount. Jobs under it go ahead; anything over it is quoted first.' },
+                  { k: 'Your yes or no', v: 'Quotes come to you by email or phone. Nothing over your limit starts without your reply.' },
+                  { k: 'Every photo', v: 'Before and after photos with each finished job, and one invoice.' },
+                  { k: 'Phone help', v: 'Free. Your tenant gets the simple checks first, which saves you call-outs.' },
+                ]}
+              />
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="relative py-20 md:py-28 bg-[#ffffff]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              FAQ
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Landlord questions, answered.
-            </h2>
-          </div>
-          <FAQAccordion items={FAQS} />
-        </div>
-      </section>
-
-      <section className="relative py-16 md:py-20 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-            Related
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              { href: '/for-property-managers', label: 'For property managers' },
-              { href: '/services/handyman', label: 'Handyman' },
-              { href: '/services/electrical', label: 'Smoke alarm + RCD' },
-              { href: '/services/plumbing', label: 'Plumbing' },
-              { href: '/case-studies/norwood-end-of-lease-turnaround', label: 'EOL case study' },
-              { href: '/blog/end-of-lease-repair-checklist-sa-landlords', label: 'EOL checklist blog' },
-              { href: '/blog/storm-damage-repairs-adelaide-insurance-guide', label: 'Storm-damage guide' },
-              { href: '/our-tradies', label: 'Our tradies' },
-            ].map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="group flex items-center justify-between bg-white border border-[#e2ddd3] rounded-md px-4 py-3 hover:border-[#8a6e3f]/60 transition-colors"
-              >
-                <span
-                  className="text-[#1a1a1a] text-sm"
-                  style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 600 }}
-                >
-                  {l.label}
-                </span>
-                <ArrowUpRight
-                  size={14}
-                  className="text-[#8a6e3f] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
-            ))}
+          <div className="md:col-span-6 md:col-start-7">
+            <Chooser
+              legend="How many rentals do you have?"
+              initial={rentals}
+              options={[
+                { id: '1', label: '1 rental', title: 'One rental, no agent.', body: 'Give your tenant the Briks number and set one approval limit. You hear from us when something is done, or when something needs your yes.' },
+                { id: '2-5', label: '2 to 5', title: 'A few rentals, one number.', body: 'Every tenant gets the same Briks number. Each rental can have its own approval limit, so one property never sets the price for another.' },
+                { id: '6+', label: '6 or more', title: 'A portfolio without the phone calls.', body: 'One number for every tenant, an approval limit per property, and a weekly summary of every job across the portfolio with photos.' },
+              ]}
+            />
           </div>
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 bg-[#ffffff] text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.1] mb-6"
-            style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-          >
-            Got a tenant call coming?{' '}
-            <span className="text-[#8a6e3f]">Route it to us.</span>
-          </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-            One coordinator, every trade, all the compliance paperwork. Give us
-            the tenant&rsquo;s number and we&rsquo;ll take it from here.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <MovingBorder href="/contact">
-              Get a quote
-              <ArrowRight size={18} aria-hidden />
-            </MovingBorder>
-            <a
-              href={whatsappHref(
-                "Hi Briks — I'm a landlord with an Adelaide investment property. Brief:"
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#c0bcb4] hover:border-[#8a6e3f]/60 text-[#1a1a1a]/80 hover:text-[#1a1a1a] px-7 py-3.5 transition-colors duration-300 min-h-[44px]"
-            >
-              <MessageCircle size={16} aria-hidden />
-              Text us on WhatsApp
-            </a>
+      {/* FAQ */}
+      <section aria-labelledby="faq-h" className={ground.paper}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-10 md:grid-cols-12`}>
+          <div className="md:col-span-4">
+            <SectionHead id="faq-h" eyebrow="Questions landlords ask" title="Before you set it up." />
+          </div>
+          <div className="md:col-span-7 md:col-start-6">
+            <Faq items={FAQS} />
+          </div>
+        </div>
+      </section>
+
+      {/* SET UP */}
+      <section id="setup" aria-labelledby="setup-h" className={`scroll-mt-24 ${ground.soft}`}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-12 md:grid-cols-12`}>
+          <div className="md:col-span-5">
+            <SectionHead id="setup-h" eyebrow="Set up your rental" title="Tell us about the rental. We'll do the rest.">
+              <p>No subscription and no sign-up fee. We reply by phone or email to agree your approval limit.</p>
+            </SectionHead>
+            <Photo src="/stock/about-hero.jpg" alt="A single-storey stone villa with a front garden" className="mt-8 hidden md:block" sizes="(min-width: 768px) 420px, 100vw" />
+          </div>
+          <div className="md:col-span-7">
+            <LeadForm
+              source="landlords"
+              submitLabel="Send my details"
+              defaults={{ suburb, doors: rentals ?? '' }}
+              fields={[
+                { name: 'name', label: 'Your name', autoComplete: 'name', required: true, half: true },
+                { name: 'phone', label: 'Mobile', type: 'tel', autoComplete: 'tel', required: true, half: true },
+                { name: 'email', label: 'Email', type: 'email', autoComplete: 'email', required: true, half: true },
+                { name: 'suburb', label: 'Suburb of the rental', required: true, half: true },
+                { name: 'doors', label: 'Number of rentals', type: 'select', options: ['1', '2-5', '6+'], half: true },
+                { name: 'issue', label: 'Anything we should know?', type: 'textarea', required: true, hint: 'For example: a repair that needs doing now, or how you handle repairs today.' },
+              ]}
+            />
           </div>
         </div>
       </section>

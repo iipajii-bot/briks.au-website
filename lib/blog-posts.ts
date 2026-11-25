@@ -56,7 +56,7 @@ export const BLOG_POSTS: BlogPost[] = [
     description:
       'Adelaide hot water systems last 8-15 years depending on type. Repair vs replace decision, gas vs electric vs heat pump, and what costs more over 10 years.',
     excerpt:
-      'A 12-year-old gas storage unit leaking at the relief valve is almost always replace, not repair. Here is the honest decision tree.',
+      'A gas storage unit leaking at the relief valve may need replacement rather than repair. Here is a simple decision tree.',
     publishedAt: '2026-04-12',
     updatedAt: '2026-05-08',
     category: 'Maintenance',
@@ -65,7 +65,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'p',
         content:
-          'A hot water system in Adelaide typically lasts 8-12 years for electric storage, 10-15 years for gas storage, 15-20 years for continuous-flow gas, and 12-15 years for heat pump units. The repair-vs-replace decision turns on three factors: age, fault type, and what the next 10 years of running costs look like.',
+          'Hot water systems in Adelaide last different lengths of time depending on type. The repair or replace decision turns on age, fault type, and running costs.',
       },
       { type: 'h2', content: 'How long do hot water systems actually last in Adelaide?' },
       {
@@ -76,18 +76,18 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'ul',
         items: [
-          'Electric storage tank — 8-12 years (sacrificial anode replaced at year 5 extends to 14)',
-          'Gas storage tank — 10-15 years (similar anode service window)',
-          'Continuous-flow gas (instantaneous) — 15-20 years',
-          'Heat pump — 12-15 years (compressor is the limiting factor)',
-          'Solar hot water — 15-20 years on the panels, 10 years on the booster tank',
+          'Electric storage tank: lifespan varies with water quality and servicing; a sacrificial anode can help extend tank life.',
+          'Gas storage tank: lifespan varies with water quality and servicing; anode servicing can help extend tank life.',
+          'Continuous flow gas (instantaneous): lifespan depends on servicing and water quality.',
+          'Heat pump: the compressor can be a limiting factor.',
+          'Solar hot water: panels and booster tank can have different service lives.',
         ],
       },
       { type: 'h2', content: 'When repair makes sense' },
       {
         type: 'p',
         content:
-          'Repair is the right call when the unit is under 8 years old, the fault is a single replaceable component, and parts cost less than 30% of replacement. Common repair-friendly faults:',
+          'Repair can be the right call when the unit is relatively new, the fault is in a single replaceable part, and the repair cost is clearly less than replacement. Common faults that suit repair:',
       },
       {
         type: 'ul',
@@ -96,7 +96,7 @@ export const BLOG_POSTS: BlogPost[] = [
           'Faulty thermocouple or pilot assembly on gas storage',
           'Pressure-relief valve drip from valve fatigue (replaceable)',
           'Tempering valve failure (mandatory replacement, low cost)',
-          'Sacrificial anode replacement (extends tank life by 5-7 years if done before year 7)',
+          'Sacrificial anode replacement (can help extend tank life as part of servicing)',
         ],
       },
       { type: 'h2', content: 'When replace makes sense' },
@@ -109,9 +109,9 @@ export const BLOG_POSTS: BlogPost[] = [
         type: 'ul',
         items: [
           'Tank visibly leaking from the body, not just the relief valve',
-          'Unit over 12 years old AND a major fault has appeared',
-          'Repair quote exceeds 40% of like-for-like replacement',
-          'You\'re moving from gas storage to heat pump (efficiency upgrade payback under 5 years for households on solar)',
+          'Unit is older and a major fault has appeared',
+          'Repair quote is a large share of like-for-like replacement',
+          'You’re moving from gas storage to heat pump (compare running costs for your home)',
           'Continuous hot water reliability is critical (tenant property, business)',
         ],
       },
@@ -119,12 +119,12 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'p',
         content:
-          'For Adelaide households with rooftop solar, heat pump electric is now the lowest 10-year running cost choice — typically 60-70% cheaper to run than gas storage when paired with daytime solar. Without solar, gas continuous-flow remains competitive on running cost. Pure electric storage is the most expensive to run and rarely the right new install in 2026.',
+          'For Adelaide households with rooftop solar, heat pump electric can suit daytime solar use. Compare running costs for your home. Without solar, gas continuous-flow can remain competitive on running cost. Pure electric storage can be expensive to run, so compare options before a new install.',
       },
       {
         type: 'callout',
         title: 'Replace before failure if you can',
-        body: 'A planned replacement on a 12-year-old gas unit beats an emergency replacement at midnight on a Sunday. Most Briks plumbers carry common units in the truck — same-day swap-out is often possible if scoped during routine maintenance.',
+        body: 'A planned replacement on an older gas unit is better than waiting for it to fail. Briks can organise a licensed plumber to check the unit during routine maintenance and arrange a quote for a planned replacement.',
       },
       { type: 'h2', content: 'What to expect from a replacement quote' },
       {
@@ -140,7 +140,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         q: 'Can I replace gas with electric or vice versa?',
-        a: 'Yes — but it requires both a licensed plumber (PIC) and an A-grade electrician. Briks coordinates both under one job number so you get one written quote and one invoice. Switching from gas to heat-pump electric is the most common upgrade in Adelaide right now.',
+        a: 'Yes. It needs a plumber licensed in South Australia for plumbing work and an electrician licensed in South Australia for electrical work. Briks can coordinate both trades. Homeowners and businesses get a written quote before work starts, and Briks sends one invoice for each finished job.',
       },
       {
         q: 'How long does a hot water replacement take?',
@@ -399,7 +399,7 @@ export const BLOG_POSTS: BlogPost[] = [
           'Electrical — circuits, GPOs, lighting, oven/cooktop hardwire',
           'Painting — wall and ceiling repaint after install',
           'Appliance supply — line items per appliance OR a PC sum if you supply',
-          'Contingency — typically 8-12% for hidden substrate or service relocation',
+          'Allow a contingency for hidden substrate or service relocation.',
         ],
       },
       { type: 'h2', content: 'Red flags in a kitchen refit quote' },
@@ -422,22 +422,22 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'p',
         content:
-          'A typical 3-trade kitchen refit (cabinetry, plumbing, electrical, painting) takes 3-4 weeks of trade work plus a 4-8 week supply lead for benchtops and custom cabinetry. From quote sign-off to completion: typically 8-12 weeks calendar time.',
+          'A typical kitchen refit (cabinetry, plumbing, electrical, painting) involves trade work plus supply lead time for benchtops and custom cabinetry. Briks coordinates the work and does not promise completion times.',
       },
       {
         type: 'callout',
         title: 'Spec range honestly',
-        body: 'A "mid-range" Adelaide kitchen with stone benchtop, mid-spec cabinetry, and quality appliances is a substantially different job from a "high-end" kitchen with custom joinery and premium appliances. Briks quotes both bands so you can choose with full information — not get nudged into the higher number after sign-off.',
+        body: 'A mid-range Adelaide kitchen with stone benchtop, mid-spec cabinetry, and quality appliances is a substantially different job from a high-end kitchen with custom joinery and premium appliances. Briks provides a written quote before work starts for homeowners and businesses, so you can compare the work.',
       },
     ],
     faqs: [
       {
         q: 'How long does a kitchen refit take in Adelaide?',
-        a: 'A standard 3-trade kitchen refit takes 3-4 weeks of on-site work plus 4-8 weeks of supply lead time for benchtops and custom cabinetry. Calendar time from quote sign-off is typically 8-12 weeks.',
+        a: 'A standard kitchen refit involves on-site trade work plus supply lead time for benchtops and custom cabinetry. Allow for both when planning.',
       },
       {
         q: 'Can I keep using my kitchen during the refit?',
-        a: 'During the cabinetry and benchtop install phase (typically week 2-3 of trades on-site), the kitchen is unusable. Plan a temporary microwave-and-bar-fridge setup in another room. Briks projects build this into the schedule with a "minimum-disruption" sequencing option where possible.',
+        a: 'During the cabinetry and benchtop install phase, the kitchen is unusable. Plan a temporary microwave-and-bar-fridge setup in another room. Allow for this in your schedule.',
       },
       {
         q: 'Do I need council approval for a kitchen renovation?',
@@ -474,7 +474,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'p',
         content:
-          'Galvanised steel pipe was standard in Adelaide residential plumbing from the 1880s through the 1960s. It corrodes from the inside out — internal scaling reduces pressure and water becomes brown or rusty after long sit periods. Failure point is typically 60-80 years from install. By 2026, virtually all original galvanised in heritage homes is at end-of-life.',
+          'Galvanised steel pipe was standard in Adelaide residential plumbing from the 1880s through the 1960s. It corrodes from the inside out: internal scaling reduces pressure and water becomes brown or rusty after long sit periods. Failure point is typically 60-80 years from install. By 2026, virtually all original galvanised in heritage homes is at end-of-life.',
       },
       { type: 'h2', content: 'Lead — the phase-out' },
       {
@@ -542,7 +542,7 @@ export const BLOG_POSTS: BlogPost[] = [
   // 6. STORM DAMAGE INSURANCE
   {
     slug: 'storm-damage-repairs-adelaide-insurance-guide',
-    title: 'Storm-damage repairs in Adelaide — what insurance covers',
+    title: 'Storm-damage repairs in Adelaide: what insurance covers',
     description:
       'Adelaide storm season runs winter to early spring. What home insurance typically covers, what triggers a claim, and how to document damage for a clean claim outcome.',
     excerpt:
@@ -555,7 +555,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'p',
         content:
-          'Adelaide storm season runs from May through September, with the heaviest weather typically in June-August. Most home insurance policies cover storm damage as a defined event — wind, rain, hail, and lightning. Pre-existing wear that storm conditions exposed (e.g. an aged ridge cap that finally cracks in 80 km/h winds) is often the dispute point.',
+          'Adelaide storm season runs from May through September, with the heaviest weather typically in June-August. Most home insurance policies cover storm damage as a defined event: wind, rain, hail, and lightning. Pre-existing wear that storm conditions exposed (e.g. an aged ridge cap that finally cracks in 80 km/h winds) is often the dispute point.',
       },
       { type: 'h2', content: 'What home insurance typically covers' },
       {
@@ -596,10 +596,10 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'ol',
         items: [
-          'Initial call triaged within 60 minutes — make-safe dispatched same day',
+          'Free phone help for simple problems; Briks can organise make-safe repairs after the property is safe.',
           'Photo and video documentation captured before any patch work',
-          'Written cause-and-effect summary supplied to the customer\'s insurer within 24 hours',
-          'Full repair scope and quote provided once insurance approves',
+          'Before and after photos and one invoice from Briks can be used with the customer’s insurance claim.',
+          'A written quote is provided before work starts for homeowners and businesses.',
           'Repair work coordinated under one project — roof, plumbing, painting, electrical as needed',
           'Final photo report and Certificates of Compliance supplied at handover',
         ],
@@ -608,7 +608,7 @@ export const BLOG_POSTS: BlogPost[] = [
     faqs: [
       {
         q: 'How quickly should I call about storm damage?',
-        a: 'Call as soon as the property is safe to inspect. Briks dispatches make-safe inside 60 minutes during storm events. Documentation in the first 24 hours protects the insurance claim — every hour the scene is altered (by you or weather) reduces the evidence available.',
+        a: 'Call as soon as the property is safe to inspect. Briks can organise make-safe repairs when you contact it during business hours. Early photos and notes help with the insurance claim: every hour the scene is altered (by you or weather) reduces the evidence available.',
       },
       {
         q: 'Will insurance cover gutter cleaning if storm damage was caused by overflow?',
@@ -616,7 +616,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         q: 'Do I need three quotes for an insurance claim?',
-        a: 'Some insurers require three quotes for damage above a certain threshold; others accept one quote from an approved contractor. Briks supplies an itemised insurance-ready quote with photo evidence as standard — most insurers accept it without an additional assessor visit.',
+        a: 'Some insurers require three quotes for damage above a certain threshold; others accept one quote from an approved contractor. Check your insurer’s requirements; Briks provides a written quote before work starts for homeowners and businesses, plus before and after photos for each finished job.',
       },
       {
         q: 'What is "make-safe" and is it covered?',
@@ -710,7 +710,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'p',
         content:
-          'Briks accepts briefs via Tapi, MaintenanceManager, email, or a custom portal. The coordinator reads the brief, confirms scope with the property manager if anything is missing, schedules with the tenant, and reports back with photos and written summary. One property manager touchpoint, one Briks coordinator, one job number — not five tradies and six emails.',
+          'Briks takes work orders by email from your property management software, or by phone. The coordinator reads the brief, confirms scope with the property manager if anything is missing, schedules with the tenant, and reports back with photos and written summary. One property manager touchpoint, one Briks coordinator, one job number — not five tradies and six emails.',
       },
     ],
     faqs: [
@@ -724,11 +724,11 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         q: 'What systems does Briks integrate with?',
-        a: 'Briks accepts work orders via Tapi, MaintenanceManager, PropertyMe, REST Professional, and direct email. Most agencies stay in their existing system — Briks fits the workflow rather than imposing a new portal.',
+        a: 'Briks takes work orders by email from PropertyMe, PropertyTree, Reapit PM or any other system, or by phone. Most agencies stay in their existing system — Briks fits the workflow rather than imposing a new portal.',
       },
       {
         q: 'How fast does Briks respond to a property manager brief?',
-        a: 'Briks acknowledges incoming briefs within business hours of receipt and books an attendance window inside 48 hours for routine work. Emergencies (active leak, no power, no hot water) are dispatched within 60 minutes inside the metro area.',
+        a: 'Briks can organise independent licensed trades for routine work when you contact it during business hours. Briks does not offer emergency dispatch, after-hours cover or response times. If anyone is in danger call 000.',
       },
     ],
     relatedTrades: ['handyman', 'plumbing', 'electrical', 'painting'],
@@ -751,7 +751,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: 'p',
         content:
-          'For Adelaide households in 2026, heat pump electric hot water paired with rooftop solar is now the lowest-running-cost option, typically 60-70% cheaper to run than gas storage when most heating happens during daytime solar hours. For households without solar, gas continuous-flow (instantaneous) remains competitive on running cost but loses on long-term capital — federal and state incentives heavily favour heat pump electric.',
+          'For Adelaide households, heat pump electric hot water paired with rooftop solar can have lower running costs than gas storage, especially when heating happens during daytime solar hours. Without solar, gas continuous-flow can be competitive on running cost, but check current incentives and long-term costs, as government schemes may favour heat pump electric.',
       },
       { type: 'h2', content: 'Running cost — 10 year window' },
       {
@@ -824,7 +824,7 @@ export const BLOG_POSTS: BlogPost[] = [
     faqs: [
       {
         q: 'How much does a heat pump hot water system cost to install in Adelaide?',
-        a: 'Heat pump installation cost includes the unit (typically $3,000-5,000), plumbing connection, electrical connection, condensate drainage, and Certificate of Compliance lodgement. Federal and state rebates often offset 30-50% of the unit cost. Briks quotes line-by-line including rebate paperwork.',
+        a: 'Heat pump installation cost includes the unit (typically $3,000-5,000), plumbing connection, electrical connection, condensate drainage, and Certificate of Compliance lodgement. Federal and state rebates often offset 30-50% of the unit cost. Briks organises the work and gives homeowners a written quote before work starts.',
       },
       {
         q: 'Is a heat pump hot water system noisy?',
@@ -1010,14 +1010,14 @@ export const BLOG_POSTS: BlogPost[] = [
           'Ask for photos of the membrane application from previous jobs',
           'Confirm two coats of liquid membrane (not just one) in the quote',
           'Confirm bond-breaker tape application is included',
-          'Ask for a 10-year workmanship warranty in writing',
+          'Ask for the trade’s workmanship warranty in writing',
           'Walk away if the quote is "too good to be true" — proper waterproofing is labour-intensive',
         ],
       },
       {
         type: 'callout',
         title: 'Briks documents every layer',
-        body: 'Briks tilers photograph the membrane application at every stage — bond-breaker tape, first coat, cure, second coat, cure. The customer gets the photo set with the invoice. If a leak appears later, we have evidence the work was done correctly — and a clean basis for warranty action.',
+        body: 'The customer gets before and after photos and one invoice from Briks for each finished job. If a leak appears later, the photos show the work that was done.',
       },
     ],
     faqs: [
@@ -1035,7 +1035,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         q: 'How long should waterproofing last?',
-        a: 'A correctly installed waterproofing membrane to AS 3740 should last 20-25 years minimum. If a shower starts leaking inside 5 years, the install was almost certainly non-compliant — and the original installer should be held to their workmanship warranty.',
+        a: 'A correctly installed waterproofing membrane to AS 3740 should last 20 to 25 years. If a shower starts leaking inside 5 years, the installation may be non-compliant. The original installer should be asked about their workmanship warranty.',
       },
     ],
     relatedTrades: ['tiling', 'plumbing', 'painting'],

@@ -8,9 +8,9 @@ import { VET_CHECKS } from '@/lib/network'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Our Tradies — Adelaide\'s Vetted Building Network',
+  title: { absolute: 'The Trades Briks Books in Adelaide | Briks' },
   description:
-    'Briks Building Services coordinates a vetted bench of licensed Adelaide tradies. Plumbers, electricians, carpenters, painters, tilers, roofers — all license-checked, insured, and reviewed every job.',
+    'Briks books independent trades, each licensed in South Australia for their own work: plumbers, electricians, carpenters, painters, tilers and roofers.',
   alternates: { canonical: '/our-tradies' },
 }
 
@@ -25,7 +25,7 @@ const breadcrumb = {
 
 const VET_ICONS: Record<string, LucideIcon> = {
   'License + ticket verified': ShieldCheck,
-  'Insurance current': Search,
+  'Trades licensed in South Australia': Search,
   'Two-job trial': Repeat,
   'Customer feedback loop': MessageSquare,
 }
@@ -49,12 +49,7 @@ export default function OurTradiesPage() {
           </>
         }
         subtitle={
-          <>
-            Briks doesn&rsquo;t pretend to be a 200-person crew. We&rsquo;re a
-            coordinator with a tight bench of Adelaide tradies we&rsquo;ve
-            vetted, used, and re-used. You get the right specialist for the
-            job — not the closest available body.
-          </>
+          <>Briks doesn’t have an in-house trade team. We coordinate independent trades for repairs, maintenance and renovation work. The work is done by trades licensed in South Australia for their own work.</>
         }
       />
 
@@ -68,9 +63,7 @@ export default function OurTradiesPage() {
             <h2
               className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
               style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Four checks every tradie clears before they touch your job.
-            </h2>
+            >Trades are licensed in South Australia for their own work.</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
@@ -105,9 +98,7 @@ export default function OurTradiesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
             <div className="max-w-2xl">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-                The bench
-              </p>
+              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Trades we work with</p>
               <h2
                 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
                 style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
@@ -117,11 +108,7 @@ export default function OurTradiesPage() {
                   You hire Briks. We pick the right hands.
                 </span>
               </h2>
-              <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed max-w-xl">
-                Names + photos shift. Trade, experience, license, and insurance
-                are what actually matter on the day. Here&rsquo;s the working
-                bench right now.
-              </p>
+              <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed max-w-xl">Trade, experience and South Australian licences matter on the day. Briks coordinates independent trades, each licensed in South Australia for their own work.</p>
             </div>
           </div>
 
@@ -150,13 +137,7 @@ export default function OurTradiesPage() {
                 crew works for whoever pays the wages. They show up on the job
                 they were rostered to — not the one that suits your fault.
               </p>
-              <p>
-                A vetted network means your job gets the right specialist. The
-                heritage waterproofer for your 1920s shower hob. The A-grade
-                spark for the switchboard. The cabinet-maker who&rsquo;s done
-                300 kitchens, not the apprentice the boss is trying to keep
-                busy on a quiet Tuesday.
-              </p>
+              <p>Briks coordinates independent trades, each licensed in South Australia for their own work. A leaking shower: a licensed plumber finds the source and quotes the fix. A switchboard: a licensed electrician quotes the job. A kitchen: a cabinet-maker quotes the work.</p>
               <p>
                 We pay tradies fairly so they take our calls first. We don&rsquo;t
                 inflate overhead by pretending to employ them. You pay for the
@@ -184,12 +165,7 @@ export default function OurTradiesPage() {
             Got a job?{' '}
             <span className="text-[#8a6e3f]">We&rsquo;ll match the right tradie.</span>
           </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-            Tell us what&rsquo;s broken or what you&rsquo;re building. A
-            coordinator picks the right specialist off the bench, scopes the
-            job, and gets you a written quote — usually inside 24 hours of the
-            on-site visit.
-          </p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Tell us what is broken or what you are building. A coordinator will discuss the job and arrange an independent trade to scope it. Homeowners and businesses get a written quote before work starts.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <MovingBorder href="/contact">
               Get a quote

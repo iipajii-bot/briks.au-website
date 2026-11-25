@@ -48,15 +48,15 @@ export const TRADES: Trade[] = [
     name: 'Plumbing',
     noun: 'Plumber',
     primaryKeyword: 'Plumber Adelaide',
-    metaTitle: 'Plumber Adelaide — Licensed Plumbing, Drains, Hot Water | Briks',
+    metaTitle: 'Plumber in Adelaide: Leaks, Drains, Hot Water | Briks',
     metaDescription:
-      'Licensed plumbers across Adelaide. Blocked drains, leaking taps, hot water, gas plumbing, emergency callouts. PIC-licensed, insured, vetted bench. One number, one invoice.',
+      'Briks coordinates independent plumbers and gas fitters licensed in South Australia. Blocked drains, leaking taps, hot water, gas plumbing. One number, one invoice.',
     hero: {
       eyebrow: 'Plumbing — Adelaide',
       headline: 'Licensed plumbers.',
       headlineAccent: 'Picked, briefed, on site.',
       subhead:
-        'Blocked drains, leaking taps, dead hot water systems, gas plumbing, slow leaks under tiles. Briks coordinates PIC-licensed Adelaide plumbers — vetted, insured, paid promptly so they take our calls first.',
+        'Briks coordinates independent plumbers and gas fitters licensed in South Australia. Blocked drains, leaking taps, dead hot water systems, gas plumbing, slow leaks under tiles.',
     },
     longTail: [
       'emergency plumber Adelaide',
@@ -64,7 +64,7 @@ export const TRADES: Trade[] = [
       'hot water repair Adelaide',
       'leaking tap repair Adelaide',
       'gas plumbing Adelaide',
-      'after hours plumber Adelaide',
+      'plumber Adelaide',
       'hot water system replacement SA',
     ],
     commonJobs: [
@@ -80,22 +80,22 @@ export const TRADES: Trade[] = [
       'Backflow prevention device testing and certification',
     ],
     whatsInvolved: [
-      'A licensed plumber attends, scopes the fault on-site, and gives you a written quote before any work starts. We do not quote off vague phone descriptions — too easy to miss the real cause.',
-      'For emergencies (active leak, no water, no hot water, gas smell), the dispatch is immediate from a pre-agreed roster. Make-safe first, full repair scoped after the property is stable.',
-      'Every plumbing job is logged with photos and a written description. Insurance claim or landlord report — you get the paperwork the same day.',
+      'A plumber licensed in South Australia attends and scopes the fault on-site. Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit, and anything over it is quoted first.',
+      'If anyone is in danger, call 000. Gas smell: leave the area, do not use switches or flames, call Australian Gas Networks on 1800 427 532. For an active water leak or burst pipe, turn the water off at the meter if safe. Briks can organise the repair afterwards once it is safe.',
+      'For each finished plumbing job, Briks gives you before and after photos and one invoice. For an insurance claim or landlord report, you get the paperwork with the finished job.',
     ],
     standards: [
       {
-        label: 'PIC license verified',
-        body: 'Every plumber on the bench holds a current South Australian Plumbing, Gas Fitting and Electrical (PIC) license. We pull the live record before the first job and re-check on renewal.',
+        label: 'Licensed in South Australia for plumbing work',
+        body: 'Plumbers Briks organises are independent trades licensed in South Australia for plumbing work.',
       },
       {
-        label: 'AS 3500 compliance',
-        body: 'All plumbing work meets Australian Standard AS 3500 (plumbing and drainage). Not negotiable. Compliance certificates issued where required.',
+        label: 'AS 3500 plumbing and drainage standard',
+        body: 'Plumbing work must meet Australian Standard AS 3500 (plumbing and drainage). The work is done by trades licensed in South Australia for plumbing work.',
       },
       {
-        label: '$10M+ public liability',
-        body: 'Minimum $10M public liability per tradie. Senior plumbers on the bench carry $20M. Certificate of currency on file before dispatch.',
+        label: 'Ask about public liability insurance',
+        body: 'Ask each trade about public liability insurance. Briks organises the work; the trade is licensed in South Australia for their own work.',
       },
     ],
     whenToCall: {
@@ -105,11 +105,11 @@ export const TRADES: Trade[] = [
         'Burst pipe or main shut-off needed',
         'Gas smell — call us and turn the meter off at the street',
         'Slow leak you cannot trace (it is almost never where the wet patch is)',
-        'Hot water replacement — gas-to-electric or heat pump conversions need a licensed plumber',
+        'Hot water replacement: gas-to-electric or heat pump conversions need a plumber licensed in South Australia for plumbing work',
         'Anything connected to the gas line — illegal for an unlicensed person to touch',
       ],
       diy: [
-        'Plunging a basic toilet block (give it 5 minutes — most clear)',
+        'Plunging a basic toilet block: try this first',
         'Replacing a tap washer if you have done one before',
         'Cleaning a slow drain with hot water and bicarb',
         'Resetting a tripped electric hot water unit (read the manual first)',
@@ -118,31 +118,31 @@ export const TRADES: Trade[] = [
     faqs: [
       {
         q: 'How much does a plumber cost in Adelaide?',
-        a: 'Adelaide plumber rates vary widely by job type. A blocked drain clear typically costs less than a hot water replacement, which costs less than a gas line install. Briks does not publish rates because every job is sized differently — we attend, scope, and give a written quote before work starts. No callout fee in the fine print.',
+        a: 'Adelaide plumber rates vary widely by job type. A blocked drain clear typically costs less than a hot water replacement, which costs less than a gas line install. Briks does not publish rates because every job is sized differently. A licensed plumber looks at the job and you get a written quote before work starts.',
       },
       {
         q: 'Are plumbers licensed in South Australia?',
-        a: 'Yes. All plumbing work in SA must be carried out by a person holding a current Plumbing, Gas Fitting and Electrical (PIC) license issued by Consumer and Business Services SA. Unlicensed plumbing is illegal and voids most home insurance policies.',
+        a: 'Yes. Plumbing work is done by independent trades licensed in South Australia for plumbing work.',
       },
       {
-        q: 'What does PIC license mean?',
-        a: 'PIC stands for Plumbing, Gas Fitting and Electrical Contractor — the licensing scheme administered by Consumer and Business Services South Australia. Holding a current PIC license confirms the plumber has met training, insurance, and competency requirements set by the SA government.',
+        q: 'What does a South Australian trade licence mean?',
+        a: 'Trades are licensed in South Australia for their own work. Briks coordinates the work and is not a licensed builder, plumber, electrician or gas fitter.',
       },
       {
         q: 'Who do I call for a burst pipe in Adelaide?',
-        a: 'For a burst pipe, shut off the water at the meter (street-side) first, then call Briks on WhatsApp or the form. We dispatch from an emergency plumber roster across Adelaide and prioritise active leaks. Make-safe arrives same day.',
+        a: 'For a burst pipe, turn the water off at the meter if it is safe. Then contact Briks during business hours to organise the repair.',
       },
       {
         q: 'Can a plumber install a gas hot water system?',
-        a: 'Only a plumber holding a Type A gas-fitter ticket on top of their plumbing license can install a gas hot water system in South Australia. Briks plumbers who do gas work hold both. Certificate of compliance is issued and lodged with the energy regulator.',
+        a: 'Gas hot water systems must be installed by a trade licensed in South Australia for gas fitting work. Briks coordinates the work through independent licensed trades.',
       },
       {
         q: 'How quickly can a plumber attend in Adelaide?',
-        a: 'Briks emergency callouts (active leak, no water, no hot water, gas) are dispatched within 60 minutes inside the metro area. Routine repairs are scoped on-site within 48 hours of the call. We confirm the window in writing before you commit.',
+        a: 'Briks does not offer emergency callouts or after-hours cover. It can organise repairs during business hours. Homeowners and businesses get a written quote before work starts.',
       },
       {
         q: 'What is covered by plumbing insurance?',
-        a: 'Briks-coordinated plumbing work is backed by the tradie\'s public liability cover (minimum $10M per job). Workmanship is covered by Briks for 12 months on top of any manufacturer warranty on installed parts.',
+        a: 'Plumbing work organised by Briks is done by independent trades licensed in South Australia for plumbing work. Briks gives no workmanship warranty of its own. Manufacturer warranties on products may apply; check the terms.',
       },
       {
         q: 'Do you service my suburb?',
@@ -158,18 +158,18 @@ export const TRADES: Trade[] = [
     name: 'Electrical',
     noun: 'Electrician',
     primaryKeyword: 'Electrician Adelaide',
-    metaTitle: 'Electrician Adelaide — A-Grade Licensed | Briks Building Services',
+    metaTitle: 'Electrician in Adelaide: Power, Lights, Switchboards | Briks',
     metaDescription:
-      'A-grade licensed electricians across Adelaide. Switchboard upgrades, safety switches, EV chargers, smoke alarms, emergency callouts. Briks coordinates a vetted bench — one number, one invoice.',
+      'Electrical jobs across Adelaide are handled by independent trades licensed in South Australia for electrical work. Switchboard upgrades, safety switches, EV chargers, smoke alarms. Briks coordinates the job: one number, one invoice from Briks.',
     hero: {
       eyebrow: 'Electrical — Adelaide',
-      headline: 'A-grade electricians.',
+      headline: 'Electrical trades licensed in South Australia.',
       headlineAccent: 'No shortcuts.',
       subhead:
-        'Switchboard upgrades, safety switches, EV chargers, smoke alarm compliance, no-power emergencies. Briks dispatches A-grade SA-licensed sparks who carry full liability cover and lodge every job with the regulator.',
+        'Switchboard upgrades, safety switches, EV chargers, smoke alarm replacement, and power outages. Briks organises the work, and the electricians are licensed in South Australia for electrical work. Power out or wires down: call SA Power Networks on 13 13 66.',
     },
     longTail: [
-      'A-grade electrician Adelaide',
+      'Electrical work Adelaide',
       'switchboard upgrade Adelaide',
       'safety switch installation Adelaide',
       'EV charger installation Adelaide',
@@ -181,7 +181,7 @@ export const TRADES: Trade[] = [
       'Switchboard upgrades — including ceramic-fuse to circuit-breaker conversion',
       'Safety switch (RCD) installation and testing',
       'EV charger installation (single and three-phase)',
-      'Hardwired smoke alarm replacement to AS 3786 + SA rental compliance',
+      'Hardwired smoke alarm replacement to AS 3786. Check SA rental requirements.',
       'Power point additions, relocations, and replacements',
       'Ceiling fan and pendant light installation',
       'LED downlight replacement (low-voltage to mains-rated)',
@@ -190,14 +190,14 @@ export const TRADES: Trade[] = [
       'No-power and tripping circuit emergency callouts',
     ],
     whatsInvolved: [
-      'An A-grade electrician attends, identifies the circuit and load involved, and quotes in writing. For switchboard work, we photograph the existing board so the quote is line-by-line — not estimated off a phone description.',
-      'No-power emergencies (whole-house outage that is not network-side) are dispatched within an hour. We confirm whether it is a Briks-fixable internal fault or a SA Power Networks issue before billing.',
+      'An electrician licensed in South Australia for electrical work attends and identifies the circuit and load involved. Homeowners and businesses get a written quote before work starts. For switchboard work, the electrician checks the existing board and quotes the work.',
+      'Power out or wires down: call SA Power Networks on 13 13 66. Once it is safe, Briks can organise an electrician licensed in South Australia for electrical work. Homeowners and businesses get a written quote before work starts.',
       'Every notifiable electrical job is lodged with the Office of the Technical Regulator. You get the Certificate of Compliance the same week.',
     ],
     standards: [
       {
-        label: 'A-grade SA license',
-        body: 'Every Briks electrician holds a current A-grade electrical license from Consumer and Business Services SA. License numbers are verified before onboarding and re-checked annually.',
+        label: 'Electrical licence in South Australia',
+        body: 'The electricians Briks organises are independent trades licensed in South Australia for electrical work.',
       },
       {
         label: 'AS/NZS 3000 wiring rules',
@@ -227,12 +227,12 @@ export const TRADES: Trade[] = [
     },
     faqs: [
       {
-        q: 'What is an A-grade electrician?',
-        a: 'An A-grade electrician in South Australia holds the highest tier of electrical license issued by Consumer and Business Services SA. They are qualified to design, install, alter, and repair electrical installations — including switchboard work and meter-box-side work that B-grade or restricted licenses cannot legally touch.',
+        q: 'What does a licensed electrician do?',
+        a: 'An electrician licensed in South Australia for electrical work can design, install, alter and repair electrical installations. That includes switchboard work. Ask for the licence details for the work you need.',
       },
       {
         q: 'Do I need a licensed electrician in SA?',
-        a: 'Yes. All electrical work in South Australia other than plugging in a pre-wired appliance must be carried out by a person holding a current SA electrical license. Unlicensed work is illegal under the Plumbers, Gas Fitters and Electricians Act and voids most home insurance policies.',
+        a: 'Yes. All electrical work in South Australia other than plugging in a pre-wired appliance must be carried out by a person licensed in South Australia for electrical work. Unlicensed work is illegal under the Plumbers, Gas Fitters and Electricians Act.',
       },
       {
         q: 'How much is a switchboard upgrade?',
@@ -244,11 +244,11 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'Are smoke alarms mandatory in SA rentals?',
-        a: 'Yes. South Australian residential tenancy law requires hardwired or 10-year sealed-battery smoke alarms in every bedroom and on every level. Replacement is the landlord\'s responsibility and must be done by a licensed electrician for hardwired units.',
+        a: 'Yes. South Australian residential tenancy law requires hardwired or 10-year sealed-battery smoke alarms in every bedroom and on every level. The landlord is responsible for replacement. Hardwired units must be replaced by an electrician licensed in South Australia for electrical work.',
       },
       {
         q: 'Can you install an EV charger at home?',
-        a: 'Yes. EV charger installation is mandatory licensed work in SA — Briks A-grade sparks install single-phase wall-mounted chargers (Tesla, Zappi, Wallbox) and three-phase fast chargers. We assess your switchboard capacity before quoting.',
+        a: 'Yes. EV charger installation must be done by an electrician licensed in South Australia for electrical work. Briks organises the installation of single-phase wall-mounted chargers (Tesla, Zappi, Wallbox) and three-phase fast chargers, with the electrician assessing switchboard capacity before quoting.',
       },
       {
         q: 'What is a safety switch?',
@@ -256,7 +256,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'How fast can you respond to no-power calls?',
-        a: 'Briks dispatches to no-power emergencies inside the Adelaide metro area within 60 minutes. We diagnose internal fault vs SA Power Networks issue first — no point billing for a callout if the network is down.',
+        a: 'For a power outage or wires down, call SA Power Networks on 13 13 66. If anyone is in danger, call 000. Briks can organise the repair afterwards once it is safe.',
       },
     ],
     relatedTrades: ['hvac', 'gas', 'handyman'],
@@ -268,15 +268,15 @@ export const TRADES: Trade[] = [
     name: 'Carpentry',
     noun: 'Carpenter',
     primaryKeyword: 'Carpenter Adelaide',
-    metaTitle: 'Carpenter Adelaide — Joinery, Decks, Doors, Wardrobes | Briks',
+    metaTitle: 'Carpenter in Adelaide: Doors, Decks, Built-ins | Briks',
     metaDescription:
-      'Adelaide carpenters and joiners. Custom built-ins, decks, door installation, skirting and architraves, structural repair, timber floor work. Vetted bench, written quotes, one invoice.',
+      'Adelaide carpenters and joiners. Custom built-ins, decks, door installation, skirting and architraves, structural repair, timber floor work. Independent trades, written quotes for homeowners and businesses, one invoice from Briks.',
     hero: {
       eyebrow: 'Carpentry — Adelaide',
       headline: 'Carpenters who measure twice.',
       headlineAccent: 'And turn up.',
       subhead:
-        'Custom joinery, decks, door hangs that actually close, structural timber, skirting and architrave replacement. Briks dispatches carpenters with twenty-year benches behind them — not the apprentice the boss is trying to keep busy.',
+        'Custom joinery, decks, door hangs that close properly, structural timber, skirting and architrave replacement. Briks organises independent carpenters for this work.',
     },
     longTail: [
       'custom joinery Adelaide',
@@ -306,12 +306,12 @@ export const TRADES: Trade[] = [
     ],
     standards: [
       {
-        label: 'Cert IV Building + BLD license',
-        body: 'Lead carpenters on the bench hold Certificate IV in Building and Construction plus a current SA Builders License (BLD) where required for structural work and decks.',
+        label: 'Independent trades',
+        body: 'For structural work and decks, Briks organises independent trades, each licensed in South Australia for their own work.',
       },
       {
         label: 'AS 1684 timber framing',
-        body: 'Structural timber framing meets Australian Standard AS 1684 (residential timber-framed construction). Span tables, bracing, and tie-down done to spec.',
+        body: 'Structural timber framing is covered by Australian Standard AS 1684 (residential timber-framed construction), including span tables, bracing and tie-down.',
       },
       {
         label: 'BCA + council compliance',
@@ -338,15 +338,15 @@ export const TRADES: Trade[] = [
     faqs: [
       {
         q: 'Do carpenters need a license in SA?',
-        a: 'Carpenters performing structural work, decks over a certain height, or contracting for jobs above the SA threshold (currently $12,000 including labour and materials) must hold a Builders License (BLD) issued by Consumer and Business Services SA. Briks lead carpenters hold Cert IV in Building plus a BLD.',
+        a: 'Briks coordinates independent carpenters who are licensed in South Australia for their own work. For structural work or decks, ask to see the licence for the job.',
       },
       {
         q: 'What is the difference between a carpenter and a joiner?',
-        a: 'A carpenter works with structural and on-site timber — framing, decks, doors, floors. A joiner makes finished timber components — cabinets, wardrobes, joinery — usually in a workshop. Briks bench includes both and we match the right specialist to the job.',
+        a: 'A carpenter works with structural and on-site timber: framing, decks, doors, floors. A joiner makes finished timber components: cabinets, wardrobes, joinery, usually in a workshop. Briks coordinates both trades and organises the job.',
       },
       {
         q: 'Can a carpenter fix structural issues?',
-        a: 'A licensed carpenter (with BLD) can repair and replace structural timber — bearers, joists, studs, roof trusses, stair stringers — where the work is like-for-like. Anything that changes load paths needs a structural engineer\'s certificate, which we coordinate.',
+        a: 'A carpenter licensed in South Australia for the work can repair and replace structural timber, such as bearers, joists, studs, roof trusses and stair stringers, where the work is like-for-like. Anything that changes load paths needs a structural engineer’s certificate. Briks organises the repair.',
       },
       {
         q: 'How much does a custom wardrobe cost?',
@@ -378,9 +378,9 @@ export const TRADES: Trade[] = [
     name: 'Painting',
     noun: 'Painter',
     primaryKeyword: 'Painter Adelaide',
-    metaTitle: 'Painter Adelaide — Interior, Exterior, Heritage | Briks',
+    metaTitle: 'Painter in Adelaide: Interior and Exterior | Briks',
     metaDescription:
-      'Adelaide painters for interior, exterior, heritage facades, end-of-lease repaints. Low-VOC options, profile-matched cutting in, prep that actually lasts. Vetted bench, one invoice.',
+      'Adelaide painters for interior, exterior, heritage facades, end-of-lease repaints. Low-VOC options, profile-matched cutting in, careful prep. Independent trades, one invoice from Briks.',
     hero: {
       eyebrow: 'Painting — Adelaide',
       headline: 'The cut-in tells you',
@@ -416,8 +416,8 @@ export const TRADES: Trade[] = [
     ],
     standards: [
       {
-        label: 'BLD painter license',
-        body: 'Lead painters hold a current SA Painter Contractor license (BLD class) for jobs over the licensed threshold. Smaller jobs are still done to the same standard.',
+        label: 'Painter licence',
+        body: 'The painters Briks coordinates are independent trades licensed in South Australia for their own work. Homeowners and businesses get a written quote before work starts.',
       },
       {
         label: 'AS/NZS 2311 painting standard',
@@ -476,7 +476,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'When can I move furniture back?',
-        a: 'Water-based interior paint is touch-dry in 1-2 hours and walk-on dry in 4-6 hours. We let walls cure overnight before pushing furniture against them. For oil-based or trade enamel, allow 24 hours before contact.',
+        a: 'Water-based interior paint is usually touch-dry in 1 to 2 hours and walk-on dry in 4 to 6 hours. Allow walls to cure overnight before pushing furniture against them. For oil-based or trade enamel, allow 24 hours before contact.',
       },
     ],
     relatedTrades: ['carpentry', 'handyman', 'tiling'],
@@ -488,15 +488,15 @@ export const TRADES: Trade[] = [
     name: 'Tiling & Waterproofing',
     noun: 'Tiler',
     primaryKeyword: 'Tiler Adelaide',
-    metaTitle: 'Tiler Adelaide — Bathrooms, Splashbacks, Waterproofing | Briks',
+    metaTitle: 'Tiler in Adelaide: Bathrooms, Splashbacks | Briks',
     metaDescription:
-      'Adelaide tilers and waterproofers. Bathrooms, kitchens, floors, regrouts. Certified to AS 3740, photo-documented membrane, ten-year guarantee. Vetted bench, one invoice.',
+      'Adelaide tilers and waterproofers. Bathrooms, kitchens, floors, regrouts. AS 3740 is the standard for wet-area waterproofing. Independent trades, one invoice from Briks.',
     hero: {
       eyebrow: 'Tiling — Adelaide',
       headline: 'Waterproofing first.',
       headlineAccent: 'Tiles second.',
       subhead:
-        'Bathrooms, kitchens, splashbacks, regrouts, full wet-area rebuilds. Briks tilers carry waterproofing certificates and document every layer of membrane with photos. AS 3740 is not optional — and most leaks we get called to are membrane failures from someone else.',
+        'Bathrooms, kitchens, splashbacks, regrouts, full wet-area rebuilds. Briks coordinates independent trades who are licensed in South Australia for their own work. AS 3740 is the standard for wet-area waterproofing.',
     },
     longTail: [
       'bathroom tiler Adelaide',
@@ -513,21 +513,21 @@ export const TRADES: Trade[] = [
       'Kitchen splashback in tile, mosaic, or glass',
       'Laundry, ensuite, and powder room fit-outs',
       'Floor tile replacement (large-format porcelain, terrazzo, encaustic)',
-      'Regrout and silicone replacement (extends a tiled bathroom 5-10 years)',
+      'Regrout and silicone replacement',
       'Outdoor tiling — patios, alfresco, pool surrounds',
       'Heritage encaustic and tessellated tile repair',
       'Crack-isolation membrane for substrate movement',
       'Stone, slate, and travertine sealing',
     ],
     whatsInvolved: [
-      'Wet-area work starts with waterproofing — sheet or liquid membrane to AS 3740, photographed before tiling. We will not tile over someone else\'s membrane unless we can verify it.',
+      'Wet-area work should start with waterproofing: sheet or liquid membrane to AS 3740, photographed before tiling. Tiling over an existing membrane should only proceed if it can be verified.',
       'For full bathroom rebuilds, we sequence with plumbing and electrical so trades are not waiting on each other. Substrate prep (cement sheet, Villaboard, screed) before tile.',
       'Grout and silicone are matched to the tile and the room. Epoxy grout in heavy-use commercial. Cement-based grout sealed for residential. Mould-resistant silicone in showers.',
     ],
     standards: [
       {
         label: 'AS 3740 waterproofing',
-        body: 'All wet areas are waterproofed to Australian Standard AS 3740 (Waterproofing of domestic wet areas). Membrane application is photographed at every layer for the customer\'s records.',
+        body: 'Wet areas should be waterproofed to Australian Standard AS 3740 (Waterproofing of domestic wet areas). Membrane application can be photographed at each layer for the customer’s records.',
       },
       {
         label: 'Cert III + waterproofing ticket',
@@ -535,7 +535,7 @@ export const TRADES: Trade[] = [
       },
       {
         label: 'AS 3958 tiling standard',
-        body: 'Tile installation follows AS 3958 (Ceramic tiles — guide to the installation of ceramic tiles). Substrate flatness, adhesive choice, and movement joints all to spec.',
+        body: 'Tile installation should follow AS 3958 (Ceramic tiles: guide to the installation of ceramic tiles). Substrate flatness, adhesive choice, and movement joints should meet the standard.',
       },
     ],
     whenToCall: {
@@ -546,7 +546,7 @@ export const TRADES: Trade[] = [
         'Heritage encaustic or terrazzo restoration',
         'Outdoor tiling in freeze-thaw or pool environments',
         'Splashbacks — measuring and cutting around outlets is fiddly',
-        'Any tiling job where you want a 10-year warranty on workmanship',
+        'Any tiling job',
       ],
       diy: [
         'Re-siliconing a single corner or bath edge',
@@ -558,7 +558,7 @@ export const TRADES: Trade[] = [
     faqs: [
       {
         q: 'What is AS 3740?',
-        a: 'AS 3740 is the Australian Standard for Waterproofing of Domestic Wet Areas — bathrooms, ensuites, laundries, and balconies above habitable rooms. It specifies membrane materials, fall to drains, junctions at penetrations, and minimum coverage heights. Compliance is required by the National Construction Code.',
+        a: 'AS 3740 is the Australian Standard for Waterproofing of Domestic Wet Areas: bathrooms, ensuites, laundries, and balconies above habitable rooms. It specifies membrane materials, fall to drains, junctions at penetrations, and minimum coverage heights. Compliance is required by the National Construction Code.',
       },
       {
         q: 'Do tilers need waterproofing certification in SA?',
@@ -574,7 +574,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'What is the difference between regrout and retile?',
-        a: 'Regrout removes old grout and replaces it — fast, cheap, cosmetic. Buys 5-10 years on a sound tile job. Retile strips tiles, rebuilds the membrane, and lays new tile — invasive, costs more, but is the only fix for membrane failure or movement-cracked tiles.',
+        a: 'Regrout removes old grout and replaces it: fast, cheap, cosmetic. It can improve the look of a sound tile job. Retile strips tiles, rebuilds the membrane, and lays new tile: invasive, costs more, but addresses membrane failure or movement-cracked tiles.',
       },
       {
         q: 'How much does it cost to tile a bathroom?',
@@ -586,7 +586,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'What tiles work best in wet areas?',
-        a: 'Porcelain (water absorption under 0.5%) is the best general-purpose wet-area tile — durable, low-porosity, easy to clean. Glazed ceramic is fine for walls. Natural stone (marble, travertine) needs sealing every 1-2 years. Avoid textured matte porcelain on shower floors with hard water.',
+        a: 'Porcelain is a durable, low-porosity, easy-clean choice for general wet areas. Glazed ceramic is fine for walls. Natural stone (marble, travertine) needs regular sealing. Avoid textured matte porcelain on shower floors with hard water.',
       },
     ],
     relatedTrades: ['plumbing', 'carpentry', 'painting'],
@@ -598,15 +598,15 @@ export const TRADES: Trade[] = [
     name: 'Roofing',
     noun: 'Roofer',
     primaryKeyword: 'Roofer Adelaide',
-    metaTitle: 'Roofer Adelaide — Repairs, Restoration, Storm Damage | Briks',
+    metaTitle: 'Roof Repairs in Adelaide: Leaks, Tiles, Iron | Briks',
     metaDescription:
-      'Adelaide roof repair, restoration, storm-damage callouts. Tile re-pointing, metal roof, leak fixing. Working-at-heights certified, $20M cover, insurance work. Vetted bench, one invoice.',
+      'Adelaide roof repair, restoration and storm damage repairs. Tile re-pointing, metal roofs and leak fixing. Trades are licensed in South Australia for their work, with one invoice from Briks.',
     hero: {
       eyebrow: 'Roofing — Adelaide',
       headline: 'Roof leaks find you.',
       headlineAccent: 'We find the cause.',
       subhead:
-        'Active leaks, storm damage, ridge re-pointing, full restoration, metal-roof replacement. Briks roofers carry working-at-heights tickets, $20M cover, and document every fault with photos for the insurer.',
+        'Active leaks, storm damage, ridge re-pointing, full restoration, metal roof replacement. Roof trades are independent and licensed in South Australia for their work. Briks provides before and after photos and one invoice for each finished job.',
     },
     longTail: [
       'roof repair Adelaide',
@@ -631,21 +631,21 @@ export const TRADES: Trade[] = [
     ],
     whatsInvolved: [
       'Inspection first. Active leaks need a roofer on the roof — not a guess from the ground. We photograph the fault and the surrounding roof so the quote is line-by-line.',
-      'Storm damage gets make-safe within 24 hours. Tarps, temporary patching, water diversion. Full repair is scoped after the property is stable, photographed for the insurer.',
+      'Storm damage make-safe can be organised once it is safe. Tarps, temporary patching, water diversion. Full repair is quoted after the property is stable, with before and after photos.',
       'Tile re-pointing uses flexible polymer pointing, not the old cement ridge that cracks at the first hot summer. Re-bedding where bedding has failed underneath.',
     ],
     standards: [
       {
-        label: 'BLD roof plumber license',
-        body: 'Roof plumbers (metal roofs, gutters, flashings) hold a current SA Builders License (BLD) for plumbing-roof work. Re-roofing and structural roof work is licensed.',
+        label: 'Licensed in South Australia for roof plumbing',
+        body: 'Roof plumbers (metal roofs, gutters, flashings) are licensed in South Australia for roof plumbing work. Re-roofing and structural roof work are done by trades licensed in South Australia.',
       },
       {
         label: 'Working-at-heights ticket',
         body: 'Every Briks roofer holds a current Working-at-Heights ticket. Harness, anchor, and fall-arrest setup mandatory on every job above 2m — including small repairs.',
       },
       {
-        label: '$20M public liability',
-        body: 'Roofers on the bench carry $20M public liability minimum (vs $10M baseline) — reflecting the risk of working above other people\'s property.',
+        label: 'Trades are licensed in South Australia for their work',
+        body: 'Roof work above other people’s property needs care. Briks organises the repair with independent trades licensed in South Australia for their work.',
       },
     ],
     whenToCall: {
@@ -683,12 +683,12 @@ export const TRADES: Trade[] = [
         a: 'Roof repointing replaces the cement and pointing that secures ridge caps and hip caps to the surrounding tiles. Original cement bedding cracks over 20-30 years; modern flexible polymer pointing flexes with thermal movement and lasts much longer.',
       },
       {
-        q: 'Can you repair storm damage same day?',
-        a: 'Briks dispatches make-safe (tarps, temporary patching, water diversion) within 24 hours of an active storm-damage call. Full repair is scoped after the property is stable and the weather has cleared. Photo report to the insurer same day.',
+        q: 'Can you organise storm damage repairs?',
+        a: 'Briks can organise make-safe work (tarps, temporary patching, water diversion) for storm damage. Full repair is scoped after the property is stable and the weather has cleared. Before and after photos are provided for each finished job.',
       },
       {
-        q: 'Insurance work — do you do it?',
-        a: 'Yes. Briks documents every fault with photos, written description, and cause-and-effect summary. Insurance-ready PDF report is emailed within 24 hours of the inspection — sufficient for most home and landlord policies.',
+        q: 'Insurance work: do you do it?',
+        a: 'Yes. Briks organises repairs, including work that may be part of an insurance claim. You get before and after photos and one invoice from Briks for each finished job. Check with your insurer about claim requirements.',
       },
       {
         q: 'Tile vs metal roof in SA?',
@@ -696,7 +696,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'How long does a roof last in Adelaide?',
-        a: 'A well-maintained Adelaide tile roof lasts 60-80 years (with re-pointing every 30). Colorbond metal roofs last 40-60 years. The biggest predictor is the quality of installation and whether maintenance happens — neglected roofs of either type fail in 20-25 years.',
+        a: 'A well-maintained Adelaide tile roof lasts 60-80 years (with re-pointing every 30). Colorbond metal roofs last 40-60 years. The biggest predictor is the quality of installation and whether maintenance happens. Neglected roofs of either type fail in 20-25 years.',
       },
     ],
     relatedTrades: ['gutters', 'plumbing', 'carpentry'],
@@ -708,15 +708,15 @@ export const TRADES: Trade[] = [
     name: 'Gutters',
     noun: 'Gutter specialist',
     primaryKeyword: 'Gutter installation Adelaide',
-    metaTitle: 'Gutter Repair & Installation Adelaide | Briks Building Services',
+    metaTitle: 'Gutter Repairs and Cleaning in Adelaide | Briks',
     metaDescription:
-      'Adelaide gutter cleaning, replacement, leaf guard, downpipes, fascia. Storm damage and insurance work. Working-at-heights certified, vetted bench, one invoice.',
+      'Adelaide gutter cleaning, replacement, leaf guard, downpipes, fascia. Storm damage and insurance work. Independent trades licensed in South Australia for their own work. One invoice from Briks.',
     hero: {
       eyebrow: 'Gutters — Adelaide',
       headline: 'Gutters are boring.',
       headlineAccent: 'Until the ceiling collapses.',
       subhead:
-        'Cleaning, replacement, leaf guard, sagging fixes, downpipe and fascia work. Briks gutter specialists work above your soffit so you do not — properly licensed, harnessed, insured.',
+        'Cleaning, replacement, leaf guard, sagging fixes, downpipe and fascia work. Briks organises independent trades, licensed in South Australia for their own work, to handle gutter work above your soffit so you do not have to.',
     },
     longTail: [
       'gutter cleaning Adelaide',
@@ -753,8 +753,8 @@ export const TRADES: Trade[] = [
         body: 'Gutter, fascia, and downpipe work is roof plumbing — covered by SA roof plumber qualifications. Stormwater connection to mains is licensed plumbing.',
       },
       {
-        label: '$10M+ public liability',
-        body: 'Minimum $10M public liability cover for damage to roof, eaves, and surrounding property. Certificate of currency on file.',
+        label: 'Ask about public liability insurance',
+        body: 'Work is done by independent trades, each licensed in South Australia for their own work. Briks does not provide its own insurance cover. Ask the trade about insurance before work starts.',
       },
     ],
     whenToCall: {
@@ -793,15 +793,15 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'Colorbond vs Zincalume — which lasts longer?',
-        a: 'Both Colorbond and Zincalume use the same base metal (zinc-aluminium-magnesium coated steel — Zincalume) — Colorbond just adds a baked-on colour coating. In Adelaide conditions, both last 25-40 years. Colorbond gives you colour matching to roof and fascia; Zincalume is slightly cheaper.',
+        a: 'Colorbond uses Zincalume steel as its base metal and adds a baked-on colour coating; Zincalume is the same base metal without the colour coating. In Adelaide conditions, both are durable roofing materials. Colorbond gives you colour matching to roof and fascia; Zincalume is usually cheaper.',
       },
       {
         q: 'Do you replace fascia at the same time?',
         a: 'Where fascia is rotted or split behind a gutter, replacing the gutter without fixing the fascia means the new gutter sags within months. Briks scopes fascia condition during the gutter quote and includes fascia work where needed — quoted line-by-line so nothing is hidden.',
       },
       {
-        q: 'Storm damage to gutters — do you do insurance work?',
-        a: 'Yes. We document the damage with photos, written description, and cause-and-effect summary. Insurance-ready PDF report emailed within 24 hours. Most home and landlord policies accept Briks reports without an additional assessor visit.',
+        q: 'Storm damage to gutters: do you do insurance work?',
+        a: 'Yes. Briks can organise repairs for storm damage to gutters. For each finished job it provides before and after photos and one invoice from Briks. Check with your insurer about what your policy covers.',
       },
       {
         q: 'How long does gutter replacement take?',
@@ -817,22 +817,22 @@ export const TRADES: Trade[] = [
     name: 'Gas Fitting',
     noun: 'Gas fitter',
     primaryKeyword: 'Gas fitter Adelaide',
-    metaTitle: 'Gas Fitter Adelaide — Hot Water, Cooktops, Leak Repair | Briks',
+    metaTitle: 'Gas Fitter in Adelaide: Hot Water, Cooktops | Briks',
     metaDescription:
-      'Type A licensed gas fitters across Adelaide. Hot water installation, cooktops, gas leaks, certificates of compliance. Vetted bench, $20M cover, one invoice.',
+      'Independent gas fitters licensed in South Australia for gas fitting work. Hot water installation, cooktops, gas leak repairs. One invoice from Briks.',
     hero: {
       eyebrow: 'Gas — Adelaide',
       headline: 'Gas fitting is licensed work.',
       headlineAccent: 'For good reason.',
       subhead:
-        'Gas hot water installation, cooktop and oven connection, leak repair, certificates of compliance. Briks gas fitters hold Type A tickets, lodge every job with the regulator, and dispatch within an hour for active leaks.',
+        'Gas hot water installation, cooktop and oven connection, leak repair. Independent gas fitters licensed in South Australia for gas fitting work. Briks organises the job and provides one invoice for each finished job.',
     },
     longTail: [
       'licensed gas fitter Adelaide',
       'gas hot water installation SA',
       'cooktop installation Adelaide',
       'gas leak repair Adelaide',
-      'Type A gas fitting',
+      'Gas fitting',
       'gas appliance certification SA',
     ],
     commonJobs: [
@@ -849,13 +849,13 @@ export const TRADES: Trade[] = [
     ],
     whatsInvolved: [
       'On-site inspection first. Gas work cannot be quoted accurately without seeing the appliance, the run, and the meter. We photograph the existing setup so the quote is line-by-line.',
-      'Active leaks (gas smell, hissing, browning grass over a buried line) are dispatched within 60 minutes inside metro Adelaide. Make-safe — turn off the meter, isolate the appliance — before full repair.',
+      'If anyone is in danger, call 000. If you smell gas, leave the area, do not use switches or flames, and call Australian Gas Networks on 1800 427 532. Briks can organise the repair afterwards once it is safe.',
       'Every gas job ends with a Certificate of Compliance lodged with the SA Office of the Technical Regulator. Copy in your inbox the same week.',
     ],
     standards: [
       {
-        label: 'Type A gas fitter ticket',
-        body: 'Every Briks gas fitter holds a current Type A gas-fitter authorisation issued by Consumer and Business Services SA. Type A covers domestic and small-commercial appliances — the work most people need.',
+        label: 'Independent gas fitter licensed in South Australia',
+        body: 'The independent gas fitters Briks works with are licensed in South Australia for gas fitting work. They handle domestic and small-commercial gas appliances.',
       },
       {
         label: 'AS/NZS 5601 gas installations',
@@ -885,8 +885,8 @@ export const TRADES: Trade[] = [
     },
     faqs: [
       {
-        q: 'What is a Type A gas fitter?',
-        a: 'A Type A gas fitter holds an authorisation from Consumer and Business Services SA to install, alter, and repair Type A gas appliances — domestic and small-commercial appliances under 500MJ/h input. Most home and rental gas work falls within Type A.',
+        q: 'What is a licensed gas fitter?',
+        a: 'A gas fitter licensed in South Australia for gas fitting work can install, alter and repair gas appliances. This includes domestic and small-commercial appliances used in homes and rentals.',
       },
       {
         q: 'Is a gas certificate of compliance required in SA?',
@@ -894,7 +894,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'How quickly can you respond to a gas leak?',
-        a: 'Briks dispatches to active gas leaks (smell of gas, audible hissing, lawn browning) within 60 minutes inside the Adelaide metro area. Step one: turn off the meter at the street and ventilate the area before we arrive.',
+        a: 'If you smell gas or suspect a leak, leave the area. Do not use switches or flames. Call Australian Gas Networks on 1800 427 532. If anyone is in danger, call 000. Briks can organise the repair afterwards once it is safe.',
       },
       {
         q: 'Can you install LPG and natural gas?',
@@ -906,11 +906,11 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'Do I need a gas fitter for a BBQ install?',
-        a: 'Yes for any hard-piped BBQ connection — that is gas fitting work and must be done by a Type A licensed person. A BBQ on a portable LPG bottle with a consumer-supplied hose and regulator does not require a gas fitter.',
+        a: 'Yes for any hard-piped BBQ connection: that is gas fitting work and must be done by a gas fitter licensed in South Australia for gas fitting work. A BBQ on a portable LPG bottle with a consumer-supplied hose and regulator does not require a gas fitter.',
       },
       {
         q: 'Gas vs electric hot water — which is cheaper in SA?',
-        a: 'In Adelaide, gas hot water has historically been cheaper to run than electric storage, but heat pump electric (with rooftop solar) is now competitive or cheaper over a 10-year window. Briks gives a straight comparison based on your hot water demand, gas connection cost, and existing solar.',
+        a: 'In Adelaide, gas hot water has historically been cheaper to run than electric storage, but heat pump electric (with rooftop solar) is now competitive or cheaper over a 10-year window. Ask a plumber licensed in South Australia for a comparison based on your hot water demand, gas connection cost and existing solar.',
       },
       {
         q: 'When should a gas appliance be serviced?',
@@ -926,9 +926,9 @@ export const TRADES: Trade[] = [
     name: 'Air Conditioning & HVAC',
     noun: 'HVAC technician',
     primaryKeyword: 'Air conditioning Adelaide',
-    metaTitle: 'Air Conditioning Adelaide — Split, Ducted, Service | Briks',
+    metaTitle: 'Air-Con Repairs and Service in Adelaide | Briks',
     metaDescription:
-      'Adelaide air conditioning installation, repair, service. Split systems, ducted reverse cycle, evaporative. ARC licensed installers, electrical-cert techs, vetted bench, one invoice.',
+      'Adelaide air conditioning installation, repair and service. Split systems, ducted reverse cycle, evaporative. Work is done by independent trades licensed in South Australia for their own work. One invoice from Briks for each finished job.',
     hero: {
       eyebrow: 'HVAC — Adelaide',
       headline: 'Adelaide summers don\'t negotiate.',
@@ -941,7 +941,7 @@ export const TRADES: Trade[] = [
       'ducted reverse cycle Adelaide',
       'AC repair Adelaide',
       'evaporative cooler service Adelaide',
-      'ARC licensed installer SA',
+      'Air conditioning installation SA',
       'multi-head split system Adelaide',
     ],
     commonJobs: [
@@ -968,7 +968,7 @@ export const TRADES: Trade[] = [
       },
       {
         label: 'Restricted electrical license',
-        body: 'AC installers carry a restricted electrical license for connecting AC units to existing circuits. Where switchboard work is needed, an A-grade Briks electrician handles it — no handball, no chase between trades.',
+        body: 'AC installers are licensed in South Australia for their own work. Where switchboard work is needed, a licensed electrician handles it. Briks coordinates the trades.',
       },
       {
         label: 'AS/NZS 5149 refrigeration safety',
@@ -979,7 +979,7 @@ export const TRADES: Trade[] = [
       call: [
         'New AC install (split, multi-head, ducted) — licensed and ticketed work',
         'AC blowing warm air or not cooling',
-        'Refrigerant top-up (suspected leak — ARC license required)',
+        'Refrigerant top-up (suspected leak: licensed in SA for refrigeration work)',
         'Ducted system not balancing across rooms',
         'Pre-summer service if it\'s been over 18 months',
         'Strange noises (rattle, hiss, gurgle) from indoor or outdoor unit',
@@ -1023,7 +1023,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'Energy rating — does it matter?',
-        a: 'Yes — significantly. The difference between a 3-star and 5-star rated split system on the same room can be 30-40% in running cost over 10 years. Higher-star units cost more upfront but pay back inside 4-5 years for any system used regularly. Briks recommends specific models, not just star ratings.',
+        a: 'Yes. Star ratings affect running cost. Higher star units usually cost more upfront and use less energy over time. Briks organises the work; ask the licensed trade about model options before you decide.',
       },
     ],
     relatedTrades: ['electrical', 'gas', 'plumbing'],
@@ -1035,13 +1035,13 @@ export const TRADES: Trade[] = [
     name: 'Handyman',
     noun: 'Handyman',
     primaryKeyword: 'Handyman Adelaide',
-    metaTitle: 'Handyman Adelaide — Small Jobs, Repairs, EOL | Briks',
+    metaTitle: 'Handyman in Adelaide: Small Jobs, One Visit | Briks',
     metaDescription:
-      'Adelaide handyman services. Picture hanging, TV mounting, flat pack, fence repair, end-of-lease patch and paint, door adjustment. No job too small. Vetted bench, one invoice.',
+      'Adelaide handyman work, organised by Briks. Picture hanging, TV mounting, flat pack, fence repair, end-of-lease patch and paint, door adjustment. One invoice from Briks.',
     hero: {
       eyebrow: 'Handyman — Adelaide',
       headline: 'No job too small.',
-      headlineAccent: 'No callout fee buried in the fine print.',
+      headlineAccent: 'Send the list. Get a written quote.',
       subhead:
         'Picture hanging, TV mounting, flat pack, fence repair, sticky doors, fly screen replacement, end-of-lease patch-and-paint. The jobs that fall through the cracks because they are not big enough to bother a tradie. Briks coordinates a handyman whose whole job is the small stuff.',
     },
@@ -1073,12 +1073,12 @@ export const TRADES: Trade[] = [
     ],
     standards: [
       {
-        label: 'BLD handyman license',
-        body: 'For jobs above the SA threshold (currently $12,000 inclusive), Briks handymen hold a BLD (Builders License) — handyman class. Smaller jobs are still done to the same standard.',
+        label: 'Trade licensed in South Australia for this work',
+        body: 'The work is done by independent trades, each licensed in South Australia for their own work. Briks organises the job and is not a licensed builder, plumber, electrician or gas fitter.',
       },
       {
         label: 'WHS-compliant practices',
-        body: 'Ladder safety, manual handling, and basic fall protection on every job. No heroics on a shaky setup just to save 20 minutes.',
+        body: 'Ladder safety, manual handling and basic fall protection are important on any job. No heroics on a shaky setup just to save time.',
       },
       {
         label: 'Scope discipline',
@@ -1105,7 +1105,7 @@ export const TRADES: Trade[] = [
     faqs: [
       {
         q: 'Do handymen need a license in SA?',
-        a: 'Handymen performing work above the SA Builders License threshold (currently $12,000 inclusive of labour and materials) need a BLD handyman class license. Below the threshold, no license is required — but every Briks handyman holds public liability insurance regardless of job size.',
+        a: 'The work is done by independent trades, each licensed in South Australia for their own work. Briks itself is not a licensed builder, plumber, electrician or gas fitter.',
       },
       {
         q: 'What is the minimum job size?',
@@ -1113,7 +1113,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'Can a handyman do plumbing?',
-        a: 'A handyman can replace a tap washer or unblock a drain in some circumstances, but anything beyond minor consumer repair is licensed plumbing work in SA and must go to a PIC-licensed plumber. Briks routes the call to the right tradie — same coordinator, same invoice.',
+        a: 'A handyman can replace a tap washer or unblock a drain in some circumstances, but anything beyond minor consumer repair is licensed plumbing work in South Australia and must go to a plumber licensed in South Australia for plumbing work. Briks organises the repair and provides one invoice for each finished job.',
       },
       {
         q: 'How much does a handyman cost per hour in Adelaide?',
@@ -1129,7 +1129,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'Flat pack assembly — how long does it take?',
-        a: 'Time depends on the unit. A small IKEA bedside table is 30-45 minutes. A wardrobe is 2-3 hours. A full kitchen flat-pack is a one-day job. Briks quotes a fixed price per unit so you know before booking.',
+        a: 'Time depends on the unit and the job. A small flat-pack item is a smaller job than a wardrobe, and a full kitchen flat-pack is a larger job. Briks organises the work. Homeowners and businesses get a written quote before work starts.',
       },
       {
         q: 'Can you fit blinds and curtains?',

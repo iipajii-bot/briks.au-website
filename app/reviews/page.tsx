@@ -8,9 +8,9 @@ import { TESTIMONIALS } from '@/lib/testimonials'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Reviews — What Adelaide Says About Briks Building Services',
+  title: { absolute: 'Reviews | Briks Building Services Adelaide' },
   description:
-    'Real reviews from Adelaide homeowners, landlords, property managers and business owners. Maintenance, repairs and renovations — read what customers say about working with Briks.',
+    'What Adelaide homeowners, landlords, property managers and business owners say about working with Briks Building Services.',
   alternates: { canonical: '/reviews' },
 }
 
@@ -82,7 +82,7 @@ export default function ReviewsPage() {
         subtitle={
           <>
             Homeowners, landlords, property managers and business owners — every
-            review below is from a real Briks job, published with the customer's
+            review below is from a real Briks job, published with the customer’s
             permission.
           </>
         }

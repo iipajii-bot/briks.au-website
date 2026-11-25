@@ -48,10 +48,7 @@ export default function FooterCTA() {
         <motion.p
           {...anim(0.3)}
           className="text-[#3a3735] text-lg leading-relaxed mb-12 max-w-xl mx-auto"
-        >
-          15-minute call. Your door count, your Tapi setup, an honest read on
-          whether Briks fits your workflow. Per-job, no contract.
-        </motion.p>
+        >A call about your door count, your current setup, and whether Briks fits your workflow. One invoice for each finished job.</motion.p>
 
         <motion.div
           {...anim(0.45)}
@@ -72,9 +69,7 @@ export default function FooterCTA() {
         <motion.p
           {...anim(0.6)}
           className="mt-10 text-xs tracking-[0.2em] uppercase text-[#5a5650]"
-        >
-          Adelaide · 24 / 7 coverage · Built for Tapi
-        </motion.p>
+        >Adelaide · Repairs, maintenance and renovations · Call 0449 517 367</motion.p>
       </div>
     </section>
   )

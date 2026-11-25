@@ -7,9 +7,9 @@ import { SUBURB_CONTENT } from '@/lib/suburb-content'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Service Areas — Adelaide Suburbs Briks Covers',
+  title: { absolute: 'Adelaide Suburbs We Cover | Briks' },
   description:
-    'Briks Building Services covers the full Adelaide metropolitan area plus Hills. Find your suburb for local building services — plumbing, electrical, carpentry, painting, roofing, gas, HVAC, handyman.',
+    'Find your suburb: Briks organises repairs and maintenance across Adelaide, from the CBD and coast to the northern suburbs and the Hills.',
   alternates: { canonical: '/areas' },
 }
 

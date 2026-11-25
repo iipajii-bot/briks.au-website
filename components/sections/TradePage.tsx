@@ -400,11 +400,7 @@ export default function TradePage({ trade }: { trade: Trade }) {
               Tell us. We&rsquo;ll handle it.
             </span>
           </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-            Coordinator picks the right specialist off the bench, attends
-            on-site, scopes the work, and gets you a written quote — usually
-            inside 24 hours of the visit.
-          </p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Briks coordinates a licensed trade and organises the on-site visit. Homeowners and businesses get a written quote before work starts.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <MovingBorder href="/contact">
               Get a quote

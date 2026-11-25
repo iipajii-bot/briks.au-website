@@ -14,15 +14,15 @@ const FAQS: QA[] = [
   },
   {
     q: "How fast can you come out?",
-    a: 'We move quickly on every job. Routine work is quoted promptly and a tradie on-site soon after. Genuine emergencies — burst pipes, no power, broken access — dispatch right away, around the clock. Non-urgent renovations are scheduled around your timing.',
+    a: 'We organise the work. Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit, and anything over it is quoted first. If anyone is in danger call 000. Briks can organise the repair afterwards once it is safe. Non-urgent renovations are scheduled around your timing.',
   },
   {
     q: "What's the call-out fee?",
-    a: 'No call-out fee on jobs over an hour. Smaller jobs are quoted up front before any work starts. Renovations and larger projects are quoted in detail with itemised pricing — no hidden costs, no padded line items.',
+    a: 'Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit, and anything over it is quoted first. Finished jobs get one invoice from Briks. Phone help for simple problems is free.',
   },
   {
     q: 'Do you do work for property managers and agencies?',
-    a: 'Yes — Briks operates as a Tapi-native managed supplier for Adelaide real estate agencies, with a single invoice per job sent direct to the landlord. Agencies have a dedicated workflow on the property managers page. Homeowners and landlords go through the standard route.',
+    a: 'Yes. Briks runs a maintenance desk for Adelaide real estate agencies: tenants call Briks, a licensed trade is booked when needed, and the agency gets one report on Friday. See the property managers page.',
   },
   {
     q: 'What if a tradesperson does bad work?',

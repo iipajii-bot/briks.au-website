@@ -9,17 +9,17 @@ import { SITE } from '@/lib/constants'
 import { IMAGES } from '@/lib/images'
 
 export const metadata: Metadata = {
-  title: 'The Briks Trade Network — Standards, Vetting, Payment',
+  title: { absolute: 'How Briks Works With Trades | Briks' },
   description:
-    'How Briks builds the trade network. Licence + insurance verified before onboarding. Prompt payment terms. Three-strikes quality rule.',
+    'How Briks works with independent trades licensed in South Australia: quotes, approval limits, before and after photos and one invoice per job.',
   alternates: { canonical: '/about/network' },
 }
 
 const standards = [
   {
     icon: ShieldCheck,
-    title: 'Licence + insurance verified',
-    body: 'Every trade is checked against state licensing register and CGU/QBE liability before first dispatch. Re-verified annually.',
+    title: 'Independent trades licensed in South Australia',
+    body: 'Independent trades are licensed in South Australia for their own work.',
   },
   {
     icon: Wallet,
@@ -62,11 +62,7 @@ export default function NetworkPage() {
           </>
         }
         subtitle={
-          <>
-            Standards, vetting, payment terms, what gets a tradie removed.
-            We&rsquo;d rather turn work away than dispatch someone we
-            wouldn&rsquo;t send to our own family&rsquo;s home.
-          </>
+          <>Independent trades, licensed in South Australia for their own work. We organise repairs, maintenance and renovation work. Homeowners and businesses get a written quote before work starts.</>
         }
       />
 
@@ -115,26 +111,9 @@ export default function NetworkPage() {
           >
             How jobs get assigned.
           </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-6">
-            One job, one tradie — the right one. A coordinator reads the
-            brief, matches it to the specialist on the bench whose skill,
-            experience, and current capacity fit the work, and books them in.
-            No quote auctions, no race-to-the-bottom pricing, no rotating
-            through whoever is closest.
-          </p>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-6">
-            Heritage waterproofing goes to the heritage waterproofer.
-            Switchboard upgrades go to the A-grade spark who&rsquo;s done two
-            hundred of them. A leaking tap goes to the plumber who can clear
-            it in twenty minutes flat — not the apprentice with a free
-            afternoon.
-          </p>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed">
-            Emergencies skip everything else and dispatch immediately from a
-            pre-agreed emergency roster. Renovations and fit-outs get a
-            site-visit and an itemised, hand-built quote — no calculator
-            shortcuts.
-          </p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-6">One phone number for all, and one invoice from Briks for each finished job. Briks organises the repair or maintenance work with independent trades. Trades are licensed in South Australia for their own work.</p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-6">Heritage waterproofing: a trade licensed in South Australia for that work. Switchboard upgrades: an electrician licensed in South Australia for electrical work. A leaking tap: a plumber licensed in South Australia for plumbing work finds the source and quotes the fix.</p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed">If anyone is in danger, call 000. Briks can organise the repair afterwards during business hours. Renovations and fit-outs for homeowners and businesses get a written quote before work starts.</p>
         </div>
       </section>
 

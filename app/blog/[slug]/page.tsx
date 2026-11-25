@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { metaDesc, brandTitle } from '@/lib/seo'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight, ArrowLeft } from 'lucide-react'
@@ -28,8 +29,8 @@ export async function generateMetadata(props: { params: Params }): Promise<Metad
   if (!p) return { title: 'Post Not Found' }
 
   return {
-    title: p.title,
-    description: p.description,
+    title: brandTitle(p.title),
+    description: metaDesc(p.description),
     alternates: { canonical: `/blog/${p.slug}` },
     openGraph: {
       type: 'article',
@@ -38,7 +39,7 @@ export async function generateMetadata(props: { params: Params }): Promise<Metad
       url: `${SITE.url}/blog/${p.slug}`,
       publishedTime: p.publishedAt,
       modifiedTime: p.updatedAt,
-      authors: [SITE.founderName],
+      authors: [SITE.name],
     },
   }
 }
@@ -67,11 +68,7 @@ export default async function BlogPostPage(props: { params: Params }) {
     description: p.description,
     datePublished: p.publishedAt,
     dateModified: p.updatedAt,
-    author: {
-      '@type': 'Person',
-      name: SITE.founderName,
-      url: `${SITE.url}/about`,
-    },
+    author: { '@id': `${SITE.url}/#organization` },
     publisher: { '@id': `${SITE.url}/#organization` },
     image: `${SITE.url}/og.png`,
     mainEntityOfPage: `${SITE.url}/blog/${p.slug}`,
@@ -133,7 +130,7 @@ export default async function BlogPostPage(props: { params: Params }) {
         publishedAt={p.publishedAt}
         updatedAt={p.updatedAt}
         readingMinutes={readingTimeMinutes(p)}
-        author={SITE.founderName}
+        author={SITE.name}
       />
 
       <article className="relative py-12 md:py-16 bg-[#ffffff]">

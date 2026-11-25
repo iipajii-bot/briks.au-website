@@ -12,9 +12,9 @@ import { SITE, whatsappHref } from '@/lib/constants'
 const PRIMARY_KEYWORD = 'Handyman Adelaide'
 
 export const metadata: Metadata = {
-  title: 'Handyman Adelaide — Small Jobs, No Minimum | Briks Building Services',
+  title: { absolute: 'Handyman Jobs in Adelaide | Briks' },
   description:
-    'Adelaide handyman service for small jobs around the home or office. Picture hanging, TV mounting, flat-pack, fence repair, end-of-lease patch-and-paint. No minimum, no callout fee, written fixed quotes.',
+    'Picture hanging, TV mounting, flat-pack, door and fence fixes and end-of-lease patch and paint in Adelaide. Send the list, get a written quote first.',
   alternates: { canonical: '/handyman' },
 }
 
@@ -42,13 +42,13 @@ const COMMON_JOBS = [
 ]
 
 const FAQS = [
-  { q: 'Do handymen need a license in SA?', a: 'Handymen performing work above the SA Builders License threshold (currently $12,000 inclusive of labour and materials) need a BLD handyman class license. Below the threshold, no license is required — but every Briks handyman holds public liability insurance regardless of job size.' },
+  { q: 'Do handymen need a license in SA?', a: 'Free phone help is available for simple problems. Work that needs a licensed trade is done by an independent trade licensed in South Australia for that work. Briks organises the job and gives one invoice for each finished job.' },
   { q: 'What is the minimum job size?', a: 'No minimum. A single picture hang is fine. We bundle small tasks into a single visit so the callout cost spreads across the list — better value than calling for one item at a time.' },
-  { q: 'Can a handyman do plumbing?', a: 'A handyman can replace a tap washer or unblock a drain in some circumstances, but anything beyond minor consumer repair is licensed plumbing work in SA and must go to a PIC-licensed plumber. Briks routes the call to the right tradie — same coordinator, same invoice.' },
+  { q: 'Can a handyman do plumbing?', a: 'Plumbing work must be done by a plumber licensed in South Australia for plumbing work. Briks organises an independent trade for the job and gives one invoice for each finished job.' },
   { q: 'How much does a handyman cost per hour in Adelaide?', a: 'Briks does not publish hourly rates. Each job is quoted either by the hour or as a fixed list — your choice. Send the job list (photos help) via WhatsApp and we send back a written quote before booking. No callout fee buried in the fine print.' },
   { q: 'Do you do end-of-lease patch-up?', a: 'Yes. End-of-lease (also called bond clean prep) is one of the most common Briks handyman jobs. We work off the property condition report, fix-fill-paint each line item, photograph each fix, and send a completion summary back to the property manager.' },
   { q: 'Can you mount a TV on a brick wall?', a: 'Yes. TV mounting on brick uses masonry bolts rated for the panel weight and bracket spec. Briks handymen mount on plasterboard (with stud finder), brick, and concrete render. Cable management (concealed in conduit or wall channel) included on request.' },
-  { q: 'Flat pack assembly — how long does it take?', a: 'Time depends on the unit. A small IKEA bedside table is 30-45 minutes. A wardrobe is 2-3 hours. A full kitchen flat-pack is a one-day job. Briks quotes a fixed price per unit so you know before booking.' },
+  { q: 'Flat pack assembly — how long does it take?', a: 'How long a job takes depends on the unit. Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit, and anything over it is quoted first.' },
   { q: 'Can you fit blinds and curtains?', a: 'Yes. Briks handymen install roller blinds, venetians, plantation shutters, curtain tracks, and pelmets. We can also re-mount existing fixtures that have come loose. Tools and brackets supplied where needed.' },
 ]
 
@@ -78,7 +78,7 @@ export default function HandymanPage() {
               <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Small jobs, done properly, no minimum.</h2>
               <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
                 <p>Most tradies do not want to drive across Adelaide for a single picture hang. Briks does — because we bundle. Send the full list of small jobs you have been meaning to call about, we scope on-site, sequence the visit efficiently, and knock the list over in one trip. The callout cost spreads across the list instead of being charged per item.</p>
-                <p>For jobs that need a licensed trade (plumbing, electrical, gas), Briks routes the work to the right specialist without you needing to make a second call. Same coordinator, same invoice. No referral chains, no "I don&rsquo;t do that."</p>
+                <p>For jobs that need a licensed trade (plumbing, electrical, gas), Briks routes the work to the right specialist without you needing to make a second call. Same coordinator, same invoice. No referral chains, no “I don&rsquo;t do that.”</p>
               </div>
             </div>
             <div className="lg:col-span-5">
@@ -127,7 +127,7 @@ export default function HandymanPage() {
               { href: '/services/carpentry', label: 'Carpentry' },
               { href: '/services/plumbing', label: 'Plumbing' },
               { href: '/for-landlords', label: 'For landlords' },
-              { href: '/case-studies/norwood-end-of-lease-turnaround', label: 'EOL case study' },
+              { href: '/help', label: 'Check this first' },
               { href: '/blog/end-of-lease-repair-checklist-sa-landlords', label: 'EOL checklist' },
               { href: '/contact', label: 'Send a job list' },
             ].map((l) => (

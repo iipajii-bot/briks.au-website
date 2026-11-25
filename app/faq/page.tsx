@@ -26,19 +26,19 @@ const subFaqs = [
   {
     icon: KeyRound,
     label: 'Landlords',
-    blurb: 'Compliance certs, end-of-lease, after-hours emergencies.',
+    blurb: 'Compliance repairs, end-of-lease repairs, urgent repairs.',
     href: '/faq/landlords',
   },
   {
     icon: Building2,
     label: 'Property Managers',
-    blurb: 'Tapi setup, markup, agency-fit, landlord communication.',
+    blurb: 'Software, owner costs, approval limits, getting started.',
     href: '/faq/property-managers',
   },
   {
     icon: Briefcase,
     label: 'Businesses',
-    blurb: 'After-hours work, fit-outs, strata, compliance schedules.',
+    blurb: 'Scheduled work, fit-outs, strata, compliance schedules.',
     href: '/faq/businesses',
   },
   {

@@ -18,23 +18,23 @@ export default function TrustStrip() {
   }> = [
     {
       Icon: Wrench,
-      label: 'Licensed tradies',
-      sub: 'Vetted network',
+      label: 'Licensed trades',
+      sub: 'Each licensed in SA for their work',
     },
     {
       Icon: ShieldCheck,
-      label: 'Insured + compliant',
+      label: 'Briks Building Services Pty Ltd',
       sub: `ABN ${SITE.abn}`,
     },
     {
       Icon: Clock,
-      label: '24 / 7 emergency',
-      sub: 'Real humans, no IVR',
+      label: 'Free phone help',
+      sub: 'One number to call',
     },
     {
       Icon: MapPin,
       label: 'Adelaide metro',
-      sub: '38+ suburbs',
+      sub: 'Coast to the Hills',
       href: '/areas',
     },
   ]

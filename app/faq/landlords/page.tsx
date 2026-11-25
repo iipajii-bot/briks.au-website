@@ -4,8 +4,9 @@ import { FAQ_LANDLORDS } from '@/lib/faqs'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'FAQ for Landlords — Self-Managed Rental Maintenance Adelaide',
-  description: 'Briks FAQ for Adelaide landlords managing their own rentals. Compliance, end-of-lease, after-hours emergencies.',
+  title: { absolute: 'FAQ for Self-Managing Landlords | Briks Adelaide' },
+  description:
+    'Answers for Adelaide landlords who manage their own rentals: tenant repairs, approval limits, the $19 desk fee and end-of-lease repairs.',
   alternates: { canonical: '/faq/landlords' },
 }
 
@@ -33,7 +34,7 @@ export default function FAQLandlords() {
       <FAQSubPage
         eyebrow="FAQ · Landlords"
         title={<>For <span className="text-[#8a6e3f]">landlords.</span></>}
-        subtitle={<>Self-managed Adelaide landlords. Compliance certs, end-of-lease, after-hours dispatch.</>}
+        subtitle={<>Self-managed Adelaide landlords. Repairs, maintenance and end-of-lease repairs.</>}
         faqs={FAQ_LANDLORDS}
       />
     </>

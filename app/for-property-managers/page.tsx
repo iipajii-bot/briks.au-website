@@ -1,517 +1,215 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Inbox,
-  Workflow,
-  Receipt,
-  MessageCircle,
-  CheckCircle2,
-  type LucideIcon,
-} from 'lucide-react'
-import PageHero from '@/components/sections/PageHero'
-import TrustStrip from '@/components/sections/TrustStrip'
-import TestimonialsGrid from '@/components/sections/TestimonialsGrid'
-import FAQAccordion from '@/components/sections/FAQAccordion'
-import MovingBorder from '@/components/effects/MovingBorder'
-import { IMAGES } from '@/lib/images'
-import { SITE, whatsappHref } from '@/lib/constants'
+import ChampionKit from '@/components/site/ChampionKit'
+import JobTimeline from '@/components/home/JobTimeline'
+import QuickFixes from '@/components/site/QuickFixes'
+import { Photo } from '@/components/site/TradeStrip'
+import { FEE } from '@/components/site/fee'
+import LeadForm from '@/components/site/LeadForm'
+import { cleanInt, cleanText, type SearchParams } from '@/components/site/personal'
+import { Arrow, CtaLink, DashList, Faq, FactList, JsonLd, SectionHead, cls, faqJsonLd, ground } from '@/components/site/ui'
+import { SITE } from '@/lib/constants'
 
-const PRIMARY_KEYWORD = 'Adelaide property management maintenance supplier'
+/*
+ * /for-property-managers: the employee who persuades the principal.
+ * Order: understood (their week) → the after → their numbers + the email → the three questions
+ * → start small → form. Hero CTA goes to the numbers first, not a blind mailto.
+ * Personal link: ?name=&agency=&doors=
+ */
 
 export const metadata: Metadata = {
-  title:
-    'Property Management Maintenance Supplier Adelaide | Briks Building Services',
+  title: { absolute: 'Tenant Repairs for Adelaide Property Managers | Briks' },
   description:
-    'Adelaide real-estate-agency-grade maintenance coordination. Tapi + MaintenanceManager integrated, single invoice per job direct to landlord, 60-minute after-hours dispatch. Stop your PMs being dispatchers.',
+    'Adelaide property managers: tenants call Briks for repairs, we book licensed trades and you get one Friday report. Work out the hours it saves you.',
   alternates: { canonical: '/for-property-managers' },
+  robots: { index: true, follow: true },
 }
 
-const breadcrumb = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
-    { '@type': 'ListItem', position: 2, name: 'For Property Managers', item: `${SITE.url}/for-property-managers` },
-  ],
-}
+const WEEK = [
+  'A tenant rings about the dripping tap in the middle of an inspection.',
+  'You find a trade, book access, then chase the trade when they go quiet.',
+  'The tenant asks for an update. Then the owner does.',
+  'You match the invoice to the job and file the photos, if there are any.',
+] as const
 
-const PAINPOINTS: { title: string; body: string; Icon: LucideIcon }[] = [
-  {
-    Icon: Inbox,
-    title: 'PMs spending 40% of their week as dispatchers',
-    body: 'Every tenant complaint is a phone tree: get tradie, get quote, get landlord approval, schedule, chase, invoice, reconcile. Your property managers were hired to lease + retain, not run a maintenance call centre.',
-  },
-  {
-    Icon: Workflow,
-    title: 'Five tradies for five trades — five invoices',
-    body: 'A single multi-trade job at one property turns into five suppliers, five invoices, five sets of bookkeeping reconciliation. Multiply across a 200-door portfolio and the admin cost is brutal.',
-  },
-  {
-    Icon: Receipt,
-    title: 'Insurance + compliance evidence chase',
-    body: 'When a claim comes in, you spend 90 minutes chasing tradies for photos, dates, and a description of what happened. Defending bond decisions at SACAT without solid documentation is a coin flip.',
-  },
-]
+const AFTER = [
+  { title: 'Tenants ring Briks', body: 'One number for every repair. We work out how urgent it is and book the access.' },
+  { title: 'We book the licensed trade', body: 'We book independent trades, each licensed for their work. You get the date, not the calls.' },
+  { title: 'Over your limit, you decide', body: 'Jobs under your approval limit go ahead. Anything over it is quoted to you first.' },
+  { title: 'Friday, one report', body: 'Every job that week, with before and after photos and one invoice each.' },
+] as const
 
-const WORKFLOW_STEPS = [
-  {
-    n: '01',
-    title: 'Add Briks as preferred supplier',
-    body: 'Inside your maintenance system (Tapi, MaintenanceManager, PropertyMe, REST Professional, or plain email). One supplier record. No process change for your PMs — they keep raising work orders the same way they always have.',
-  },
-  {
-    n: '02',
-    title: 'Briks triages every inbound work order',
-    body: 'AI-assisted parsing extracts the job scope automatically. A human coordinator reviews, picks the right trade off our vetted bench, schedules with the tenant, and confirms the visit window back to the PM.',
-  },
-  {
-    n: '03',
-    title: 'On-site, on-spec, photo-documented',
-    body: 'Right specialist for the work. Photo evidence at attendance, mid-job, and completion. Tenant signs off on the visit summary. Insurance-grade documentation packaged automatically.',
-  },
-  {
-    n: '04',
-    title: 'One invoice per job, direct to landlord',
-    body: 'Single line-item invoice in the landlord\'s name with full ABN + GST detail. Sent via your system, no separate biller relationships. Briks handles the bookkeeping with each tradie on the back end — your agency sees one supplier on its books.',
-  },
-]
+const PRINCIPAL_QS = [
+  { q: 'What does it cost the agency?', a: `Nothing. Tenant calls and phone help are free. When a trade is sent, Briks adds a flat ${FEE.amount} maintenance desk fee to its invoice for that job, paid from the owner\u2019s rent like any contractor bill.` },
+  { q: 'Do we lose control?', a: 'No. Your approval limit stands, your owners stay with your agency, and preferred trades can work through Briks.' },
+  { q: 'What is the risk?', a: 'It is contained: your approval limit stands, your owners stay with your agency, it starts on one portfolio with no lock-in, and nothing in your software changes. You add Briks as a supplier and send one tenant list.' },
+] as const
 
-const INTEGRATIONS = [
-  {
-    name: 'Tapi',
-    body: 'Briks runs as a Tapi-native preferred supplier. Work orders flow in, AI extracts scope, status updates flow back via the Tapi API. Zero re-entry.',
-  },
-  {
-    name: 'MaintenanceManager',
-    body: 'Email-based work order ingestion. Briks parses the inbound, creates an internal job, links photos + reports back to the original work order ID.',
-  },
-  {
-    name: 'PropertyMe + REST Professional',
-    body: 'Email-based ingestion with PMS-aware formatting. Invoices are issued in formats your agency\'s accountant + property accounts team already process.',
-  },
-  {
-    name: 'Plain email + WhatsApp',
-    body: 'Smaller agencies or interim arrangements — work order via email or WhatsApp, Briks confirms scope + ETA in the same channel.',
-  },
-]
+export default async function ForPropertyManagersPage({ searchParams }: { searchParams: SearchParams }) {
+  const sp = await searchParams
+  const name = cleanText(sp.name).split(' ')[0] ?? ''
+  const agency = cleanText(sp.agency)
+  const doors = cleanInt(sp.doors, 1, 5000)
 
-const DELIVERABLES = [
-  'Single supplier record across your entire maintenance vendor list',
-  'Tradie-network vetting handled by Briks — license + insurance + experience',
-  '60-minute after-hours emergency dispatch with on-call coordinator',
-  'Photo-documented evidence pack per job (attendance, mid-work, completion)',
-  'Tenant communication owned by Briks — your PMs are not in the loop unless escalated',
-  'SA Residential Tenancies Act notification windows respected',
-  'Insurance-ready PDF reports inside 24 hours — accepted by all major SA insurers',
-  'Single invoice per job in landlord name with ABN + GST detail',
-  'Workmanship guarantee 12 months — Briks coordinates remediation on any failures',
-  'Monthly portfolio summary PDF on request for landlord reporting',
-]
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE.url}/for-property-managers#webpage`,
+        name: 'For property managers: hand tenant repairs to Briks',
+        about: { '@id': `${SITE.url}/#maintenance-line` },
+        audience: { '@type': 'Audience', audienceType: 'Property managers at real estate agencies' },
+      },
+      faqJsonLd(`${SITE.url}/for-property-managers#faq`, PRINCIPAL_QS),
+    ],
+  }
 
-const FAQS = [
-  {
-    q: 'How do I add Briks as a preferred supplier in Tapi?',
-    a: 'Send us an email or a WhatsApp message and we will run you through the 5-minute setup. Briks becomes a supplier record in your Tapi tenant, work orders flow in automatically, and our acceptance + status webhooks update Tapi in real time. No data migration or PM retraining.',
-  },
-  {
-    q: 'What is your turnaround on routine work orders?',
-    a: 'On-site inspection booked inside 48 business hours of acceptance. Written quote inside 24 hours of inspection. Most routine work is scheduled, attended, and reported within 7 calendar days end to end. Emergencies dispatch inside 60 minutes.',
-  },
-  {
-    q: 'Do you handle Saturday + Sunday lockouts and emergencies?',
-    a: 'Yes. Briks runs a 24/7 emergency roster across plumbing, electrical, gas, and roofing. Lockouts go to a vetted locksmith on the same bench. Tenant calls our after-hours number directly; PM gets a summary by Monday morning.',
-  },
-  {
-    q: 'Can landlords be invoiced directly from your system?',
-    a: 'Yes — and this is the default. Briks issues each invoice in the landlord\'s name with full ABN, GST, and a single-line scope description. Your agency does not have a payable to reconcile. We bookkeep with the individual tradies on the back end.',
-  },
-  {
-    q: 'What systems do you integrate with?',
-    a: 'Tapi (deepest), MaintenanceManager, PropertyMe, REST Professional, Console, and plain email. If your agency uses a different system, send us the inbound work-order format and we will adapt — we have not yet encountered one we could not parse.',
-  },
-  {
-    q: 'Do you provide monthly summary reporting?',
-    a: 'Yes. A monthly portfolio PDF can be generated on request, broken down by landlord, property, trade, status, and total spend. Useful for landlord retention conversations and for your agency\'s portfolio analytics.',
-  },
-  {
-    q: 'What is the minimum agency size?',
-    a: 'No formal minimum. We work with agencies running 20 doors through to 1,500+. Smaller agencies benefit most from removing dispatcher overhead from PMs; larger agencies benefit from compliance consolidation across the portfolio.',
-  },
-  {
-    q: 'Can I add Briks alongside existing suppliers?',
-    a: 'Yes. Most agencies onboard Briks as one supplier among many, allocate certain trade categories or after-hours to us, and expand the share over time as the workflow proves out. We do not require exclusivity.',
-  },
-  {
-    q: 'What happens if a Briks-coordinated job goes wrong?',
-    a: 'Briks coordinates the remediation at our cost under the 12-month workmanship guarantee. Your agency + landlord deal with Briks as a single counterparty; we deal with the underlying tradie on the back end. No tradie-vs-PM disputes.',
-  },
-  {
-    q: 'How does pricing work?',
-    a: 'Briks does not publish a rate card. Each job is scoped on-site and quoted in writing. Pricing reflects the tradie\'s invoice plus coordination margin. The landlord pays the all-in invoice; agency pays nothing directly. Detailed pricing model: see /pricing.',
-  },
-]
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-}
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Property management maintenance coordination',
-  name: 'Adelaide Property Management Maintenance Supplier',
-  description:
-    'Adelaide-grade maintenance coordination for residential real estate agencies. Tapi + MaintenanceManager integration, single invoice per job direct to landlord, 60-minute after-hours dispatch, full SA compliance.',
-  provider: { '@id': `${SITE.url}/#organization` },
-  areaServed: { '@type': 'City', name: 'Adelaide' },
-  audience: { '@type': 'Audience', audienceType: 'PropertyManager' },
-  url: `${SITE.url}/for-property-managers`,
-}
-
-export default function ForPropertyManagers() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb).replace(/</g, '\\u003c') }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, '\\u003c') }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }}
-      />
+      <JsonLd data={jsonLd} />
 
-      <PageHero
-        eyebrow="For property managers"
-        title={
-          <>
-            Your PMs aren&rsquo;t{' '}
-            <span className="text-[#8a6e3f]">dispatchers.</span>
-          </>
-        }
-        subtitle={
-          <>
-            Adelaide residential real estate agencies use Briks as a single
-            maintenance supplier — Tapi-native, 60-minute after-hours dispatch,
-            one invoice per job direct to the landlord. Your PMs stop chasing
-            tradies and go back to leasing + retention.
-          </>
-        }
-      />
-
-      <TrustStrip />
-
-      {/* Definition + hero */}
-      <section className="relative py-16 md:py-24 bg-[#ffffff]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-                What this is
-              </p>
-              <h2
-                className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6"
-                style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-              >
-                A single building-services supplier for your entire portfolio.
-              </h2>
-              <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
-                <p>
-                  Briks Building Services operates as a managed maintenance
-                  supplier for Adelaide residential real estate agencies. We
-                  cover every trade — plumbing, electrical, carpentry, painting,
-                  tiling, roofing, gas, HVAC, handyman — under one supplier
-                  record in your existing system (Tapi, MaintenanceManager,
-                  PropertyMe, REST Professional, Console, or email).
-                </p>
-                <p>
-                  Work orders flow in. Our coordinator triages, dispatches the
-                  right specialist from a vetted licensed bench, communicates
-                  directly with the tenant, photo-documents the job, and issues
-                  a single line-item invoice in the landlord&rsquo;s name. The
-                  PM only sees status updates — the dispatcher workload moves
-                  off the desk entirely.
-                </p>
-              </div>
+      {/* HERO: their week, said plainly */}
+      <section aria-labelledby="hero-h" className="border-b border-[#e2ddd3] bg-[#fafaf7]">
+        <div className={`${cls.wrap} ${cls.heroPad} grid items-end gap-12 lg:grid-cols-12`}>
+          <div className="home-enter min-w-0 lg:col-span-7">
+            <p className={cls.eyebrow}>{name ? `${name}, this one is for you` : 'For property managers'}</p>
+            <h1 id="hero-h" className={`${cls.h1} mt-5`}>
+              You didn&rsquo;t become a property manager to chase trades.
+            </h1>
+            <p className={`${cls.lead} mt-6 max-w-[36rem]`}>
+              Tenants call Briks for every repair. We organise the licensed trade, book access and keep the tenant updated.
+              You get one report on Friday and approve anything over your limit.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <CtaLink href="#numbers">
+                Work out your hours <Arrow />
+              </CtaLink>
+              <CtaLink href="#questions" variant="secondary">
+                What your principal will ask
+              </CtaLink>
             </div>
-            <div className="lg:col-span-5">
-              <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-[#e2ddd3] bg-[#fafaf7]">
-                <Image
-                  src={IMAGES.aboutHero}
-                  alt="Adelaide heritage property handover coordination"
-                  fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+          </div>
+          <div className="home-enter home-enter--late min-w-0 lg:col-span-4 lg:col-start-9">
+            <Photo src="/stock/contact.jpg" alt="A hand holding a phone against a sandstone wall" ratio="aspect-[16/10]" className="mb-6" sizes="(min-width: 1024px) 380px, 100vw" />
+            <h2 className="font-heading border-b border-[#1a1a1a] pb-3 text-[15px] font-bold uppercase tracking-[0.14em] text-[#1a1a1a]">
+              Your week, today
+            </h2>
+            <DashList items={WEEK} />
           </div>
         </div>
       </section>
 
-      {/* Pain points */}
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              The status quo hurts
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Three problems Briks solves for SA agencies.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {PAINPOINTS.map((p) => (
-              <div
-                key={p.title}
-                className="bg-white border border-[#e2ddd3] rounded-md p-6 md:p-7"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-sm border border-[#e2ddd3] bg-[#fafaf7] mb-5">
-                  <p.Icon size={16} className="text-[#8a6e3f]" aria-hidden />
-                </div>
-                <h3
-                  className="text-[#1a1a1a] text-lg md:text-xl tracking-[-0.01em] mb-3"
-                  style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                >
-                  {p.title}
-                </h3>
-                <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                  {p.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Workflow */}
-      <section className="relative py-20 md:py-28 bg-[#ffffff]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              The workflow
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Four steps. Zero process change for your PMs.
-            </h2>
-          </div>
-          <ol className="space-y-5">
-            {WORKFLOW_STEPS.map((step) => (
-              <li
-                key={step.n}
-                className="relative bg-[#fafaf7] border border-[#e2ddd3] rounded-md p-6 md:p-7 pl-7"
-              >
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-6 bottom-6 w-[3px] bg-[#8a6e3f] rounded-r-sm"
-                />
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span
-                    className="text-[#8a6e3f] text-2xl tabular-nums"
-                    style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 700 }}
-                  >
-                    {step.n}
+      {/* AFTER: steps beside a live example job */}
+      <section aria-labelledby="after-h" className={ground.paper}>
+        <div className={`${cls.wrap} ${cls.section} grid items-center gap-12 lg:grid-cols-12`}>
+          <div className="lg:col-span-6">
+            <SectionHead id="after-h" eyebrow="Your week with Briks" title="Calls go to Briks. The report comes to you." />
+            <ol className="m-0 mt-8 list-none p-0">
+              {AFTER.map((s, i) => (
+                <li key={s.title} className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 border-t border-[#e2ddd3] py-4">
+                  <span className="font-ticker text-[15px] text-[#8a6e3f]">{String(i + 1).padStart(2, '0')}</span>
+                  <span>
+                    <span className="font-heading block text-[17px] font-bold text-[#1a1a1a]">{s.title}</span>
+                    <span className="mt-1 block text-[15px] leading-relaxed text-[#3a3735]">{s.body}</span>
                   </span>
-                  <h3
-                    className="text-[#1a1a1a] text-lg md:text-xl tracking-[-0.01em]"
-                    style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                  >
-                    {step.title}
-                  </h3>
-                </div>
-                <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                  {step.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Integrations */}
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              Integrations
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Works inside the systems your agency already uses.
-            </h2>
+                </li>
+              ))}
+            </ol>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {INTEGRATIONS.map((i) => (
-              <div
-                key={i.name}
-                className="bg-white border border-[#e2ddd3] rounded-md p-6"
-              >
-                <p
-                  className="text-[#1a1a1a] text-lg tracking-[-0.01em] mb-2"
-                  style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                >
-                  {i.name}
-                </p>
-                <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                  {i.body}
-                </p>
-              </div>
-            ))}
+          <div className="lg:col-span-6">
+            <JobTimeline />
           </div>
         </div>
       </section>
 
-      {/* Deliverables */}
-      <section className="relative py-20 md:py-28 bg-[#ffffff]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-5">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-                What you get on every job
-              </p>
-              <h2
-                className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-                style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-              >
-                The deliverables.
-              </h2>
-              <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
-                Identical SOP every time, from a single dripping tap through to
-                a multi-trade insurance claim.
-              </p>
-            </div>
-            <div className="lg:col-span-7">
-              <ul className="space-y-2.5">
-                {DELIVERABLES.map((d) => (
-                  <li
-                    key={d}
-                    className="flex items-start gap-3 bg-[#fafaf7] border border-[#e2ddd3] rounded-md p-4"
-                  >
-                    <CheckCircle2
-                      size={16}
-                      className="text-[#8a6e3f] shrink-0 mt-0.5"
-                      aria-hidden
-                    />
-                    <span className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                      {d}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* FREE HELP FIRST */}
+      <section aria-labelledby="fix-h" className={ground.warm}>
+        <div className={`${cls.wrap} ${cls.section}`}>
+          <SectionHead id="fix-h" eyebrow="Fewer call-outs" title="Simple problems get sorted on the phone, free.">
+            <p>Before anyone is sent, we walk tenants through the simple checks. Fewer call-outs, fewer bills for your owners, fewer questions for you.</p>
+          </SectionHead>
+          <div className="mt-10">
+            <QuickFixes contactHref="#enquiry" contactLabel="Ask us how it works" />
           </div>
         </div>
       </section>
 
-      <TestimonialsGrid
-        filterAudience="property-managers"
-        eyebrow="What agencies say"
-      />
-
-      <section className="relative py-20 md:py-28 bg-[#ffffff]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              FAQ
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Agency questions, answered.
-            </h2>
-          </div>
-          <FAQAccordion items={FAQS} />
-        </div>
-      </section>
-
-      <section className="relative py-16 md:py-20 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-            Related
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              { href: '/for-landlords', label: 'For landlords' },
-              { href: '/our-tradies', label: 'Our tradies' },
-              { href: '/how-it-works', label: 'How it works' },
-              { href: '/pricing', label: 'Pricing model' },
-              { href: '/case-studies/norwood-end-of-lease-turnaround', label: 'EOL case study' },
-              { href: '/blog/how-property-managers-should-brief-a-tradie', label: 'PM brief guide' },
-              { href: '/blog/end-of-lease-repair-checklist-sa-landlords', label: 'EOL checklist' },
-              { href: '/contact', label: 'Book agency intro' },
-            ].map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="group flex items-center justify-between bg-white border border-[#e2ddd3] rounded-md px-4 py-3 hover:border-[#8a6e3f]/60 transition-colors"
-              >
-                <span
-                  className="text-[#1a1a1a] text-sm"
-                  style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 600 }}
-                >
-                  {l.label}
-                </span>
-                <ArrowUpRight
-                  size={14}
-                  className="text-[#8a6e3f] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
-            ))}
+      {/* NUMBERS + EMAIL */}
+      <section id="numbers" aria-labelledby="numbers-h" className={`scroll-mt-24 ${ground.soft}`}>
+        <div className={`${cls.wrap} ${cls.section}`}>
+          <SectionHead id="numbers-h" eyebrow="Your numbers, your email" title="Show your principal what repairs cost you.">
+            <p>Put in your own figures. Underneath is an email to your principal that updates as you go. Copy it, or open it in your email.</p>
+          </SectionHead>
+          <div className="mt-10">
+            <ChampionKit defaultDoors={doors ?? 200} defaultName={name} defaultAgency={agency} />
           </div>
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 bg-[#ffffff] text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.1] mb-6"
-            style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-          >
-            Book a 20-minute agency intro.{' '}
-            <span className="text-[#8a6e3f]">No deck, no sales pitch.</span>
-          </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-            We&rsquo;ll walk you through the workflow on a screenshare, show
-            real Briks job reports, and answer your specific Tapi /
-            MaintenanceManager integration questions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <MovingBorder href="/contact">
-              Book agency intro
-              <ArrowRight size={18} aria-hidden />
-            </MovingBorder>
-            <a
-              href={whatsappHref(
-                "Hi Briks — I'm a property manager. We'd like to talk about adding Briks as a maintenance supplier:"
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#c0bcb4] hover:border-[#8a6e3f]/60 text-[#1a1a1a]/80 hover:text-[#1a1a1a] px-7 py-3.5 transition-colors duration-300 min-h-[44px]"
-            >
-              <MessageCircle size={16} aria-hidden />
-              Text us on WhatsApp
+      {/* PRINCIPAL QUESTIONS */}
+      <section id="questions" aria-labelledby="questions-h" className={`scroll-mt-24 ${ground.paper}`}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-10 md:grid-cols-12`}>
+          <div className="md:col-span-5">
+            <SectionHead id="questions-h" eyebrow="Your principal will ask" title="Three questions, answered.">
+              <p>These are the answers to have ready. They are also in the email.</p>
+            </SectionHead>
+          </div>
+          <div className="md:col-span-6 md:col-start-7">
+            <FactList items={PRINCIPAL_QS.map((x) => ({ k: x.q, v: x.a }))} />
+          </div>
+        </div>
+      </section>
+
+      {/* START */}
+      <section aria-labelledby="start-h" className={ground.ink}>
+        <div className={`${cls.wrap} ${cls.section} grid items-end gap-12 md:grid-cols-12`}>
+          <div className="md:col-span-7">
+            <SectionHead dark id="start-h" eyebrow="The ask" title="Let your portfolio be the one it starts on.">
+              <p>Your agency adds Briks as a supplier and you send us your tenant list. We agree your approval limit, write the email to your tenants, and you judge it on four Friday reports. No lock-in contract.</p>
+            </SectionHead>
+          </div>
+          <div className="flex flex-col gap-3 md:col-span-4 md:col-start-9">
+            <CtaLink href="#numbers" variant="light">
+              Get the email for your principal <Arrow />
+            </CtaLink>
+            <a href="#enquiry" className="font-heading inline-flex min-h-[48px] items-center justify-center rounded-sm border border-[#5a5650] px-6 text-[15px] font-semibold text-[#fafaf7] transition-colors duration-200 hover:border-[#fafaf7]">
+              Ask us a question first
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ENQUIRY */}
+      <section id="enquiry" aria-labelledby="enq-h" className={`scroll-mt-24 ${ground.paper}`}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-12 md:grid-cols-12`}>
+          <div className="md:col-span-5">
+            <SectionHead id="enq-h" eyebrow="Questions" title="Ask before you take it to your principal.">
+              <p>We reply by phone or email. Nothing is sent to your agency unless you ask us to.</p>
+            </SectionHead>
+            <div className="mt-8">
+              <Faq
+                items={[
+                  { q: 'Will you contact my principal?', a: 'Only if you ask us to. You can send the email yourself, and we follow up once you reply.' },
+                  { q: 'What do I have to do in the first month?', a: 'Send one email to your tenants with the Briks number. We write it. Then approve anything over your limit and read the Friday report.' },
+                ]}
+              />
+            </div>
+          </div>
+          <div className="md:col-span-7">
+            <LeadForm
+              source="property-managers"
+              submitLabel="Send my question"
+              defaults={{ name, company: agency, doors: doors ? String(doors) : '' }}
+              fields={[
+                { name: 'name', label: 'Your name', autoComplete: 'name', required: true, half: true },
+                { name: 'company', label: 'Agency', autoComplete: 'organization', required: true, half: true },
+                { name: 'email', label: 'Email', type: 'email', autoComplete: 'email', required: true, half: true },
+                { name: 'phone', label: 'Mobile', type: 'tel', autoComplete: 'tel', required: true, half: true },
+                { name: 'suburb', label: 'Office suburb', required: true, half: true },
+                { name: 'doors', label: 'Doors you manage', half: true },
+                { name: 'issue', label: 'Your question', type: 'textarea', required: true },
+              ]}
+            />
           </div>
         </div>
       </section>

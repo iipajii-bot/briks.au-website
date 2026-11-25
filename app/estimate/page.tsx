@@ -4,9 +4,9 @@ import EstimateForm from '@/components/estimate/EstimateForm'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Instant Estimate for Adelaide Maintenance & Repairs — Briks',
+  title: { absolute: 'Instant Repair Estimate, Adelaide | Briks' },
   description:
-    'Get a typical Adelaide price range for plumbing, electrical, carpentry, painting and more in under a minute. Estimate only: your final price is confirmed after we inspect.',
+    'A rough price range for common Adelaide repairs in under a minute. Estimate only: the real price comes in a written quote before any work starts.',
   alternates: { canonical: '/estimate' },
   openGraph: {
     title: 'Instant estimate — Briks Building Services, Adelaide',

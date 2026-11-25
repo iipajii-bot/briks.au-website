@@ -37,8 +37,8 @@ const values = [
   },
   {
     n: '04',
-    title: 'Only vetted trades dispatched',
-    body: "Licence + insurance verified before onboarding. Internal quality rating tracked per job. Three strikes removes a tradesperson from the network. We'd rather turn work away than send someone we wouldn't send to our own family's home.",
+    title: 'Independent trades licensed in South Australia',
+    body: "Independent trades are licensed in South Australia for their own work. We organise repairs, maintenance and renovation work. Homeowners and businesses get a written quote before work starts. Before and after photos and one invoice from Briks for each finished job.",
   },
 ]
 
@@ -108,10 +108,10 @@ export default function AboutPage() {
         }
         subtitle={
           <>
-            Briks runs out of Adelaide, built by {SITE.founderName} and a
-            crew of experienced tradies. One local team coordinating every
-            trade — maintenance, repairs, renovations, fit-outs — for
-            homeowners, landlords, agencies, and businesses.
+            Briks runs out of Adelaide. We organise the repair and
+            independent trades, each licensed in South Australia for their
+            own work, do it: maintenance, repairs and renovations for
+            agencies, landlords, homeowners and businesses.
           </>
         }
       />

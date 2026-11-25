@@ -4,6 +4,7 @@ import { CASE_STUDIES } from '@/lib/case-studies'
 import { TRADES } from '@/lib/trades'
 import { SUBURB_CONTENT } from '@/lib/suburb-content'
 import { BLOG_POSTS } from '@/lib/blog-posts'
+import { GUIDES } from '@/lib/guides'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
@@ -36,6 +37,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/our-tradies`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/areas`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${SITE.url}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${SITE.url}/services`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${SITE.url}/help`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE.url}/guides`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${SITE.url}/legal/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
+    { url: `${SITE.url}/legal/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
   ]
 
   const blog: MetadataRoute.Sitemap = BLOG_POSTS.map((p) => ({
@@ -70,31 +76,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // Guides and comparisons: data-driven (lib/guides.ts) plus the two hand-built pages
   const guides: MetadataRoute.Sitemap = [
-    'what-is-managed-maintenance-partner',
-    'property-maintenance-outsourcing-australia',
-    'tapi-preferred-supplier-setup',
-    'residential-maintenance-cost-guide-australia',
-    'pm-time-on-maintenance-benchmarks',
-    'after-hours-emergency-maintenance-guide',
-  ].map((slug) => ({
-    url: `${SITE.url}/guides/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.75,
-  }))
-
-  const compare: MetadataRoute.Sitemap = [
-    'briks-vs-in-house-maintenance-coordinator',
-    'briks-vs-pm-virtual-assistant',
-    'briks-vs-adhoc-trades',
-    'in-house-vs-outsourced-maintenance',
-  ].map((slug) => ({
-    url: `${SITE.url}/compare/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }))
+    ...GUIDES.map((g) => ({
+      url: `${SITE.url}/${g.kind === 'compare' ? 'compare' : 'guides'}/${g.slug}`,
+      lastModified: new Date(g.updated),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    })),
+  ]
+  const compare: MetadataRoute.Sitemap = []
 
   return [...core, ...services, ...areas, ...blog, ...guides, ...compare, ...caseStudies]
 }

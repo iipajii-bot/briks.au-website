@@ -10,15 +10,15 @@ const problems = [
   'Tradies who never call back',
   'Three quotes, three weeks, no start date',
   'Juggling separate plumber, sparky, painter',
-  'After-hours emergency, no answer',
+  'Emergency repair, who to call',
   'Bad finish, no-one to chase',
 ]
 
 const solutions = [
   'One call — Briks coordinates every trade',
-  'Quotes back fast, tradies dispatched fast',
+  'Written quote first, work organised with licensed trades',
   'Single team for renos, repairs, handyman',
-  '24/7 emergency dispatch, real humans',
+  'One number, free phone help for simple problems',
   'Briks carries the finish — we fix what fails',
 ]
 

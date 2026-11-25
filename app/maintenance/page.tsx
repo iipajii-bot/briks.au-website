@@ -12,9 +12,9 @@ import { SITE, whatsappHref } from '@/lib/constants'
 const PRIMARY_KEYWORD = 'Adelaide property maintenance'
 
 export const metadata: Metadata = {
-  title: 'Adelaide Property Maintenance — Preventative + Reactive | Briks',
+  title: { absolute: 'Property Maintenance in Adelaide | Briks' },
   description:
-    'Adelaide property maintenance for homeowners, landlords + businesses. Preventative maintenance schedules, reactive repairs, multi-trade jobs bundled into one visit. One coordinator, one invoice, 12-month workmanship guarantee.',
+    'Repairs and upkeep for Adelaide homes and rentals. One number, independent licensed trades, written quotes or approval limits, photos and one invoice.',
   alternates: { canonical: '/maintenance' },
 }
 
@@ -31,7 +31,7 @@ const CADENCE: { item: string; cadence: string; why: string }[] = [
   { item: 'Gutters cleared', cadence: 'Twice yearly (autumn + late winter)', why: 'Blocked gutters cause water ingress + insurance claim denial' },
   { item: 'Roof inspection', cadence: 'Annually + post-storm', why: 'Cracked ridge caps + slipped tiles let water in slowly — invisible from ground' },
   { item: 'Hot water service check', cadence: 'Every 2 years (annual for heat pump)', why: 'Sacrificial anode + element wear; failure usually mid-winter Saturday night' },
-  { item: 'Smoke alarm test + battery', cadence: 'Annually; replace at 10-year mark', why: 'SA tenancy law + your insurance both require it' },
+  { item: 'Smoke alarm test + battery', cadence: 'Annually; replace at 10-year mark', why: 'Check SA tenancy law and your insurance policy.' },
   { item: 'RCD safety switch test', cadence: 'Every 6 months', why: 'Fails silently; you only find out when you actually need it' },
   { item: 'Air conditioning service', cadence: 'Annually before summer', why: 'Filter, gas pressure, condenser clean; doubles unit lifespan' },
   { item: 'Plumbing pressure check', cadence: 'Annually on pre-1980 homes', why: 'Galvanised pipe degrades from inside; pressure drop is the early signal' },
@@ -59,7 +59,7 @@ const FAQS = [
   { q: 'Can I bundle a list of small jobs into one visit?', a: 'Yes — and we recommend it. Send the full list, we scope in one on-site inspection, sequence the work in efficient order, and complete in a single visit. Callout cost spreads across the list instead of being charged repeatedly.' },
   { q: 'What is the minimum maintenance job size?', a: 'No minimum. A single sticking door is fine. We bundle smaller tasks into a single coordinator visit so the trip cost is shared across the list.' },
   { q: 'Are maintenance invoices tax-deductible for rental properties?', a: 'Yes for landlords + property investors. Briks invoices issue with full ABN + GST + line-item detail suitable for direct deduction under ATO rental property expense rules. Capital improvements (extensions, kitchen rebuild) we line-item separately so your accountant can split.' },
-  { q: 'Do you maintain heritage Adelaide homes?', a: 'Yes. Heritage maintenance is one of our higher-volume categories — bluestone repointing, render repair, fascia + soffit timber replacement, original-profile skirting + architrave matching, sash-window restoration. Our bench includes carpenters + painters who specialise in pre-1940 Adelaide stock.' },
+  { q: 'Do you maintain heritage Adelaide homes?', a: 'Yes. Heritage maintenance is one of the categories Briks organises: bluestone repointing, render repair, fascia and soffit timber replacement, original-profile skirting and architrave matching, sash-window restoration. The work is done by independent trades licensed in South Australia for their own work.' },
 ]
 
 const faqSchema = {
@@ -87,7 +87,7 @@ export default function MaintenancePage() {
       <PageHero
         eyebrow="Property maintenance"
         title={<>{PRIMARY_KEYWORD}{' '}<span className="text-[#8a6e3f]">— planned + reactive.</span></>}
-        subtitle={<>Preventative maintenance prevents 90% of emergency callouts. Reactive maintenance fixes the other 10% inside 60 minutes. Briks coordinates every trade across Adelaide metro plus Hills — bundled into single visits, one written quote, one invoice, twelve-month workmanship guarantee.</>}
+        subtitle={<>Preventative maintenance can reduce emergency callouts. Reactive maintenance handles repairs when something stops working. Briks coordinates independent trades for repairs and maintenance, with one invoice from Briks for each finished job.</>}
       />
 
       <TrustStrip />
@@ -100,7 +100,7 @@ export default function MaintenancePage() {
               <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Maintenance vs repair vs renovation.</h2>
               <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
                 <p>Adelaide property maintenance covers two distinct workflows. Preventative maintenance is the scheduled work that stops things failing — annual gutter clean, six-monthly RCD test, annual AC service, biennial hot water flush. Reactive maintenance is the unscheduled fix when something has broken — burst pipe, blown circuit, cracked tile, ceiling stain after rain. Both fall under the maintenance umbrella; renovation is the bigger structural or aesthetic change that goes beyond maintenance.</p>
-                <p>Briks coordinates both — multi-trade visits scheduled into the calendar quarter, or a same-day response when something stops working. Same coordinator either way. Same vetted bench. Same invoice format. Twelve-month workmanship guarantee from day of work.</p>
+                <p>Briks coordinates both: planned maintenance scheduled ahead, or repairs when something stops working. Work is done by independent trades licensed in South Australia for their own work. Briks gives one invoice for each finished job.</p>
               </div>
             </div>
             <div className="lg:col-span-5">

@@ -22,10 +22,9 @@ import { SITE, whatsappHref } from '@/lib/constants'
 const PRIMARY_KEYWORD = 'Adelaide commercial maintenance + fit-out'
 
 export const metadata: Metadata = {
-  title:
-    'Commercial Maintenance + Fit-Out Adelaide — Businesses | Briks Building Services',
+  title: { absolute: 'Commercial Maintenance in Adelaide | Briks' },
   description:
-    'Adelaide commercial building maintenance + fit-outs for businesses. After-hours nightshift work, compliance servicing (sprinkler, fire alarm, RCD), Net 14/30 GST invoicing. One coordinator across every trade.',
+    'Repairs and maintenance for Adelaide shops, offices and cafes. Briks books independent licensed trades, quotes in writing first and sends one invoice per job.',
   alternates: { canonical: '/for-businesses' },
 }
 
@@ -41,13 +40,13 @@ const breadcrumb = {
 const SCENARIOS: { title: string; body: string; Icon: LucideIcon }[] = [
   {
     Icon: Moon,
-    title: 'After-hours fit-out + refit',
-    body: 'Retail shopfit, cafe rebuild, office reconfigure — done overnight or across a long weekend so trading hours stay clean. Briks runs the schedule, sequences trades back-to-back, and signs off before doors open Monday.',
+    title: 'Fit-out + refit coordination',
+    body: 'Retail shopfit, cafe rebuild, office reconfigure: Briks organises the work through licensed trades, with before and after photos and one invoice from Briks for each finished job.',
   },
   {
     Icon: Wrench,
-    title: 'Same-day reactive repair',
-    body: 'Air-con failed on a 38°C Friday. Cool-room down. Power out to half the floor. Plumbing backup in a customer toilet. Briks dispatches inside 60 minutes, makes safe, and either fixes on the spot or returns out-of-hours.',
+    title: 'Reactive repair coordination',
+    body: 'An air-conditioner fails. A cool-room breaks down. A toilet blocks. Briks organises a licensed trade, gives a written quote before work starts, and provides one invoice for each finished job.',
   },
   {
     Icon: Receipt,
@@ -59,7 +58,7 @@ const SCENARIOS: { title: string; body: string; Icon: LucideIcon }[] = [
 const COMPLIANCE = [
   {
     label: 'Sprinkler systems (AS 1851)',
-    body: 'Annual servicing + testing of fire-rated sprinkler installations to Australian Standard AS 1851. Briks coordinates licensed sprinkler contractors and logs the inspection record.',
+    body: 'Annual servicing + testing of fire-rated sprinkler installations to Australian Standard AS 1851. Briks coordinates licensed sprinkler contractors for the work.',
   },
   {
     label: 'Fire alarm + smoke detection (AS 1851 / AS 1670)',
@@ -75,31 +74,31 @@ const COMPLIANCE = [
   },
   {
     label: 'Exit + emergency lighting (AS 2293)',
-    body: 'Six-monthly + annual testing to Australian Standard AS 2293. Failures replaced and re-tested.',
+    body: 'Exit and emergency lighting testing to AS 2293 by an electrician licensed in South Australia for electrical work. Failed fittings can be quoted for replacement and re-testing.',
   },
   {
     label: 'Commercial gas appliance servicing',
-    body: 'Annual servicing for commercial gas cooktops, ovens, water heaters under PIC Type A gas-fitter authorisation. Certificate of compliance lodged.',
+    body: 'Briks can organise annual servicing for commercial gas cooktops, ovens and water heaters by a gas fitter licensed in South Australia for gas fitting.',
   },
 ]
 
 const DELIVERABLES = [
-  'After-hours + nightshift scheduling — trading hours stay clean',
-  'Licensed trades only — ARC for refrigeration, A-grade electrical, Type A gas, PIC plumbing',
+  'Maintenance scheduling to help protect trading hours',
+  'Independent trades licensed in South Australia for their own work: refrigeration, electrical, gas and plumbing.',
   'GST tax invoice in business name, Net 14 or Net 30 terms available',
   'Compliance register tracking — renewal dates, certificates, test logs',
   'Single point of contact across every trade involved in your premises',
-  '60-minute emergency dispatch across Adelaide metro',
-  '12-month workmanship guarantee on Briks-coordinated work',
+  'Emergency repairs can be organised once it is safe.',
+  'Briks gives no workmanship warranty of its own. Work is done by independent trades licensed in South Australia for their own work.',
   'Photo evidence on every visit — useful for landlord makegood requests',
-  'Public liability cover from $10M per tradie up to $20M for senior bench',
+  'Ask the independent trade about public liability insurance.',
   'Site induction supported where your premises require it',
 ]
 
 const FAQS = [
   {
     q: 'Do you do after-hours + nightshift work?',
-    a: 'Yes. After-hours, overnight, and weekend work is standard for commercial fit-out and reactive maintenance where trading hours need to stay protected. Briks pre-agrees an access plan, schedules sequenced trades, and signs off before doors open the next trading day.',
+    a: 'No. Briks does not offer after-hours, overnight or weekend cover. We can organise commercial fit-out and reactive maintenance work once it is safe, with a written quote before work starts.',
   },
   {
     q: 'Can you invoice Net 14 or Net 30?',
@@ -111,7 +110,7 @@ const FAQS = [
   },
   {
     q: 'Do you handle commercial sprinkler servicing + fire-alarm compliance?',
-    a: 'Yes — coordinated through licensed sprinkler + fire contractors on our bench. Annual servicing to AS 1851, certificates lodged, register kept current. Most commercial customers consolidate sprinkler + fire alarm + exit lighting + RCD + test-and-tag into a single Briks-coordinated annual sweep.',
+    a: 'Yes. Briks coordinates independent trades for sprinkler and fire work, including annual servicing to AS 1851. Commercial customers can consolidate sprinkler, fire alarm, exit lighting, RCD and test-and-tag into a single Briks-coordinated annual sweep.',
   },
   {
     q: 'Are tradies inducted for commercial sites?',
@@ -119,7 +118,7 @@ const FAQS = [
   },
   {
     q: 'Do you do nightshift work?',
-    a: 'Yes. Painting, joinery install, polished concrete grinding, AC commissioning, plumbing isolation work — anything that can be done after-hours to avoid trading impact, we will schedule for nightshift. Premium for nightshift is disclosed upfront in the written quote.',
+    a: 'No. Briks does not offer after-hours or overnight cover. Painting, joinery install, polished concrete grinding, AC commissioning and plumbing isolation work can be included in a written quote before work starts.',
   },
   {
     q: 'Can you GST-invoice my company?',
@@ -134,8 +133,8 @@ const FAQS = [
     a: 'Yes. Briks coordinates work where the customer is a body corporate or strata committee — invoice issued to the strata manager or owners corporation directly, scope of work documented with photo evidence suitable for strata meeting minutes.',
   },
   {
-    q: 'Do you carry public liability appropriate for commercial work?',
-    a: 'Yes. Briks-bench tradies carry a minimum $10M public liability cover; senior bench positions carry $20M. Certificate of currency available on request for property owner or strata committee records.',
+    q: 'Do the independent trades you coordinate carry public liability appropriate for commercial work?',
+    a: 'Briks is not insured. The independent trades are licensed in South Australia for their own work. Ask the relevant trade about its own insurance.',
   },
 ]
 
@@ -155,7 +154,7 @@ const serviceSchema = {
   serviceType: 'Commercial building maintenance + fit-out',
   name: 'Adelaide Commercial Maintenance + Fit-Out for Businesses',
   description:
-    'Adelaide commercial building services for shopfronts, cafes, restaurants, offices, strata committees. After-hours fit-out, compliance servicing (sprinkler, fire alarm, RCD, exit lighting), Net 14/30 GST invoicing.',
+    'Adelaide commercial building services for shopfronts, cafes, restaurants, offices and strata committees. Fit-out and compliance servicing, including sprinkler, fire alarm, RCD and exit lighting, coordinated by Briks. One invoice from Briks for each finished job.',
   provider: { '@id': `${SITE.url}/#organization` },
   areaServed: { '@type': 'City', name: 'Adelaide' },
   audience: { '@type': 'Audience', audienceType: 'Business' },
@@ -187,12 +186,7 @@ export default function ForBusinesses() {
           </>
         }
         subtitle={
-          <>
-            Adelaide shopfronts, cafes, restaurants, offices, and strata
-            committees use Briks for after-hours fit-out, recurring compliance
-            servicing, and same-day reactive repair. One coordinator across
-            every trade. GST-invoiced. Net 14 or Net 30.
-          </>
+          <>Briks coordinates fit-out, repairs and recurring compliance servicing for Adelaide shopfronts, cafes, restaurants, offices and strata committees, using independent trades. One invoice from Briks for each finished job.</>
         }
       />
 
@@ -220,13 +214,7 @@ export default function ForBusinesses() {
                   Invoicing has to fit Net 14 or Net 30 corporate cycles and
                   carry full GST detail for BAS claim.
                 </p>
-                <p>
-                  Briks coordinates every trade your premises needs —
-                  plumbing, electrical, gas, HVAC, carpentry, painting, tiling,
-                  roofing — under one supplier record, with after-hours
-                  scheduling, compliance register tracking, and a 60-minute
-                  emergency dispatch when something stops you trading.
-                </p>
+                <p>Briks coordinates independent trades for repairs, maintenance and renovation work, including plumbing, electrical, gas, HVAC, carpentry, painting, tiling and roofing. Each trade is licensed in South Australia for its own work. You get one invoice from Briks for each finished job.</p>
               </div>
             </div>
             <div className="lg:col-span-5">
@@ -433,11 +421,7 @@ export default function ForBusinesses() {
             Need work that doesn&rsquo;t interrupt trading?{' '}
             <span className="text-[#8a6e3f]">That&rsquo;s the job.</span>
           </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-            Free on-site scope inspection. Written quote within 24 hours.
-            Net 14 or Net 30 terms available. GST-invoiced under ABN 90 697
-            367 721.
-          </p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Free phone help for simple problems. Homeowners and businesses get a written quote before work starts. One invoice from Briks for each finished job. ABN 90 697 367 721.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <MovingBorder href="/contact">
               Get a quote

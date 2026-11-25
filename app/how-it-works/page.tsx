@@ -10,9 +10,9 @@ import { SITE } from '@/lib/constants'
 import { IMAGES } from '@/lib/images'
 
 export const metadata: Metadata = {
-  title: 'How We Work — From One Call to One Invoice',
+  title: { absolute: 'How Briks Works: One Call to One Invoice | Briks' },
   description:
-    'The Briks workflow for every customer — homeowners, landlords, property managers, businesses. Four steps: tell us, get a fast quote, on-site, one invoice.',
+    'How Briks organises a repair in Adelaide: tell us the job, get free phone help or a written quote, a licensed trade does the work, photos and one invoice.',
   alternates: { canonical: '/how-it-works' },
 }
 
@@ -26,13 +26,13 @@ const steps = [
   {
     number: '02',
     title: 'Fast quote',
-    body: `We classify the job, match it to the right trade in our network, and come back with a written price quickly. Genuine emergencies skip quoting and dispatch right away, around the clock.`,
+    body: `We classify the job and match it to a trade licensed in South Australia for the work. Homeowners and businesses get a written quote before work starts; landlords set an approval limit. For emergencies, call 000 if anyone is in danger.`,
     aux: 'Renovations get a site visit + itemised quote without delay.',
   },
   {
     number: '03',
     title: 'On-site, work done',
-    body: `A vetted, licensed tradesperson is dispatched. We confirm the ETA, they arrive, the work gets done. Photos before, after, and progress for anything bigger than half a day. Quality controlled on larger jobs.`,
+    body: `Briks organises an independent trade, licensed in South Australia for the work. You get before and after photos and one invoice for each finished job.`,
     aux: 'Failed job? Briks carries the remediation. One name on the hook.',
   },
   {
@@ -42,7 +42,7 @@ const steps = [
     reportItems: [
       'Before / after photographs',
       'Itemised work description',
-      'Trade licence + insurance on file',
+      'Trade licensed in South Australia for the work',
       'Compliance certificates where required (electrical, gas, waterproofing)',
       'Single tax invoice — your name on it',
     ],
@@ -53,7 +53,7 @@ const audiencePaths = [
   {
     icon: Home,
     label: 'Homeowners',
-    body: 'Text or call. Quote, schedule, done. No call-out fee on jobs over an hour.',
+    body: 'Call us. Phone help is free for simple problems. Homeowners and businesses get a written quote before work starts.',
     href: '/for-homeowners',
   },
   {
@@ -65,13 +65,13 @@ const audiencePaths = [
   {
     icon: Building2,
     label: 'Property managers',
-    body: 'Tapi-native intake. Single invoice per job sent direct to the landlord. PMs off-call.',
+    body: 'Tenants call Briks. One invoice per job, paid from trust. A Friday report for the property manager.',
     href: '/for-property-managers',
   },
   {
     icon: Briefcase,
     label: 'Businesses',
-    body: 'After-hours scheduling, strata-friendly billing, compliance reporting included.',
+    body: 'One number for tenants, landlords, property managers, homeowners and businesses.',
     href: '/for-businesses',
   },
 ]

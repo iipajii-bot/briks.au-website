@@ -9,9 +9,9 @@ import { CASE_STUDIES } from '@/lib/case-studies'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Real Adelaide Maintenance Jobs',
+  title: { absolute: 'Case Studies | Briks Building Services' },
   description:
-    'Detailed case studies of recent maintenance jobs handled by Briks across Adelaide. Real properties, real outcomes, real numbers.',
+    'Write-ups of Briks jobs in Adelaide: the problem, the trade booked and the result. More are added as jobs are completed.',
   alternates: { canonical: '/case-studies' },
 }
 
@@ -45,11 +45,7 @@ export default function CaseStudiesIndex() {
           </>
         }
         subtitle={
-          <>
-            Each case study is a real Briks job — the brief, the dispatch
-            decision, the outcome, and what the customer saw on their invoice
-            at the end. No fabrication, no marketing inflation.
-          </>
+          <>Each example describes a typical Briks job: the brief, the coordination decision, the outcome, and what the customer sees on their invoice at the end. Plain descriptions, no marketing inflation.</>
         }
       />
 

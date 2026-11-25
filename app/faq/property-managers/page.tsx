@@ -4,8 +4,9 @@ import { FAQ_PROPERTY_MANAGERS } from '@/lib/faqs'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'FAQ for Property Managers — Tapi Setup, Markup, Agency Fit',
-  description: 'Briks FAQ for Adelaide real estate agencies. Tapi workflow, markup tiers, landlord communication, fit and setup.',
+  title: { absolute: 'FAQ for Property Managers | Briks Adelaide' },
+  description:
+    'Answers for Adelaide property managers and agencies: how the Briks maintenance desk works, approval limits, owner invoices and getting started.',
   alternates: { canonical: '/faq/property-managers' },
 }
 
@@ -33,7 +34,7 @@ export default function FAQPropertyManagers() {
       <FAQSubPage
         eyebrow="FAQ · Property Managers"
         title={<>For <span className="text-[#8a6e3f]">property managers.</span></>}
-        subtitle={<>Tapi setup, markup tiers, agency fit, landlord communication. Built for Adelaide agency principals and heads of PM.</>}
+        subtitle={<>Software, cost to owners, approval limits and getting started. For Adelaide property managers and agency principals.</>}
         faqs={FAQ_PROPERTY_MANAGERS}
         primaryLabel="Book an agency intro"
       />

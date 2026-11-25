@@ -6,9 +6,9 @@ import { BLOG_POSTS, readingTimeMinutes } from '@/lib/blog-posts'
 import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Adelaide Building Services Blog — Maintenance, Renovation, Trades',
+  title: { absolute: 'Repairs and Maintenance Blog, Adelaide | Briks' },
   description:
-    'In-depth Adelaide building services articles — maintenance, renovation, trades explained, property management, heritage homes. From the Briks coordinator desk.',
+    'Articles on Adelaide home repairs, rentals and renovations: hot water, leaks, end-of-lease repairs, heritage homes and briefing a trade.',
   alternates: { canonical: '/blog' },
 }
 

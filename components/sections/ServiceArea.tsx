@@ -48,11 +48,7 @@ export default function ServiceArea() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease, delay: 0.2 }}
             className="mt-5 text-base text-[#3a3735] leading-relaxed max-w-xl"
-          >
-            Local operators, real-time dispatch across the metro and Adelaide
-            Hills. Don&rsquo;t see your suburb? Call anyway — coverage is
-            actively expanding.
-          </motion.p>
+          >Briks organises repairs and maintenance in Adelaide. Don’t see your suburb? Call to check what we can organise.</motion.p>
         </div>
 
         <div className="space-y-7">

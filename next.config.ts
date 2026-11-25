@@ -16,12 +16,12 @@ const nextConfig: NextConfig = {
         destination: '/services/pre-buy-inspection',
         permanent: true,
       },
-      {
-        // Old "all trades" hub was removed earlier
-        source: '/services',
-        destination: '/services/pre-buy-inspection',
-        permanent: false,
-      },
+      // /services is a real hub page again (app/services/page.tsx)
+      { source: '/privacy', destination: '/legal/privacy', permanent: true },
+      // Old guide pages (earlier model) replaced by lib/guides.ts entries
+      { source: '/guides/what-is-managed-maintenance-partner', destination: '/guides/outsourcing-property-maintenance', permanent: true },
+      { source: '/compare/briks-vs-in-house-maintenance-coordinator', destination: '/compare/in-house-vs-outsourced-maintenance', permanent: true },
+      { source: '/terms', destination: '/legal/terms', permanent: true },
     ]
   },
   // ─── Security headers — applied to every response ─────────────────────────
@@ -63,7 +63,10 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",
+              // 'unsafe-eval' only in `next dev`: React's dev tools need eval(); production never uses it.
+              process.env.NODE_ENV === 'development'
+                ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+                : "script-src 'self' 'unsafe-inline'",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob: https:",
               "font-src 'self' data:",

@@ -28,7 +28,7 @@ const PROMISES: Promise[] = [
     Icon: Wrench,
     headline: 'On-site.',
     label: 'On-site response',
-    sub: 'Routine work attended quickly. Genuine emergencies dispatched right away.',
+    sub: 'Routine repairs organised. For emergencies, call 000 if anyone is in danger.',
   },
   {
     Icon: Banknote,

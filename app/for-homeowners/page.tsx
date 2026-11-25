@@ -1,558 +1,205 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Phone,
-  Wrench,
-  ClipboardCheck,
-  ShieldCheck,
-  Clock,
-  MessageCircle,
-  CheckCircle2,
-  type LucideIcon,
-} from 'lucide-react'
-import PageHero from '@/components/sections/PageHero'
-import TrustStrip from '@/components/sections/TrustStrip'
-import TestimonialsGrid from '@/components/sections/TestimonialsGrid'
-import FAQAccordion from '@/components/sections/FAQAccordion'
-import MovingBorder from '@/components/effects/MovingBorder'
-import { IMAGES } from '@/lib/images'
-import { SITE, whatsappHref } from '@/lib/constants'
+import Chooser from '@/components/site/Chooser'
+import LeadForm from '@/components/site/LeadForm'
+import QuickFixes from '@/components/site/QuickFixes'
+import TradeStrip from '@/components/site/TradeStrip'
+import { cleanChoice, cleanText, type SearchParams } from '@/components/site/personal'
+import { Arrow, CtaLink, Faq, FactList, JsonLd, SectionHead, Steps, cls, faqJsonLd, ground } from '@/components/site/ui'
+import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
 
-const PRIMARY_KEYWORD = 'Adelaide home maintenance'
+/*
+ * /for-homeowners: owner-occupiers with a specific job. The quote-and-do side of Briks.
+ * Personal link: ?job=leak|doors|paint|roof|floors&suburb=
+ * Urgent-leak line sits above everything; deposit terms appear at the quote stage, not first.
+ */
 
 export const metadata: Metadata = {
-  title:
-    'Adelaide Home Maintenance + Repairs — Homeowners | Briks Building Services',
+  title: { absolute: 'Home Repairs in Adelaide with a Written Quote First | Briks' },
   description:
-    'Adelaide home maintenance for owner-occupied houses. One coordinator, every trade — plumbing, electrical, carpentry, painting, roofing, gas. One written quote, one invoice, 12-month workmanship guarantee.',
+    'Leaks, doors and locks, painting, roofs, gutters and floors in Adelaide. Tell Briks the job, get a written quote first, then photos and one invoice.',
   alternates: { canonical: '/for-homeowners' },
+  robots: { index: true, follow: true },
 }
 
-const breadcrumb = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'For Homeowners',
-      item: `${SITE.url}/for-homeowners`,
-    },
-  ],
-}
+const JOBS = [
+  { id: 'leak', label: 'Leak', h: 'Leak repairs', title: 'A leak, found and fixed.', body: 'Tell us where the water is showing and send a photo if you can. We book a licensed plumber or roof plumber, depending on where it is coming from, and quote before any work beyond the find.', img: '/stock/plumbing.jpg', alt: 'A brass pipe trap under a basin being tightened with a wrench' },
+  { id: 'doors', label: 'Doors and locks', h: 'Door and lock repairs', title: 'Doors that close, locks that work.', body: 'Sticking, dropped or damaged doors, frames, hinges and lock changes. A photo of the door and the frame helps us quote quickly.', img: '/stock/carpentry.jpg', alt: 'A spirit level, hand plane and wood shavings on plans' },
+  { id: 'paint', label: 'Painting', h: 'Painting', title: 'A room, a wall, or the whole house.', body: 'Interior and exterior painting, including patching and prep. Tell us the rooms and roughly how big they are.', img: '/stock/painting.jpg', alt: 'A freshly painted skirting board with a brush on a paint tin' },
+  { id: 'roof', label: 'Roof and gutters', h: 'Roof and gutter repairs', title: 'Gutters that overflow, tiles that slipped.', body: 'Overflowing gutters, a downpipe that has come away, broken or slipped tiles. Photos from the ground are enough to start.', img: '/stock/roofing.jpg', alt: 'Terracotta roof tiles and a gutter in late sun' },
+  { id: 'floors', label: 'Floors', h: 'New floors', title: 'Hybrid, laminate, vinyl or carpet.', body: 'We supply and install floating floors and carpet. Tell us the rooms and rough sizes and we will quote supply, removal of the old floor and installation.', img: '/stock/home-living.jpg', alt: 'A sunlit living room with timber floors' },
+  { id: 'other', label: 'Something else', h: 'Home repairs', title: 'Not on the list?', body: 'Tell us what is wrong. If it is a job we coordinate, we quote it. If it is not, we will say so.', img: '/stock/repair.jpg', alt: 'A hammer resting on a timber surface' },
+] as const
 
-const COMMON_SCENARIOS: { title: string; body: string; Icon: LucideIcon }[] = [
-  {
-    Icon: ClipboardCheck,
-    title: 'The five-things-broken weekend',
-    body: 'Loose hinge. Dripping tap. Cracked tile. Sticky door. Power point that buzzes. You\'ve been meaning to call someone for six months. One coordinator handles the lot — sequenced into a single visit, one invoice at the end.',
-  },
-  {
-    Icon: Wrench,
-    title: 'The "this needs a real reno" job',
-    body: 'Bathroom past its prime. Kitchen layout doesn\'t work. Adding a room. Briks scopes on-site, gives a written line-item quote, runs the trades back-to-back, photo-updates you daily, hands over a defect-free finish.',
-  },
-  {
-    Icon: Phone,
-    title: 'The "it just broke and I need someone now" emergency',
-    body: 'Burst pipe. No hot water mid-winter. Storm damage. Gas smell. Briks dispatches inside 60 minutes across metro Adelaide. Make-safe first, repair-quote scoped after the property is stable.',
-  },
-]
-
-const PROCESS_STEPS = [
-  {
-    n: '01',
-    title: 'Tell us the job',
-    body: 'WhatsApp a photo + description, fill the online form, or email. Real human reads it inside 2 hours during business days, 60 minutes for genuine emergencies.',
-  },
-  {
-    n: '02',
-    title: 'On-site scope + written quote',
-    body: 'A coordinator attends, measures, photographs, and emails a line-item quote within 24 hours of the visit. Free callout. Fixed total. No "we\'ll work it out as we go."',
-  },
-  {
-    n: '03',
-    title: 'Sequenced trades, daily updates',
-    body: 'One coordinator owns the job end-to-end. Multi-trade work is sequenced so trades don\'t wait on each other. Daily 5pm photo update on jobs running longer than two days.',
-  },
-  {
-    n: '04',
-    title: 'Sign-off, photo report, one invoice',
-    body: 'Walk-through, defect list cleared, photo PDF report in your inbox, single invoice covering every trade. 12-month workmanship guarantee starts the day we leave.',
-  },
-]
-
-const DELIVERABLES = [
-  'Free on-site quote inspection — no callout fee, ever',
-  'Written, itemised quote in your inbox within 24 hours of inspection',
-  'One coordinator from first call to final invoice',
-  'Licensed tradies only — PIC, A-grade, BLD, ARC, Type A gas',
-  'Public liability cover from $10M per tradie up to $20M for senior bench',
-  'Certificates of Compliance lodged with the SA Office of the Technical Regulator',
-  'Photo report PDF documenting the work, ready for your records or insurer',
-  '12-month workmanship guarantee on Briks-coordinated work',
-  'Single invoice across all trades on the job — no chasing five different bills',
-]
-
-const ALTERNATIVES = [
-  {
-    title: 'vs. calling five tradies yourself',
-    bad: 'Five quotes to compare. Five trades to schedule. Five invoices. Five callbacks when something goes wrong.',
-    good: 'One Briks coordinator, one written quote, one schedule, one invoice, one accountable name on every fix.',
-  },
-  {
-    title: 'vs. quote-bidding apps (hipages, Service.com.au, OneFlare)',
-    bad: 'Race-to-the-bottom pricing attracts the most desperate bidder, not the right specialist. You become the project manager.',
-    good: 'Briks picks the right specialist off a vetted bench, then runs the job for you. We pay tradies fairly so they take our calls first.',
-  },
-  {
-    title: 'vs. a big franchise builder',
-    bad: 'Layers of admin overhead baked into the quote. New-home-focused. Small repairs not their interest.',
-    good: 'Briks is built for repair, maintenance, and mid-sized reno. No franchise tax on the quote. Small jobs welcome.',
-  },
-]
+const STEPS = [
+  { title: 'Tell us the problem', body: 'Describe it and send photos if you can. Photos help us send the right trade the first time.' },
+  { title: 'We assess it, or a licensed trade visits to quote', body: 'Some jobs can be quoted from photos. Others need a licensed trade to visit first.' },
+  { title: 'You get a written quote', body: 'It names the work, the trade and the price. Nothing starts until you accept it.' },
+  { title: 'The job is done and checked', body: 'Before and after photos and one invoice for the whole job.' },
+] as const
 
 const FAQS = [
-  {
-    q: 'How is Briks different from quote-bidding apps like hipages?',
-    a: 'Briks acts as your coordinator. You give us one description, we scope on-site and give one written quote covering every trade involved. Quote-bidding apps push you a list of contractors to chase yourself — you end up project-managing five tradies. With Briks, you only ever talk to us, and we pay the trades on your behalf.',
-  },
-  {
-    q: 'Do I get one invoice or one per tradie?',
-    a: 'One invoice. Always. Briks bills you, then pays the individual tradies from that single payment. You see one charge against your bank account or card per job, regardless of how many trades attended.',
-  },
-  {
-    q: 'Can you bundle multiple small jobs into one visit?',
-    a: 'Yes — and we encourage it. Send the full list of what needs fixing, we scope all of it in one on-site visit, then dispatch in the most efficient sequence. Most multi-item visits take a single day and save the callout cost being applied repeatedly.',
-  },
-  {
-    q: 'What is the minimum job size?',
-    a: 'No minimum. A single picture hung is fine. We bundle small tasks into a single visit so the callout cost spreads across the list — better value than calling for one item at a time.',
-  },
-  {
-    q: 'Do you do same-day callouts?',
-    a: 'For genuine emergencies (active leak, no power, no hot water, gas smell), yes — dispatched inside 60 minutes across metro Adelaide. Routine same-day work is subject to bench availability and is often possible if you call before midday.',
-  },
-  {
-    q: 'Are quotes free?',
-    a: 'Yes. Briks does not charge a callout fee, an inspection fee, or a quote fee. The first time money changes hands is when you sign off the written quote and the work begins.',
-  },
-  {
-    q: 'What happens if a tradie does a bad job?',
-    a: 'Briks-coordinated work carries a 12-month workmanship guarantee on top of any manufacturer warranty on installed parts. If something fails inside the warranty window, message Briks (not the original tradie). We coordinate the fix at our cost. We also keep an internal feedback log per tradie — two strikes and they come off rotation.',
-  },
-  {
-    q: 'Do you service my suburb?',
-    a: 'Briks covers the full Adelaide metropolitan area plus Adelaide Hills (Stirling, Aldgate, Mount Barker, Hahndorf, Crafers, Bridgewater). Quickest way to confirm: send the address via WhatsApp.',
-  },
-  {
-    q: 'How quickly will I get a quote?',
-    a: 'On-site inspection booked inside 48 hours of your call for routine work. Written quote in your inbox within 24 hours of the inspection. Emergencies skip the quote-first step — make-safe dispatched immediately, repair quote follows.',
-  },
-  {
-    q: 'Do you work directly with homeowners or only through agencies?',
-    a: 'Both. Most Briks customers are owner-occupied homeowners. We also coordinate work for landlords, real estate agencies, and businesses — but the homeowner workflow is identical: one call, one quote, one invoice.',
-  },
-]
+  { q: 'Do you give a written quote before any work?', a: 'Yes. Every job gets a written quote that names the work, the trade and the price. Nothing starts until you accept it.' },
+  { q: 'How do I pay?', a: 'A 60% deposit books the job once you accept the quote, and the remaining 40% is due when the work is done.' },
+  { q: 'Who does the work?', a: 'Independent tradespeople licensed in South Australia for their trade. Briks organises the job, checks it and invoices once.' },
+  { q: 'Do you install floors?', a: 'Yes. Hybrid, laminate, vinyl and carpet, supplied and installed, including removal of the old floor if needed.' },
+  { q: 'What does Briks not do?', a: 'Renovations, extensions, structural work and new builds are outside what we take on.' },
+  { q: 'Which areas do you cover?', a: 'The Adelaide metropolitan area.' },
+] as const
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-}
+export default async function ForHomeownersPage({ searchParams }: { searchParams: SearchParams }) {
+  const sp = await searchParams
+  const job = cleanChoice(sp.job, ['leak', 'doors', 'paint', 'roof', 'floors', 'other'] as const)
+  const suburb = cleanText(sp.suburb)
+  const jobInfo = JOBS.find((j) => j.id === job)
+  const phone = sitePhone()
 
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Residential building services for homeowners',
-  name: 'Adelaide Home Maintenance + Repairs for Homeowners',
-  description:
-    'Briks coordinates licensed Adelaide tradies for owner-occupied homes. Plumbing, electrical, carpentry, painting, tiling, roofing, gas, HVAC, handyman. One coordinator, one quote, one invoice, 12-month workmanship guarantee.',
-  provider: { '@id': `${SITE.url}/#organization` },
-  areaServed: { '@type': 'City', name: 'Adelaide' },
-  audience: {
-    '@type': 'Audience',
-    audienceType: 'Homeowner',
-  },
-  url: `${SITE.url}/for-homeowners`,
-}
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': `${SITE.url}/for-homeowners#service`,
+        name: 'Home repairs coordinated by Briks',
+        serviceType: 'Residential repair coordination',
+        provider: { '@id': `${SITE.url}/#organization` },
+        areaServed: { '@type': 'City', name: 'Adelaide' },
+        audience: { '@type': 'Audience', audienceType: 'Homeowners' },
+      },
+      faqJsonLd(`${SITE.url}/for-homeowners#faq`, FAQS),
+    ],
+  }
 
-export default function ForHomeowners() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumb).replace(/</g, '\\u003c'),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema).replace(/</g, '\\u003c'),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c'),
-        }}
-      />
+      <JsonLd data={jsonLd} />
 
-      <PageHero
-        eyebrow="For homeowners"
-        title={
-          <>
-            {PRIMARY_KEYWORD} that{' '}
-            <span className="text-[#8a6e3f]">stops the chase.</span>
-          </>
-        }
-        subtitle={
-          <>
-            One coordinator covers every trade you need around the house —
-            plumbing, electrical, carpentry, painting, tiling, roofing, gas, air
-            conditioning, handyman. Briks scopes on-site, writes one quote,
-            sequences the trades, hands over a photo report and one invoice.
-            Twelve-month workmanship guarantee, free callouts, no subscription.
-          </>
-        }
-      />
-
-      <TrustStrip />
-
-      {/* Definition + hero image */}
-      <section className="relative py-16 md:py-24 bg-[#ffffff]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-                What Briks is
-              </p>
-              <h2
-                className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6"
-                style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-              >
-                One coordinator. Every trade. Zero hassle.
-              </h2>
-              <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
-                <p>
-                  Briks Building Services is an Adelaide building services
-                  coordinator. We don&rsquo;t pretend to be a 200-person crew —
-                  we&rsquo;re a tight, vetted bench of licensed South Australian
-                  tradies, and a single human coordinator who owns the job from
-                  first call to final invoice. You get the right specialist for
-                  every task, never the closest available body.
-                </p>
-                <p>
-                  Most homeowner jobs are scoped on-site within 48 hours. Quotes
-                  are written, itemised, and free. Multi-trade work is
-                  sequenced so trades don&rsquo;t wait on each other.
-                  Twelve-month workmanship guarantee is standard on every
-                  Briks-coordinated job.
-                </p>
-              </div>
-            </div>
-            <div className="lg:col-span-5">
-              <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-[#e2ddd3] bg-[#fafaf7]">
-                <Image
-                  src={IMAGES.homeLiving}
-                  alt="Adelaide cottage living room — calm weekday afternoon"
-                  fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
+      {/* HERO: answer first; urgent line visible */}
+      <section aria-labelledby="hero-h" className="border-b border-[#e2ddd3] bg-[#fafaf7]">
+        <div className={`${cls.wrap} ${cls.heroPad}`}>
+          <div className="home-enter max-w-[52rem]">
+            <p className={cls.eyebrow}>{suburb ? `For homeowners in ${suburb}` : 'For homeowners · Adelaide'}</p>
+            <h1 id="hero-h" className={`${cls.h1} mt-5`}>
+              {jobInfo ? `${jobInfo.h}${suburb ? ` in ${suburb}` : ''}, with a written quote first.` : 'Home repairs and new floors, with a written quote first.'}
+            </h1>
+            <p className={`${cls.lead} mt-6 max-w-[38rem]`}>
+              Tell us the job and send a photo. We work out what it needs, get a licensed trade to quote it in writing and book
+              the work once you say yes. Before and after photos, one invoice.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <CtaLink href="#quote">
+                {suburb ? `Get your ${suburb} quote` : 'Get a written quote'} <Arrow />
+              </CtaLink>
+              {phone ? (
+                <CtaLink href={sitePhoneHref()} variant="secondary">
+                  Call {phone}
+                </CtaLink>
+              ) : null}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Common scenarios */}
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              How homeowners use Briks
+          {phone ? (
+            <p className="home-enter home-enter--late mt-10 flex max-w-[52rem] flex-wrap items-center gap-x-3 gap-y-1 border-t border-[#e2ddd3] pt-5 text-[15px] text-[#3a3735]">
+              <span className="font-heading font-semibold text-[#1a1a1a]">Water coming in right now?</span>
+              If anyone is in danger, call 000 first. If it is safe, turn off the water at the meter, then call{' '}
+              <a href={sitePhoneHref()} className={cls.textLink}>{phone}</a>.
             </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Three jobs we see most weeks.
-            </h2>
+          ) : null}
+        </div>
+      </section>
+
+      <TradeStrip title="The trades your home needs, organised for you." note="Independent trades, each licensed in South Australia for their work." />
+
+      {/* JOB PICKER */}
+      <section aria-labelledby="job-h" className={ground.paper}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-12 md:grid-cols-12`}>
+          <div className="md:col-span-5">
+            <SectionHead id="job-h" eyebrow="What's the job?" title="Pick the closest one.">
+              <p>It tells us which trade to send and what to ask you. You can describe it properly in the form.</p>
+            </SectionHead>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {COMMON_SCENARIOS.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white border border-[#e2ddd3] rounded-md p-6 md:p-7"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-sm border border-[#e2ddd3] bg-[#fafaf7] mb-5">
-                  <s.Icon size={16} className="text-[#8a6e3f]" aria-hidden />
-                </div>
-                <h3
-                  className="text-[#1a1a1a] text-lg md:text-xl tracking-[-0.01em] mb-3"
-                  style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                >
-                  {s.title}
-                </h3>
-                <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                  {s.body}
-                </p>
-              </div>
-            ))}
+          <div className="md:col-span-6 md:col-start-7">
+            <Chooser
+              legend="The job"
+              initial={job}
+              options={JOBS.map((j) => ({ id: j.id, label: j.label, title: j.title, body: j.body, img: j.img, alt: j.alt }))}
+            />
           </div>
         </div>
       </section>
 
-      {/* 4-step process */}
-      <section className="relative py-20 md:py-28 bg-[#ffffff]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              How it works
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Four steps from call to keys-back.
-            </h2>
-          </div>
-          <ol className="space-y-5">
-            {PROCESS_STEPS.map((step) => (
-              <li
-                key={step.n}
-                className="relative bg-[#fafaf7] border border-[#e2ddd3] rounded-md p-6 md:p-7 pl-7"
-              >
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-6 bottom-6 w-[3px] bg-[#8a6e3f] rounded-r-sm"
-                />
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span
-                    className="text-[#8a6e3f] text-2xl tabular-nums"
-                    style={{
-                      fontFamily: 'var(--font-bricolage)',
-                      fontWeight: 700,
-                    }}
-                  >
-                    {step.n}
-                  </span>
-                  <h3
-                    className="text-[#1a1a1a] text-lg md:text-xl tracking-[-0.01em]"
-                    style={{
-                      fontFamily: 'var(--font-bricolage)',
-                      fontWeight: 600,
-                    }}
-                  >
-                    {step.title}
-                  </h3>
-                </div>
-                <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                  {step.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* What you get */}
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-5">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-                What you get on every job
-              </p>
-              <h2
-                className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-                style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-              >
-                The deliverables.
-              </h2>
-              <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
-                Same checklist every time, whether your job is a $300
-                tap-replace or a $30,000 bathroom rebuild.
-              </p>
-            </div>
-            <div className="lg:col-span-7">
-              <ul className="space-y-2.5">
-                {DELIVERABLES.map((d) => (
-                  <li
-                    key={d}
-                    className="flex items-start gap-3 bg-white border border-[#e2ddd3] rounded-md p-4"
-                  >
-                    <CheckCircle2
-                      size={16}
-                      className="text-[#8a6e3f] shrink-0 mt-0.5"
-                      aria-hidden
-                    />
-                    <span className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                      {d}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* FREE HELP FIRST */}
+      <section aria-labelledby="fix-h" className={ground.soft}>
+        <div className={`${cls.wrap} ${cls.section}`}>
+          <SectionHead id="fix-h" eyebrow="Check this first" title="It might be a two-minute fix.">
+            <p>Before you book anyone, try the simple checks. If they don&rsquo;t sort it, call us and we&rsquo;ll take it from there.</p>
+          </SectionHead>
+          <div className="mt-10">
+            <QuickFixes contactHref={phone ? sitePhoneHref() : '#quote'} contactLabel={phone ? `Still not fixed? Call ${phone}` : 'Get a written quote'} />
           </div>
         </div>
       </section>
 
-      {/* Why Briks vs alternatives */}
-      <section className="relative py-20 md:py-28 bg-[#ffffff]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              Honest comparison
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Why Briks beats the alternatives.
-            </h2>
+      {/* HOW IT WORKS */}
+      <section aria-labelledby="how-h" className={ground.warm}>
+        <div className={`${cls.wrap} ${cls.section}`}>
+          <SectionHead id="how-h" eyebrow="How it works" title="A written price before any work." />
+          <Steps steps={STEPS} cols={4} />
+        </div>
+      </section>
+
+      {/* IN WRITING */}
+      <section aria-labelledby="writing-h" className={ground.paper}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-10 md:grid-cols-12`}>
+          <div className="md:col-span-5">
+            <SectionHead id="writing-h" eyebrow="What you get" title="Everything in writing." />
           </div>
-          <div className="space-y-4">
-            {ALTERNATIVES.map((a) => (
-              <div
-                key={a.title}
-                className="bg-[#fafaf7] border border-[#e2ddd3] rounded-md p-6 md:p-7"
-              >
-                <p
-                  className="text-[#1a1a1a] text-lg md:text-xl tracking-[-0.01em] mb-4"
-                  style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-                >
-                  Briks {a.title}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="border-l-2 border-[#c0bcb4] pl-4">
-                    <p className="text-[10px] tracking-[0.22em] uppercase text-[#5a5650] mb-2">
-                      What you usually get
-                    </p>
-                    <p className="text-[#3a3735] text-sm md:text-[15px] leading-relaxed">
-                      {a.bad}
-                    </p>
-                  </div>
-                  <div className="border-l-2 border-[#8a6e3f] pl-4">
-                    <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-2">
-                      With Briks
-                    </p>
-                    <p className="text-[#1a1a1a] text-sm md:text-[15px] leading-relaxed">
-                      {a.good}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="md:col-span-6 md:col-start-7">
+            <FactList
+              wide
+              items={[
+                { k: 'The quote', v: 'Before any work. It names the work, the trade and the price.' },
+                { k: 'Payment', v: 'A 60% deposit books the job after you accept the written quote. The last 40% is due when the work is done and you have the before and after photos. There is no maintenance desk fee on homeowner jobs.' },
+                { k: 'Photos', v: 'Before and after, sent with the finished job.' },
+                { k: 'The invoice', v: 'One invoice from Briks for the whole job.' },
+              ]}
+            />
           </div>
         </div>
       </section>
 
-      {/* Testimonials — filtered */}
-      <TestimonialsGrid
-        filterAudience="homeowners"
-        eyebrow="What homeowners say"
-      />
-
-      {/* FAQs */}
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-              FAQ
-            </p>
-            <h2
-              className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-            >
-              Homeowner questions, answered.
-            </h2>
+      {/* FAQ */}
+      <section aria-labelledby="faq-h" className={ground.soft}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-10 md:grid-cols-12`}>
+          <div className="md:col-span-4">
+            <SectionHead id="faq-h" eyebrow="Questions" title="Before you ask for a quote." />
           </div>
-          <FAQAccordion items={FAQS} />
-        </div>
-      </section>
-
-      {/* Internal link cluster */}
-      <section className="relative py-16 md:py-20 bg-[#ffffff]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
-            Trades homeowners book most
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              { slug: 'plumbing', label: 'Plumbing' },
-              { slug: 'electrical', label: 'Electrical' },
-              { slug: 'carpentry', label: 'Carpentry' },
-              { slug: 'painting', label: 'Painting' },
-              { slug: 'tiling', label: 'Tiling' },
-              { slug: 'roofing', label: 'Roofing' },
-              { slug: 'handyman', label: 'Handyman' },
-              { slug: 'hvac', label: 'HVAC' },
-            ].map((t) => (
-              <Link
-                key={t.slug}
-                href={`/services/${t.slug}`}
-                className="group flex items-center justify-between bg-[#fafaf7] border border-[#e2ddd3] rounded-md px-4 py-3 hover:border-[#8a6e3f]/60 transition-colors"
-              >
-                <span
-                  className="text-[#1a1a1a] text-sm"
-                  style={{
-                    fontFamily: 'var(--font-inter-tight)',
-                    fontWeight: 600,
-                  }}
-                >
-                  {t.label}
-                </span>
-                <ArrowUpRight
-                  size={14}
-                  className="text-[#8a6e3f] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
-            ))}
+          <div className="md:col-span-7 md:col-start-6">
+            <Faq items={FAQS} />
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-20 md:py-28 bg-[#fafaf7] border-t border-[#e2ddd3] text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.1] mb-6"
-            style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
-          >
-            Got a job around the house?{' '}
-            <span className="text-[#8a6e3f]">Tell us. We&rsquo;ll handle it.</span>
-          </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-            Free on-site scope. Written quote inside 24 hours. Fixed total
-            before any tool leaves the truck.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <MovingBorder href="/contact">
-              Get a quote
-              <ArrowRight size={18} aria-hidden />
-            </MovingBorder>
-            <a
-              href={whatsappHref(
-                "Hi Briks — I have a job around the house. Quick details:"
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#c0bcb4] hover:border-[#8a6e3f]/60 text-[#1a1a1a]/80 hover:text-[#1a1a1a] px-7 py-3.5 transition-colors duration-300 min-h-[44px]"
-            >
-              <MessageCircle size={16} aria-hidden />
-              Text us on WhatsApp
-            </a>
+      {/* QUOTE FORM */}
+      <section id="quote" aria-labelledby="quote-h" className={`scroll-mt-24 ${ground.paper}`}>
+        <div className={`${cls.wrap} ${cls.section} grid gap-12 md:grid-cols-12`}>
+          <div className="md:col-span-5">
+            <SectionHead id="quote-h" eyebrow="Get a written quote" title="Tell us the job.">
+              <p>We reply by phone or email. If photos help, we will ask you to text them to us.</p>
+            </SectionHead>
+          </div>
+          <div className="md:col-span-7">
+            <LeadForm
+              source="homeowners"
+              submitLabel="Get a written quote"
+              defaults={{ suburb, company: jobInfo ? jobInfo.label : '' }}
+              fields={[
+                { name: 'name', label: 'Your name', autoComplete: 'name', required: true, half: true },
+                { name: 'phone', label: 'Mobile', type: 'tel', autoComplete: 'tel', required: true, half: true },
+                { name: 'email', label: 'Email', type: 'email', autoComplete: 'email', required: true, half: true },
+                { name: 'suburb', label: 'Suburb', required: true, half: true },
+                { name: 'company', label: 'Type of job', type: 'select', options: JOBS.map((j) => j.label), half: true },
+                { name: 'issue', label: 'Describe the problem', type: 'textarea', required: true, hint: 'What is wrong, where it is, and how long it has been happening.' },
+              ]}
+            />
           </div>
         </div>
       </section>

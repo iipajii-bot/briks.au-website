@@ -13,9 +13,9 @@ import { SITE, whatsappHref } from '@/lib/constants'
 const PRIMARY_KEYWORD = 'Adelaide renovations'
 
 export const metadata: Metadata = {
-  title: 'Adelaide Renovations — Kitchens, Bathrooms, Extensions, Fit-Outs | Briks',
+  title: { absolute: 'Renovations in Adelaide: Kitchens, Bathrooms | Briks' },
   description:
-    'Adelaide renovation specialists. Kitchen + bathroom rebuilds, extensions, decks, multi-trade reno, commercial fit-out. Project-managed end-to-end. Written line-item quotes, daily 5pm photo updates, single invoice.',
+    'Kitchen and bathroom renovations, decks and extensions in Adelaide. Briks organises the licensed trades, with a written line-item quote before work starts.',
   alternates: { canonical: '/renovations' },
 }
 
@@ -29,11 +29,11 @@ const breadcrumb = {
 }
 
 const SCOPE = [
-  { title: 'Kitchen', body: 'Strip-out + rebuild. Cabinetry, benchtop, plumbing rough-in + fit-off, electrical, splashback, paint. Typical timeline 8-12 weeks calendar (4 weeks on-site).' },
-  { title: 'Bathroom', body: 'Strip-out, waterproofing to AS 3740, tile, plumbing, fit-off. Typical timeline 4-6 weeks calendar (2-3 weeks on-site).' },
+  { title: 'Kitchen', body: 'Strip-out and rebuild. Cabinetry, benchtop, plumbing rough-in and fit-off, electrical, splashback, paint. The work is done by independent trades licensed in South Australia for their own work.' },
+  { title: 'Bathroom', body: 'Strip-out, waterproofing to AS 3740, tile, plumbing, fit-off. The work is done by independent trades licensed in South Australia for their own work.' },
   { title: 'Extensions', body: 'Single-room and multi-room additions. Council consent + building consent coordinated. Engineer involvement managed.' },
   { title: 'Decks + outdoor', body: 'Decks, pergolas, paving, outdoor kitchens. Footings + drainage + council setback handled.' },
-  { title: 'Commercial fit-out', body: 'Retail, cafe, office. After-hours scheduling so trading hours stay clean. AS 1851 sprinkler + fire compliance handled.' },
+  { title: 'Commercial fit-out', body: 'Retail, cafe, office. Briks coordinates work once it is safe. Licensed trades handle AS 1851 sprinkler and fire system work.' },
   { title: 'Structural', body: 'Wall removal, beam install, opening up. Engineer-signed. Building consent lodged.' },
 ]
 
@@ -42,7 +42,7 @@ const PROCESS = [
   { n: '02', title: 'Written line-item quote', body: 'Itemised PDF within 5 working days. Each line is a discrete decision you can adjust to budget. Contingency line included.' },
   { n: '03', title: 'Pre-construction', body: 'Long-lead joinery + appliances ordered. Council consent + building consent lodged where required. Trade sequence locked.' },
   { n: '04', title: 'On-site build', body: 'One coordinator owns the job. Trades sequenced back-to-back. Daily 5pm photo update once on-site work begins.' },
-  { n: '05', title: 'Sign-off + handover', body: 'Walk-through, defect list cleared, photo report PDF, Certificates of Compliance, single invoice. 12-month workmanship guarantee starts.' },
+  { n: '05', title: 'Sign-off + handover', body: 'Before and after photos and one invoice from Briks for each finished job.' },
 ]
 
 const EXCLUDED = [
@@ -54,13 +54,13 @@ const EXCLUDED = [
 
 const FAQS = [
   { q: 'Do you do new home builds?', a: 'No. Briks coordinates renovation, repair, extension, and fit-out work. New-build projects need a project builder licensed for that scale and duration; we will refer if asked.' },
-  { q: 'How long does a kitchen reno take?', a: 'A standard 3-trade kitchen refit takes 4 weeks of on-site work plus 4-8 weeks of supply lead time for benchtops and custom cabinetry. Calendar time from quote sign-off is typically 8-12 weeks.' },
+  { q: 'How long does a kitchen reno take?', a: 'A kitchen refit involves several licensed trades, benchtops and custom cabinetry. Homeowners and businesses get a written quote before work starts.' },
   { q: 'How long does a bathroom reno take?', a: 'Standard bathroom strip-and-rebuild: 12-15 working days on-site (waterproofing cure time adds 2 days). Calendar time from quote sign-off including fixture supply lead: 4-6 weeks.' },
   { q: 'Do you handle council approvals?', a: 'Yes. Briks coordinates development consent + building consent applications where required (extensions, structural changes, decks over 1m, commercial fit-outs in heritage zones). Application fees are passed through; coordination is included in the quote.' },
   { q: 'Can I live in the property during renovation?', a: 'Depends on scope. Single-bathroom homes mid-bathroom-reno: typically no (plan a temporary shower). Kitchen reno: yes with a temporary microwave + bar fridge setup. Whole-house reno or floor-level structural: usually no.' },
   { q: 'What is a PC sum?', a: 'A PC (Prime Cost) sum is an allowance in the quote for items the customer chooses later — typically appliances, tapware, handles. The PC sum is replaced by the actual supplier invoice when items are selected.' },
   { q: 'Who is on-site each day?', a: 'A Briks coordinator runs the schedule. Trades attend on their sequenced days. The coordinator visits the site at minimum twice weekly during active construction. Daily 5pm photo updates from the lead trade.' },
-  { q: 'What if costs change mid-build?', a: 'Quoted contingency (typically 8-12%) covers most surprises. Anything beyond contingency is a written variation request — you sign off before work continues. No retrospective cost adjustments.' },
+  { q: 'What if costs change mid-build?', a: 'Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit; anything over it is quoted first.' },
 ]
 
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
@@ -89,7 +89,7 @@ export default function RenovationsPage() {
               <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>A renovation managed like a project, not a hopeful ask.</h2>
               <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
                 <p>Adelaide renovations done well are a logistics job. Right specialist on the right day, sequenced so trades don&rsquo;t wait on each other, signed off cleanly at the end. Done badly they are a guessing game with five contractors who blame each other when something slips.</p>
-                <p>Briks runs them as a project. Single coordinator from first site visit through to handover. Line-item written quote with optional spec variations. Pre-construction sequencing locked before any tool leaves the truck. Daily 5pm photo update on every active build day. Twelve-month workmanship guarantee on completion.</p>
+                <p>Briks coordinates the work as a project. Independent trades licensed in South Australia do their own work. Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit; anything over it is quoted first. Before and after photos and one invoice from Briks for each finished job. Briks gives no workmanship warranty of its own.</p>
               </div>
             </div>
             <div className="lg:col-span-5">
@@ -177,7 +177,7 @@ export default function RenovationsPage() {
               { href: '/blog/heritage-home-plumbing-adelaide-eastern-suburbs', label: 'Heritage plumbing' },
               { href: '/services/carpentry', label: 'Carpentry' },
               { href: '/services/tiling', label: 'Tiling' },
-              { href: '/case-studies/glenelg-kitchen-refit', label: 'Kitchen case study' },
+              { href: '/services', label: 'All services' },
               { href: '/our-tradies', label: 'Our tradies' },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="group flex items-center justify-between bg-white border border-[#e2ddd3] rounded-md px-4 py-3 hover:border-[#8a6e3f]/60 transition-colors">

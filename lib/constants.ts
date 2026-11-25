@@ -1,5 +1,5 @@
 export const SITE = {
-  url: 'https://briks.au',
+  url: 'https://www.briks.au',
   name: 'Briks Building Services',
   legalName: 'Briks Building Services Pty Ltd',
   tagline: 'One Call. Every Trade. Zero Hassle.',
@@ -98,7 +98,7 @@ export const MEGA_MENUS: Record<MegaKey, ReadonlyArray<MegaCol>> = {
       items: [
         { label: 'Pre-Buy Inspection', href: '/services/pre-buy-inspection' },
         { label: 'Renovations', href: '/renovations' },
-        { label: 'Emergency 24/7', href: '/emergency' },
+        { label: 'Emergency contacts', href: '/emergency' },
       ],
       seeAll: { label: 'All projects', href: '/renovations' },
     },
@@ -206,7 +206,7 @@ export const SERVICES: Service[] = [
       'Independent second-opinion reports',
     ],
     heroText:
-      "Buying a property is the biggest cheque most people write. A 90-minute inspection by a builder who's seen a thousand homes catches the things that cost five figures to fix — hidden water damage, unsignable structural work, dodgy electrical. We turn up, we look hard, we give you a written report with photos and a real recommendation: buy, walk, or negotiate.",
+      "Buying a property? A building inspection before you commit can find hidden water damage, structural issues and electrical problems. Use the report to decide whether to buy, walk away or negotiate. Briks can organise repairs by independent trades licensed in South Australia for their own work, with a written quote before work starts.",
     ctaText: 'Book an Inspection',
     whyBriks: [
       'Independent — no kickbacks from agents, builders, or vendors.',
@@ -216,20 +216,20 @@ export const SERVICES: Service[] = [
     ],
     jobExamples: [
       {
-        title: 'Glenelg unit · pre-settlement',
-        body: 'Caught a failing shower waterproof membrane and corroded balcony steel mid-build. Buyer used the report to negotiate remediation before settlement.',
+        title: 'Pre-settlement building inspection',
+        body: 'A pre-settlement inspection usually checks for failing waterproofing and corroded balcony steel. Briks organises an independent licensed inspector, who reports the findings so the buyer can negotiate remediation.',
       },
       {
-        title: 'Norwood heritage · pre-buy',
-        body: 'Identified asbestos eaves, structural settlement at the rear add-on, and unsigned electrical from a previous reno. Buyer walked, kept their deposit on a finance clause.',
+        title: 'Heritage home pre-purchase check',
+        body: 'A pre-purchase inspection of an older home often finds asbestos, structural movement and unrecorded electrical work. Briks organises a licensed inspector to document the findings for the buyer.',
       },
       {
-        title: 'Mawson Lakes new build · handover',
-        body: '47-item defect list delivered to the builder under their warranty obligation. All items remediated before the buyer took the keys.',
+        title: 'New-build handover defects',
+        body: 'New-build defects are usually listed and sent to the builder under their warranty obligation. Briks organises the inspection and follows up repairs before the buyer takes the keys.',
       },
       {
-        title: 'Magill auction · pre-auction sniff-test',
-        body: 'Two-hour walkthrough day-of-auction, called the buyer with a verbal go/no-go before the bid. Saved them from a roofing replacement they would have inherited.',
+        title: 'Pre-auction building inspection',
+        body: 'A pre-auction inspection usually identifies major defects before bidding. Briks organises a licensed inspector to check the property and report the findings to the buyer.',
       },
     ],
     deliverables: [
@@ -254,7 +254,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: 'Heritage homes — do you know what to look for?',
-        a: 'Yes. Bluestone footings, settlement cracks, lath-and-plaster, lead paint, slate roofs, original wiring runs. Different game from a 5-year-old build and we know both.',
+        a: 'Yes. Bluestone footings, settlement cracks, lath-and-plaster, lead paint, slate roofs, original wiring runs. Different game from a 5-year-old build, and Briks organises repairs for both.',
       },
     ],
   },
@@ -280,33 +280,33 @@ export const SERVICES: Service[] = [
     whyBriks: [
       'Bundle multiple unrelated jobs into one visit, one invoice.',
       'Same tradie can cover plumbing, electrical, carpentry where licensing allows.',
-      'Vetted, licensed, insured — no exceptions.',
+      'Independent trades, licensed in South Australia for their own work.',
       'Documented before/after so you have a record for landlords or your own files.',
     ],
     jobExamples: [
       {
-        title: 'Unley · 8-item punch list',
-        body: 'Stuck back door, loose laundry tap, fence panel, garage light, smoke alarm test, gutter clean, hose tap leak, garden tidy. Knocked over in one afternoon.',
+        title: 'Small household repair list',
+        body: 'Small repairs such as a sticking door, loose tap, fence panel, light, smoke alarm and gutter clean are common. Briks organises a handyperson to quote and complete them.',
       },
       {
-        title: 'Marion rental · turnover prep',
-        body: 'Pre-handover punch list before the new tenant moved in. Door alignment, paint touch-ups, smoke alarm cert, lock change, blind repair.',
+        title: 'Rental turnover preparation',
+        body: 'A rental turnover usually needs door alignment, paint touch-ups, smoke alarm checks, lock changes and blind repairs. Briks organises licensed trades to quote and complete the work.',
       },
       {
-        title: 'Norwood · ongoing investor',
-        body: 'Quarterly visit across a 4-property portfolio. Each property gets a 90-minute walk-through and snag-list cleanup, all one invoice.',
+        title: 'Investor portfolio maintenance',
+        body: 'Ongoing investor maintenance usually covers repairs across several properties. Briks organises licensed trades for each job and provides one invoice per finished repair.',
       },
     ],
     deliverables: [
       'Photos before and after each item',
       'Single tax invoice with itemised work',
       'Compliance certs where the work required them',
-      '30-day workmanship warranty on all repairs',
+      'Manufacturer warranties on products may apply.',
     ],
     faqs: [
       {
         q: 'Is there a minimum visit?',
-        a: 'No call-out fee on jobs over an hour. Smaller one-offs are quoted up front before any work starts.',
+        a: 'Phone help for simple problems is free. Homeowners and businesses get a written quote before work starts.',
       },
       {
         q: 'Can one tradie cover plumbing AND electrical?',
@@ -322,9 +322,9 @@ export const SERVICES: Service[] = [
     id: 'emergency-repairs',
     title: 'Emergency Repairs',
     icon: 'Zap',
-    tagline: '24/7 response when it matters.',
+    tagline: 'Free phone help for simple problems.',
     description:
-      'Burst pipes, no power, broken access, storm damage. Real humans answer, real tradies dispatch — around the clock.',
+      'Burst pipes, no power, broken access or storm damage. If anyone is in danger, call 000. For no power or wires down, call SA Power Networks on 13 13 66. For a burst pipe, turn the water off at the meter if safe. Briks can organise repairs during business hours.',
     included: [
       'Burst pipes and major water damage',
       'Hot water system failure',
@@ -335,31 +335,31 @@ export const SERVICES: Service[] = [
       'Make-safe and isolation',
     ],
     heroText:
-      "Emergencies don't follow business hours. A burst pipe at midnight. No power on a Sunday morning. The eave torn off in last night's storm. Briks runs an after-hours roster of vetted tradies with pre-agreed rates so the dispatch happens immediately, the make-safe happens first, and the full repair is quoted before anyone goes further.",
+      "Emergencies don’t follow business hours. A burst pipe at midnight. No power on a Sunday. A storm-damaged eave. If anyone is in danger, call 000. If you smell gas, leave the area, do not use switches or flames, and call Australian Gas Networks on 1800 427 532. For no power or wires down, call SA Power Networks on 13 13 66. For a burst pipe, turn the water off at the meter if safe. Briks can organise the repair during business hours.",
     ctaText: 'Report an Emergency',
     whyBriks: [
       'Real human picks up the phone — no answering service or IVR maze.',
       'Pre-agreed emergency roster, no scrambling for who can come.',
       'Make-safe and isolate first, then quote the full repair separately.',
-      'Insurance-ready report with photos for every claim.',
+      'Before and after photos and one invoice for each finished job.',
     ],
     jobExamples: [
       {
-        title: 'Burnside · 2am burst pipe',
-        body: 'Mainline burst above a ceiling. On site within the hour, water isolated, ceiling dropped to dry, full repair quoted next morning.',
+        title: 'Burst pipe above ceiling',
+        body: 'A burst pipe above a ceiling is a common emergency. Briks organises a plumber licensed in South Australia to find the source, isolate the water and quote the repair.',
       },
       {
-        title: 'Salisbury · Sunday switchboard fault',
-        body: 'No power across half the house. Licensed sparky on site that afternoon, fault traced to a failed RCD, full switchboard report for insurance.',
+        title: 'Switchboard fault and outage',
+        body: 'A power outage across part of a house usually points to a switchboard fault. Briks organises an electrician licensed in South Australia to trace the fault and quote the repair.',
       },
       {
-        title: 'Brighton · 11pm storm window',
-        body: 'Branch through a bedroom window in a storm. Glazed make-safe overnight, replacement glass and frame the next day.',
+        title: 'Storm-damaged window',
+        body: 'A branch through a window during a storm is a common call. Briks organises a licensed tradesperson to make the opening safe and quote the repair.',
       },
     ],
     deliverables: [
       'Make-safe completion certificate',
-      'Insurance-ready written report with photos',
+      'Before and after photos and one invoice for each finished job.',
       'Full repair quote separate from the make-safe',
       'Compliance certs (electrical, gas, plumbing) where required',
     ],
@@ -369,12 +369,12 @@ export const SERVICES: Service[] = [
         a: 'Anything that\'s causing immediate damage, danger, or makes the property unliveable — burst pipes, no power, no hot water in winter, broken access, gas leaks, storm damage. Cosmetic stuff is non-emergency.',
       },
       {
-        q: 'Is there an after-hours premium?',
-        a: 'Yes — quoted up front before dispatch. You see the after-hours rate, agree, then the tradie rolls. No surprise charges on the invoice.',
+        q: 'Do you offer after-hours cover?',
+        a: 'No after-hours cover. Homeowners and businesses get a written quote first. Landlords and agencies set an approval limit; anything over it is quoted first. One invoice from Briks for each finished job.',
       },
       {
-        q: 'Insurance reports — do you write them?',
-        a: 'Yes. Photos, written description, cause-and-effect summary. Insurance-ready PDF emailed to you within 24 hours of the make-safe.',
+        q: 'Insurance reports: do you write them?',
+        a: 'Briks organises repairs. For each finished job, you get before and after photos and one invoice from Briks.',
       },
     ],
   },
@@ -382,9 +382,9 @@ export const SERVICES: Service[] = [
     id: 'plumbing',
     title: 'Plumbing',
     icon: 'Droplets',
-    tagline: 'Licensed plumbers, full compliance.',
+    tagline: 'Plumbers licensed in South Australia for plumbing work.',
     description:
-      'Licensed plumbers for routine and emergency work. Compliance docs supplied without asking. Hot water, taps, drains, waterproofing, blockages.',
+      'Independent trades licensed in South Australia for their work. Hot water, taps, drains, waterproofing, blockages.',
     included: [
       'Tap, mixer, and fixture repairs',
       'Toilet repairs and replacements',
@@ -395,38 +395,38 @@ export const SERVICES: Service[] = [
       'Water pressure and flow diagnosis',
     ],
     heroText:
-      "Plumbing on residential and commercial properties requires SA-licensed tradespeople — no exceptions. Every plumber in the Briks network holds the appropriate licence and insurance. We supply Plumbing Compliance documentation with every job. We replace what's about to fail rather than patching it.",
+      "Briks organises plumbing on residential and commercial properties. The work is done by independent trades licensed in South Australia for plumbing work. For each finished job, you get before and after photos and one invoice from Briks.",
     ctaText: 'Request a Plumber',
     whyBriks: [
-      'All plumbers SA-licensed and insurance-verified.',
+      'Plumbers licensed in South Australia for plumbing work.',
       'Plumbing Compliance Certificate supplied on every job.',
       'Replace before fail — we tell you when patching just delays the inevitable.',
       'Coordinated with electrician or tiler when the job spans multiple trades.',
     ],
     jobExamples: [
       {
-        title: 'Hot water replacement · same-day',
-        body: 'Failed gas hot water unit on a winter Saturday. New unit sourced, installed, and certified the same day. No cold weekend.',
+        title: 'Hot water unit failure',
+        body: 'A failed hot water unit is a common problem. Briks organises a trade licensed in South Australia to check the unit and quote any repair or replacement.',
       },
       {
-        title: 'Toilet rebuild + waterproofing fix',
-        body: 'Slow leak at the toilet base had compromised the bathroom subfloor. Removed, reinstated waterproofing, new toilet, full compliance.',
+        title: 'Toilet leak and waterproofing',
+        body: 'A slow leak at the toilet base can compromise the bathroom subfloor. Briks organises licensed trades to remove the toilet, reinstate waterproofing and fit a replacement.',
       },
       {
-        title: 'Adelaide Hills · septic system',
-        body: 'Failed septic in a hills property. Diagnosed pump failure, replaced, full system flush, council-compliant paperwork.',
+        title: 'Septic system fault',
+        body: 'A failed septic system on a hills property often involves a pump fault. Briks organises a licensed trade to diagnose the cause and quote the repair.',
       },
     ],
     deliverables: [
       'Plumbing Compliance Certificate (where applicable)',
       'Photos of underlying work before sealing up',
-      'Manufacturer warranty pass-through on installed units',
+      'Manufacturer warranty on installed units, as provided by the manufacturer.',
       'Itemised invoice — labour, parts, certs',
     ],
     faqs: [
       {
-        q: 'Same-day hot water replacement?',
-        a: 'Most common units we can install same-day. Less common (large solar systems, custom commercial) usually next-day. We make the unit safe so you have hot water that night either way where possible.',
+        q: 'Hot water replacement?',
+        a: 'Briks can organise a licensed plumber to replace common hot water units. Large solar or custom commercial systems may need a quote first. The plumber makes the unit safe where possible.',
       },
       {
         q: 'Septic and rural systems?',
@@ -434,7 +434,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: 'Backflow prevention testing?',
-        a: 'Yes. Annual backflow testing for commercial and dual-occupancy residential, certified and lodged with the relevant authority.',
+        a: 'Yes. Briks can organise backflow testing for commercial and dual-occupancy residential properties. A licensed plumber does the work.',
       },
     ],
   },
@@ -444,7 +444,7 @@ export const SERVICES: Service[] = [
     icon: 'Plug',
     tagline: 'Compliant electrical, no shortcuts.',
     description:
-      'Licensed electricians for repairs, installations, switchboard upgrades, and safety compliance. Certificate of Compliance lodged on every job.',
+      'Independent electricians licensed in South Australia for electrical work: repairs, installations, switchboard upgrades and safety checks. The electrician provides a Certificate of Compliance for the work.',
     included: [
       'Fault finding and repairs',
       'Light fittings, fans, and downlights',
@@ -455,30 +455,30 @@ export const SERVICES: Service[] = [
       'EV charger and three-phase upgrades',
     ],
     heroText:
-      "Electrical safety is a legal obligation. Briks works exclusively with SA-licensed electricians who understand residential and commercial standards. All electrical work comes with a Certificate of Compliance lodged within 24 hours. Switchboard upgrades planned around the household, not your inconvenience.",
+      "Electrical safety is a legal obligation. Briks works with electricians licensed in South Australia for electrical work in homes and businesses. The electrician provides a Certificate of Compliance for the work. Switchboard upgrades are planned with you.",
     ctaText: 'Request an Electrician',
     whyBriks: [
       'SA-licensed sparkies on every job — no exceptions, no shortcuts.',
-      'Certificate of Compliance lodged within 24 hours of completion.',
+      'Certificate of Compliance provided by the electrician for the electrical work.',
       'Smoke alarm and RCD compliance reports for landlords.',
       'Switchboard upgrades scheduled around your day, not the other way.',
     ],
     jobExamples: [
       {
-        title: 'Norwood · switchboard upgrade',
-        body: 'Old ceramic-fuse board upgraded to a fully RCD-protected modern switchboard. Power off for 4 hours, scheduled for a workday so the household was out.',
+        title: 'Switchboard upgrade',
+        body: 'An older ceramic-fuse switchboard is commonly upgraded to a modern RCD-protected board. Briks organises a licensed electrician to quote and carry out the work.',
       },
       {
-        title: 'Glenelg rental · RCD + smoke compliance',
-        body: 'Investor pre-tenancy compliance — full RCD audit, smoke alarms tested and certified, written report for the property file.',
+        title: 'Rental RCD and smoke checks',
+        body: 'Pre-tenancy compliance usually covers RCD testing and smoke alarm checks. Briks organises licensed trades to carry out the checks and provides one invoice.',
       },
       {
-        title: 'Magill · investor safety audit',
-        body: 'Six-property portfolio audit. Each property got a full electrical check, RCD test, smoke alarm cert, and a one-page summary for the owner.',
+        title: 'Investor safety audit',
+        body: 'An investor safety audit usually covers electrical checks, RCD testing and smoke alarm checks across a portfolio. Briks organises licensed trades and provides a summary for the owner.',
       },
     ],
     deliverables: [
-      'Certificate of Compliance (CoC) — lodged within 24 hours',
+      'Certificate of Compliance (CoC) provided by the electrician for electrical work.',
       'Switchboard label updated with new circuits',
       'RCD test result and date',
       'Smoke alarm test stickers',
@@ -487,7 +487,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: 'Smoke alarm compliance for rentals?',
-        a: 'Yes — interconnected hardwired smoke alarms tested and certified to current SA tenancy regulations. Annual test schedule available.',
+        a: 'Yes. Interconnected hardwired smoke alarms can be checked by an electrician licensed in South Australia for electrical work. Briks can organise the testing.',
       },
       {
         q: 'EV charger installation?',
@@ -526,24 +526,24 @@ export const SERVICES: Service[] = [
     ],
     jobExamples: [
       {
-        title: 'Glenelg · door + frame replacement',
-        body: 'Twisted exterior door replaced with a new solid-core unit, frame realigned, weather-sealed, locks rekeyed. Half-day visit.',
+        title: 'Exterior door replacement',
+        body: 'A twisted exterior door is commonly replaced with a solid-core unit, with the frame realigned and locks rekeyed. Briks organises a licensed carpenter to quote and complete the work.',
       },
       {
-        title: 'Burnside · deck rebuild',
-        body: 'Failed merbau deck stripped and rebuilt on existing bearers. New stair flight, balustrade, oil finish. Two-week project.',
+        title: 'Deck rebuild',
+        body: 'A failed timber deck is usually stripped and rebuilt on the existing bearers, with new stairs and balustrade. Briks organises a licensed carpenter to quote and complete the work.',
       },
       {
-        title: 'Hyde Park · built-in wardrobe',
-        body: 'Custom built-in wardrobe to fill an alcove — internal drawer bank, shaker doors, full hanging space. Designed, made, and installed in three weeks.',
+        title: 'Built-in wardrobe installation',
+        body: 'A built-in wardrobe is commonly designed to fill an alcove, with drawers and hanging space. Briks organises a licensed joiner to design, make and install it.',
       },
     ],
     deliverables: [
       'Photos before and after',
       'Timber grade and source documentation (structural)',
       'Engineer certification (where structural)',
-      'Manufacturer hardware warranty pass-through',
-      '12-month workmanship warranty',
+      'Manufacturer hardware warranty, not a Briks warranty.',
+      'No Briks workmanship warranty',
     ],
     faqs: [
       {
@@ -587,21 +587,21 @@ export const SERVICES: Service[] = [
     ],
     jobExamples: [
       {
-        title: 'Marion · 3-bedroom interior repaint',
-        body: 'Full interior — walls, ceilings, trims, doors. Three-day job, fully masked, household able to keep one wing usable each day.',
+        title: 'Interior repaint',
+        body: 'A full interior repaint usually covers walls, ceilings, trims and doors. Briks organises a licensed painter to quote and complete the work with proper masking.',
       },
       {
-        title: 'Goodwood · weatherboard exterior',
-        body: 'Lead-paint tested first, then full weatherboard repaint. Scaffold for two-storey rear, two coats with proper drying time between.',
+        title: 'Weatherboard exterior repaint',
+        body: 'A weatherboard exterior repaint often starts with lead-paint testing. Briks organises a licensed painter to quote and complete the work, including access for two-storey areas.',
       },
       {
-        title: 'Norwood heritage · cornice restoration',
-        body: 'Damaged ornate cornice and ceiling rose restored, plaster repaired, full ceiling repaint with original profile preserved.',
+        title: 'Cornice and ceiling rose restoration',
+        body: 'Damaged ornate cornice and ceiling roses are commonly restored to the original profile. Briks organises a licensed plasterer to repair and repaint the ceiling.',
       },
     ],
     deliverables: [
       'Paint colour code list for every room and surface',
-      'Manufacturer warranty pass-through (typically 7–15 years)',
+      'Manufacturer warranties may apply',
       'Photos before, during prep, and after',
       'Touch-up tin of every main colour',
     ],
@@ -626,41 +626,41 @@ export const SERVICES: Service[] = [
     icon: 'Grid3x3',
     tagline: 'Bathrooms, kitchens, floors, outdoor.',
     description:
-      'Wall and floor tiling, certified waterproofing, splashbacks, regrouting, repairs. Large-format, mosaic, herringbone — we do the layouts.',
+      'Wall and floor tiling, waterproofing by a licensed waterproofer, splashbacks, regrouting, repairs. Large-format, mosaic, herringbone. Tilers handle the layouts.',
     included: [
       'Bathroom and ensuite full tile',
       'Kitchen splashbacks',
       'Floor tiling — small format and large',
       'Mosaic and herringbone layouts',
-      'AS 3740 waterproofing certification',
+      'AS 3740 waterproofing standard',
       'Regrouting and resealing',
       'Outdoor and pool tiling',
     ],
     heroText:
-      "Bad waterproofing is the most expensive shortcut in any bathroom. Every Briks tiling job in a wet area uses a certified waterproofer and a written AS 3740 certificate. Large-format and unusual layouts (herringbone, fishscale, mosaic) handled by tilers who do them weekly, not once a year. Coordinated with the plumber if rough-in needs adjusting before the tiles go down.",
+      "Bad waterproofing causes costly damage in bathrooms. In wet areas, Briks organises waterproofing by an independent trade licensed in South Australia for waterproofing. AS 3740 is the standard. Large-format and unusual layouts (herringbone, fishscale, mosaic) are handled by tilers. We coordinate with the plumber if rough-in needs adjusting before the tiles go down.",
     ctaText: 'Book a Tiler',
     whyBriks: [
-      'AS 3740 waterproofing certificate on every wet-area job — no exceptions.',
+      'AS 3740 waterproofing standard for wet-area work',
       'Large-format and pattern layouts (herringbone, mosaic, fishscale) routine.',
       'Coordinated with plumber when rough-ins need adjusting first.',
       'Tile and grout codes recorded so future repairs match.',
     ],
     jobExamples: [
       {
-        title: 'Burnside · bathroom strip-and-retile',
-        body: 'Full strip back to studs, replumb, certified waterproofing, large-format porcelain floor and walls, niche, frameless screen. Two-week job.',
+        title: 'Bathroom strip and retile',
+        body: 'A bathroom strip and retile usually involves replumbing, waterproofing by a licensed waterproofer, and new floor and wall tiles. Briks organises the licensed trades and one invoice.',
       },
       {
-        title: 'Magill · outdoor herringbone patio',
-        body: 'Outdoor patio in herringbone porcelain. Drainage falls set, sealed grout for outdoor durability, expansion joints proper.',
+        title: 'Outdoor herringbone patio',
+        body: 'An outdoor patio in herringbone porcelain needs correct drainage falls and sealed grout. Briks organises a licensed tiler to quote and lay the patio.',
       },
       {
-        title: 'Hahndorf · pool tile re-grout',
-        body: 'Failed grout around a hills pool stripped and replaced with epoxy grout. Tile-by-tile inspection, lifted and reset where bedding had failed.',
+        title: 'Pool tile re-grout',
+        body: 'Failed grout around a pool is commonly stripped and replaced with epoxy grout. Briks organises a licensed tiler to inspect the tiles and quote the work.',
       },
     ],
     deliverables: [
-      'AS 3740 Waterproofing Certificate (wet areas)',
+      'AS 3740 waterproofing standard (wet areas)',
       'Tile and grout product codes for future matching',
       'Sealant log with reseal due dates',
       'Photos at each stage — strip, waterproof, tile, grout, seal',
@@ -668,7 +668,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: 'Waterproofing certificate — included?',
-        a: 'Yes. Every wet-area job (bathroom, ensuite, laundry, balcony) gets a written AS 3740 waterproofing certificate from a licensed waterproofer.',
+        a: 'Briks organises wet-area work (bathroom, ensuite, laundry, balcony) by independent trades licensed in South Australia for their own work. AS 3740 is the waterproofing standard.',
       },
       {
         q: 'Large-format tile?',
@@ -697,33 +697,33 @@ export const SERVICES: Service[] = [
       'Full roof inspections',
     ],
     heroText:
-      "A small leak becomes a ceiling collapse. Briks handles tile, metal, and Colorbond roofs — repairs, full replacements, gutters, downpipes, ventilation. Active leaks get prioritised. Storm-damage jobs come with insurance-ready paperwork. We climb up and look properly, we don't diagnose from the ground.",
+      "A small leak can become a ceiling collapse. Briks organises tile, metal and Colorbond roof repairs, full replacements, gutters, downpipes and ventilation. If anyone is in danger, call 000. For storm damage, check with your insurer about a claim. Briks can organise repairs once it is safe.",
     ctaText: 'Book a Roof Inspection',
     whyBriks: [
       'Active leaks prioritised — make-safe first, full repair quoted second.',
       'Tile, metal, and Colorbond all handled — same crew.',
-      'Storm-damage assessments written for insurance claims.',
+      'Storm-damage repairs organised for insurance claims.',
       'Full gutter replacement, not just clean — when the gutters are done, we tell you straight.',
     ],
     jobExamples: [
       {
-        title: 'Beaumont · storm tile replacement',
-        body: 'Hail-damaged tile roof. 80+ tiles replaced, ridge re-bedded, full inspection report submitted to the insurer.',
+        title: 'Storm tile roof repair',
+        body: 'Hail-damaged tile roofs usually need broken tiles replaced and ridges re-bedded. Briks organises a licensed roofer to quote the repair and provide a report for the insurer.',
       },
       {
-        title: 'Glenelg · full gutter replace',
-        body: 'Rusted Colorbond gutters and downpipes removed and replaced. Fascia checked and reinstated, leaf guard fitted to the high tree-line side.',
+        title: 'Gutter and downpipe replacement',
+        body: 'Rusted gutters and downpipes are commonly removed and replaced, with the fascia checked. Briks organises a licensed roofer to quote and complete the work.',
       },
       {
-        title: 'Aldinga · whirlybird install',
-        body: 'Two roof-mounted whirlybirds installed to address summer ceiling-cavity heat. Underflashing sealed, manufacturer warranty registered.',
+        title: 'Roof ventilation install',
+        body: 'Roof-mounted ventilation is commonly installed to address summer ceiling-cavity heat. Briks organises independent licensed trades to install it and seal the flashing.',
       },
     ],
     deliverables: [
       'Photos before and after, including roof-level shots',
-      'Insurance-ready report for storm-damage claims',
-      'Manufacturer warranty pass-through (Colorbond, gutter, whirlybird)',
-      'Workmanship warranty on bedding and pointing',
+      'Storm-damage repairs for insurance claims',
+      'Manufacturer warranties may apply (Colorbond, gutter, whirlybird)',
+      'Bedding and pointing repairs organised',
     ],
     faqs: [
       {
@@ -731,8 +731,8 @@ export const SERVICES: Service[] = [
         a: 'Yes. Membrane roofs, box gutters, parapet flashings — these are the trickiest leaks. We trace by water testing, not just visual inspection.',
       },
       {
-        q: 'Storm damage insurance reports?',
-        a: 'Yes. Photos, written description, cause-and-effect, repair scope. Insurance-ready PDF emailed within 24 hours of the inspection.',
+        q: 'Storm damage repairs for insurance claims?',
+        a: 'Yes. Briks organises the repairs. A trade licensed in South Australia assesses the damage and quotes where needed. Before and after photos and one invoice from Briks are provided for each finished job.',
       },
       {
         q: 'Gutter guard?',
@@ -746,7 +746,7 @@ export const SERVICES: Service[] = [
     icon: 'Wrench',
     tagline: 'Six small jobs, one visit.',
     description:
-      'TV mounting, shelves, doors, fixtures, picture hanging, small repairs. No call-out fee on jobs over an hour.',
+      'TV mounting, shelves, doors, fixtures, picture hanging, small repairs. Free phone help for simple problems.',
     included: [
       'TV mounting and shelving',
       'Door hardware and adjustment',
@@ -760,30 +760,30 @@ export const SERVICES: Service[] = [
       "Most homeowners save up six small jobs before calling anyone, because the call-out fee makes one job uneconomical. Briks bundles handyman work — bring us a list, we knock it over in one visit, you pay one rate. Every Briks handyman is carpenter-trained, not a 'general worker' filling time.",
     ctaText: 'Book a Handyman',
     whyBriks: [
-      'No call-out fee on jobs over an hour — bundle and save.',
+      'Free phone help for simple problems.',
       'Carpenter-trained handymen, not generalists.',
       'Photos and invoice for every visit, even tiny stuff.',
       '30-day follow-up included if anything needs adjusting.',
     ],
     jobExamples: [
       {
-        title: 'Unley · 9-item afternoon punch list',
-        body: 'TV mount, two shelves, sliding door rollers, hose tap, curtain rail, three pictures, smoke alarm, garden tap, drawer runners. One afternoon visit.',
+        title: 'Small repair list',
+        body: 'Small jobs such as a TV mount, shelves, door rollers, taps and pictures are common. Briks organises a handyperson to quote and complete them in one visit.',
       },
       {
-        title: 'Goodwood · TV + shelf + door',
-        body: 'Wall-mount TV with cables in conduit, two floating shelves, an interior door re-hung after settlement movement.',
+        title: 'TV mount and shelving',
+        body: 'Wall-mounting a TV, fitting floating shelves and re-hanging a settled door are common jobs. Briks organises a handyperson to quote and complete the work.',
       },
       {
-        title: 'Magill · furniture assembly',
-        body: 'Full nursery — cot, change table, dresser, wardrobe — assembled and anchored to walls per safety requirements.',
+        title: 'Furniture assembly',
+        body: 'Flat-pack nursery furniture such as a cot, change table and dresser is commonly assembled and anchored to walls. Briks organises a handyperson to quote and complete the work.',
       },
     ],
     deliverables: [
       'Photos of each item completed',
       'Single tax invoice with itemised list',
       '30-day follow-up included for any adjustments',
-      'Materials warranty pass-through where applicable',
+      'Manufacturer warranties where applicable',
     ],
     faqs: [
       {
@@ -796,7 +796,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: '30-day follow-up — what does that mean?',
-        a: 'If a shelf shifts, a door drops, anything we did needs tweaking within 30 days, we come back at no charge.',
+        a: 'If a shelf shifts or a door drops after work we organised, contact us and we can organise a licensed trade to assess it.',
       },
     ],
   },
@@ -827,20 +827,20 @@ export const SERVICES: Service[] = [
     ],
     jobExamples: [
       {
-        title: 'Burnside · kitchen rebuild',
-        body: 'Full kitchen strip and rebuild. New cabinetry, stone benchtops, induction cooktop, replumbed, rewired. Six weeks, household kept usable throughout.',
+        title: 'Kitchen rebuild',
+        body: 'A kitchen rebuild usually includes new cabinetry, stone benchtops and a cooktop, with plumbing and electrical work by licensed trades. Briks organises the trades and one invoice.',
       },
       {
-        title: 'Glenelg · bathroom strip + retile',
-        body: 'Master bathroom complete strip. New layout, walk-in shower, freestanding bath, large-format tile, certified waterproofing. Three-week job.',
+        title: 'Bathroom strip and retile',
+        body: 'A bathroom strip usually includes a new layout, walk-in shower, large-format tile and waterproofing. Briks organises licensed trades to quote and complete the work.',
       },
       {
-        title: 'Marion · rear extension',
-        body: 'Single-storey rear extension — new master suite and walk-in robe. Engineer-signed structural, all trades coordinated, council approval handled. Twelve-week project.',
+        title: 'Rear extension',
+        body: 'A single-storey rear extension usually needs engineer-signed structural work and council approval. Briks organises the licensed trades and coordinates the project.',
       },
       {
-        title: 'Aldinga · deck + pergola',
-        body: 'Outdoor entertainment area — merbau deck, slatted pergola roof, outdoor kitchen rough-in. Coordinated with sparky and plumber for outdoor lighting and gas.',
+        title: 'Deck and pergola',
+        body: 'An outdoor deck and pergola usually includes a slatted roof and outdoor kitchen rough-in. Briks organises licensed trades for the carpentry, lighting and gas work.',
       },
     ],
     deliverables: [
@@ -849,7 +849,7 @@ export const SERVICES: Service[] = [
       'Photos at every stage — demo, frame, fit-out, finish',
       'Engineer certification (structural)',
       'Compliance certificates (electrical, plumbing, waterproofing)',
-      '12-month workmanship warranty + manufacturer warranty pass-through',
+      'Manufacturer warranties on products may apply. Briks gives no workmanship warranty.',
     ],
     faqs: [
       {
@@ -893,16 +893,16 @@ export const SERVICES: Service[] = [
     ],
     jobExamples: [
       {
-        title: 'Marion · 3-bed rental turnover',
-        body: 'Tenant departed, full clean + paint touch-ups + carpet steam + garden tidy + lock change. Three-day turnover, ready for inspection on day four.',
+        title: 'Rental turnover clean and repairs',
+        body: 'A rental turnover usually covers cleaning, paint touch-ups, carpet steam, garden tidy and a lock change. Briks organises licensed trades and one invoice.',
       },
       {
-        title: 'Glenelg · furnished apartment',
-        body: 'Furnished apartment turnover including upholstery clean, kitchen scrub, replacement of damaged blinds, full bond-inspection prep.',
+        title: 'Furnished apartment turnover',
+        body: 'A furnished apartment turnover usually includes upholstery cleaning, a kitchen scrub and blind repairs. Briks organises the work and provides one invoice.',
       },
       {
-        title: 'Magill · investor portfolio',
-        body: 'Bulk turnover across three rental properties for an interstate investor. All three ready within a week, single coordinated invoice.',
+        title: 'Investor portfolio turnover',
+        body: 'Bulk turnover across several rental properties is common for investors. Briks organises licensed trades for each property and provides a single coordinated invoice.',
       },
     ],
     deliverables: [
@@ -914,7 +914,7 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
-        q: 'Bond-inspection ready — guaranteed?',
+        q: 'Bond-inspection repairs: what Briks can organise',
         a: 'We clean and document to a standard checked against the entry condition report. If the inspecting agent flags items, we come back and address them at no extra charge.',
       },
       {
@@ -922,7 +922,7 @@ export const SERVICES: Service[] = [
         a: 'Yes. Front and back door locks re-keyed, new keys cut for the new tenancy, old key set destroyed.',
       },
       {
-        q: 'Carpet steam — warranty?',
+        q: 'Carpet steam cleaning',
         a: 'Yes. Steam clean comes with a written certificate the carpets were professionally cleaned, and a re-clean if anything\'s flagged at inspection.',
       },
     ],
@@ -954,20 +954,20 @@ export const SERVICES: Service[] = [
     ],
     jobExamples: [
       {
-        title: 'Self-managing landlord · quarterly schedule',
-        body: 'Quarterly walk-through across a 4-property portfolio. Smoke alarm, RCD, HVAC filter, gutter check, hot water service. One coordinator, one invoice.',
+        title: 'Quarterly maintenance schedule',
+        body: 'A quarterly walk-through usually covers smoke alarms, RCD testing, filters, gutters and hot water. Briks organises licensed trades and provides one invoice.',
       },
       {
-        title: 'Café · annual prevent',
-        body: 'Annual maintenance for a Glenelg café. HVAC service, grease trap, exhaust hood clean, electrical safety check. Booked for off-trading hours.',
+        title: 'Café annual maintenance',
+        body: 'Annual café maintenance usually covers HVAC service, grease trap, exhaust hood clean and an electrical safety check. Briks organises licensed trades and one invoice.',
       },
       {
-        title: 'Strata committee · annual safety audit',
-        body: 'Body corporate annual common-area safety audit — smoke alarms, exit signs, fire extinguishers, RCD, balcony waterproofing. Full report for the AGM.',
+        title: 'Strata common-area safety audit',
+        body: 'A common-area safety audit usually covers smoke alarms, exit signs, extinguishers, RCDs and balcony waterproofing. Briks organises licensed trades and a report for the committee.',
       },
     ],
     deliverables: [
-      'Tailored schedule calendar (12-month view)',
+      'Maintenance work organised',
       'Completion certificate for each visit',
       'Photo log per property',
       'Year-end summary report',
@@ -976,7 +976,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: 'How often?',
-        a: 'Depends on the property and the systems. Smoke alarms annual, HVAC 6-monthly, gutter clean twice a year on tree-lined sites, hot water annually. We tailor it.',
+        a: 'Depends on the property and the systems. Smoke alarms annual, HVAC 6-monthly, gutter clean twice a year on tree-lined sites, hot water annually. Briks can organise the maintenance.',
       },
       {
         q: 'Strata-friendly billing and reporting?',
@@ -994,7 +994,7 @@ export const SERVICES: Service[] = [
 export const PILLARS = [
   { label: 'Adelaide-first', body: 'Local operators. No offshore VAs.' },
   { label: 'Every trade', body: 'Plumbing to renovations under one roof.' },
-  { label: '24 / 7 coverage', body: 'After-hours emergencies handled.' },
+  { label: 'Business-hours contact', body: 'Emergencies: call 000 if in danger.' },
   { label: 'One invoice', body: 'Single accountable name on every job.' },
 ]
 
@@ -1037,7 +1037,7 @@ export const AUDIENCES = [
     label: 'Businesses',
     href: '/for-businesses',
     icon: 'Briefcase',
-    blurb: 'Shopfronts, offices, strata. Compliance-ready trades, after-hours coverage.',
+    blurb: 'Shopfronts, offices, strata. Repairs and maintenance organised.',
   },
 ] as const
 
@@ -1064,7 +1064,7 @@ export const RENOVATION_TYPES = [
   { id: 'bathroom', label: 'Bathroom', blurb: 'Strip-outs, waterproofing, tiling, fixtures.' },
   { id: 'extension', label: 'Extension', blurb: 'Single-room and multi-room additions. Structural.' },
   { id: 'deck', label: 'Deck / Outdoor', blurb: 'Decking, pergolas, paving, outdoor kitchens.' },
-  { id: 'fitout', label: 'Commercial Fit-out', blurb: 'Shopfronts, offices, retail. After-hours capable.' },
+  { id: 'fitout', label: 'Commercial Fit-out', blurb: 'Shopfronts, offices, retail. Repairs and maintenance organised.' },
   { id: 'structural', label: 'Structural', blurb: 'Walls, beams, openings. Engineer-signed.' },
 ] as const
 
@@ -1076,8 +1076,8 @@ export const VALUE_PROPS = [
   },
   {
     icon: 'ShieldCheck',
-    title: 'Fully Vetted Tradespeople',
-    body: "Every trade in our network is licensed, insured, and reference-checked. We don't send anyone to your property we wouldn't send to our own.",
+    title: 'Licensed Independent Trades',
+    body: "Every trade we arrange is licensed in South Australia for their own work. We organise the job and give you one invoice at the end.",
   },
   {
     icon: 'FileText',
@@ -1099,22 +1099,22 @@ export const HOW_IT_WORKS_STEPS = [
     body: 'Call, WhatsApp, email, or fill the online form. A real human reads it — no auto-responder, no ticket queue.',
     sla: 'Replied to inside 2 hours · 8am–6pm ACST',
     stall:
-      'Out of hours? Emergencies still get a callback within 60 minutes. Routine enquiries hit your inbox first thing the next morning.',
+      'Call one number for free phone help with simple problems. If anyone is in danger, call 000.',
   },
   {
     number: '02',
     icon: 'ClipboardCheck',
     title: 'On-site scope.',
     body: 'A coordinator inspects the property — measures, photographs, identifies the right trades. We do not quote off vague descriptions.',
-    sla: 'Inspection booked inside 48 hours · written quote within 24 hours of inspection',
+    sla: 'Written quote before work starts: one invoice for each finished job',
     stall:
-      'Tight timeline? Say so up front and we will slot a same-day inspection where possible. We will tell you if we can or cannot meet your date — no soft promises.',
+      'Tight timeline? Tell us up front. We do not promise response, arrival or completion times.',
   },
   {
     number: '03',
     icon: 'Wrench',
     title: 'Trades sequenced.',
-    body: 'We dispatch the right specialists in the right order. One coordinator owns the job from first day to last — you do not chase tradies.',
+    body: 'We organise licensed independent trades for the work. You get one invoice from Briks for each finished job.',
     sla: 'Daily 5pm photo update for jobs over two days · single point of contact end-to-end',
     stall:
       'Trade no-show or weather delay? You hear from us before you notice. We resequence, communicate the new plan, and absorb the slack — not pass it on.',
@@ -1124,9 +1124,9 @@ export const HOW_IT_WORKS_STEPS = [
     icon: 'FileCheck',
     title: 'Sign-off + handover.',
     body: 'Final walk-through, defects logged and fixed, photo report and invoice in your inbox. One job, one number on the bill.',
-    sla: 'Defects rectified within 7 days · job report PDF within 24 hours of completion',
+    sla: 'Before and after photos: one invoice for each finished job',
     stall:
-      'Spot something later? 12-month workmanship guarantee on Briks-coordinated work. One message, we come back.',
+      'Spot something later? There is no Briks workmanship warranty. Manufacturer warranties may apply.',
   },
 ]
 

@@ -9,7 +9,7 @@ export const FAQ_GENERAL: QA[] = [
   },
   {
     q: 'How fast can you come out?',
-    a: 'We move quickly on every job. Routine work is quoted promptly and a tradesperson on-site soon after. Genuine emergencies — burst pipes, no power, broken access — dispatch right away, around the clock. Renovations get a site visit and itemised quote without unnecessary delay.',
+    a: 'Briks does not promise response or completion times. Homeowners and businesses get a written quote before work starts, including for renovations. Landlords and agencies set an approval limit. Anything over it is quoted first. If anyone is in danger call 000. Briks can organise the repair once it is safe.',
   },
   {
     q: 'Where do you work?',
@@ -28,7 +28,7 @@ export const FAQ_GENERAL: QA[] = [
 export const FAQ_HOMEOWNERS: QA[] = [
   {
     q: 'Is there a call-out fee?',
-    a: 'No call-out fee on jobs over an hour. Smaller jobs are quoted up front before any work starts. Bring us a list of small jobs and we bundle them into one visit.',
+    a: 'Phone help for simple problems is free. Homeowners and businesses get a written quote before work starts. Bring us a list of small jobs and Briks can organise the work.',
   },
   {
     q: 'How do I get a quote?',
@@ -51,7 +51,7 @@ export const FAQ_HOMEOWNERS: QA[] = [
 export const FAQ_LANDLORDS: QA[] = [
   {
     q: 'I manage my own rental — does Briks work for me?',
-    a: 'Yes. Many Adelaide landlords self-manage and use Briks for everything an agency would coordinate — repairs, compliance, end-of-lease make-ready, after-hours emergencies.',
+    a: 'Yes. Adelaide landlords who self-manage can use Briks to coordinate repairs, maintenance and renovation work.',
   },
   {
     q: 'Can you provide compliance certs?',
@@ -63,53 +63,49 @@ export const FAQ_LANDLORDS: QA[] = [
   },
   {
     q: 'Can you handle after-hours tenant emergencies?',
-    a: 'Yes. 24/7 dispatch for burst pipes, hot water, power, broken access. Tenant calls us, we dispatch, you get a notification + photos + invoice when done.',
+    a: 'No. Briks does not offer after-hours or emergency dispatch. If anyone is in danger call 000. For a burst pipe, turn the water off at the meter if safe. Briks can organise the repair once it is safe. Finished jobs get before and after photos and one invoice from Briks.',
   },
   {
     q: 'Are tradies licensed and insured?',
-    a: 'Every tradesperson in our network is licensed for their trade and carries appropriate public liability insurance. We verify both before onboarding and re-check annually.',
+    a: 'The trades Briks arranges are independent and licensed in South Australia for their own work. Briks is not a licensed builder, plumber, electrician or gas fitter. Ask each trade about their own insurance.',
   },
 ]
 
 export const FAQ_PROPERTY_MANAGERS: QA[] = [
   {
-    q: 'Do we have to change any of our Tapi workflow?',
-    a: 'No. Briks is a preferred supplier inside Tapi. Your property managers approve work orders exactly as they do today. Once approved, the work order routes to Briks instead of to a list of individual trades. Setup inside Tapi takes about 10 minutes.',
+    q: 'Do we have to change our property management software?',
+    a: 'No. You add Briks as a supplier in PropertyMe, PropertyTree, Reapit PM or whatever you use. Work orders reach us by email and our invoices are paid from trust like any contractor.',
   },
   {
-    q: 'How is each job priced — will landlords pay more?',
-    a: 'Every job is priced on its own scope, sent to the agency before dispatch. Because Briks aggregates volume across multiple agencies, the customer-facing total typically lands at or below the walk-up rates an agency pays ad-hoc. Agency rate cards available on intro for volume.',
+    q: 'What does it cost the agency and the owners?',
+    a: 'Nothing for the agency. Tenant calls and phone help are free. When a trade is sent, Briks invoices the repair plus a flat $19 including GST Briks maintenance desk fee, paid from the owner’s rent like any contractor bill.',
   },
   {
-    q: 'Can our existing trusted tradespeople still be used?',
-    a: 'Yes. Agencies can nominate their preferred trades and Briks dispatches to them first where licensing and availability align. The rest of the network fills gaps and scales after-hours capacity.',
+    q: 'Can our existing trusted trades still be used?',
+    a: 'Yes. Tell us your preferred trades and they can keep working through Briks. Otherwise we book an independent trade licensed in South Australia for the work.',
   },
   {
-    q: 'How does Briks select which tradesperson gets a job?',
-    a: 'Quotes are scored automatically: 60% price, 25% speed / availability, 15% internal quality rating. Only licensed and insured trades enter the network.',
+    q: 'Who approves the work?',
+    a: 'You set an approval limit. Jobs under it go ahead and appear on your Friday report. Anything over it is quoted to you first, and nothing starts until you or the owner approve it.',
   },
   {
-    q: 'How do we explain this to landlords?',
-    a: 'Briks provides a one-page landlord FAQ that your agency can send alongside the first Briks-generated invoice. The key message: the agency has appointed a single professional maintenance supplier with documented jobs and one invoice per repair.',
+    q: 'How do we explain this to owners?',
+    a: 'Your agency has appointed one maintenance supplier. Each job comes with before and after photos and one invoice. The $19 desk fee covers booking the trade, access, checking the work and the report, and only applies when a trade is sent.',
   },
   {
-    q: 'How long does setup take?',
-    a: 'Quick. The agency adds Briks as preferred supplier in Tapi, signs the service agreement, and completes a brief discovery call so we understand property types and landlord expectations. Tradesperson onboarding handled separately.',
+    q: 'How do we start?',
+    a: 'Add Briks as a supplier, send one tenant contact list for the portfolio we start with, and agree your approval limit and rules. It starts on one property manager’s portfolio; after the first month you decide whether to roll it out.',
   },
   {
-    q: 'What kind of agency is Briks the right fit for?',
-    a: 'Agencies with 50+ residential rental doors, using Tapi or a platform that integrates with Tapi (PropertyMe, PropertyTree, Console Cloud, Managed App).',
-  },
-  {
-    q: 'What if we want to leave?',
-    a: 'Remove Briks as a preferred supplier inside Tapi at any time. We return in-flight job documentation, hand over communication threads, and do not retain tradesperson exclusivity.',
+    q: 'What if we want to stop?',
+    a: 'There is no lock-in. Tell us, and we hand back any open jobs with their notes and photos.',
   },
 ]
 
 export const FAQ_BUSINESSES: QA[] = [
   {
     q: 'Do you work outside trading hours?',
-    a: 'Yes. After-hours and overnight work is one of the reasons businesses use us — fit-outs, refits, plumbing rough-ins, electrical that needs the lights off. Quoted with the off-hours premium baked in up front.',
+    a: 'No. We do not offer after hours or overnight cover. We can organise repairs, maintenance and renovation work once it is safe.',
   },
   {
     q: 'Can you handle commercial fit-outs?',
@@ -132,7 +128,7 @@ export const FAQ_BUSINESSES: QA[] = [
 export const FAQ_TRADES: QA[] = [
   {
     q: 'How do tradies join Briks?',
-    a: 'Apply via the Trade Partners page. We verify licence, insurance, and references. First few jobs are observed before full onboarding. We pay tradies promptly — none of the ninety-day nonsense.',
+    a: 'Apply via the Trade Partners page. Trades must be licensed in South Australia for their own work. We organise repairs, maintenance and renovation work.',
   },
   {
     q: 'What does Briks pay tradies?',
@@ -140,7 +136,7 @@ export const FAQ_TRADES: QA[] = [
   },
   {
     q: 'How do you allocate jobs?',
-    a: 'Quotes are scored: 60% price, 25% speed / availability, 15% internal quality rating. Quality rating goes up with job feedback, photos, and on-time completion.',
+    a: 'Quotes are compared on price, availability and quality. Before and after photos are provided for each finished job.',
   },
   {
     q: 'Is there exclusivity?',
@@ -148,6 +144,6 @@ export const FAQ_TRADES: QA[] = [
   },
   {
     q: 'What gets a tradie removed from the network?',
-    a: 'Three quality strikes (no-shows, bad finish without remediation, customer disputes), licence lapse, or insurance lapse. We re-onboard if issues are resolved.',
+    a: 'Trades must be licensed in South Australia for their own work.',
   },
 ]
