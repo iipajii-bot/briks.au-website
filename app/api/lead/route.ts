@@ -9,7 +9,8 @@ import { checkRateLimit } from '@/lib/rate-limit'
  * QuickQuote, plus which landing page sent it.
  */
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Created per request so a missing key never breaks the build (Next imports route modules at build time).
+const getResend = () => (process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null)
 
 const SOURCES = ['agencies', 'property-managers', 'landlords', 'homeowners'] as const
 
@@ -66,6 +67,15 @@ export async function POST(request: Request) {
 
   const row = (k: string, v: string) =>
     `<tr><td style="padding:8px;border-bottom:1px solid #e2ddd3;font-weight:600;width:150px;">${k}</td><td style="padding:8px;border-bottom:1px solid #e2ddd3;">${v}</td></tr>`
+
+  const resend = getResend()
+  if (!resend) {
+    console.error('RESEND_API_KEY is not set; lead not emailed')
+    return Response.json(
+      { success: false, error: 'Could not send. Please call or email admin@briks.au.' },
+      { status: 503 },
+    )
+  }
 
   try {
     await resend.emails.send({
