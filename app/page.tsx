@@ -15,14 +15,14 @@ const UPDATED = '2026-11-24'
 const UPDATED_LABEL = 'November 2026'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Outsourced Maintenance for Adelaide Agencies | Briks' },
+  title: { absolute: 'Maintenance Coordination for Adelaide Agencies | Briks' },
   description:
-    'The outsourced maintenance desk for Adelaide real estate agencies. Tenants call one number, licensed trades are booked, and you get one Friday report.',
+    'We handle the tenant and the trades, send you one price to approve, and report every Friday. Repair coordination for Adelaide agencies.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Tenants call us. You get one report on Friday. | Briks Maintenance Line',
+    title: 'Maintenance Coordination for Adelaide Agencies | Briks',
     description:
-      'The outsourced maintenance desk for Adelaide real estate agencies. Licensed trades, photos on every job, no cost to the agency.',
+      'We handle the tenant and the trades, send you one price to approve, and report every Friday. Repair coordination for Adelaide agencies.',
     url: SITE.url,
   },
 }
