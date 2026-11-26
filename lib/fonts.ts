@@ -1,31 +1,37 @@
-import { Inter_Tight, Inter, Bricolage_Grotesque, Space_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 
-export const interTight = Inter_Tight({
-  subsets: ['latin'],
+// Fonts are self-hosted (app/fonts/*.woff2, latin subset from Google Fonts, SIL Open Font Licence)
+// so builds never download them. Fetching from Google at build time made Vercel builds fail at random.
+
+export const interTight = localFont({
+  src: '../app/fonts/inter-tight-var.woff2',
   variable: '--font-inter-tight',
   display: 'swap',
-  weight: ['500', '600', '700', '800', '900'],
+  weight: '100 900',
 })
 
-export const inter = Inter({
-  subsets: ['latin'],
+export const inter = localFont({
+  src: '../app/fonts/inter-var.woff2',
   variable: '--font-inter',
   display: 'swap',
-  weight: ['400', '500', '600'],
+  weight: '100 900',
 })
 
-export const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
+// Variable font with opsz, wdth and wght axes
+export const bricolage = localFont({
+  src: '../app/fonts/bricolage-grotesque-var.woff2',
   variable: '--font-display',
   display: 'swap',
-  axes: ['opsz', 'wdth'],
+  weight: '200 800',
 })
 
-export const spaceMono = Space_Mono({
-  subsets: ['latin'],
+export const spaceMono = localFont({
+  src: [
+    { path: '../app/fonts/space-mono-400.woff2', weight: '400', style: 'normal' },
+    { path: '../app/fonts/space-mono-700.woff2', weight: '700', style: 'normal' },
+  ],
   variable: '--font-mono',
   display: 'swap',
-  weight: ['400', '700'],
 })
 
 // Back-compat export name used elsewhere (was Fraunces)
