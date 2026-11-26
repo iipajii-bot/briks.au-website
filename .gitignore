@@ -51,3 +51,7 @@ next-env.d.ts
 shots/
 public/lp/*/copy.md
 public/lp/*/*.json
+
+# Old static landing drafts and image backups (kept locally, never deployed)
+public/lp/
+public/og-original-backup.png
