@@ -15,14 +15,14 @@ const UPDATED = '2026-11-24'
 const UPDATED_LABEL = 'November 2026'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Maintenance Coordination for Adelaide Agencies | Briks' },
+  title: { absolute: 'Maintenance Coordination for Real Estate Agencies | Briks' },
   description:
-    'We handle the tenant and the trades, send you one price to approve, and report every Friday. Repair coordination for Adelaide agencies.',
+    'We handle the tenant and the trades, send you one price to approve, and report every Friday. Repair coordination for real estate agencies.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Maintenance Coordination for Adelaide Agencies | Briks',
+    title: 'Maintenance Coordination for Real Estate Agencies | Briks',
     description:
-      'We handle the tenant and the trades, send you one price to approve, and report every Friday. Repair coordination for Adelaide agencies.',
+      'We handle the tenant and the trades, send you one price to approve, and report every Friday. Repair coordination for real estate agencies.',
     url: SITE.url,
   },
 }
