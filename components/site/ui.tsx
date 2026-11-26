@@ -58,7 +58,7 @@ export function SectionHead({
 }) {
   return (
     <div className={`max-w-[44rem] ${className}`}>
-      <p className={dark ? 'font-heading text-[12px] font-semibold uppercase tracking-[0.22em] text-[#b89868]' : cls.eyebrow}>
+      <p className={dark ? 'eyebrow text-[#b89868]!' : cls.eyebrow}>
         {eyebrow}
       </p>
       <h2 id={id} className={`${cls.h2} mt-4 ${dark ? '!text-[#fafaf7]' : ''}`}>

@@ -103,7 +103,7 @@ const jsonLd = {
   ],
 }
 
-const eyebrow = 'font-heading text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8a6e3f]'
+const eyebrow = 'eyebrow'
 const h2 = 'font-display text-[clamp(30px,4vw,48px)] font-bold leading-[1.04] text-[#1a1a1a] [text-wrap:balance]'
 const wrap = 'mx-auto w-full max-w-[1200px] px-5 sm:px-8'
 const btnPrimary =
@@ -134,7 +134,7 @@ export default function HomePage() {
       <section aria-labelledby="hero-h" className="border-b border-[#e2ddd3] bg-[#fafaf7]">
         <div className={`${wrap} grid items-center gap-12 pb-16 pt-32 md:pb-20 md:pt-36 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pb-24 lg:pt-36`}>
           <div className="home-enter min-w-0">
-            <p className={eyebrow}>Outsourced maintenance desk · Adelaide real estate agencies</p>
+            <p className={eyebrow}>Maintenance coordination for real estate agencies</p>
             <h1
               id="hero-h"
               className="font-display mt-5 text-[clamp(40px,6.2vw,76px)] font-bold leading-[0.98] text-[#1a1a1a] [text-wrap:balance]"
@@ -284,7 +284,7 @@ export default function HomePage() {
       <section aria-labelledby="start-h" className="bg-[#1a1a1a] text-[#fafaf7]">
         <div className={`${wrap} grid items-end gap-12 py-20 md:grid-cols-12 md:py-28`}>
           <div className="md:col-span-6">
-            <p className="font-heading text-[12px] font-semibold uppercase tracking-[0.22em] text-[#b89868]">The first step</p>
+            <p className="eyebrow text-[#b89868]!">The first step</p>
             <h2 id="start-h" className="font-display mt-4 text-[clamp(30px,4vw,48px)] font-bold leading-[1.04] [text-wrap:balance]">
               Start with one property manager for 30 days.
             </h2>
