@@ -244,7 +244,7 @@ export default function HowItWorksPage() {
       <section className="relative py-24 md:py-32 bg-[#ffffff] border-y border-[#e2ddd3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Same flow, different fits
             </p>
             <h2
@@ -292,7 +292,7 @@ export default function HowItWorksPage() {
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               The impact
             </p>
             <h2

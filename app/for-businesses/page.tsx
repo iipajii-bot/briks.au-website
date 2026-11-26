@@ -196,7 +196,7 @@ export default function ForBusinesses() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+              <p className="eyebrow mb-4">
                 The premise
               </p>
               <h2
@@ -235,7 +235,7 @@ export default function ForBusinesses() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               How businesses use Briks
             </p>
             <h2
@@ -272,7 +272,7 @@ export default function ForBusinesses() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               Compliance servicing
             </p>
             <h2
@@ -316,7 +316,7 @@ export default function ForBusinesses() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-5">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+              <p className="eyebrow mb-4">
                 What you get on every job
               </p>
               <h2
@@ -361,7 +361,7 @@ export default function ForBusinesses() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               FAQ
             </p>
             <h2

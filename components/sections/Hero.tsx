@@ -51,7 +51,7 @@ export default function Hero() {
           initial={prefersReduced ? {} : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease, delay: 0.1 }}
-          className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-10"
+          className="eyebrow mb-10"
           style={{ fontFamily: 'var(--font-inter-tight)' }}
         >
           Adelaide · Experienced tradies · Every trade

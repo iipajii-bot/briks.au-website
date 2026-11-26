@@ -189,3 +189,30 @@
 }
 .home-enter { animation: home-enter 700ms var(--ease-luxe, cubic-bezier(0.16, 1, 0.3, 1)) both; }
 .home-enter--late { animation-delay: 140ms; }
+
+/* Section eyebrow: one style site-wide (26 Nov 2026).
+   Sized to sit with 30–72px section headings: 13px on phones, 15px from md,
+   semibold, moderate tracking, with a short brass rule that anchors it. */
+@utility eyebrow {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: var(--font-inter-tight), "Inter Tight", system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a6e3f;
+  &::before {
+    content: "";
+    width: 1.75rem;
+    height: 2px;
+    background: currentColor;
+    flex: none;
+    margin-top: 0.55em;
+  }
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
+}

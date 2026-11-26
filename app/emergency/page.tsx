@@ -117,7 +117,7 @@ export default function EmergencyPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">What counts as emergency</p>
+              <p className="eyebrow mb-4">What counts as emergency</p>
               <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>An immediate threat to property or safety.</h2>
               <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
                 <p>A genuine emergency is something that will cause further damage or safety risk if left until business hours. If anyone is in danger, call 000. Gas smell: leave the area, do not use switches or flames, call Australian Gas Networks on 1800 427 532. Power out or wires down: call SA Power Networks on 13 13 66. Burst pipe: turn water off at the meter if safe. Briks does not offer after-hours cover. It can organise repairs once it is safe.</p>
@@ -136,7 +136,7 @@ export default function EmergencyPage() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Emergency types we cover</p>
+            <p className="eyebrow mb-4">Emergency types we cover</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Six call categories.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -153,7 +153,7 @@ export default function EmergencyPage() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Make it safe</p>
+            <p className="eyebrow mb-4">Make it safe</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Five safe actions to take right now.</h2>
             <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">These steps reduce damage and keep you safe. Then call us to organise the repair.</p>
           </div>
@@ -175,7 +175,7 @@ export default function EmergencyPage() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">FAQ</p>
+            <p className="eyebrow mb-4">FAQ</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Emergency questions, answered.</h2>
           </div>
           <FAQAccordion items={FAQS} />

@@ -93,7 +93,7 @@ export default function ReviewsPage() {
       {/* Cross-link to how we work */}
       <section className="relative py-16 md:py-20 bg-[#ffffff] border-t border-[#e2ddd3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+          <p className="eyebrow mb-4">
             See how a job runs
           </p>
           <h2

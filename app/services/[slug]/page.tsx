@@ -296,7 +296,7 @@ export default async function ServicePage(props: { params: Params }) {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Why Briks
             </p>
             <h2
@@ -328,7 +328,7 @@ export default async function ServicePage(props: { params: Params }) {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Typical jobs
             </p>
             <h2
@@ -371,7 +371,7 @@ export default async function ServicePage(props: { params: Params }) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
             <div className="md:col-span-5">
-              <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+              <p className="eyebrow mb-6">
                 Deliverables
               </p>
               <h2
@@ -412,7 +412,7 @@ export default async function ServicePage(props: { params: Params }) {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               The flow
             </p>
             <h2
@@ -459,7 +459,7 @@ export default async function ServicePage(props: { params: Params }) {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Common questions
             </p>
             <h2
@@ -478,7 +478,7 @@ export default async function ServicePage(props: { params: Params }) {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Related trades
             </p>
             <h2

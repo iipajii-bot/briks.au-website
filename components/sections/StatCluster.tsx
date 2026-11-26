@@ -48,7 +48,7 @@ export default function StatCluster() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-16 md:mb-20">
           <ScrollReveal>
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               By the Numbers
             </p>
           </ScrollReveal>

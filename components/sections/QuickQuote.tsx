@@ -74,7 +74,7 @@ export default function QuickQuote() {
             transition={{ duration: 0.8, ease }}
             className="lg:col-span-5"
           >
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Quick quote
             </p>
             <h2

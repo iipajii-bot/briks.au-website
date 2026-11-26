@@ -57,7 +57,7 @@ export default function OurTradiesPage() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12 md:mb-16">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               How we vet
             </p>
             <h2
@@ -98,7 +98,7 @@ export default function OurTradiesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
             <div className="max-w-2xl">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Trades we work with</p>
+              <p className="eyebrow mb-4">Trades we work with</p>
               <h2
                 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]"
                 style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}
@@ -121,7 +121,7 @@ export default function OurTradiesPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-5">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+              <p className="eyebrow mb-4">
                 Honest counter
               </p>
               <h2

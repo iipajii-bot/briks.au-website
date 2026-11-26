@@ -192,7 +192,7 @@ export default function ContactPage() {
             {/* Right: form */}
             <div className="lg:col-span-3">
               <div className="rounded-md border border-[#e2ddd3] bg-[#ffffff] p-7 md:p-10">
-                <p className="text-[#8a6e3f] text-xs tracking-[0.22em] uppercase mb-4">
+                <p className="eyebrow mb-4">
                   Send a message
                 </p>
                 <h2

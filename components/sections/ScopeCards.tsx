@@ -33,7 +33,7 @@ export default function ScopeCards() {
           transition={{ duration: 0.7, ease }}
           className="max-w-2xl mb-10 md:mb-14"
         >
-          <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-3">
+          <p className="eyebrow mb-3">
             What we take on
           </p>
           <h2

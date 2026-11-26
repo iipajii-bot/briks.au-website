@@ -61,7 +61,7 @@ export default function Promises() {
             initial={reduced ? {} : { opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.7, ease }}
-            className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6"
+            className="eyebrow mb-6"
           >
             Promises we keep
           </motion.p>

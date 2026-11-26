@@ -74,7 +74,7 @@ export default function HandymanPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">What this is</p>
+              <p className="eyebrow mb-4">What this is</p>
               <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Small jobs, done properly, no minimum.</h2>
               <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
                 <p>Most tradies do not want to drive across Adelaide for a single picture hang. Briks does — because we bundle. Send the full list of small jobs you have been meaning to call about, we scope on-site, sequence the visit efficiently, and knock the list over in one trip. The callout cost spreads across the list instead of being charged per item.</p>
@@ -93,7 +93,7 @@ export default function HandymanPage() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Common jobs</p>
+            <p className="eyebrow mb-4">Common jobs</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>What we handle.</h2>
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -110,7 +110,7 @@ export default function HandymanPage() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">FAQ</p>
+            <p className="eyebrow mb-4">FAQ</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Handyman questions, answered.</h2>
           </div>
           <FAQAccordion items={FAQS} />

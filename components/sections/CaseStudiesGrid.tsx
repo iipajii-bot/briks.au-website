@@ -34,7 +34,7 @@ export default function CaseStudiesGrid({
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
           <div className="max-w-2xl">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-3">
+            <p className="eyebrow mb-3">
               Recent work
             </p>
             <h2

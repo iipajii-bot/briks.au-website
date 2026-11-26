@@ -128,7 +128,7 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-7">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Why Briks exists
             </p>
             <h2
@@ -209,7 +209,7 @@ export default function AboutPage() {
       <section className="relative py-24 md:py-32 bg-[#ffffff] border-y border-[#e2ddd3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               What we won&rsquo;t compromise on
             </p>
             <h2
@@ -251,7 +251,7 @@ export default function AboutPage() {
       {/* Stage / honesty block */}
       <section className="relative py-24 md:py-32 bg-[#fafaf7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6 text-center">
+          <p className="eyebrow mb-6 justify-center">
             Where we are
           </p>
           <h2
@@ -300,7 +300,7 @@ export default function AboutPage() {
       <section className="relative py-24 md:py-28 bg-[#ffffff] border-y border-[#e2ddd3]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+            <p className="eyebrow mb-6">
               Go deeper
             </p>
             <h2

@@ -134,7 +134,7 @@ export default function PricingPage() {
           {tiers.map((t) => (
             <SpotlightCard key={t.label}>
               <p
-                className="text-[#8a6e3f] text-xs tracking-[0.22em] uppercase mb-3"
+                className="eyebrow mb-3"
                 style={{ fontFamily: 'var(--font-inter-tight)', fontWeight: 700 }}
               >
                 {t.label}

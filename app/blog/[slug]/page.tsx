@@ -148,7 +148,7 @@ export default async function BlogPostPage(props: { params: Params }) {
       {p.faqs.length > 0 && (
         <section className="relative py-16 md:py-20 bg-[#fafaf7] border-y border-[#e2ddd3]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               Frequently asked
             </p>
             <h2

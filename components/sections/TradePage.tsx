@@ -94,7 +94,7 @@ export default function TradePage({ trade }: { trade: Trade }) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-5">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+              <p className="eyebrow mb-4">
                 Common jobs
               </p>
               <h2
@@ -136,7 +136,7 @@ export default function TradePage({ trade }: { trade: Trade }) {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               What&rsquo;s involved
             </p>
             <h2
@@ -177,7 +177,7 @@ export default function TradePage({ trade }: { trade: Trade }) {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12 md:mb-14">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               Standards + compliance
             </p>
             <h2
@@ -220,7 +220,7 @@ export default function TradePage({ trade }: { trade: Trade }) {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               Honest carve-out
             </p>
             <h2
@@ -284,7 +284,7 @@ export default function TradePage({ trade }: { trade: Trade }) {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
               <div>
-                <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-3">
+                <p className="eyebrow mb-3">
                   Recent work
                 </p>
                 <h2
@@ -343,7 +343,7 @@ export default function TradePage({ trade }: { trade: Trade }) {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               FAQ
             </p>
             <h2

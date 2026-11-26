@@ -77,7 +77,7 @@ export default function TradePartners() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Why this exists</p>
+              <p className="eyebrow mb-4">Why this exists</p>
               <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Less admin. More tools.</h2>
               <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
                 <p>Briks organises repairs, maintenance and renovation work. The work is done by independent trades licensed in South Australia for their own work. Briks coordinates the job, and there is one invoice from Briks for each finished job. You do the trade work.</p>
@@ -96,7 +96,7 @@ export default function TradePartners() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">What you get</p>
+            <p className="eyebrow mb-4">What you get</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Three things that change your week.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
@@ -116,7 +116,7 @@ export default function TradePartners() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Trades we are recruiting</p>
+            <p className="eyebrow mb-4">Trades we are recruiting</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>What Briks needs from independent trades.</h2>
           </div>
           <ul className="space-y-3">
@@ -136,7 +136,7 @@ export default function TradePartners() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">How we vet</p>
+            <p className="eyebrow mb-4">How we vet</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>The vetting process.</h2>
             <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">Trades work independently and are licensed in South Australia for their own work. We are clear about that because we expect the same level of professionalism back.</p>
           </div>
@@ -154,7 +154,7 @@ export default function TradePartners() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">FAQ</p>
+            <p className="eyebrow mb-4">FAQ</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Tradie questions, answered.</h2>
           </div>
           <FAQAccordion items={FAQS} />
@@ -164,7 +164,7 @@ export default function TradePartners() {
       {/* Application CTA */}
       <section className="relative py-20 md:py-28 bg-[#1a1a1a] text-white text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Apply to work with Briks</p>
+          <p className="eyebrow mb-4">Apply to work with Briks</p>
           <h2 className="text-white text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Send us your details.</h2>
           <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Apply to work with Briks: your trades, licences and the rates you charge. Prefer to chat first? Call 0449 517 367.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

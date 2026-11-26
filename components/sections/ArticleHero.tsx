@@ -44,7 +44,7 @@ export default function ArticleHero({
           All articles
         </Link>
 
-        <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+        <p className="eyebrow mb-4">
           {category}
         </p>
 

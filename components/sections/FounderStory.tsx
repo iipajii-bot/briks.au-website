@@ -97,7 +97,7 @@ export default function FounderStory() {
             initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease, delay: 0.1 }}
-            className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6"
+            className="eyebrow mb-6"
           >
             Why Briks exists
           </motion.p>

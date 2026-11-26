@@ -7,7 +7,7 @@ import type { ReactNode } from 'react'
 
 export const cls = {
   wrap: 'mx-auto w-full max-w-[1200px] px-5 sm:px-8',
-  eyebrow: 'font-heading text-[12px] font-semibold uppercase tracking-[0.22em] text-[#8a6e3f]',
+  eyebrow: 'eyebrow',
   h1: 'font-display text-[clamp(40px,6.2vw,76px)] font-bold leading-[0.98] text-[#1a1a1a] [text-wrap:balance]',
   h2: 'font-display text-[clamp(30px,4vw,48px)] font-bold leading-[1.04] text-[#1a1a1a] [text-wrap:balance]',
   lead: 'text-[18px] leading-[1.6] text-[#3a3735]',

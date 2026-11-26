@@ -139,7 +139,7 @@ export default function DeconstructedJob() {
             }}
             className="absolute inset-x-0 bottom-20 md:bottom-28 text-center px-6 pointer-events-none"
           >
-            <p className="text-[#8a6e3f] text-xs tracking-[0.28em] uppercase mb-4">
+            <p className="eyebrow mb-4">
               Chaos, assembled
             </p>
             <h2

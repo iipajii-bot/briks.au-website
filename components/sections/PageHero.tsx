@@ -33,7 +33,7 @@ export default function PageHero({
       <div
         className={`relative z-10 max-w-5xl px-4 sm:px-6 lg:px-8 ${alignClass} ${align === 'left' ? 'mx-auto' : ''}`}
       >
-        <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+        <p className="eyebrow mb-6">
           {eyebrow}
         </p>
 

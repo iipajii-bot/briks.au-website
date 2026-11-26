@@ -61,7 +61,7 @@ export default function HomeFAQ() {
       />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12 md:mb-16 text-center">
-          <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+          <p className="eyebrow mb-6">
             Frequently asked
           </p>
           <h2

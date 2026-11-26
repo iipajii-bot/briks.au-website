@@ -44,7 +44,7 @@ export default function ProjectGallery() {
               initial={reduced ? {} : { opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.7, ease }}
-              className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6"
+              className="eyebrow mb-6"
             >
               Recent work
             </motion.p>

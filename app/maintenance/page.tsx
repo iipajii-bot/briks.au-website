@@ -96,7 +96,7 @@ export default function MaintenancePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7">
-              <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Definition</p>
+              <p className="eyebrow mb-4">Definition</p>
               <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Maintenance vs repair vs renovation.</h2>
               <div className="space-y-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">
                 <p>Adelaide property maintenance covers two distinct workflows. Preventative maintenance is the scheduled work that stops things failing — annual gutter clean, six-monthly RCD test, annual AC service, biennial hot water flush. Reactive maintenance is the unscheduled fix when something has broken — burst pipe, blown circuit, cracked tile, ceiling stain after rain. Both fall under the maintenance umbrella; renovation is the bigger structural or aesthetic change that goes beyond maintenance.</p>
@@ -115,7 +115,7 @@ export default function MaintenancePage() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Preventative schedule</p>
+            <p className="eyebrow mb-4">Preventative schedule</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>The Adelaide maintenance calendar.</h2>
             <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">Seven recurring items that catch out most Adelaide property owners. Set the cadence once, let Briks track the renewals.</p>
           </div>
@@ -136,7 +136,7 @@ export default function MaintenancePage() {
       <section className="relative py-20 md:py-28 bg-[#ffffff]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">Reactive bundle</p>
+            <p className="eyebrow mb-4">Reactive bundle</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>The list you have been meaning to call about.</h2>
             <p className="mt-5 text-[#3a3735] text-base md:text-[17px] leading-relaxed">Bundle all of it into a single Briks visit. Send the list via WhatsApp or the contact form, we scope on-site, knock it over in one trip.</p>
           </div>
@@ -154,7 +154,7 @@ export default function MaintenancePage() {
       <section className="relative py-20 md:py-28 bg-[#fafaf7] border-y border-[#e2ddd3]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">FAQ</p>
+            <p className="eyebrow mb-4">FAQ</p>
             <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Maintenance questions, answered.</h2>
           </div>
           <FAQAccordion items={FAQS} />

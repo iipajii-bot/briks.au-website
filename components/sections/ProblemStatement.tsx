@@ -41,7 +41,7 @@ export default function ProblemStatement() {
           initial={prefersReduced ? {} : { opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.7, ease }}
-          className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase text-center mb-6"
+          className="eyebrow mb-6 justify-center"
         >
           The Gap
         </motion.p>

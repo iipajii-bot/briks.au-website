@@ -47,7 +47,7 @@ export default function HowItWorks() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-16 md:mb-20">
-          <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+          <p className="eyebrow mb-6">
             The flow
           </p>
           <h2

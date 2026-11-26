@@ -27,7 +27,7 @@ export default function ValueProps() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial header */}
         <div className="max-w-2xl mb-16 md:mb-20">
-          <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+          <p className="eyebrow mb-6">
             Why Briks
           </p>
           <h2

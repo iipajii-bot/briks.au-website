@@ -102,7 +102,7 @@ export default function NetworkPage() {
 
       <section className="relative py-20 md:py-28 bg-[#ffffff] border-y border-[#e2ddd3]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#8a6e3f] text-xs font-medium tracking-[0.28em] uppercase mb-6">
+          <p className="eyebrow mb-6">
             Allocation
           </p>
           <h2

@@ -65,7 +65,7 @@ export default function PricingPhilosophy({ compact = false }: { compact?: boole
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Left — heading */}
           <div className="lg:col-span-5">
-            <p className="text-[10px] tracking-[0.22em] uppercase text-[#8a6e3f] mb-4">
+            <p className="eyebrow mb-4">
               On pricing
             </p>
             <h2
