@@ -10,7 +10,7 @@ import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
 /*
  * /for-homeowners: owner-occupiers with a specific job. The quote-and-do side of Briks.
  * Personal link: ?job=leak|doors|paint|roof|floors&suburb=
- * Urgent-leak line sits above everything; deposit terms appear at the quote stage, not first.
+ * Urgent-leak line sits above everything.
  */
 
 export const metadata: Metadata = {
@@ -39,7 +39,6 @@ const STEPS = [
 
 const FAQS = [
   { q: 'Do you give a written quote before any work?', a: 'Yes. Every job gets a written quote that names the work, the trade and the price. Nothing starts until you accept it.' },
-  { q: 'How do I pay?', a: 'A 60% deposit books the job once you accept the quote, and the remaining 40% is due when the work is done.' },
   { q: 'Who does the work?', a: 'Independent tradespeople licensed in South Australia for their trade. Briks organises the job, checks it and invoices once.' },
   { q: 'Do you install floors?', a: 'Yes. Hybrid, laminate, vinyl and carpet, supplied and installed, including removal of the old floor if needed.' },
   { q: 'What does Briks not do?', a: 'Renovations, extensions, structural work and new builds are outside what we take on.' },
@@ -157,7 +156,6 @@ export default async function ForHomeownersPage({ searchParams }: { searchParams
               wide
               items={[
                 { k: 'The quote', v: 'Before any work. It names the work, the trade and the price.' },
-                { k: 'Payment', v: 'A 60% deposit books the job after you accept the written quote. The last 40% is due when the work is done and you have the before and after photos. There is no maintenance desk fee on homeowner jobs.' },
                 { k: 'Photos', v: 'Before and after, sent with the finished job.' },
                 { k: 'The invoice', v: 'One invoice from Briks for the whole job.' },
               ]}

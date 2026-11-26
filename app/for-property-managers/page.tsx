@@ -3,7 +3,6 @@ import ChampionKit from '@/components/site/ChampionKit'
 import JobTimeline from '@/components/home/JobTimeline'
 import QuickFixes from '@/components/site/QuickFixes'
 import { Photo } from '@/components/site/TradeStrip'
-import { FEE } from '@/components/site/fee'
 import LeadForm from '@/components/site/LeadForm'
 import { cleanInt, cleanText, type SearchParams } from '@/components/site/personal'
 import { Arrow, CtaLink, DashList, Faq, FactList, JsonLd, SectionHead, cls, faqJsonLd, ground } from '@/components/site/ui'
@@ -39,7 +38,7 @@ const AFTER = [
 ] as const
 
 const PRINCIPAL_QS = [
-  { q: 'What does it cost the agency?', a: `Nothing. Tenant calls and phone help are free. When a trade is sent, Briks adds a flat ${FEE.amount} maintenance desk fee to its invoice for that job, paid from the owner\u2019s rent like any contractor bill.` },
+  { q: 'Who approves the work?', a: 'You do. Routine repairs under the approval limit you set go ahead straight away and appear on your Friday report. For anything bigger we email you the quote with photos and call you the same day; nothing starts until you approve it in writing.' },
   { q: 'Do we lose control?', a: 'No. Your approval limit stands, your owners stay with your agency, and preferred trades can work through Briks.' },
   { q: 'What is the risk?', a: 'It is contained: your approval limit stands, your owners stay with your agency, it starts on one portfolio with no lock-in, and nothing in your software changes. You add Briks as a supplier and send one tenant list.' },
 ] as const
@@ -125,7 +124,7 @@ export default async function ForPropertyManagersPage({ searchParams }: { search
       {/* FREE HELP FIRST */}
       <section aria-labelledby="fix-h" className={ground.warm}>
         <div className={`${cls.wrap} ${cls.section}`}>
-          <SectionHead id="fix-h" eyebrow="Fewer call-outs" title="Simple problems get sorted on the phone, free.">
+          <SectionHead id="fix-h" eyebrow="Fewer call-outs" title="Simple problems get sorted on the phone.">
             <p>Before anyone is sent, we walk tenants through the simple checks. Fewer call-outs, fewer bills for your owners, fewer questions for you.</p>
           </SectionHead>
           <div className="mt-10">

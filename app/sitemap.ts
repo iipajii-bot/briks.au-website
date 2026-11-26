@@ -30,7 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/faq/property-managers`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE.url}/faq/businesses`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE.url}/faq/trades`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE.url}/pricing`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE.url}/trade-partners`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE.url}/case-studies`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },
     { url: `${SITE.url}/reviews`, lastModified: now, changeFrequency: 'weekly', priority: 0.85 },

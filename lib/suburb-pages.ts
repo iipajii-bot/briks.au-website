@@ -4,7 +4,7 @@
  * Written 25 Nov 2026 with DeepSeek (draft) + deepseek-reasoner (fact check), after an LLM-council
  * review of the brief, then lint-checked for banned claims and cross-page duplication.
  * Rules: verified council/postcode/setting only; no invented streets, stats, response times,
- * licences or guarantees; $19 desk fee mentioned only in `rentals`.
+ * licences, guarantees, fees or prices.
  */
 import data from './suburb-pages.json'
 

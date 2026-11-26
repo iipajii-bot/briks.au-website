@@ -4,12 +4,11 @@
  * Rules for every entry:
  *  - Facts about South Australian tenancy law come from sa.gov.au and are listed in `sources`.
  *  - Facts about Briks match the live offer: Briks organises the work; independent trades licensed in SA do it;
- *    free phone help; $19 inc GST Briks maintenance desk fee per rental job when a trade is sent (owner pays);
- *    agencies pay nothing; homeowners pay no desk fee; no 24-hour cover; no response-time promises; no guarantees.
+ *    approval limits for routine jobs, written approval for bigger jobs; no fees or prices published;
+ *    no 24-hour cover; no response-time promises; no guarantees.
  *  - No invented statistics, prices or benchmarks. Comparisons are qualitative and fair to the alternative.
  *  - No em dashes.
  */
-import { FEE } from '@/components/site/fee'
 
 export type Block =
   | { t: 'p'; text: string }
@@ -44,7 +43,7 @@ const SA_REPAIRS = {
 
 const CTA_AGENCY = {
   title: 'Run tenant repairs through one number',
-  body: 'Briks takes the calls, books licensed trades and sends one report on Friday. Nothing for the agency to pay.',
+  body: 'Briks takes the calls, books licensed trades and sends one report on Friday.',
   label: 'How it works for agencies',
   href: '/for-agencies',
 }
@@ -119,7 +118,7 @@ export const GUIDES: Guide[] = [
             t: 'list',
             items: [
               'Who actually does the work, and how can we check each trade’s South Australian licence?',
-              'What does it cost, who pays it, and does it appear on the owner’s invoice?',
+              'How do approvals work, and who signs off jobs over our limit?',
               'Do you take any commission or rebate from the trades? (Ask for this in writing.)',
               'What happens to an urgent call outside your hours?',
               'How is tenant data stored, and who is it shared with?',
@@ -131,19 +130,18 @@ export const GUIDES: Guide[] = [
       {
         h: 'How Briks does it',
         blocks: [
-          { t: 'p', text: `Briks runs this as the Briks Maintenance Line for Adelaide agencies. Tenant calls and phone help are free. When a job needs a trade sent, the invoice for that job carries a flat ${FEE.amount} ${FEE.gst} Briks maintenance desk fee, paid from the owner’s rent like any contractor bill. The agency pays nothing. Briks does not offer 24-hour cover, and urgent safety issues go to 000, Australian Gas Networks or SA Power Networks first.` },
+          { t: 'p', text: `Briks runs this as the Briks Maintenance Line for Adelaide agencies. Routine repairs under the agency’s approval limit go ahead; anything bigger is emailed to the property manager as a quote, followed by a phone call, and starts only after written approval. Briks does not offer 24-hour cover, and urgent safety issues go to 000, Australian Gas Networks or SA Power Networks first.` },
         ],
       },
     ],
     faqs: [
       { q: 'Does outsourcing maintenance mean losing control of owners?', a: 'It should not. The owner relationship, the approval limit and any over-limit decision stay with the agency. The desk handles the calls and the booking, and reports back.' },
       { q: 'Do we need new software to outsource maintenance?', a: 'Usually not. The desk is added as a supplier in the property management software you already use, and work orders and invoices move by email like any contractor.' },
-      { q: 'Who pays for an outsourced maintenance desk?', a: 'It varies by provider. Some charge the agency a subscription, some charge per property and some charge per job. With Briks the agency pays nothing; a flat per-job fee goes on the owner’s invoice only when a trade is sent.' },
+      { q: 'Who approves jobs with an outsourced maintenance desk?', a: 'The agency should. With Briks, routine repairs under the approval limit the agency sets go ahead; anything bigger is quoted to the property manager and starts only after written approval.' },
     ],
     sources: [],
     related: [
       { label: 'In-house vs outsourced maintenance', href: '/compare/in-house-vs-outsourced-maintenance' },
-      { label: 'What is a maintenance desk fee?', href: '/guides/maintenance-desk-fee' },
       { label: 'Adding a maintenance supplier', href: '/guides/adding-a-maintenance-supplier' },
     ],
     cta: CTA_AGENCY,
@@ -265,7 +263,7 @@ export const GUIDES: Guide[] = [
       {
         h: 'Where Briks fits',
         blocks: [
-          { t: 'p', text: `For self-managing Adelaide landlords, Briks takes the tenant’s repair call, talks through simple fixes for free, and books a licensed trade when one is needed. You pay the repair plus a flat ${FEE.amount} ${FEE.gst} Briks maintenance desk fee per job, with before and after photos and one invoice.` },
+          { t: 'p', text: `For self-managing Adelaide landlords, Briks takes the tenant’s repair call, talks through simple fixes, and books a licensed trade when one is needed. Anything over your approval limit is quoted to you first, and every job comes with before and after photos and one invoice.` },
         ],
       },
     ],
@@ -281,71 +279,6 @@ export const GUIDES: Guide[] = [
       { label: 'Check this first: simple fixes', href: '/help' },
     ],
     cta: CTA_LANDLORD,
-  },
-
-  // ───────────────────────────────── 4
-  {
-    slug: 'maintenance-desk-fee',
-    kind: 'guide',
-    title: 'What Is a Maintenance Desk Fee? | Briks',
-    description: `What a per-job maintenance coordination fee covers, who pays it in an agency-managed rental, and how the ${FEE.amount} Briks maintenance desk fee works.`,
-    eyebrow: 'Guide for owners and property managers',
-    h1: 'What is a maintenance desk fee, and who pays it?',
-    answer: `A maintenance desk fee is a charge for organising a repair: taking the tenant’s call, booking a licensed trade, arranging access, checking the work and reporting back. Briks charges a flat ${FEE.amount} ${FEE.gst} per job, only when a trade is sent. The owner pays it on the job invoice; the agency pays nothing.`,
-    published: D,
-    updated: D,
-    sections: [
-      {
-        h: 'What the fee pays for',
-        blocks: [
-          {
-            t: 'list',
-            items: [
-              'Taking the tenant’s call and working out how urgent it is',
-              'Booking the right licensed trade and arranging access with the tenant',
-              'Updating the tenant until the job is done',
-              'Checking the work against the job and collecting before and after photos',
-              'One invoice and a line on the weekly report',
-            ],
-          },
-          { t: 'p', text: 'Calls that are sorted on the phone, such as a tripped safety switch or a smoke alarm that needs a new battery, carry no fee.' },
-        ],
-      },
-      {
-        h: 'Who pays it in an agency-managed rental',
-        blocks: [
-          { t: 'p', text: 'Repairs to a rental are the owner’s cost, and the property manager pays contractor invoices from the rent held in trust for the owner. The Briks fee is a line on Briks’ own invoice for the job, next to the repair, so it is paid the same way. The agency’s management fee is separate and unchanged.' },
-          { t: 'note', title: 'Line to use with owners', text: `“That is Briks’ flat ${FEE.amount} per-job maintenance desk fee for booking and coordinating the licensed trade and the report. It only applies when a trade is sent, and it is separate from our management fee.”` },
-        ],
-      },
-      {
-        h: 'Questions to ask about any coordination fee',
-        blocks: [
-          {
-            t: 'list',
-            items: [
-              'Is it flat, or a percentage of the repair? A percentage grows with the bill.',
-              'Is it charged when the problem is sorted on the phone?',
-              'Does the provider also take a commission or rebate from trades?',
-              'Is the fee shown as its own line on the invoice?',
-            ],
-          },
-          { t: 'p', text: 'Briks’ fee is flat, shown as its own line, and charged only when a trade is sent. Briks takes no rebates from trades. Self-managing landlords pay the same fee. Homeowners pay no desk fee.' },
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'Is the Briks maintenance desk fee charged on every call?', a: `No. Calls and phone help are free. The flat ${FEE.amount} ${FEE.gst} fee applies only to jobs where a licensed trade is sent.` },
-      { q: 'Does the real estate agency pay the maintenance desk fee?', a: 'No. With Briks the fee is on the job invoice and is paid by the owner from rent, the same way the repair is paid. The agency pays nothing.' },
-      { q: 'Do homeowners pay the maintenance desk fee?', a: 'No. Homeowners get a written quote for the job and pay no desk fee.' },
-    ],
-    sources: [],
-    related: [
-      { label: 'Outsourcing tenant maintenance', href: '/guides/outsourcing-property-maintenance' },
-      { label: 'Briks pricing', href: '/pricing' },
-      { label: 'For agencies', href: '/for-agencies' },
-    ],
-    cta: CTA_AGENCY,
   },
 
   // ───────────────────────────────── 5
@@ -429,8 +362,7 @@ export const GUIDES: Guide[] = [
             head: ['', 'In-house coordinator', 'Outsourced desk'],
             rows: [
               ['Who takes tenant repair calls', 'Agency staff', 'The desk, under the agency’s rules'],
-              ['Cost to the agency', 'Salary and on-costs', 'Depends on provider. With Briks: nothing'],
-              ['Cost to owners', 'Repair only, usually', 'Repair, plus any per-job fee (Briks: a flat fee when a trade is sent)'],
+              ['Approvals', 'Agency staff', 'Agency approval limit; bigger jobs approved in writing'],
               ['Knowledge of each property', 'Strong, builds over years', 'Builds from job history and the agency’s notes'],
               ['Cover during leave or turnover', 'Gaps unless backfilled', 'Continues'],
               ['Control of approvals', 'Agency', 'Agency (approval limit, over-limit decisions)'],
@@ -453,7 +385,7 @@ export const GUIDES: Guide[] = [
       },
     ],
     faqs: [
-      { q: 'Is outsourced maintenance cheaper than an in-house coordinator?', a: 'It depends on volume and the provider’s pricing. With Briks the agency pays nothing and owners pay a flat fee only on jobs where a trade is sent, so there is no salary to cover.' },
+      { q: 'What does an agency keep when it outsources maintenance?', a: 'Its owners, its approval limits and the final say on every job over the limit. The desk takes the calls, the booking and the chasing.' },
       { q: 'Can we outsource only some properties?', a: 'Yes. Briks usually starts on one property manager’s portfolio so the agency can compare before rolling it out.' },
     ],
     sources: [],
@@ -490,7 +422,6 @@ export const GUIDES: Guide[] = [
               ['Local Adelaide trade knowledge', 'Depends on the person', 'Adelaide-based'],
               ['Who the tenant talks to', 'Often still the property manager', 'Briks'],
               ['Invoices', 'Each trade invoices separately', 'One invoice per job from Briks'],
-              ['Cost to the agency', 'Hourly or monthly fee', 'Nothing. Owners pay a flat fee when a trade is sent'],
             ],
           },
         ],
@@ -523,7 +454,7 @@ export const GUIDES: Guide[] = [
     eyebrow: 'Comparison for landlords and homeowners',
     h1: 'Should you call a trade yourself or have the repair organised?',
     answer:
-      'Calling a trade yourself costs nothing extra and suits simple one-off jobs when you know a good local trade. Having Briks organise it suits jobs that need more than one trade, a tenant to be contacted, or photos and one invoice for your records. Briks charges rentals a flat desk fee; homeowners pay none.',
+      'Calling a trade yourself suits simple one-off jobs when you know a good local trade. Having Briks organise it suits jobs that need more than one trade, a tenant to be contacted, or photos and one invoice for your records. Homeowners get a written quote first.',
     published: D,
     updated: D,
     sections: [
@@ -539,7 +470,6 @@ export const GUIDES: Guide[] = [
               ['Tenant access', 'You arrange it', 'Briks arranges it with the tenant'],
               ['Jobs needing two or more trades', 'You coordinate each one', 'One booking, one invoice'],
               ['Photos and records', 'If the trade sends them', 'Before and after photos with every finished job'],
-              ['Extra cost', 'None', `Rentals: flat ${FEE.amount} ${FEE.gst} per job when a trade is sent. Homeowners: no desk fee`],
             ],
           },
         ],
@@ -547,12 +477,12 @@ export const GUIDES: Guide[] = [
       {
         h: 'When calling direct is the better choice',
         blocks: [
-          { t: 'p', text: 'If you live at the property, already have a plumber or electrician you trust, and the job is simple, calling them direct is quick and costs nothing extra. Before anyone is sent, try the simple checks in our check-this-first guide; a tripped safety switch or a smoke alarm battery needs no trade at all.' },
+          { t: 'p', text: 'If you live at the property, already have a plumber or electrician you trust, and the job is simple, calling them direct is quick. Before anyone is sent, try the simple checks in our check-this-first guide; a tripped safety switch or a smoke alarm battery needs no trade at all.' },
         ],
       },
     ],
     faqs: [
-      { q: 'Is it cheaper to call a tradie directly?', a: 'There is no coordination fee when you call a trade directly. With Briks, homeowners pay no desk fee and get a written quote first; rentals pay a flat fee per job for the booking, tenant contact, checking and photos.' },
+      { q: 'When should I call a tradie directly?', a: 'When the job is simple, you are at the property and you already have a trade you trust. Use Briks when a tenant needs contacting, more than one trade is involved, or you want photos and one invoice for your records.' },
     ],
     sources: [],
     related: [

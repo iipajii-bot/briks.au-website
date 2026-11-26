@@ -17,8 +17,8 @@ const FAQS: QA[] = [
     a: 'We organise the work. Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit, and anything over it is quoted first. If anyone is in danger call 000. Briks can organise the repair afterwards once it is safe. Non-urgent renovations are scheduled around your timing.',
   },
   {
-    q: "What's the call-out fee?",
-    a: 'Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit, and anything over it is quoted first. Finished jobs get one invoice from Briks. Phone help for simple problems is free.',
+    q: "Do I get a quote before work starts?",
+    a: 'Homeowners and businesses get a written quote before work starts. Landlords and agencies set an approval limit, and anything over it is quoted first. Finished jobs get one invoice from Briks. Simple problems are often sorted over the phone.',
   },
   {
     q: 'Do you do work for property managers and agencies?',

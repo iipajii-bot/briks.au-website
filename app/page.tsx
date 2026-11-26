@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import FridayReport from '@/components/home/FridayReport'
-import { STEPS, CHANGES, STAYS, PRICING, FAQS } from '@/components/home/homeContent'
+import { STEPS, CHANGES, STAYS, APPROVALS, FAQS } from '@/components/home/homeContent'
 import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
 
 /*
@@ -71,14 +71,7 @@ const jsonLd = {
       areaServed: { '@type': 'City', name: 'Adelaide' },
       audience: { '@type': 'BusinessAudience', audienceType: 'Real estate agencies and property managers' },
       description:
-        'Tenants report repairs to one Briks number. Briks triages urgency, books a licensed trade, arranges access, updates the tenant and property manager, checks the work and sends a weekly report with photos. Nothing for the agency to pay; owners pay the repair plus a flat $19 including GST desk fee per job where a trade is sent; jobs over the agency approval limit are quoted first.',
-      offers: {
-        '@type': 'Offer',
-        name: 'Maintenance desk for agencies',
-        description: 'Nothing for the agency to pay. Owners pay the repair plus a flat $19 including GST Briks maintenance desk fee on each job where a trade is sent.',
-        price: '0',
-        priceCurrency: 'AUD',
-      },
+        'Tenants report repairs to one Briks number. Briks triages urgency, books a licensed trade, arranges access, updates the tenant and property manager, checks the work and sends a weekly report with photos. Routine jobs under the agency approval limit go ahead; bigger jobs are quoted to the property manager and start only after written approval.',
     },
     {
       '@type': 'FAQPage',
@@ -151,8 +144,8 @@ export default function HomePage() {
             <p className="mt-6 max-w-[34rem] text-[18px] leading-[1.6] text-[#3a3735]">
               Briks Maintenance Line takes tenant repair requests off your property managers. Tenants report every repair
               to one Briks number. We organise a licensed trade, book access, keep everyone updated and review the work.{' '}
-              <strong className="font-semibold text-[#1a1a1a]">No Briks fee to the agency;</strong> owners pay for the work
-              they approve, as they do now.
+              <strong className="font-semibold text-[#1a1a1a]">You approve every job:</strong> routine repairs under your
+              limit go ahead, and bigger jobs wait for your written approval.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/for-agencies#enquiry" className={btnPrimary}>
@@ -199,7 +192,7 @@ export default function HomePage() {
               ['Who it is for', 'Real estate agencies and their property managers'],
               ['Where', 'The Adelaide metropolitan area'],
               ['Who does the work', 'Independent trades licensed in South Australia'],
-              ['Cost to the agency', 'No Briks fee. Owners pay for approved work.'],
+              ['Approvals', 'Under your limit it goes ahead; over it, only with your written yes'],
             ].map(([k, v]) => (
               <div key={k} className="border-t border-[#e2ddd3] py-4 last:border-b">
                 <dt className="font-heading text-[12px] font-semibold uppercase tracking-[0.16em] text-[#5a5650]">{k}</dt>
@@ -263,21 +256,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PRICING */}
-      <section aria-labelledby="pricing-h" className="border-t border-[#e2ddd3] bg-[#fafaf7]">
+      {/* APPROVALS */}
+      <section aria-labelledby="approvals-h" className="border-t border-[#e2ddd3] bg-[#fafaf7]">
         <div className={`${wrap} grid gap-10 py-20 md:grid-cols-12 md:py-28`}>
           <div className="md:col-span-5">
-            <p className={eyebrow}>How pricing works</p>
-            <h2 id="pricing-h" className={`${h2} mt-4`}>
-              No fee for the agency. Every job priced on its own.
+            <p className={eyebrow}>How approvals work</p>
+            <h2 id="approvals-h" className={`${h2} mt-4`}>
+              Small jobs move. Big jobs wait for your yes.
             </h2>
             <p className="mt-6 max-w-[30rem] text-[17px] leading-relaxed text-[#3a3735]">
-              There is no price list, because no two repairs are the same. Owners pay for the work they approve, through
-              your agency, the way they do now.
+              You set the limit once. Anything over it comes to you as a quote by email and a phone call, and nothing
+              starts until you approve it in writing.
             </p>
           </div>
           <dl className="m-0 md:col-span-6 md:col-start-7">
-            {PRICING.map((p) => (
+            {APPROVALS.map((p) => (
               <div key={p.q} className="grid gap-1 border-t border-[#e2ddd3] py-5 last:border-b sm:grid-cols-[13rem_minmax(0,1fr)] sm:gap-6">
                 <dt className="font-heading text-[15px] font-semibold text-[#1a1a1a]">{p.q}</dt>
                 <dd className="m-0 text-[15px] leading-relaxed text-[#3a3735]">{p.a}</dd>
@@ -296,7 +289,7 @@ export default function HomePage() {
               Start with one property manager for 30 days.
             </h2>
             <p className="mt-6 max-w-[32rem] text-[17px] leading-relaxed text-[#d6d0c4]">
-              No contract and no Briks fee. We agree your approval limit, write the email that tells tenants the new
+              No contract. We agree your approval limit, write the email that tells tenants the new
               number, and send a report every Friday. At day 30 you decide: keep it, expand it or stop.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

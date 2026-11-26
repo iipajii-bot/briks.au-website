@@ -6,8 +6,7 @@ import LeadForm from '@/components/site/LeadForm'
 import QuickFixes from '@/components/site/QuickFixes'
 import TimeBackCalculator from '@/components/site/TimeBackCalculator'
 import TradeStrip, { Photo } from '@/components/site/TradeStrip'
-import { AGENCY_COST_FAQ, AGENCY_PRICING, START_NEEDS } from '@/components/site/pricingContent'
-import { FEE } from '@/components/site/fee'
+import { APPROVAL_FAQ, APPROVALS, START_NEEDS } from '@/components/site/pricingContent'
 import { cleanInt, cleanText, fmt, timeBack, type SearchParams } from '@/components/site/personal'
 import { Arrow, CtaLink, DashList, Faq, FactList, JsonLd, SectionHead, Steps, cls, faqJsonLd, ground } from '@/components/site/ui'
 import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
@@ -16,14 +15,13 @@ import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
  * /for-agencies: principals and heads of property management (v2, 25 Nov 2026).
  * Personal link: ?agency=&doors=&office= (cleaned in components/site/personal.ts, rendered as text).
  * Order: hero with a live example job, trades in photos, the cost of the current way in their numbers,
- * the sequence and the Friday report, free help first, control, calculator, pricing (owner pays a per-job
- * line), what we need to start, starting on one portfolio, proof they can check, FAQ, form.
+ * the sequence and the Friday report, help first, control, calculator, how approvals work, what we need to start, starting on one portfolio, proof they can check, FAQ, form.
  */
 
 export const metadata: Metadata = {
   title: { absolute: 'Maintenance Desk for Adelaide Real Estate Agencies | Briks' },
   description:
-    `Tenants call one Briks number, a licensed trade is booked when needed, and your agency gets one Friday report. Nothing for the agency to pay.`,
+    `Tenants call one Briks number, a licensed trade is booked when needed, and your agency gets one Friday report.`,
   alternates: { canonical: '/for-agencies' },
   // Not indexed until the building work contractor licence is issued.
   // Outreach page for principals: kept out of search so it does not compete with the homepage for agency queries.
@@ -31,7 +29,7 @@ export const metadata: Metadata = {
 }
 
 const AGENCY_FAQS = [
-  AGENCY_COST_FAQ,
+  APPROVAL_FAQ,
   ...FAQS.filter((f) => !f.q.startsWith('What is an outsourced') && !f.q.startsWith('Does the Briks') && !f.q.startsWith('How do we start')),
   {
     q: 'How do we start?',
@@ -71,10 +69,6 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
         provider: { '@id': `${SITE.url}/#organization` },
         areaServed: { '@type': 'City', name: 'Adelaide' },
         audience: { '@type': 'BusinessAudience', audienceType: 'Real estate agencies' },
-        offers: [
-          { '@type': 'Offer', name: 'Tenant calls and phone help', price: '0', priceCurrency: 'AUD' },
-          { '@type': 'Offer', name: `${FEE.label} per job when a trade is sent (paid by the property owner)`, price: FEE.amount.replace('$', ''), priceCurrency: 'AUD' },
-        ],
       },
       faqJsonLd(`${SITE.url}/for-agencies#faq`, AGENCY_FAQS),
     ],
@@ -95,9 +89,9 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
               Tenant repairs, off your property managers&rsquo; desks.
             </h1>
             <p className={`${cls.lead} mt-6 max-w-[34rem]`}>
-              Tenants call one Briks number for every repair. Simple problems are sorted on the phone for free. When a trade is
+              Tenants call one Briks number for every repair. Simple problems are often sorted over the phone. When a trade is
               needed, we book a licensed one, keep everyone updated and send {agency || 'your agency'} one report on Friday.{' '}
-              <strong className="font-semibold text-[#1a1a1a]">Nothing for the agency to pay:</strong> when a trade is sent, a flat {FEE.amount}{' '}Briks maintenance desk fee (including GST) goes on our invoice, paid from the owner&rsquo;s rent.
+              <strong className="font-semibold text-[#1a1a1a]">You approve every job:</strong> routine repairs under your limit go ahead, and bigger jobs wait for your written approval.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CtaLink href="#enquiry">
@@ -168,7 +162,7 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
       {/* FREE HELP FIRST */}
       <section aria-labelledby="fix-h" className={ground.paper}>
         <div className={`${cls.wrap} ${cls.section}`}>
-          <SectionHead id="fix-h" eyebrow="Free help first" title="Not every call needs a trade sent.">
+          <SectionHead id="fix-h" eyebrow="Help first" title="Not every call needs a trade sent.">
             <p>Before anyone is sent, we help tenants check the simple things. Fewer call-outs means fewer bills for your owners. Pick a problem to see the checks.</p>
           </SectionHead>
           <div className="mt-10">
@@ -210,19 +204,19 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
         </div>
       </section>
 
-      {/* PRICING */}
-      <section id="pricing" aria-labelledby="pricing-h" className={`scroll-mt-24 ${ground.soft}`}>
+      {/* APPROVALS */}
+      <section id="approvals" aria-labelledby="approvals-h" className={`scroll-mt-24 ${ground.soft}`}>
         <div className={`${cls.wrap} ${cls.section} grid gap-10 lg:grid-cols-12`}>
           <div className="lg:col-span-5">
-            <SectionHead id="pricing-h" eyebrow="How pricing works" title="Nothing for the agency. Calls are free.">
+            <SectionHead id="approvals-h" eyebrow="How approvals work" title="Small jobs move. Big jobs wait for your yes.">
               <p>
-                You only see a charge when a job needs a trade: a flat {FEE.amount}{' '}Briks maintenance desk fee on our
-                invoice for that job, paid from the owner&rsquo;s rent like any contractor bill.
+                You set the limit once. Anything over it comes to you as a quote by email and a phone call, and nothing
+                starts until you approve it in writing.
               </p>
             </SectionHead>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
-            <FactList items={AGENCY_PRICING.map((p) => ({ k: p.q, v: p.a }))} wide />
+            <FactList items={APPROVALS.map((p) => ({ k: p.q, v: p.a }))} wide />
           </div>
         </div>
       </section>

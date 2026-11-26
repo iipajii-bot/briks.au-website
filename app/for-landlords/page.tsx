@@ -4,7 +4,6 @@ import LeadForm from '@/components/site/LeadForm'
 import CopyBlock from '@/components/site/CopyBlock'
 import QuickFixes from '@/components/site/QuickFixes'
 import TradeStrip, { Photo } from '@/components/site/TradeStrip'
-import { FEE } from '@/components/site/fee'
 import { cleanChoice, cleanText, type SearchParams } from '@/components/site/personal'
 import { Arrow, CtaLink, Faq, FactList, JsonLd, SectionHead, Steps, cls, faqJsonLd, ground } from '@/components/site/ui'
 import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
@@ -17,7 +16,7 @@ import { SITE, sitePhone, sitePhoneHref } from '@/lib/constants'
 export const metadata: Metadata = {
   title: { absolute: 'Repairs for Self-Managing Landlords in Adelaide | Briks' },
   description:
-    `Self-managing a rental in Adelaide? Tenants report repairs to Briks, phone help is free, and a licensed trade is booked when needed. ${FEE.amount} per job.`,
+    'Self-managing a rental in Adelaide? Tenants report repairs to Briks, a licensed trade is booked when needed, and anything over your limit waits for your yes.',
   alternates: { canonical: '/for-landlords' },
   robots: { index: true, follow: true },
 }
@@ -26,12 +25,12 @@ const STEPS = [
   { title: 'Your tenant reports it to us', body: 'They call or text the Briks number. We work out how urgent it is.' },
   { title: 'We book a licensed trade', body: 'We arrange access with the tenant and keep them updated, so they stop calling you.' },
   { title: 'Over your limit, you decide', body: 'Jobs under your limit go ahead. Anything over it is quoted to you first.' },
-  { title: 'You get photos and one invoice', body: `Before and after photos with each finished job, and one invoice from Briks: the repair plus a flat ${FEE.amount} Briks maintenance desk fee.` },
+  { title: 'You get photos and one invoice', body: 'Before and after photos with each finished job, and one invoice from Briks for each job.' },
 ] as const
 
 const FAQS = [
   { q: 'Do I need a property manager to use Briks?', a: 'No. Briks works directly with landlords who manage their own rentals. You stay the landlord; we handle the repair calls.' },
-  { q: 'What does it cost?', a: `No sign-up fee and no subscription, and phone help for your tenants is free. When a job needs a licensed trade sent, you pay the repair (priced on its own) plus a flat ${FEE.amount} ${FEE.gst} Briks maintenance desk fee: booking the trade, arranging access with your tenant, checking the work and sending you the photos.` },
+  { q: 'Who approves the work?', a: 'You do. Routine repairs under the approval limit you set go ahead straight away. For anything bigger we send you the quote and call you; nothing starts until you approve it in writing.' },
   { q: 'What is my approval limit?', a: 'An amount you choose. Jobs under it go ahead without asking you. Anything over it is quoted to you first and waits for your yes.' },
   { q: 'What about emergencies?', a: 'Your tenant calls the same number. We triage it when it comes in, organise a make-safe or a licensed trade, then tell you what was done. We do not offer 24-hour cover. In a life-threatening emergency, call 000 first.' },
   { q: 'Do you do flooring?', a: 'Yes. Hybrid, laminate, vinyl and carpet, supplied and installed, with a written quote first. Useful between tenancies.' },
@@ -78,7 +77,7 @@ export default async function ForLandlordsPage({ searchParams }: { searchParams:
             <p className={`${cls.lead} mt-6 max-w-[34rem]`}>
               Your tenants report repairs straight to Briks. We organise a licensed trade, keep the tenant updated and send you
               the photos. You set the approval limit, and nothing over it starts without your yes.{' '}
-              <strong className="font-semibold text-[#1a1a1a]">No sign-up fee, and calls are free.</strong> When a trade is sent you pay the repair plus a flat {FEE.amount}{' '}Briks maintenance desk fee (including GST).
+              <strong className="font-semibold text-[#1a1a1a]">You approve every job</strong> that is over your limit, in writing, before it starts.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CtaLink href="#setup">
@@ -116,7 +115,7 @@ export default async function ForLandlordsPage({ searchParams }: { searchParams:
       {/* FREE HELP FIRST */}
       <section aria-labelledby="fix-h" className={ground.warm}>
         <div className={`${cls.wrap} ${cls.section}`}>
-          <SectionHead id="fix-h" eyebrow="Free help first" title="Some repairs don't need a trade at all.">
+          <SectionHead id="fix-h" eyebrow="Help first" title="Some repairs don't need a trade at all.">
             <p>Your tenant gets walked through the simple checks before anyone is sent. That saves you call-outs. Pick a problem to see them.</p>
           </SectionHead>
           <div className="mt-10">
@@ -130,7 +129,7 @@ export default async function ForLandlordsPage({ searchParams }: { searchParams:
         <div className={`${cls.wrap} ${cls.section} grid gap-12 md:grid-cols-12`}>
           <div className="md:col-span-5">
             <SectionHead id="control-h" eyebrow="What you control" title="Your limit. Your yes or no. Every photo.">
-              <p>Each repair is priced on its own, plus a flat {FEE.amount}{' '}Briks maintenance desk fee when a trade is sent. Nothing over your limit starts until you reply.</p>
+              <p>Routine repairs under your limit go ahead. Anything bigger comes to you as a quote, and nothing over your limit starts until you reply.</p>
             </SectionHead>
             <div className="mt-8">
               <FactList
@@ -138,7 +137,7 @@ export default async function ForLandlordsPage({ searchParams }: { searchParams:
                   { k: 'Your approval limit', v: 'You set the amount. Jobs under it go ahead; anything over it is quoted first.' },
                   { k: 'Your yes or no', v: 'Quotes come to you by email or phone. Nothing over your limit starts without your reply.' },
                   { k: 'Every photo', v: 'Before and after photos with each finished job, and one invoice.' },
-                  { k: 'Phone help', v: 'Free. Your tenant gets the simple checks first, which saves you call-outs.' },
+                  { k: 'Phone help', v: 'Your tenant gets the simple checks first, which saves you call-outs.' },
                 ]}
               />
             </div>
@@ -174,7 +173,7 @@ export default async function ForLandlordsPage({ searchParams }: { searchParams:
         <div className={`${cls.wrap} ${cls.section} grid gap-12 md:grid-cols-12`}>
           <div className="md:col-span-5">
             <SectionHead id="setup-h" eyebrow="Set up your rental" title="Tell us about the rental. We'll do the rest.">
-              <p>No subscription and no sign-up fee. We reply by phone or email to agree your approval limit.</p>
+              <p>We reply by phone or email to agree your approval limit.</p>
             </SectionHead>
             <Photo src="/stock/about-hero.jpg" alt="A single-storey stone villa with a front garden" className="mt-8 hidden md:block" sizes="(min-width: 768px) 420px, 100vw" />
           </div>

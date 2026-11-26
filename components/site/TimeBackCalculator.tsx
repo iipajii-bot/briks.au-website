@@ -64,7 +64,7 @@ export default function TimeBackCalculator({
         ))}
         <p className="mt-5 text-[13px] leading-relaxed text-[#a8a195]">
           Starting figures are estimates ({ESTIMATE.requestsPerDoor} requests a property a year, {ESTIMATE.minutesPerRequest} minutes each, $
-          {ESTIMATE.hourlyCost} an hour). Change them to your agency&rsquo;s own. The cost is your team&rsquo;s time, not a Briks fee.
+          {ESTIMATE.hourlyCost} an hour). Change them to your agency&rsquo;s own. This is your team&rsquo;s time.
         </p>
       </div>
       <div aria-live="polite" className="flex flex-col gap-5">

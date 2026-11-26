@@ -27,8 +27,8 @@ export const FAQ_GENERAL: QA[] = [
 
 export const FAQ_HOMEOWNERS: QA[] = [
   {
-    q: 'Is there a call-out fee?',
-    a: 'Phone help for simple problems is free. Homeowners and businesses get a written quote before work starts. Bring us a list of small jobs and Briks can organise the work.',
+    q: 'Do I get a quote before any work?',
+    a: 'Yes. Homeowners and businesses get a written quote before work starts. Bring us a list of small jobs and Briks can organise them in one visit.',
   },
   {
     q: 'How do I get a quote?',
@@ -77,8 +77,8 @@ export const FAQ_PROPERTY_MANAGERS: QA[] = [
     a: 'No. You add Briks as a supplier in PropertyMe, PropertyTree, Reapit PM or whatever you use. Work orders reach us by email and our invoices are paid from trust like any contractor.',
   },
   {
-    q: 'What does it cost the agency and the owners?',
-    a: 'Nothing for the agency. Tenant calls and phone help are free. When a trade is sent, Briks invoices the repair plus a flat $19 including GST Briks maintenance desk fee, paid from the owner’s rent like any contractor bill.',
+    q: 'Do we deal with owners, or do you?',
+    a: 'You do. We invoice your agency and never contact owners without your written permission.',
   },
   {
     q: 'Can our existing trusted trades still be used?',
@@ -90,7 +90,7 @@ export const FAQ_PROPERTY_MANAGERS: QA[] = [
   },
   {
     q: 'How do we explain this to owners?',
-    a: 'Your agency has appointed one maintenance supplier. Each job comes with before and after photos and one invoice. The $19 desk fee covers booking the trade, access, checking the work and the report, and only applies when a trade is sent.',
+    a: 'Your agency has appointed one maintenance supplier. Each job comes with before and after photos and one invoice, and anything over your approval limit was approved by you in writing before it started.',
   },
   {
     q: 'How do we start?',

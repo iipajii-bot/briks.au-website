@@ -53,7 +53,7 @@ const FAQS = [
   { q: 'Do you do gas emergencies?', a: 'Briks can organise an independent gas fitter who is licensed in South Australia for gas fitting work. If you smell gas, leave the area, do not use switches or flames, and call Australian Gas Networks on 1800 427 532. Briks can organise the repair afterwards once it is safe.' },
   { q: 'Service area for emergencies?', a: 'Briks is an Adelaide business. Call 0449 517 367 to discuss your repair, maintenance or renovation job.' },
   { q: 'Will my insurance cover the callout?', a: 'Insurance cover depends on your policy. Check your insurer and excess. Finished jobs include before and after photos and one invoice from Briks. Homeowners and businesses get a written quote before work starts.' },
-  { q: 'What if it turns out not to be an emergency?', a: 'You pay the agreed callout fee for attendance. The tradie still diagnoses on-site and provides a written quote for the non-urgent repair. We do not retroactively bill emergency rates for routine issues.' },
+  { q: 'What if it turns out not to be an emergency?', a: 'The trade diagnoses it on site and the non-urgent repair is quoted to you in writing before any further work.' },
 ]
 
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }

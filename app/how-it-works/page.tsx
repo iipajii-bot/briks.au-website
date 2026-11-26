@@ -12,7 +12,7 @@ import { IMAGES } from '@/lib/images'
 export const metadata: Metadata = {
   title: { absolute: 'How Briks Works: One Call to One Invoice | Briks' },
   description:
-    'How Briks organises a repair in Adelaide: tell us the job, get free phone help or a written quote, a licensed trade does the work, photos and one invoice.',
+    'How Briks organises a repair in Adelaide: tell us the job, get phone help or a written quote, a licensed trade does the work, photos and one invoice.',
   alternates: { canonical: '/how-it-works' },
 }
 
@@ -53,7 +53,7 @@ const audiencePaths = [
   {
     icon: Home,
     label: 'Homeowners',
-    body: 'Call us. Phone help is free for simple problems. Homeowners and businesses get a written quote before work starts.',
+    body: 'Call us. Simple problems are often sorted over the phone. Homeowners and businesses get a written quote before work starts.',
     href: '/for-homeowners',
   },
   {

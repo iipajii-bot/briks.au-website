@@ -1,0 +1,443 @@
+<!doctype html>
+<!-- Briks Building Services: /for-agencies. Deal: hero film; moment picture-develops (How it works); nav nav-mega;
+     footer footer-columns; close close-photo; rhythm space; buttons arrow; mark: the client's logo (/logo.png).
+     type: service. site-kind: other. Light theme. Personalised by ?agency, ?doors, ?office (textContent only). -->
+<html lang="en-AU" data-type="service" data-radius="sharp" data-buttons="arrow" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<title>Briks Building Services: maintenance coordination for Adelaide agencies</title>
+<meta name="description" content="Briks coordinates licensed trades for Adelaide real estate agencies, so property managers get one repair number and their week back. No cost to the agency.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Briks Building Services: maintenance coordination for Adelaide agencies">
+<meta property="og:description" content="One repair number for your property managers. Start with one property manager for 30 days.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/logo.png" type="image/png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="/lp/kit/system.css">
+<link rel="stylesheet" href="/lp/agencies/assets/ui/cards.css">
+<link rel="stylesheet" href="/lp/kit/motion/motion.css">
+<link rel="stylesheet" href="/lp/agencies/assets/layout/layout.css">
+<style>
+@font-face { font-family: "Briks Bricolage"; src: url(/lp/kit/fonts/bricolage.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Briks Inter Tight"; src: url(/lp/kit/fonts/inter-tight.woff2) format("woff2"); font-weight: 500 800; font-display: swap; }
+@font-face { font-family: "Briks Inter"; src: url(/lp/kit/fonts/inter.woff2) format("woff2"); font-weight: 400 600; font-display: swap; }
+:root {
+  --p-bg: #ffffff; --p-surface: #fafaf7; --p-ink: #1a1a1a; --p-muted: #5a5650;
+  --p-accent: #8a6e3f; --p-accent-ink: #ffffff; --p-action: #6f5a30; --p-action-ink: #ffffff;
+  --p-inv-bg: #f3efe5; --p-inv-surface: #fafaf7; --p-inv-ink: #1a1a1a; --p-inv-muted: #5a5650;
+  --p-inv-accent: #8a6e3f; --p-inv-accent-ink: #ffffff; --p-inv-action: #6f5a30; --p-inv-action-ink: #ffffff;
+  --font-display: "Briks Bricolage", system-ui, sans-serif; --font-text: "Briks Inter", system-ui, sans-serif;
+  --display-weight: 600; --display-tracking: -0.03em; --display-tracking-xl: -0.04em;
+  --line: #e2ddd3; --warm: #f3efe5;
+}
+body { background: var(--p-bg); color: var(--p-ink); }
+h2, h3 { font-family: "Briks Inter Tight", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; }
+input, select, textarea { color: #1a1a1a; background: #ffffff; }
+:focus-visible { outline: 2px solid var(--p-action); outline-offset: 2px; }
+.warm-panel { background: var(--warm); border-radius: 8px; padding: 32px; }
+.muted-line { color: var(--p-muted); }
+.hero__eyebrow { margin: 0 0 var(--s-3); font: 500 13px/16px var(--font-display); color: var(--p-inv-muted); }
+.hero__over > :first-child h1 { font-weight: 600; }
+.hero__over .hero__lead { font-size: 18px; line-height: 1.6; }
+.hero-fact { margin: var(--s-4) 0 0; font: 500 16px/1.5 var(--font-text); color: var(--p-inv-ink); }
+.nav__logo img { width: 32px; height: 32px; display: block; object-fit: contain; }
+.nav__logo { display: inline-flex; align-items: center; gap: 10px; }
+.nav__menu-list a { display: block; padding: 8px 0; color: var(--p-ink); text-decoration: none; }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.develop { margin: 0; border-radius: 8px; overflow: hidden; height: min(520px, var(--ly-fit, 520px)); }
+.develop > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps li { padding: 20px 0; border-top: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps .t-label { display: block; color: var(--p-muted); margin-bottom: 4px; }
+.steps p { margin: 0; font-size: 16px; line-height: 1.6; }
+.ctrl-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.ctrl-cols h3 { font-size: 20px; margin: 0 0 12px; }
+.ctrl-cols ul { margin: 0; padding-left: 20px; }
+.ctrl-cols li { margin-bottom: 10px; line-height: 1.6; }
+.rate-rows { list-style: none; margin: 0; padding: 0; }
+.rate-rows li { display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-top: 1px solid var(--line); }
+.rate-rows li:last-child { border-bottom: 1px solid var(--line); }
+.rate-rows span:last-child { text-align: right; font-weight: 500; }
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.calc .field { margin-bottom: 16px; }
+.calc label { display: block; margin-bottom: 6px; font: 500 14px/20px var(--font-text); color: var(--p-ink); }
+.calc input { width: 100%; height: 48px; padding: 0 12px; border: 1px solid #b9b2a4; border-radius: 4px; font: 400 16px var(--font-text); }
+.calc-out dl { margin: 0; }
+.calc-out dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.calc-out dl > div:last-child { border-bottom: 1px solid var(--line); }
+.calc-out dt { color: var(--p-muted); }
+.calc-out dd { margin: 0; font: 600 24px/1.2 var(--font-display); font-variant-numeric: tabular-nums; }
+.calc-note { margin: 16px 0 0; font-size: 14px; color: var(--p-muted); line-height: 1.5; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.form-grid .field--wide { grid-column: 1 / -1; }
+.form .field { margin-bottom: 16px; }
+.form label { display: block; margin-bottom: 6px; font: 500 14px/20px var(--font-text); }
+.form input, .form textarea { width: 100%; min-height: 48px; padding: 10px 12px; border: 1px solid #b9b2a4; border-radius: 4px; font: 400 16px/1.4 var(--font-text); }
+.form textarea { min-height: 112px; }
+.form input[aria-invalid="true"], .form textarea[aria-invalid="true"] { border-color: #a4321a; }
+.field__error { margin: 6px 0 0; font-size: 14px; color: #a4321a; }
+.form__status { font-size: 16px; min-height: 24px; }
+@media (max-width: 1023px) { .calc, .ctrl-cols { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="/lp/kit/moments/moments.js"><link rel="modulepreload" href="/lp/kit/moments/picture-develops/moment.js">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="/"><img src="/logo.png" alt="Briks Building Services home">Briks</a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item"><a class="nav__link" href="#how">How it works</a></div>
+      <div class="nav__item"><a class="nav__link" href="#control">Your control</a></div>
+      <div class="nav__item"><a class="nav__link" href="#pricing">Pricing</a></div>
+      <div class="nav__item">
+        <a class="nav__link" href="/for-agencies" aria-current="page">Who it is for <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3 nav__menu-list">
+              <p class="t-label">Who it is for</p>
+              <a href="/for-agencies">Agencies<span>Coordination for principals and heads of PM</span></a>
+              <a href="/for-property-managers">Property managers<span>One number, a Friday report</span></a>
+              <a href="/for-landlords">Landlords<span>Repairs handled from one call</span></a>
+              <a href="/for-homeowners">Homeowners<span>A written quote before work starts</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="/contact">Contact</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="#enquiry">Book a 15-minute call</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO (film, layout-v4 heroes): one frame on the container lines, the photograph as poster, the words in a solid box at lower left. No play control: there is no film. -->
+  <section class="hero hero--film" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text hero__in">
+      <div class="hero__media hero__fill">
+        <img src="/lp/agencies/assets/img/photo-f179278794-960.jpg" alt="A timber-clad house with a shaded verandah on a tree-lined Adelaide-style street" fetchpriority="high" data-source="stand-in" data-subject="a rental house exterior" style="--ly-pos: 50% 58%">
+        <div class="hero__over">
+          <div>
+            <p class="hero__eyebrow" id="eyebrow">For Adelaide real estate agencies</p>
+            <h1 id="hero-h">Maintenance coordination for Adelaide real estate agencies</h1>
+            <p class="hero__lead">Briks Maintenance Line: one number for every repair. Your property managers get their week back.</p>
+            <p class="hero-fact">Start with one property manager for 30 days. No contract, no cost to the agency.</p>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="#enquiry">Book a 15-minute call<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+              <a class="btn btn--secondary" href="tel:0449517367">Call 0449 517 367</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- COST: loss of time, framed with the visitor's own door count when the link gives one. -->
+  <section class="section" id="cost" aria-labelledby="cost-h" style="--h: 1">
+    <div class="wrap">
+      <div class="grid">
+        <div class="span-5">
+          <div class="section-head"><h2 id="cost-h">The current way costs property manager time</h2></div>
+          <p class="t-lead" id="cost-default">Every repair starts as a call or an email to a property manager. Then the property manager finds a trade, books access, chases the update and checks the job. That is the time this page is about.</p>
+          <p class="t-lead" id="cost-doors" hidden>At <span id="cost-doors-n">0</span> doors, at 2.5 requests a door a year, that is about <span id="cost-req">0</span> requests a year. At 45 minutes each, the current way takes about <span id="cost-hy">0</span> property manager hours a year, or about <span id="cost-hw">0</span> hours a week.</p>
+          <p class="muted-line" style="margin-top:16px;font-size:14px">These are estimates from the calculator defaults. Change the inputs in the calculator below.</p>
+        </div>
+        <figure class="frame frame--photo span-6 start-7" style="margin:0">
+          <img class="frame__img" src="/lp/agencies/assets/img/photo-f172033869-960.jpg" alt="A timber-lined kitchen and living room with a wood stove and a door to the garden" loading="lazy" data-source="stand-in" data-subject="a rental interior" style="width:100%;height:100%;object-fit:cover;border-radius:8px;min-height:420px">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS: picture-develops moment on the one large photograph. -->
+  <section class="section" id="how" aria-labelledby="how-h" style="--h: 1">
+    <div class="wrap">
+      <div class="section-head"><h2 id="how-h">How it works in four steps</h2><p class="t-lead">Your tenants call one number. We do the rest.</p></div>
+      <div class="grid grid--top">
+        <ol class="steps span-5">
+          <li><span class="t-label">Step 1</span><p>Your property manager emails tenants once. Briks writes the email with the Briks number.</p></li>
+          <li><span class="t-label">Step 2</span><p>Tenants contact Briks. We work out how urgent it is and tell them what happens next.</p></li>
+          <li><span class="t-label">Step 3</span><p>We organise the licensed trade, book access, keep everyone updated and check the finished work.</p></li>
+          <li><span class="t-label">Step 4</span><p>Your property manager sees the job done, with before and after photos. Anything over the approval limit is quoted first.</p></li>
+        </ol>
+        <figure class="develop span-6 start-7" data-moment="picture-develops"><img src="/lp/agencies/assets/img/photo-f123328901-960.jpg" alt="A brass door handle and keyhole on a decorated door" loading="lazy" data-source="stand-in" data-subject="door hardware"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROL: what changes for the property managers, what stays with the agency. -->
+  <section class="section" id="control" aria-labelledby="control-h" style="--h: 1">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5">
+          <div class="section-head"><h2 id="control-h">What changes for your property managers, and what stays yours</h2></div>
+          <div class="ctrl-cols" style="margin-top:32px">
+            <div>
+              <h3>What changes</h3>
+              <ul>
+                <li>Tenant repair calls go to one number.</li>
+                <li>Your property managers stop booking trades and chasing updates.</li>
+                <li>A Friday report lists every job, with photos.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>What stays yours</h3>
+              <ul>
+                <li>Your approval limit stands. Anything over it is quoted to you first.</li>
+                <li>Your owners stay with your agency.</li>
+                <li>Preferred trades can come on board. They then work through Briks.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <figure class="frame frame--photo span-6 start-7" style="margin:0;min-height:480px">
+          <img class="frame__img" src="/lp/agencies/assets/img/control-carpentry.jpg" alt="A brass spirit level, a hand plane, a steel square and wood shavings on building plans" data-source="stand-in" data-subject="a trade at work" style="width:100%;height:100%;object-fit:cover;border-radius:8px;min-height:420px">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR: time back. Estimates; defaults are stated. -->
+  <section class="section" id="calculator" aria-labelledby="calc-h" style="--h: 1">
+    <div class="wrap">
+      <div class="section-head"><h2 id="calc-h">Time back, in numbers</h2><p class="t-lead">Change the inputs to match your agency. The defaults are estimates.</p></div>
+      <div class="calc" style="margin-top:32px">
+        <form class="calc-in" id="calc-form" novalidate>
+          <div class="field"><label for="c-props">Properties</label><input id="c-props" name="props" type="text" inputmode="numeric" autocomplete="off" value="200"></div>
+          <div class="field"><label for="c-req">Requests per property a year</label><input id="c-req" name="req" type="text" inputmode="decimal" autocomplete="off" value="2.5"></div>
+          <div class="field"><label for="c-min">Minutes per request</label><input id="c-min" name="min" type="text" inputmode="numeric" autocomplete="off" value="45"></div>
+          <div class="field"><label for="c-rate">Hourly cost, $</label><input id="c-rate" name="rate" type="text" inputmode="numeric" autocomplete="off" value="45"></div>
+        </form>
+        <div class="calc-out warm-panel">
+          <dl>
+            <div><dt>Hours a week</dt><dd id="o-week">Enter a number of properties</dd></div>
+            <div><dt>Hours a year</dt><dd id="o-year">-</dd></div>
+            <div><dt>Cost a year</dt><dd id="o-cost">-</dd></div>
+          </dl>
+          <p class="calc-sentence" id="o-sentence" style="margin:16px 0 0;line-height:1.6">Enter your number of properties to see the figures.</p>
+          <p class="calc-note">Defaults are estimates: 2.5 requests a property a year, 45 minutes each, $45 an hour.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING: no figures. Our targets are labelled as targets. -->
+  <section class="section" id="pricing" aria-labelledby="pricing-h" style="--h: 1">
+    <div class="wrap">
+      <div class="grid">
+        <div class="span-5">
+          <div class="section-head"><h2 id="pricing-h">How pricing works</h2><p class="t-lead">Every job is priced on its own. Nothing is charged to the agency.</p></div>
+        </div>
+        <ul class="rate-rows span-6 start-7" style="margin-top:0">
+          <li><span>Cost to the agency</span><span>None</span></li>
+          <li><span>Who pays for the work</span><span>The owner</span></li>
+          <li><span>Under the approval limit</span><span>The job goes ahead</span></li>
+          <li><span>Over the approval limit</span><span>Quoted to you first</span></li>
+          <li><span>Requests that need no work</span><span>No charge</span></li>
+        </ul>
+      </div>
+      <div class="grid" style="margin-top:32px">
+        <p class="span-6 muted-line" data-assumed style="margin:0;line-height:1.6"><strong style="color:var(--p-ink);font-weight:500">Our targets:</strong> emergency call-back within 15 minutes. Urgent jobs booked the same day. Routine jobs booked within 2 business days.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 30-DAY START: one property manager, one email, a Friday report. -->
+  <section class="section" id="start" aria-labelledby="start-h" style="--h: 1">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5">
+          <div class="section-head"><h2 id="start-h">Start with one property manager for 30 days</h2><p class="t-lead">Pick one property manager and one set of tenants to start. Your owners and approval limits stay as they are.</p></div>
+          <ol class="steps" style="margin-top:32px">
+            <li><span class="t-label">Day 1</span><p>One email from your property manager to tenants, with the Briks number.</p></li>
+            <li><span class="t-label">Each week</span><p>A Friday report of every job, with photos.</p></li>
+            <li><span class="t-label">Day 30</span><p>You decide what happens next. No contract.</p></li>
+          </ol>
+          <div class="btn-row" style="margin-top:32px"><a class="btn btn--primary" href="#enquiry">Book a 15-minute call<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a></div>
+        </div>
+        <figure class="frame frame--photo span-6 start-7" style="margin:0">
+          <img class="frame__img" src="/lp/agencies/assets/img/photo-f156529010-960.jpg" alt="A two-storey brick house with a dormer roof and white trim" loading="lazy" data-source="stand-in" data-subject="a house exterior" style="width:100%;height:100%;object-fit:cover;border-radius:8px;min-height:420px">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY: name, agency, email, mobile, suburb, doors, message. Posts JSON to /api/lead. -->
+  <section class="section" id="enquiry" aria-labelledby="enq-h" style="--h: 1">
+    <div class="wrap">
+      <div class="grid">
+        <div class="span-5">
+          <div class="section-head"><h2 id="enq-h">Book a 15-minute call</h2><p class="t-lead">Tell us about your agency. Briks replies by phone or email.</p></div>
+          <p class="muted-line" style="margin-top:24px">Or call 0449 517 367.</p>
+        </div>
+        <div class="span-6 start-7 warm-panel">
+          <form class="form" id="lead-form" novalidate>
+            <div class="form-grid">
+              <div class="field"><label for="f-name">Name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err"><p class="field__error" id="f-name-err" hidden>Write your name.</p></div>
+              <div class="field"><label for="f-agency">Agency</label>
+                <input id="f-agency" name="agency" type="text" autocomplete="organization" aria-describedby="f-agency-err"><p class="field__error" id="f-agency-err" hidden>Write the agency name.</p></div>
+              <div class="field"><label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err"><p class="field__error" id="f-email-err" hidden>Write an email address with an @, like name@agency.com.au.</p></div>
+              <div class="field"><label for="f-mobile">Mobile</label>
+                <input id="f-mobile" name="mobile" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="f-mobile-err"><p class="field__error" id="f-mobile-err" hidden>Write a mobile number you can be called on.</p></div>
+              <div class="field"><label for="f-suburb">Suburb of office</label>
+                <input id="f-suburb" name="suburb" type="text" autocomplete="off" aria-describedby="f-suburb-err"><p class="field__error" id="f-suburb-err" hidden>Write the suburb your office is in.</p></div>
+              <div class="field"><label for="f-doors">Number of properties</label>
+                <input id="f-doors" name="doors" type="text" inputmode="numeric" autocomplete="off" aria-describedby="f-doors-err"><p class="field__error" id="f-doors-err" hidden>Write the number of properties as a number.</p></div>
+              <div class="field field--wide"><label for="f-message">Message</label>
+                <textarea id="f-message" name="message" rows="4" aria-describedby="f-message-err"></textarea><p class="field__error" id="f-message-err" hidden>Keep the message under 1000 characters.</p></div>
+            </div>
+            <div hidden><label>Leave this empty <input name="website" type="text" tabindex="-1" autocomplete="off" value=""></label></div>
+            <div class="btn-row"><button class="btn btn--primary" type="submit">Request a 15-minute call</button></div>
+            <p class="form__status" role="status" id="form-status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER: the close (close-photo) and the footer columns in one last screen. -->
+<footer class="footer closing" id="close" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--photo">
+      <div class="section-head--split">
+        <div><h2 id="close-h">Book a 15-minute call</h2><p class="t-lead">One property manager, 30 days, no cost to the agency.</p></div>
+        <a class="btn btn--primary" href="#enquiry">Book a 15-minute call<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+      <div class="close__media"><img src="/lp/agencies/assets/img/photo-f108311246-500.jpg" alt="A front door of a brick house with a fanlight and a house number" loading="lazy" data-source="stand-in" data-subject="a front door"></div>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="/"><img src="/logo.png" alt="">Briks Building Services</a>
+          <p class="footer__lede">One number for every repair, for Adelaide agencies.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Agencies</h3><ul><li><a href="#how">How it works</a></li><li><a href="#control">Your control</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#start">30-day start</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Other pages</h3><ul><li><a href="/for-property-managers">Property managers</a></li><li><a href="/for-landlords">Landlords</a></li><li><a href="/for-homeowners">Homeowners</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Contact</h3><ul><li><a href="#enquiry">Book a 15-minute call</a></li><li><a href="tel:0449517367">0449 517 367</a></li><li><a href="mailto:admin@briks.au">admin@briks.au</a></li><li><a href="/contact">Contact</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Briks Building Services Pty Ltd &nbsp; ABN 90 697 367 721</span>
+        <div class="socials"></div>
+        <a class="credits" href="/lp/agencies/credits.html">Photographs via Wikimedia Commons</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Personalisation: read the link's own values, write them with textContent only, trimmed to 40 characters,
+   letters, digits, spaces and &'.- only. With no values the page reads as written. */
+(function () {
+  function clean(v) {
+    return String(v == null ? '' : v).replace(/[^A-Za-z0-9 &'.\-]/g, '').replace(/\s+/g, ' ').trim().slice(0, 40).trim();
+  }
+  var q;
+  try { q = new URLSearchParams(location.search); } catch (e) { return; }
+  var agency = clean(q.get('agency'));
+  var office = clean(q.get('office'));
+  var doorsRaw = String(q.get('doors') || '').replace(/\D/g, '').slice(0, 6);
+  var doors = doorsRaw ? parseInt(doorsRaw, 10) : 0;
+  var el = function (id) { return document.getElementById(id); };
+  if (agency) {
+    el('eyebrow').textContent = 'Prepared for ' + agency + (office ? ', ' + office : '');
+    el('f-agency').value = agency;
+  }
+  if (doors > 0) {
+    el('c-props').value = String(doors);
+    el('f-doors').value = String(doors);
+    var req = doors * 2.5, hy = req * 45 / 60, hw = hy / 52;
+    el('cost-doors-n').textContent = doors.toLocaleString('en-AU');
+    el('cost-req').textContent = Math.round(req).toLocaleString('en-AU');
+    el('cost-hy').textContent = Math.round(hy).toLocaleString('en-AU');
+    el('cost-hw').textContent = (Math.round(hw * 10) / 10).toLocaleString('en-AU');
+    el('cost-doors').hidden = false;
+    el('cost-default').hidden = true;
+  }
+  var inputs = ['c-props', 'c-req', 'c-min', 'c-rate'];
+  function num(id) { var v = parseFloat(String(el(id).value).replace(/,/g, '')); return isFinite(v) && v >= 0 ? v : NaN; }
+  function calc() {
+    var p = num('c-props'), r = num('c-req'), m = num('c-min'), rate = num('c-rate');
+    if (!isFinite(p) || p <= 0 || !isFinite(r) || !isFinite(m) || !isFinite(rate)) {
+      el('o-week').textContent = 'Enter a number of properties';
+      el('o-year').textContent = '-';
+      el('o-cost').textContent = '-';
+      el('o-sentence').textContent = 'Enter your number of properties to see the figures.';
+      return;
+    }
+    var year = p * r * m / 60, week = year / 52, cost = year * rate;
+    el('o-week').textContent = (Math.round(week * 10) / 10).toLocaleString('en-AU') + ' hours';
+    el('o-year').textContent = Math.round(year).toLocaleString('en-AU') + ' hours';
+    el('o-cost').textContent = '$' + Math.round(cost).toLocaleString('en-AU');
+    el('o-sentence').textContent = 'At these inputs your property managers spend about ' + (Math.round(week * 10) / 10).toLocaleString('en-AU') + ' hours a week on repair requests. Briks takes those calls and the coordination.';
+  }
+  inputs.forEach(function (id) { el(id).addEventListener('input', calc); });
+  calc();
+
+  var form = el('lead-form');
+  var status = el('form-status');
+  var map = { name: 'f-name', email: 'f-email', phone: 'f-mobile', suburb: 'f-suburb', issue: 'f-message', company: 'f-agency', doors: 'f-doors' };
+  var ids = ['f-name', 'f-agency', 'f-email', 'f-mobile', 'f-suburb', 'f-doors', 'f-message'];
+  function setErr(id, msg) {
+    var input = el(id), err = el(id + '-err');
+    if (msg) { input.setAttribute('aria-invalid', 'true'); err.textContent = msg; err.hidden = false; }
+    else { input.removeAttribute('aria-invalid'); err.hidden = true; }
+  }
+  function clearErrs() { ids.forEach(function (id) { setErr(id, ''); }); }
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    clearErrs();
+    var first = null, count = 0;
+    var name = el('f-name').value.trim(), email = el('f-email').value.trim();
+    if (!name) { setErr('f-name', 'Write your name.'); count++; first = first || 'f-name'; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setErr('f-email', 'Write an email address with an @, like name@agency.com.au.'); count++; first = first || 'f-email'; }
+    if (count) { status.textContent = count === 1 ? 'One field needs fixing.' : count + ' fields need fixing.'; el(first).focus(); return; }
+    var doorsVal = el('f-doors').value.replace(/\D/g, '');
+    var body = {
+      name: name, email: email, phone: el('f-mobile').value.trim(), suburb: el('f-suburb').value.trim(),
+      issue: el('f-message').value.trim(), website: form.elements.website.value, source: 'agencies',
+      company: el('f-agency').value.trim()
+    };
+    if (doorsVal) body.doors = parseInt(doorsVal, 10);
+    var sendingTimer = setTimeout(function () { status.textContent = 'Sending'; }, 300);
+    fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return { success: false, error: 'The request did not send. Try again.' }; }); })
+      .then(function (data) {
+        clearTimeout(sendingTimer);
+        if (data && data.success) {
+          status.textContent = 'Your call request is in. Briks replies by phone or email.';
+          form.reset();
+          return;
+        }
+        var fe = (data && data.fieldErrors) || {};
+        Object.keys(fe).forEach(function (k) { if (map[k]) setErr(map[k], String(fe[k])); });
+        var firstKey = Object.keys(fe).find(function (k) { return map[k]; });
+        if (firstKey) el(map[firstKey]).focus();
+        status.textContent = (data && data.error) || 'The request did not send. Your details are still here. Try again or call 0449 517 367.';
+      })
+      .catch(function () {
+        clearTimeout(sendingTimer);
+        status.textContent = 'The request did not send. Your details are still here. Try again or call 0449 517 367.';
+      });
+  });
+})();
+</script>
+<script type="module" src="/lp/kit/system.js"></script>
+<script type="module" src="/lp/kit/motion/motion.js"></script>
+<script type="module" src="/lp/agencies/assets/layout/layout.js"></script>
+</body>
+</html>

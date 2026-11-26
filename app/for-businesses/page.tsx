@@ -421,7 +421,7 @@ export default function ForBusinesses() {
             Need work that doesn&rsquo;t interrupt trading?{' '}
             <span className="text-[#8a6e3f]">That&rsquo;s the job.</span>
           </h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Free phone help for simple problems. Homeowners and businesses get a written quote before work starts. One invoice from Briks for each finished job. ABN 90 697 367 721.</p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Phone help for simple problems. Homeowners and businesses get a written quote before work starts. One invoice from Briks for each finished job. ABN 90 697 367 721.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <MovingBorder href="/contact">
               Get a quote

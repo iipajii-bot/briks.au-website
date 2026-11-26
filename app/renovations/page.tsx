@@ -38,7 +38,7 @@ const SCOPE = [
 ]
 
 const PROCESS = [
-  { n: '01', title: 'Site visit + scope', body: 'Coordinator attends, measures, photographs, discusses spec on-site. Free.' },
+  { n: '01', title: 'Site visit + scope', body: 'Coordinator attends, measures, photographs, discusses spec on-site.' },
   { n: '02', title: 'Written line-item quote', body: 'Itemised PDF within 5 working days. Each line is a discrete decision you can adjust to budget. Contingency line included.' },
   { n: '03', title: 'Pre-construction', body: 'Long-lead joinery + appliances ordered. Council consent + building consent lodged where required. Trade sequence locked.' },
   { n: '04', title: 'On-site build', body: 'One coordinator owns the job. Trades sequenced back-to-back. Daily 5pm photo update once on-site work begins.' },
@@ -56,7 +56,7 @@ const FAQS = [
   { q: 'Do you do new home builds?', a: 'No. Briks coordinates renovation, repair, extension, and fit-out work. New-build projects need a project builder licensed for that scale and duration; we will refer if asked.' },
   { q: 'How long does a kitchen reno take?', a: 'A kitchen refit involves several licensed trades, benchtops and custom cabinetry. Homeowners and businesses get a written quote before work starts.' },
   { q: 'How long does a bathroom reno take?', a: 'Standard bathroom strip-and-rebuild: 12-15 working days on-site (waterproofing cure time adds 2 days). Calendar time from quote sign-off including fixture supply lead: 4-6 weeks.' },
-  { q: 'Do you handle council approvals?', a: 'Yes. Briks coordinates development consent + building consent applications where required (extensions, structural changes, decks over 1m, commercial fit-outs in heritage zones). Application fees are passed through; coordination is included in the quote.' },
+  { q: 'Do you handle council approvals?', a: 'Yes. Briks coordinates development consent + building consent applications where required (extensions, structural changes, decks over 1m, commercial fit-outs in heritage zones). Council application costs are shown in the quote.' },
   { q: 'Can I live in the property during renovation?', a: 'Depends on scope. Single-bathroom homes mid-bathroom-reno: typically no (plan a temporary shower). Kitchen reno: yes with a temporary microwave + bar fridge setup. Whole-house reno or floor-level structural: usually no.' },
   { q: 'What is a PC sum?', a: 'A PC (Prime Cost) sum is an allowance in the quote for items the customer chooses later — typically appliances, tapware, handles. The PC sum is replaced by the actual supplier invoice when items are selected.' },
   { q: 'Who is on-site each day?', a: 'A Briks coordinator runs the schedule. Trades attend on their sequenced days. The coordinator visits the site at minimum twice weekly during active construction. Daily 5pm photo updates from the lead trade.' },
@@ -76,7 +76,7 @@ export default function RenovationsPage() {
       <PageHero
         eyebrow="Renovations + construction"
         title={<>{PRIMARY_KEYWORD}{' '}<span className="text-[#8a6e3f]">— project-managed.</span></>}
-        subtitle={<>Kitchens, bathrooms, extensions, decks, structural changes, commercial fit-outs. Five to ten trades on the same site, run on a sequenced schedule, finished on spec. No new-home builds — everything else is in scope. Free on-site scope, line-item written quote, daily photo updates, single invoice.</>}
+        subtitle={<>Kitchens, bathrooms, extensions, decks, structural changes, commercial fit-outs. Five to ten trades on the same site, run on a sequenced schedule, finished on spec. No new-home builds — everything else is in scope. On-site scope, line-item written quote, daily photo updates, single invoice.</>}
       />
 
       <TrustStrip />
@@ -192,7 +192,7 @@ export default function RenovationsPage() {
       <section className="relative py-20 md:py-28 bg-[#ffffff] text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-bricolage)', fontWeight: 600 }}>Planning a renovation?{' '}<span className="text-[#8a6e3f]">Get the line-item quote.</span></h2>
-          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">Free on-site scope. Line-item written quote within 5 working days. Fixed contingency, no surprises.</p>
+          <p className="text-[#3a3735] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">On-site scope. Line-item written quote within 5 working days. Fixed contingency, no surprises.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <MovingBorder href="/contact">Get a quote<ArrowRight size={18} aria-hidden /></MovingBorder>
             <a href={whatsappHref("Hi Briks — I'm planning a renovation in Adelaide:")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#c0bcb4] hover:border-[#8a6e3f]/60 text-[#1a1a1a]/80 hover:text-[#1a1a1a] px-7 py-3.5 transition-colors duration-300 min-h-[44px]"><MessageCircle size={16} aria-hidden />Text us on WhatsApp</a>

@@ -1,7 +1,7 @@
 /**
  * Homepage copy that is also used in structured data (FAQPage, HowTo-style steps).
  * Keep every claim here true and checkable: no 24/7, no response guarantees,
- * no licence claim for Briks itself, no prices.
+ * no licence claim for Briks itself, no prices or fees.
  */
 
 export const STEPS = [
@@ -39,12 +39,11 @@ export const STAYS = [
   'Your preferred trades, if you have them. They work through us.',
 ] as const
 
-export const PRICING = [
-  { q: 'Cost to the agency', a: 'No Briks fee, no subscription and no contract for the 30-day start.' },
-  { q: 'Who pays for repairs', a: 'The owner, through your agency, as they do now. Each job is priced on its own.' },
-  { q: 'Jobs under your limit', a: 'Go ahead, and appear on the Friday report with photos.' },
-  { q: 'Jobs over your limit', a: 'Quoted to you first. Nothing starts until you or the owner approve it.' },
-  { q: 'Requests that need no work', a: 'No charge.' },
+export const APPROVALS = [
+  { q: 'Routine repairs', a: 'Under the limit you set, they go ahead and appear on the Friday report with photos.' },
+  { q: 'Bigger jobs', a: 'We email you the quote with photos, then call you the same day.' },
+  { q: 'Your written approval', a: 'Work starts only once you approve the quote by email. No approval, no work.' },
+  { q: 'Your owners', a: 'Stay with you. We never contact them without your written permission.' },
 ] as const
 
 export const FAQS = [
@@ -53,8 +52,8 @@ export const FAQS = [
     a: 'It is a service that takes tenant repair requests off property managers. Tenants contact the desk directly. The desk works out how urgent each job is, books a licensed trade, arranges access, keeps the tenant and property manager updated and checks the finished work. The agency keeps its owners and its approval limits.',
   },
   {
-    q: 'Does the Briks Maintenance Line cost the agency anything?',
-    a: 'There is no Briks fee to the agency. Owners pay for the repair work they approve, through the agency, as they do now, and every job is priced on its own.',
+    q: 'Who approves the work?',
+    a: 'You do. Routine repairs under the approval limit you set go ahead straight away and appear on your Friday report. For anything bigger we email you the quote with photos and call you the same day; nothing starts until you approve it in writing.',
   },
   {
     q: 'What happens when a repair is over our approval limit?',

@@ -45,7 +45,7 @@
     "body": "A tenant reports damp on a ceiling that comes from a unit above, and strata needs someone to trace it. The fix starts with checking the shower, bath and riser above, then repairing the failed seal or pipe and making good the ceiling below."
    }
   ],
-  "rentals": "Rentals here include apartments and small upper-floor flats, some let to students and city workers. Tenants report dripping taps, blocked shower wastes, failed smoke alarms, sticking doors and damp stains from units above. For jobs where a trade is sent, the owner pays a flat $19 including GST Briks maintenance desk fee. Where a landlord or agency has an approval limit, work beyond it is quoted for approval first.",
+  "rentals": "Rentals here include apartments and small upper-floor flats, some let to students and city workers. Tenants report dripping taps, blocked shower wastes, failed smoke alarms, sticking doors and damp stains from units above.Where a landlord or agency has an approval limit, work beyond it is quoted for approval first.",
   "faqs": [
    {
     "q": "A tenant says water is coming through the ceiling from the unit above. Who should be told?",
@@ -107,7 +107,7 @@
     "body": "Damp and cold rooms in terraces and older flats can show as condensation, musty smells and draughty sashes in winter. Addressing ventilation, failed flashings and sash repairs is more appropriate than repainting over the damp."
    }
   ],
-  "rentals": "Rental stock here includes terraces, converted villas and flats. Issues can include damp and condensation, sashes that will not close, leaking parapet flashings and tired bathroom tiling. Where a trade is sent, the owner pays the flat $19 including GST Briks maintenance desk fee. Anything above the agency's approval limit needs approval before work starts.",
+  "rentals": "Rental stock here includes terraces, converted villas and flats. Issues can include damp and condensation, sashes that will not close, leaking parapet flashings and tired bathroom tiling.Anything above the agency's approval limit needs approval before work starts.",
   "faqs": [
    {
     "q": "The bluestone terrace has white salt bloom on the inside wall. What causes it?",
@@ -169,7 +169,7 @@
     "body": "In these rentals, tenants report a sash that will not open or a back door that drags. That can be movement or swollen timber, and a carpenter can plane the door, free the sash and adjust the hardware."
    }
   ],
-  "rentals": "Norwood rental homes include cottages and villas. Tenants report sticking windows, leaking taps, blocked drains and worn flyscreens. Approval limits are agreed with landlords and property managers for rental repairs, and where a trade is sent, a flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Norwood rental homes include cottages and villas. Tenants report sticking windows, leaking taps, blocked drains and worn flyscreens. Landlords and property managers set an approval limit for routine repairs, and anything bigger is quoted for written approval first.",
   "faqs": [
    {
     "q": "My Norwood cottage wall is damp near the base. What should I do first?",
@@ -231,7 +231,7 @@
     "body": "When a warehouse unit is refitted for a tenant, new partitions and equipment can overload old circuits or block access to drainage. Tenants can then report tripping power or slow drains. Sorting it can mean tracing the services, adding circuits and clearing or rerouting pipework."
    }
   ],
-  "rentals": "Rental properties include apartments, converted warehouse units and small office leases. Issues can include hot water failures, shared drains, tripping circuits and doors affected by fit-out changes. On rental jobs, the landlord or agency approval limit applies to extra work, and where a trade is sent the owner or landlord pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties include apartments, converted warehouse units and small office leases. Issues can include hot water failures, shared drains, tripping circuits and doors affected by fit-out changes.",
   "faqs": [
    {
     "q": "Can a converted warehouse unit get extra power points without rewiring the whole place?",
@@ -293,7 +293,7 @@
     "body": "A tenant in a townhouse in a mixed-use building may report noise, a dripping tap or a door that will not latch. The fix can need access through a shared entry or lane. The owner or agency can set a spending limit, and work beyond that limit needs approval first."
    }
   ],
-  "rentals": "Rental properties here include townhouses in former workshops, older cottages and some mixed-use buildings. Tenants may report a dripping tap, a door that will not close, or a heater that has stopped. If a trade is sent, the owner pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties here include townhouses in former workshops, older cottages and some mixed-use buildings. Tenants may report a dripping tap, a door that will not close, or a heater that has stopped.",
   "faqs": [
    {
     "q": "A tap in my converted workshop townhouse drips and the floorboard under it feels soft. What should I do?",
@@ -355,7 +355,7 @@
     "body": "Timber frames in older rentals swell in wet weather and stick, which tenants report as a security or ventilation issue. A carpenter can plane and adjust the frame, replace worn catches and repair sash cords rather than replace the whole window."
    }
   ],
-  "rentals": "Rental stock here includes older bungalows, so tenant requests can include sticking windows, dripping taps, blocked gutters and heating that struggles in winter. The landlord or agency can agree in advance what repair spending can proceed without further approval; anything beyond that needs their approval first. For rental jobs where a trade is sent, a flat $19 including GST Briks maintenance desk fee is paid by the owner or landlord.",
+  "rentals": "Rental stock here includes older bungalows, so tenant requests can include sticking windows, dripping taps, blocked gutters and heating that struggles in winter. The landlord or agency can agree in advance what repair spending can proceed without further approval; anything beyond that needs their approval first.",
   "faqs": [
    {
     "q": "The plaster in my 1930s bungalow is crumbling near the ceiling. What causes that?",
@@ -417,7 +417,7 @@
     "body": "After dry spells or wet weather, timber doors and windows in older rental cottages can stick or swell. Planing edges, adjusting hinges and rehanging the door can keep the original joinery where possible."
    }
   ],
-  "rentals": "Parkside rental homes include older cottages and post-war infill. Repair requests can cover sticking windows, dripping taps and gutters that overflow onto paths. Owners or property managers give an approval ceiling for rental work, and jobs above that ceiling are quoted before proceeding. Where a trade is sent to a rental job, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Parkside rental homes include older cottages and post-war infill. Repair requests can cover sticking windows, dripping taps and gutters that overflow onto paths. Owners or property managers give an approval ceiling for rental work, and jobs above that ceiling are quoted before proceeding.",
   "faqs": [
    {
     "q": "Who fixes a dripping tap in a Parkside rental cottage?",
@@ -479,7 +479,7 @@
     "body": "Older semis and bungalows can show sticking windows, dripping taps and doors that no longer latch after a dry summer. These can be small repairs when raised early, and a landlord or agency can set a spending limit for minor items, with work above that limit quoted before it is booked."
    }
   ],
-  "rentals": "Rental stock here includes older semis and bungalows, with maintenance needs such as sticking windows, worn tap washers and doors that swell after rain. For rental jobs, the landlord or agency can set a limit for minor repairs, with work beyond that limit quoted before it is booked. Where a trade is sent, the flat $19 including GST Briks maintenance desk fee is paid by the owner or landlord.",
+  "rentals": "Rental stock here includes older semis and bungalows, with maintenance needs such as sticking windows, worn tap washers and doors that swell after rain. For rental jobs, the landlord or agency can set a limit for minor repairs, with work beyond that limit quoted before it is booked.",
   "faqs": [
    {
     "q": "Who fixes the damp patch on the shared wall of my semi?",
@@ -541,7 +541,7 @@
     "body": "Rentals in older stone cottages can show damp inside during wet weather, and tenants may notice musty rooms or peeling paint. Clearing blocked gutters, repairing failed downpipes and improving subfloor ventilation can help."
    }
   ],
-  "rentals": "Rental homes in Magill include older stone cottages and 1950s brick veneer houses. Maintenance requests can cover gutters, taps, doors and hot water units. The landlord or agency gives an approval limit, and work beyond that limit is quoted before it proceeds. Where a trade is sent to a rental job, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Rental homes in Magill include older stone cottages and 1950s brick veneer houses. Maintenance requests can cover gutters, taps, doors and hot water units. The landlord or agency gives an approval limit, and work beyond that limit is quoted before it proceeds.",
   "faqs": [
    {
     "q": "Our 1920s stone cottage near Magill Road has damp patches in winter. What should we look at first?",
@@ -603,7 +603,7 @@
     "body": "Rentals in Burnside can be older villas with original or updated bathrooms. Tenants may report leaking showers, mould on cornices and dripping taps. An independent plumber licensed in SA can check the shower recess and tapware, and the repair is then arranged with photos sent to the owner."
    }
   ],
-  "rentals": "Burnside rentals include older villas and updated family homes. Tenant requests can involve wet areas such as leaking shower recesses, ceiling mould and dripping taps, along with blocked gutters after rain. For rental work, the owner or property manager decides what can proceed without a separate quote; work beyond that limit is quoted first. Where a trade is sent, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Burnside rentals include older villas and updated family homes. Tenant requests can involve wet areas such as leaking shower recesses, ceiling mould and dripping taps, along with blocked gutters after rain. For rental work, the owner or property manager decides what can proceed without a separate quote; work beyond that limit is quoted first.",
   "faqs": [
    {
     "q": "Who fixes a leaking shower in an older Burnside villa?",
@@ -665,7 +665,7 @@
     "body": "End-of-lease lists in older cottages can include sticking doors, worn flyscreens, dripping taps and sash windows that will not close. A handyman or the appropriate trade can work through the list."
    }
   ],
-  "rentals": "Rental properties here can include older cottages and villas. Repair lists can mention jammed sash windows, dripping taps, worn flyscreens and gutters that overflow in winter. Rental approvals are handled by the owner or property manager: their limit decides what can go ahead, and jobs beyond it are quoted first. Where a trade is sent to a rental job, the owner or landlord pays a flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties here can include older cottages and villas. Repair lists can mention jammed sash windows, dripping taps, worn flyscreens and gutters that overflow in winter. Rental approvals are handled by the owner or property manager: their limit decides what can go ahead, and jobs beyond it are quoted first.",
   "faqs": [
    {
     "q": "Who fixes a leaking iron roof on an old Beulah Park cottage?",
@@ -727,7 +727,7 @@
     "body": "In rental houses here, tenants may raise dripping taps, a toilet that runs, mould at the shower base or a vanity that has swollen. Repairs range from new washers and silicone to replacing the vanity or resealing the shower, depending on what the trade finds."
    }
   ],
-  "rentals": "Rental properties here include older three and four bedroom homes. Tenants may report issues with bathroom and kitchen fittings, hot water, heating and cooling, and gutter or roof leaks after winter rain. Where a trade is sent, the owner pays the flat $19 including GST Briks maintenance desk fee. If a job exceeds the approval limit agreed with the landlord or agency, approval is needed before work proceeds.",
+  "rentals": "Rental properties here include older three and four bedroom homes. Tenants may report issues with bathroom and kitchen fittings, hot water, heating and cooling, and gutter or roof leaks after winter rain.If a job exceeds the approval limit agreed with the landlord or agency, approval is needed before work proceeds.",
   "faqs": [
    {
     "q": "Our Glenunga bathroom is original to the house. Can it be updated without a full rebuild?",
@@ -789,7 +789,7 @@
     "body": "Renters in these big villas may report damp on the south wall or around a bathroom window, where render and lime mortar hold moisture in winter. The usual approach is to check the roof and gutter first, then the ventilation and paint on that elevation."
    }
   ],
-  "rentals": "Rental properties here include larger villas and some subdivided flats, let to tenants who notice damp, cold rooms and older bathroom fittings. Reports are often about a leaking shower, a sticking window or a downpipe that has come away. Where a trade is sent, the owner pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties here include larger villas and some subdivided flats, let to tenants who notice damp, cold rooms and older bathroom fittings. Reports are often about a leaking shower, a sticking window or a downpipe that has come away.",
   "faqs": [
    {
     "q": "Our 1920s villa has damp on the south wall each winter. What should we check first?",
@@ -851,7 +851,7 @@
     "body": "An older bathroom, or one added into a rear extension, can develop mould and peeling paint around the shower. The fix is usually resealing, checking the exhaust and repairing any leak behind the tiles."
    }
   ],
-  "rentals": "Rentals in Marryatville include older bungalows and villas, some extended at the back. Damp bathrooms, sticking sashes and gutters overflowing after leaf fall can come up. Where a landlord or agency has agreed an approval ceiling in advance, work above that ceiling is quoted before it goes ahead. Jobs where a trade is sent carry the flat $19 including GST Briks maintenance desk fee, paid by the owner or landlord.",
+  "rentals": "Rentals in Marryatville include older bungalows and villas, some extended at the back. Damp bathrooms, sticking sashes and gutters overflowing after leaf fall can come up. Where a landlord or agency has agreed an approval ceiling in advance, work above that ceiling is quoted before it goes ahead.",
   "faqs": [
    {
     "q": "Who fixes a sash window that won't close before winter in an old Marryatville bungalow?",
@@ -913,7 +913,7 @@
     "body": "Tenants in Erindale's townhouses and older rentals report hot water failing, heaters tripping and doors that no longer latch. A licensed plumber or electrician checks the unit and the circuit, and the owner or agency is given a quote before work beyond the approval limit goes ahead."
    }
   ],
-  "rentals": "The rental stock here is a mix of original brick veneer homes and the newer townhouses, and tenants typically ring about hot water, heating and small door and screen faults. For rentals, the owner or agency can set how much can be approved without a quote; work beyond that is quoted first. Where a trade is sent, the owner pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "The rental stock here is a mix of original brick veneer homes and the newer townhouses, and tenants typically ring about hot water, heating and small door and screen faults. For rentals, the owner or agency can set how much can be approved without a quote; work beyond that is quoted first.",
   "faqs": [
    {
     "q": "My 1960s brick veneer in Erindale has hairline cracks above the windows. What causes that?",
@@ -975,7 +975,7 @@
     "body": "Rentals on these split blocks can have a lower bedroom or rumpus partly into the slope. Tenants may notice musty air and paint lifting near the floor. The landlord can arrange for the drain to be checked before repainting the lower room."
    }
   ],
-  "rentals": "Rental stock here includes 1960s and 1970s split-level homes with a lower room cut into the slope. Tenants sometimes report musty air, a gate that will not latch on the steps and gutters overflowing at a valley. For rental jobs where a trade is sent, the owner or landlord pays a flat $19 including GST Briks maintenance desk fee, and approval limits apply for landlords and agencies.",
+  "rentals": "Rental stock here includes 1960s and 1970s split-level homes with a lower room cut into the slope. Tenants sometimes report musty air, a gate that will not latch on the steps and gutters overflowing at a valley.",
   "faqs": [
    {
     "q": "Why does the lower room smell damp after rain?",
@@ -1037,7 +1037,7 @@
     "body": "Damp or musty smells can appear near new bathrooms and kitchens where the old shell was not designed for steam. Better extraction and sealing where the fit-out meets the original wall can help."
    }
   ],
-  "rentals": "Rental properties here can include cottages and converted warehouse spaces. Repair requests can involve damp near new wet areas, doors that stick, and hot water or heating issues in an older shell. Approval limits can be set by landlords and agencies, with jobs beyond a limit quoted before work is approved. For rental jobs where a trade is sent, the Briks maintenance desk fee is a flat $19 including GST, paid by the owner or landlord.",
+  "rentals": "Rental properties here can include cottages and converted warehouse spaces. Repair requests can involve damp near new wet areas, doors that stick, and hot water or heating issues in an older shell. Approval limits can be set by landlords and agencies, with jobs beyond a limit quoted before work is approved.",
   "faqs": [
    {
     "q": "Can a loft bathroom in a converted warehouse be repaired without pulling the fit-out apart?",
@@ -1099,7 +1099,7 @@
     "body": "In rentals close to the beach, tenants may report brown water at the tap or a drip under the laundry sink. Galvanised pipes in older homes can corrode internally, and salt air can affect exposed fittings. A licensed plumber can check the pipe run and replace the corroded section or fitting."
    }
   ],
-  "rentals": "Rental properties here include older cottages and bungalows near the Esplanade plus units further back towards Military Road. Tenants raise issues such as dripping taps, rusty water, sticking windows and winter gutter overflow. For rental work, the landlord or agency approval threshold applies; if the quote is higher, approval is sought before the job proceeds. Where a trade is sent, the owner pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties here include older cottages and bungalows near the Esplanade plus units further back towards Military Road. Tenants raise issues such as dripping taps, rusty water, sticking windows and winter gutter overflow. For rental work, the landlord or agency approval threshold applies; if the quote is higher, approval is sought before the job proceeds.",
   "faqs": [
    {
     "q": "Why does paint peel so quickly on houses near the Esplanade?",
@@ -1161,7 +1161,7 @@
     "body": "Short-stay and rental tenants in Glenelg can report leaking taps, running toilets, faulty smoke alarms and sticking windows. An independent trade licensed in SA can carry out the repair."
    }
   ],
-  "rentals": "Glenelg has a mix of rental homes, apartments and short-stay units. For rental jobs, landlords or agencies can set approval limits, and work beyond those limits is quoted before it goes ahead. Where a trade is sent, the owner or landlord pays a flat $19 including GST Briks maintenance desk fee. Tenant reports in Glenelg can include leaking taps, toilet cisterns, smoke alarms and window catches.",
+  "rentals": "Glenelg has a mix of rental homes, apartments and short-stay units. For rental jobs, landlords or agencies can set approval limits, and work beyond those limits is quoted before it goes ahead.Tenant reports in Glenelg can include leaking taps, toilet cisterns, smoke alarms and window catches.",
   "faqs": [
    {
     "q": "Why does paint peel faster on my Glenelg cottage than my friend's house inland?",
@@ -1223,7 +1223,7 @@
     "body": "Beachside rentals can get damp from winter condensation and blocked gutters. Tenants may report musty smells or mould on walls in older brick veneer homes. Clearing gutters, fixing leaks and improving ventilation are early steps."
    }
   ],
-  "rentals": "Brighton rentals include original 1960s brick veneer houses and newer infill homes. Tenants may report damp, mould, leaking gutters and outdoor fittings affected by salt air. For rental work, an owner or agency can set an approval ceiling, with jobs beyond that ceiling quoted before they proceed. Where a trade is sent to a rental job, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Brighton rentals include original 1960s brick veneer houses and newer infill homes. Tenants may report damp, mould, leaking gutters and outdoor fittings affected by salt air. For rental work, an owner or agency can set an approval ceiling, with jobs beyond that ceiling quoted before they proceed.",
   "faqs": [
    {
     "q": "Why do my gutters rust so quickly in Brighton?",
@@ -1285,7 +1285,7 @@
     "body": "Rentals near the beach can have condensation, draughty windows and damp corners in winter. These issues may be reported by tenants and need to be logged by the owner or property manager. Re-sealing windows, repairing leaking gutters and addressing ventilation can treat the cause rather than the symptom."
    }
   ],
-  "rentals": "Rental properties in Seacliff include older cottages and mid-century homes, some close to the beach. Draughty windows, damp patches after winter storms, outdoor taps and hot water units can need attention. The owner or property manager gives a spending cap, and work above that cap is quoted before it proceeds. Where a trade is sent to a rental job, the owner or landlord pays a flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties in Seacliff include older cottages and mid-century homes, some close to the beach. Draughty windows, damp patches after winter storms, outdoor taps and hot water units can need attention. The owner or property manager gives a spending cap, and work above that cap is quoted before it proceeds.",
   "faqs": [
    {
     "q": "Why does the paint on my western wall fail before the rest of the house?",
@@ -1347,7 +1347,7 @@
     "body": "Beachside rentals can hold moisture, and tenants notice mould on bathroom ceilings, wardrobe backs and window reveals. The fix is usually finding the source, blocked subfloor vents, leaking shower seals or failed window putty, then treating the surface and improving ventilation rather than just wiping it away."
    }
   ],
-  "rentals": "Rental stock in West Beach includes 1970s family homes and newer townhouses. Rental work here can include salt-stiff windows, sticking sliding doors, bathroom mould and soft decking. For rentals, the landlord or agency may set an approval limit; jobs above it are quoted first. Rental jobs where a trade is sent carry a flat $19 including GST Briks maintenance desk fee, paid by the owner or landlord.",
+  "rentals": "Rental stock in West Beach includes 1970s family homes and newer townhouses. Rental work here can include salt-stiff windows, sticking sliding doors, bathroom mould and soft decking. For rentals, the landlord or agency may set an approval limit; jobs above it are quoted first.",
   "faqs": [
    {
     "q": "The windows in my 1970s West Beach house stick and won't slide. What causes it?",
@@ -1409,7 +1409,7 @@
     "body": "Damp patches or musty smells can appear in older cottages after winter rain, sometimes where a gutter has blocked or a flashing has lifted. Clearing the gutter and resealing the joint may resolve it before it reaches the ceiling."
    }
   ],
-  "rentals": "Rental properties here include older cottages and some flats and units, where blocked gutters, damp after rain and sticking timber windows can be issues. For rental work, the landlord or agency sets the approval threshold, and work beyond that threshold is quoted before it proceeds. Where a trade is sent to a rental job, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Rental properties here include older cottages and some flats and units, where blocked gutters, damp after rain and sticking timber windows can be issues. For rental work, the landlord or agency sets the approval threshold, and work beyond that threshold is quoted before it proceeds.",
   "faqs": [
    {
     "q": "Why does paint on a Grange cottage fail quickly?",
@@ -1471,7 +1471,7 @@
     "body": "Timber sashes swell in the damp winter air and then dry out and rattle in summer, and cords perish behind the frame. Freeing the sashes, replacing the cords and easing the paint build-up can resolve these issues without a new window."
    }
   ],
-  "rentals": "Rental properties in Semaphore include older cottages and small converted flats, often with original single-glazed windows and a verandah or small yard. Repair requests can cover draughty sashes, doors that stick after rain, gutters that overflow and dripping taps. For jobs where a trade is sent, the owner pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties in Semaphore include older cottages and small converted flats, often with original single-glazed windows and a verandah or small yard. Repair requests can cover draughty sashes, doors that stick after rain, gutters that overflow and dripping taps.",
   "faqs": [
    {
     "q": "Why does the paint on my front wall fail before the back?",
@@ -1533,7 +1533,7 @@
     "body": "In rear lean-to kitchens and bathrooms, tenants may notice musty smells and paint bubbling. An independent trade can check the roof flashing, the gutter above and the wet-area seal to help identify the source."
    }
   ],
-  "rentals": "Rental properties here include semis, small bungalows and some units off Unley Road. Tenant requests can involve a sash window that will not close, an ageing hot water service or mould on a bathroom ceiling. For rental jobs where a trade is sent, the owner or landlord pays the flat $19 including GST Briks maintenance desk fee. Where a landlord or agency sets an approval limit, work above it is quoted for approval first.",
+  "rentals": "Rental properties here include semis, small bungalows and some units off Unley Road. Tenant requests can involve a sash window that will not close, an ageing hot water service or mould on a bathroom ceiling.Where a landlord or agency sets an approval limit, work above it is quoted for approval first.",
   "faqs": [
    {
     "q": "Why does my bluestone semi get damp on one wall each winter?",
@@ -1595,7 +1595,7 @@
     "body": "In rentals on sloping blocks, damp skirting or musty smells in downhill rooms after rain may track from an overflowing gutter or a blocked subfloor vent. Clearing gutters and improving subfloor ventilation are the first checks before anything bigger is considered."
    }
   ],
-  "rentals": "Rental homes in Mitcham include older stone villas and bungalows. For rental jobs where a trade is sent, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Rental homes in Mitcham include older stone villas and bungalows. Tenants in these older homes often report sticking doors and windows, dripping taps and gutters full of leaves. Routine repairs go ahead under the approval limit you set; anything bigger is quoted to you for written approval first.",
   "faqs": [
    {
     "q": "Why does water pool at the bottom of my Mitcham garden after rain?",
@@ -1657,7 +1657,7 @@
     "body": "Damp patches on ceilings or around windows after storms can have several causes, including failed flashings or blocked gutters. A licensed trade can find the source before patching inside."
    }
   ],
-  "rentals": "Rental stock here includes older brick and stone homes and 1970s brick veneer, often with large yards and trees. Tenants may raise blocked gutters, damp ceilings after storms and hot water or tap problems. Approval limits for landlords and agencies can be recorded before work is arranged, and where a trade is sent on a rental job, the owner or landlord pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental stock here includes older brick and stone homes and 1970s brick veneer, often with large yards and trees. Tenants may raise blocked gutters, damp ceilings after storms and hot water or tap problems.",
   "faqs": [
    {
     "q": "Who do I call if a tree branch has damaged my roof in Blackwood?",
@@ -1719,7 +1719,7 @@
     "body": "At the end of a student lease, a list of small faults can appear at once: a sticking door, a broken flyscreen, a loose tap. Booking one handyman and one plumber to clear the list together is a practical way to get the property back to standard before the next tenant moves in."
    }
   ],
-  "rentals": "Rental properties around Bedford Park include three and four bedroom brick veneer houses and smaller units let to students and hospital staff. Tenant reports are usually tap washers, shower seals, sticking doors, flyscreens and light fittings. Landlords and agencies can set an approval ceiling, so work beyond that needs their go-ahead. Where a trade is sent, the owner or landlord pays a flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Rental properties around Bedford Park include three and four bedroom brick veneer houses and smaller units let to students and hospital staff. Tenant reports are usually tap washers, shower seals, sticking doors, flyscreens and light fittings. Landlords and agencies can set an approval ceiling, so work beyond that needs their go-ahead.",
   "faqs": [
    {
     "q": "A student has moved out and left small damage. Can one booking cover it?",
@@ -1781,7 +1781,7 @@
     "body": "Original 1970s bathrooms can have tiled shower bases and older waterproofing. A ceiling stain below or loose tiles near the waste can indicate a problem. The repair can involve strip-out, a new membrane by a licensed waterproofer and retiling rather than a patch over the top."
    }
   ],
-  "rentals": "Marion has rental homes in the older brick veneer streets and newer townhouses near the shopping centre. Reported issues include hot water failures, dripping taps, blocked drains and air conditioning that stops cooling. On rental jobs, the landlord or agency can set an approval threshold; items outside it are quoted before work proceeds. If a trade is sent, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Marion has rental homes in the older brick veneer streets and newer townhouses near the shopping centre. Reported issues include hot water failures, dripping taps, blocked drains and air conditioning that stops cooling. On rental jobs, the landlord or agency can set an approval threshold; items outside it are quoted before work proceeds.",
   "faqs": [
    {
     "q": "My 1970s brick veneer has a cracked cornice and a door that will not shut. What can be done?",
@@ -1843,7 +1843,7 @@
     "body": "For rental jobs, Briks organises the repair through an independent licensed trade. Repairs can involve hot water failures, blocked drains, cooling that has stopped and gutters overflowing. Before and after photos and one invoice are provided."
    }
   ],
-  "rentals": "Rental homes here include the same broad style of brick veneer family houses. Repairs can involve hot water units, blocked drains, ducted cooling and gutters after rain. Briks organises the repair through an independent licensed trade. For rental jobs where a trade is sent, a flat $19 including GST Briks maintenance desk fee applies, paid by the owner or landlord. Work above the agreed approval limit for the landlord or agency is referred for approval before proceeding. Before and after photos and one invoice are provided.",
+  "rentals": "Rental homes here include the same broad style of brick veneer family houses. Repairs can involve hot water units, blocked drains, ducted cooling and gutters after rain. Briks organises the repair through an independent licensed trade.Work above the agreed approval limit for the landlord or agency is referred for approval before proceeding. Before and after photos and one invoice are provided.",
   "faqs": [
    {
     "q": "My hot water is cold and the tank is leaking. What should I do first?",
@@ -1905,7 +1905,7 @@
     "body": "Tenants in split-level rentals can report a back room feeling damp after rain. It can be a blocked ag drain, a blocked weep hole or a roof valley leak. A licensed trade can trace the source before any patching is done inside."
    }
   ],
-  "rentals": "Rental homes here include 1980s to 2000s family houses, some split-level on sloping blocks. Tenants may report damp lower rooms, blocked gutters and sticking doors after wet weather. For rental work, the owner or agency can set a spending limit; work beyond that limit is quoted first. When a trade is sent to a rental job, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner.",
+  "rentals": "Rental homes here include 1980s to 2000s family houses, some split-level on sloping blocks. Tenants may report damp lower rooms, blocked gutters and sticking doors after wet weather. For rental work, the owner or agency can set a spending limit; work beyond that limit is quoted first.",
   "faqs": [
    {
     "q": "Why does water pool at the back of my Flagstaff Hill house in winter?",
@@ -1967,7 +1967,7 @@
     "body": "Dripping taps, running toilets and shower heads that have lost pressure can be issues in older rental houses here. These are jobs for a licensed plumber and are best booked before the final inspection so the bond is not held up."
    }
   ],
-  "rentals": "Rental homes here include post-war brick veneer houses. Dripping taps, running toilets, loose door handles, flyscreens that will not close and gutters blocked before winter are maintenance jobs in these rentals. For rental work, the landlord's or agency's approval limit applies, and work above that limit is quoted before proceeding. Rental jobs where a trade is sent carry the flat $19 Briks maintenance desk fee including GST, paid by the owner or landlord. Homeowners pay no fee.",
+  "rentals": "Rental homes here include post-war brick veneer houses. Dripping taps, running toilets, loose door handles, flyscreens that will not close and gutters blocked before winter are maintenance jobs in these rentals. For rental work, the landlord's or agency's approval limit applies, and work above that limit is quoted before proceeding.Homeowners pay no fee.",
   "faqs": [
    {
     "q": "Who fixes a running toilet in a Seacombe Gardens rental?",
@@ -2029,7 +2029,7 @@
     "body": "In a rented villa, tenants tend to report the small things first: a stiff sash window, a dripping tap, a door that will not latch after a hot spell. Sorting these early keeps a minor repair from becoming a larger one at the end of a tenancy."
    }
   ],
-  "rentals": "Prospect has a mix of rented villas and mid-century units. Tenants there tend to report small faults first: sash windows that stick, hot water that runs out, and gutters that overflow in winter. On rental jobs where a trade is sent, the Briks maintenance desk fee is a flat $19 including GST, paid by the owner or landlord. Approval limits can be set for landlords and agencies, with work above the limit quoted before it proceeds.",
+  "rentals": "Prospect has a mix of rented villas and mid-century units. Tenants there tend to report small faults first: sash windows that stick, hot water that runs out, and gutters that overflow in winter.Approval limits can be set for landlords and agencies, with work above the limit quoted before it proceeds.",
   "faqs": [
    {
     "q": "Can a verandah post on an old Prospect villa be repaired rather than replaced?",
@@ -2091,7 +2091,7 @@
     "body": "In the rental villas around here, tenants may report drips from a verandah roof onto the boards below. It can be a lifted slate, a blocked valley or a failed flashing at the wall. A roofer checks the junction before anyone repaints the ceiling."
    }
   ],
-  "rentals": "Walkerville's rental homes include villas and older houses, some divided or extended. Repair requests can involve verandah leaks, sticking windows or hot water failing in winter. On rental jobs, landlords or agencies can set approval limits. Where a trade is sent, the owner or landlord pays the flat $19 including GST Briks maintenance desk fee.",
+  "rentals": "Walkerville's rental homes include villas and older houses, some divided or extended. Repair requests can involve verandah leaks, sticking windows or hot water failing in winter. On rental jobs, landlords or agencies can set approval limits.",
   "faqs": [
    {
     "q": "Can you match the sandstone and render on an old Walkerville villa?",
@@ -2153,7 +2153,7 @@
     "body": "At the end of a lease, tenants can report dripping taps, running toilet cisterns and leaking shower bases. An independent licensed plumber can replace washers and cistern valves, reseal the shower and check the vanity waste, so the property is ready for the next tenancy."
    }
   ],
-  "rentals": "Enfield has investor-owned post-war homes and rentals, and the work tends to be practical: a tap that drips, a toilet that runs, a switchboard that trips, a door that swells and sticks. For managed rentals, landlords and property managers can agree an approval threshold in advance; work beyond it is quoted before it goes ahead. Rental jobs where a trade is sent carry a flat $19 including GST Briks maintenance desk fee, paid by the owner or landlord.",
+  "rentals": "Enfield has investor-owned post-war homes and rentals, and the work tends to be practical: a tap that drips, a toilet that runs, a switchboard that trips, a door that swells and sticks. For managed rentals, landlords and property managers can agree an approval threshold in advance; work beyond it is quoted before it goes ahead.",
   "faqs": [
    {
     "q": "My Enfield rental has an old fuse box. Can it be upgraded without moving out the tenant?",
@@ -2215,7 +2215,7 @@
     "body": "Some of these houses have been rented for years, so tenants can report dripping taps, sticking doors and failing hot water. Where a landlord or agency has set an approval limit, work above that limit is quoted before it proceeds."
    }
   ],
-  "rentals": "Salisbury has a rental market that includes mid-century brick veneer houses, some held in investor portfolios and showing wear from tenants over time. Jobs that can arise include dripping taps, blocked drains, sticking doors and hot water failures. Where a landlord or agency has set an approval limit, work above that limit is quoted before it starts. A flat $19 including GST Briks maintenance desk fee applies on rental jobs where a trade is sent, paid by the owner or landlord.",
+  "rentals": "Salisbury has a rental market that includes mid-century brick veneer houses, some held in investor portfolios and showing wear from tenants over time. Jobs that can arise include dripping taps, blocked drains, sticking doors and hot water failures. Where a landlord or agency has set an approval limit, work above that limit is quoted before it starts.",
   "faqs": [
    {
     "q": "My Salisbury rental has a dripping tap and the tenant wants it fixed. What happens?",
@@ -2277,7 +2277,7 @@
     "body": "Older switchboards in the area can still have ceramic fuses or early safety switches. Adding ducted air conditioning or outdoor lighting can mean the board and meter box need attention before the new load is connected. An electrical trade can check and quote."
    }
   ],
-  "rentals": "Rental homes here can include brick veneer houses from the 1960s and 1970s. Jobs in these rentals can include ducted air-con faults, hot water failures, leaking taps and doors that swell and stick. The owner or property manager provides the approval limit for each rental job, and work beyond that limit is quoted before it goes ahead. Where a trade is sent, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Rental homes here can include brick veneer houses from the 1960s and 1970s. Jobs in these rentals can include ducted air-con faults, hot water failures, leaking taps and doors that swell and stick. The owner or property manager provides the approval limit for each rental job, and work beyond that limit is quoted before it goes ahead.",
   "faqs": [
    {
     "q": "The ceiling near the ridge stains after rain. What may be happening?",
@@ -2339,7 +2339,7 @@
     "body": "Rentals near the hills fringe can show damp patches on a ceiling or a musty smell in a back room after winter storms. It can be a failed flashing or blocked downpipe. The trade finds the source and fixes it before the damage spreads."
    }
   ],
-  "rentals": "Rentals here include older homes on stumps and family houses in newer estates. Tenants may report ceiling damp after storms, dripping taps or hot water failures. Landlords and agencies can set approval limits, and work beyond an agreed limit is quoted before proceeding. Where a trade is sent to a rental job, the Briks maintenance desk fee is a flat $19 including GST, paid by the owner or landlord.",
+  "rentals": "Rentals here include older homes on stumps and family houses in newer estates. Tenants may report ceiling damp after storms, dripping taps or hot water failures. Landlords and agencies can set approval limits, and work beyond an agreed limit is quoted before proceeding.",
   "faqs": [
    {
     "q": "Why does my back bedroom smell musty after winter rain?",
@@ -2401,7 +2401,7 @@
     "body": "Tenants in townhouses may report noise, a sticking door or a tap that drips near a shared wall. The repair can involve two properties, so the body corporate and both owners may need to agree before a trade is booked. Photos and a clear description help."
    }
   ],
-  "rentals": "Rental stock here includes apartments and townhouses, some managed by agencies. Repair requests can include dripping mixers, blocked shower drains, failed air-conditioning and intercom or door-entry faults. Where a trade is sent, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord. For landlord and agency jobs, work above the agreed approval limit is quoted before it proceeds.",
+  "rentals": "Rental stock here includes apartments and townhouses, some managed by agencies. Repair requests can include dripping mixers, blocked shower drains, failed air-conditioning and intercom or door-entry faults.For landlord and agency jobs, work above the agreed approval limit is quoted before it proceeds.",
   "faqs": [
    {
     "q": "Who arranges repairs when a Mawson Lakes apartment is in a body corporate?",
@@ -2463,7 +2463,7 @@
     "body": "Hot water services in rental homes here may be the original unit or a replacement from years ago. When one fails a tenant reports it because the house has no other hot water. The repair is a new unit, and the owner's approval limit determines whether the work can proceed or needs a quote first."
    }
   ],
-  "rentals": "Greenwith has a rental pool of family homes, often four bedrooms with ducted air conditioning and a double garage. Tenants report hot water failures, air conditioning that stops cooling, dripping taps and blocked gutters after a storm. The landlord or agency can set a spending approval limit, so jobs above it are quoted before booking. Where a trade is sent to a rental job, the flat $19 including GST Briks maintenance desk fee applies, paid by the owner or landlord.",
+  "rentals": "Greenwith has a rental pool of family homes, often four bedrooms with ducted air conditioning and a double garage. Tenants report hot water failures, air conditioning that stops cooling, dripping taps and blocked gutters after a storm. The landlord or agency can set a spending approval limit, so jobs above it are quoted before booking.",
   "faqs": [
    {
     "q": "My ducted evaporative cooling is blowing warm air on a hot day. What is likely wrong?",
@@ -2525,7 +2525,7 @@
     "body": "Tenants in hills rentals may report cold rooms, draughts and damp near windows or lower walls in winter. Briks can organise independent trades for draughts and leaks, such as a carpenter, handyman or plumber."
    }
   ],
-  "rentals": "Rentals in Stirling include older cottages and family homes where tenants may notice cold, damp and heating problems in winter. Draughts, mould near windows and overflowing gutters are the kinds of jobs landlords and property managers send a trade to handle. On rental jobs where a trade is sent, a flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord. If a repair falls outside the agreed approval limit, it is quoted before work goes ahead.",
+  "rentals": "Rentals in Stirling include older cottages and family homes where tenants may notice cold, damp and heating problems in winter. Draughts, mould near windows and overflowing gutters are the kinds of jobs landlords and property managers send a trade to handle.If a repair falls outside the agreed approval limit, it is quoted before work goes ahead.",
   "faqs": [
    {
     "q": "Our gutters fill with leaves every autumn. Can Briks arrange clearing?",
@@ -2587,7 +2587,7 @@
     "body": "Rentals on septic systems can run into backed-up drains, and tenants may not know what should not go down. An independent licensed plumber clears the blockage and checks the tank, and a note to tenants about what the system takes can help avoid a repeat visit."
    }
   ],
-  "rentals": "Rental properties in Aldgate include older cottages and family homes on bush blocks. Jobs can include a blocked septic line, a tank pump that has stopped, gutters overflowing in the wet, and heating that will not fire in winter. For rental work, the owner or agent provides an approval threshold; jobs beyond that threshold are quoted for approval before proceeding. Rental jobs where a trade is sent carry the flat $19 including GST Briks maintenance desk fee, paid by the owner or landlord.",
+  "rentals": "Rental properties in Aldgate include older cottages and family homes on bush blocks. Jobs can include a blocked septic line, a tank pump that has stopped, gutters overflowing in the wet, and heating that will not fire in winter. For rental work, the owner or agent provides an approval threshold; jobs beyond that threshold are quoted for approval before proceeding.",
   "faqs": [
    {
     "q": "Our tank pump has stopped and we have no water pressure. What now?",
@@ -2649,7 +2649,7 @@
     "body": "Estate rentals can show worn carpet, scuffed paint, sticking doors and dripping taps at the end of a lease. A carpenter, plumber and painter can address these items before the next tenant moves in."
    }
   ],
-  "rentals": "Mount Barker has a mix of older cottages and newer estate rentals, with rental work such as dripping taps, blocked gutters, sticking doors and worn paint. For rental repairs, the owner or property manager provides an approval limit, and work beyond that limit is referred back before proceeding. Where a trade is sent to a rental property, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Mount Barker has a mix of older cottages and newer estate rentals, with rental work such as dripping taps, blocked gutters, sticking doors and worn paint. For rental repairs, the owner or property manager provides an approval limit, and work beyond that limit is referred back before proceeding.",
   "faqs": [
    {
     "q": "Our early 1900s stone cottage near the heritage core has damp patches after winter. What should we do first?",
@@ -2711,7 +2711,7 @@
     "body": "Older cottages converted to rentals can be cold and prone to condensation on single glazing and stone walls. Mould can appear near windows and in bathrooms. Fixing extraction, sealing draughts and repairing leaks is what a landlord can reasonably act on."
    }
   ],
-  "rentals": "Rental properties here include older cottages and houses. Tenants may raise damp, cold rooms, leaking taps and gutters overflowing onto paths. Where an owner or agency sets an approval cap, work above that cap is quoted for approval first. A flat $19 including GST Briks maintenance desk fee applies to rental jobs where a trade is sent, paid by the owner or landlord.",
+  "rentals": "Rental properties here include older cottages and houses. Tenants may raise damp, cold rooms, leaking taps and gutters overflowing onto paths. Where an owner or agency sets an approval cap, work above that cap is quoted for approval first.",
   "faqs": [
    {
     "q": "Can old stone cottages be repointed without damaging them?",
@@ -2773,7 +2773,7 @@
     "body": "Rentals in Crafers can be cold and damp through winter, with condensation, mould and draughts around old windows. Fixes can include clearing blocked subfloor vents, repairing failed flashings and sealing or rehanging timber windows."
    }
   ],
-  "rentals": "Rental stock here includes older cottages and family homes on large blocks; winter damp, cold and gutter issues can arise. For rentals, the landlord or property manager agrees the approval threshold, and work above that threshold needs approval before it proceeds. Where a trade is sent, the flat $19 including GST Briks maintenance desk fee applies and is paid by the owner or landlord.",
+  "rentals": "Rental stock here includes older cottages and family homes on large blocks; winter damp, cold and gutter issues can arise. For rentals, the landlord or property manager agrees the approval threshold, and work above that threshold needs approval before it proceeds.",
   "faqs": [
    {
     "q": "Does a Crafers house need anything special for bushfire season?",
@@ -2835,7 +2835,7 @@
     "body": "Low pressure and pumps cutting in and out can occur in tank-water rentals. This can be due to a blocked pump strainer or a stuck first-flush diverter. A licensed plumber can clean, adjust or replace the pump fittings and check the line."
    }
   ],
-  "rentals": "Rentals around Bridgewater include older stone cottages and small villas, some on tank water. Damp patches after wet weeks, blocked gutters and pumps losing pressure can arise in these rentals. For rental work, the owner or property manager sets how much can be approved, and work beyond that limit is quoted for approval first. When a trade is sent on a rental job, the flat $19 including GST Briks maintenance desk fee applies, paid by the owner or landlord.",
+  "rentals": "Rentals around Bridgewater include older stone cottages and small villas, some on tank water. Damp patches after wet weeks, blocked gutters and pumps losing pressure can arise in these rentals. For rental work, the owner or property manager sets how much can be approved, and work beyond that limit is quoted for approval first.",
   "faqs": [
    {
     "q": "Our tank water pressure has dropped. Is that a plumbing job?",

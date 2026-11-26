@@ -6,7 +6,7 @@ import { GUIDES } from '@/lib/guides'
 export const metadata: Metadata = {
   title: 'Rental Repair Guides for SA Landlords and Agencies | Briks',
   description:
-    'Plain guides on rental repairs in South Australia: who pays, urgent repairs, maintenance desk fees, and in-house vs outsourced maintenance for agencies.',
+    'Plain guides on rental repairs in South Australia: who pays, urgent repairs, and in-house vs outsourced maintenance for agencies.',
   alternates: { canonical: '/guides' },
 }
 

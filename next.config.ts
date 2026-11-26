@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
       },
       // /services is a real hub page again (app/services/page.tsx)
       { source: '/privacy', destination: '/legal/privacy', permanent: true },
+      // Pricing page and fee guide removed 26 Nov 2026 (no fees or prices published)
+      { source: '/pricing', destination: '/how-it-works', permanent: true },
+      { source: '/pricing.md', destination: '/llms.txt', permanent: true },
+      { source: '/guides/maintenance-desk-fee', destination: '/guides/outsourcing-property-maintenance', permanent: true },
       // Old guide pages (earlier model) replaced by lib/guides.ts entries
       { source: '/guides/what-is-managed-maintenance-partner', destination: '/guides/outsourcing-property-maintenance', permanent: true },
       { source: '/compare/briks-vs-in-house-maintenance-coordinator', destination: '/compare/in-house-vs-outsourced-maintenance', permanent: true },

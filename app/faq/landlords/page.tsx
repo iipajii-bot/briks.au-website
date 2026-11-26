@@ -6,7 +6,7 @@ import { SITE } from '@/lib/constants'
 export const metadata: Metadata = {
   title: { absolute: 'FAQ for Self-Managing Landlords | Briks Adelaide' },
   description:
-    'Answers for Adelaide landlords who manage their own rentals: tenant repairs, approval limits, the $19 desk fee and end-of-lease repairs.',
+    'Answers for Adelaide landlords who manage their own rentals: tenant repairs, approval limits and end-of-lease repairs.',
   alternates: { canonical: '/faq/landlords' },
 }
 

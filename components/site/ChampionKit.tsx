@@ -8,7 +8,6 @@
 import { useId, useMemo, useState } from 'react'
 import TimeBackCalculator, { type TimeBackValues } from './TimeBackCalculator'
 import { fmt } from './personal'
-import { FEE } from './fee'
 
 function buildEmail(v: TimeBackValues, name: string, agency: string) {
   const ag = agency || 'our agency'
@@ -21,7 +20,7 @@ function buildEmail(v: TimeBackValues, name: string, agency: string) {
     '',
     'Briks Building Services runs a maintenance desk for agencies. Tenants call their number for repairs and they sort simple problems on the phone. When a trade is needed they book a licensed one, arrange access, keep the tenant updated and send us a report every Friday with photos. Jobs under our approval limit go ahead; anything over it is quoted to us first.',
     '',
-    `It costs ${ag} nothing. Calls and phone help are free; when a trade is sent, Briks invoices the repair plus a flat ${FEE.amount} including GST maintenance desk fee, paid by the owner from rent like any contractor bill. They suggest seeing it work on one portfolio first, with no lock-in, and I would like that to be mine. All we need to do is add them as a supplier and send them my tenant list.`,
+    `Routine repairs under our approval limit go ahead; anything bigger comes to me as a quote by email, and nothing starts until I approve it in writing. Our owners stay with us. They suggest seeing it work on one portfolio first, with no lock-in, and I would like that to be mine. All we need to do is add them as a supplier and send them my tenant list.`,
     '',
     `Details: ${link}`,
     '',

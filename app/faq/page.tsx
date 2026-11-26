@@ -20,7 +20,7 @@ const subFaqs = [
   {
     icon: Home,
     label: 'Homeowners',
-    blurb: 'Call-out fees, scheduling, payment, renovations.',
+    blurb: 'Quotes, scheduling, payment, renovations.',
     href: '/faq/homeowners',
   },
   {

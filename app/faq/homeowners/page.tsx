@@ -5,7 +5,7 @@ import { SITE } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'FAQ for Homeowners — Briks Building Services Adelaide',
-  description: 'Briks FAQ for Adelaide homeowners. Call-out fees, quote turnaround, payment, renovations, attendance.',
+  description: 'Briks FAQ for Adelaide homeowners. Quotes, turnaround, payment, renovations, attendance.',
   alternates: { canonical: '/faq/homeowners' },
 }
 
@@ -37,7 +37,7 @@ export default function FAQHomeowners() {
       <FAQSubPage
         eyebrow="FAQ · Homeowners"
         title={<>For <span className="text-[#8a6e3f]">homeowners.</span></>}
-        subtitle={<>Call-out fees, scheduling, payment, renovations. The five things Adelaide homeowners ask first.</>}
+        subtitle={<>Quotes, scheduling, payment, renovations. The five things Adelaide homeowners ask first.</>}
         faqs={FAQ_HOMEOWNERS}
       />
     </>

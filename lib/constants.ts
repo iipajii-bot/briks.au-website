@@ -126,10 +126,9 @@ export const MEGA_MENUS: Record<MegaKey, ReadonlyArray<MegaCol>> = {
       seeAll: { label: 'Read the story', href: '/about' },
     },
     {
-      label: 'Joining + Pricing',
-      intro: 'Costs and trade recruitment.',
+      label: 'Join the network',
+      intro: 'Trade recruitment.',
       items: [
-        { label: 'Pricing', href: '/pricing', blurb: 'Tiers, markup, no surprises.' },
         { label: 'Trade partners', href: '/trade-partners', blurb: 'Apply to join the network.' },
       ],
       seeAll: { label: 'Get in touch', href: '/contact' },
@@ -306,7 +305,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: 'Is there a minimum visit?',
-        a: 'Phone help for simple problems is free. Homeowners and businesses get a written quote before work starts.',
+        a: 'Simple problems are often sorted over the phone. Homeowners and businesses get a written quote before work starts.',
       },
       {
         q: 'Can one tradie cover plumbing AND electrical?',
@@ -322,7 +321,7 @@ export const SERVICES: Service[] = [
     id: 'emergency-repairs',
     title: 'Emergency Repairs',
     icon: 'Zap',
-    tagline: 'Free phone help for simple problems.',
+    tagline: 'Phone help for simple problems.',
     description:
       'Burst pipes, no power, broken access or storm damage. If anyone is in danger, call 000. For no power or wires down, call SA Power Networks on 13 13 66. For a burst pipe, turn the water off at the meter if safe. Briks can organise repairs during business hours.',
     included: [
@@ -746,7 +745,7 @@ export const SERVICES: Service[] = [
     icon: 'Wrench',
     tagline: 'Six small jobs, one visit.',
     description:
-      'TV mounting, shelves, doors, fixtures, picture hanging, small repairs. Free phone help for simple problems.',
+      'TV mounting, shelves, doors, fixtures, picture hanging, small repairs. Phone help for simple problems.',
     included: [
       'TV mounting and shelving',
       'Door hardware and adjustment',
@@ -757,10 +756,10 @@ export const SERVICES: Service[] = [
       'Furniture assembly',
     ],
     heroText:
-      "Most homeowners save up six small jobs before calling anyone, because the call-out fee makes one job uneconomical. Briks bundles handyman work — bring us a list, we knock it over in one visit, you pay one rate. Every Briks handyman is carpenter-trained, not a 'general worker' filling time.",
+      "Most homeowners save up six small jobs before calling anyone. Briks bundles handyman work: bring us a list and it gets done in one visit, with one written quote first. Every Briks handyman is carpenter-trained, not a 'general worker' filling time.",
     ctaText: 'Book a Handyman',
     whyBriks: [
-      'Free phone help for simple problems.',
+      'Phone help for simple problems.',
       'Carpenter-trained handymen, not generalists.',
       'Photos and invoice for every visit, even tiny stuff.',
       '30-day follow-up included if anything needs adjusting.',
@@ -1099,7 +1098,7 @@ export const HOW_IT_WORKS_STEPS = [
     body: 'Call, WhatsApp, email, or fill the online form. A real human reads it — no auto-responder, no ticket queue.',
     sla: 'Replied to inside 2 hours · 8am–6pm ACST',
     stall:
-      'Call one number for free phone help with simple problems. If anyone is in danger, call 000.',
+      'Call one number for help with simple problems. If anyone is in danger, call 000.',
   },
   {
     number: '02',

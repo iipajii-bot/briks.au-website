@@ -80,7 +80,6 @@ const companyLinks = [
   { label: 'For homeowners', href: '/for-homeowners' },
   { label: 'Check this first', href: '/help' },
   { label: 'Guides', href: '/guides' },
-  { label: 'Pricing', href: '/pricing' },
   { label: 'About us', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]

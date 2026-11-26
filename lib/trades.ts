@@ -1117,7 +1117,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: 'How much does a handyman cost per hour in Adelaide?',
-        a: 'Handyman hourly rates vary by job complexity and tools required. Briks quotes either by the hour or as a fixed list — your choice. Send the job list (photos help) via WhatsApp and we send back a written quote before booking. No callout fee buried in the fine print.',
+        a: 'Handyman hourly rates vary by job complexity and tools required. Briks quotes either by the hour or as a fixed list — your choice. Send the job list (photos help) via WhatsApp and we send back a written quote before booking.',
       },
       {
         q: 'Do you do end-of-lease patch-up?',
