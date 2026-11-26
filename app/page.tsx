@@ -139,13 +139,12 @@ export default function HomePage() {
               id="hero-h"
               className="font-display mt-5 text-[clamp(40px,6.2vw,76px)] font-bold leading-[0.98] text-[#1a1a1a] [text-wrap:balance]"
             >
-              Tenants call us. Your agency gets one report on Friday.
+              Tenants call us. We save you the headache.
             </h1>
             <p className="mt-6 max-w-[34rem] text-[18px] leading-[1.6] text-[#3a3735]">
-              Briks Maintenance Line takes tenant repair requests off your property managers. Tenants report every repair
-              to one Briks number. We organise a licensed trade, book access, keep everyone updated and review the work.{' '}
-              <strong className="font-semibold text-[#1a1a1a]">You approve every job:</strong> routine repairs under your
-              limit go ahead, and bigger jobs wait for your written approval.
+              <strong className="font-semibold text-[#1a1a1a]">Every repair handled, approved by you, and on one report every Friday.</strong> With Briks Maintenance Line, tenants
+              report every repair to one Briks number. We organise a licensed trade, book access, keep everyone updated and
+              review the work. Routine repairs under your limit go ahead, and bigger jobs wait for your written approval.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/for-agencies#enquiry" className={btnPrimary}>
