@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import type { QA } from '@/lib/faqs'
@@ -52,23 +52,18 @@ export default function FAQAccordion({
                 <Plus size={16} aria-hidden />
               </motion.span>
             </button>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  initial={reduced ? false : { height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={reduced ? undefined : { height: 0, opacity: 0 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-6 md:px-8 pb-6 md:pb-7 max-w-3xl">
-                    <p className="text-sm md:text-base text-[#3a3735] leading-relaxed">
-                      {faq.a}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Answer is always in the page (search engines and AI read it); only its height collapses. */}
+            <div
+              className={`grid ${reduced ? '' : 'transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]'} ${
+                isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+              }`}
+            >
+              <div className="overflow-hidden" aria-hidden={!isOpen}>
+                <div className="px-6 md:px-8 pb-6 md:pb-7 max-w-3xl">
+                  <p className="text-sm md:text-base text-[#3a3735] leading-relaxed">{faq.a}</p>
+                </div>
+              </div>
+            </div>
           </div>
         )
       })}

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 const AGENCY_FAQS = [
   APPROVAL_FAQ,
-  ...FAQS.filter((f) => !f.q.startsWith('What is an outsourced') && !f.q.startsWith('Does the Briks') && !f.q.startsWith('How do we start')),
+  ...FAQS.filter((f) => f.q !== APPROVAL_FAQ.q && !f.q.startsWith('What is an outsourced') && !f.q.startsWith('Does the Briks') && !f.q.startsWith('How do we start')),
   {
     q: 'How do we start?',
     a: 'On one property manager’s portfolio. You add Briks as a supplier, send us one tenant contact list and tell us your approval limit. We write the email that tells tenants the new number. After the first month you decide whether to roll it out. No lock-in contract.',
@@ -45,7 +45,7 @@ const AGENCY_FAQS = [
   },
   {
     q: 'How do emergencies work?',
-    a: 'Tenants call the same number. We work out whether it is an emergency, organise a make-safe or a licensed trade, and tell you what was done. Briks is not a 24-hour call centre: we agree your after-hours arrangements at the start, and tenants call 000 first if anyone is in danger.',
+    a: 'Tenants call the same number. We work out whether it is an emergency, organise a make-safe or a licensed trade, and tell you what was done. Office hours are Monday to Friday, 8am to 6pm. After hours, tenants follow the make-safe steps on our help page (turn off the water or power), call 000 if anyone is in danger, and leave a message; we call back from 8am the next business day.',
   },
 ] as const
 
@@ -224,8 +224,8 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
       {/* WHAT WE NEED TO START */}
       <section aria-labelledby="need-h" className={ground.paper}>
         <div className={`${cls.wrap} ${cls.section}`}>
-          <SectionHead id="need-h" eyebrow="What we need from you" title="Three things to start. No software to change.">
-            <p>We work alongside whatever you use today. There is nothing to install and no integration to set up.</p>
+          <SectionHead id="need-h" eyebrow="What we need from you" title="Three things to start. Nothing to install.">
+            <p>We work alongside PropertyMe, Console or whatever you use today. Work orders reach us by email, the way they reach any tradie, so there is nothing to install.</p>
           </SectionHead>
           <Steps steps={START_NEEDS} cols={3} />
         </div>
@@ -271,8 +271,9 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
               items={[
                 { k: 'The trades', v: 'Every trade we send holds a current South Australian licence for their work. Ask us for any trade’s licence number and check it on the Consumer and Business Services public register.' },
                 { k: 'The report', v: 'Ask for a sample Friday report on the call. It is what you would receive every week.' },
-                { k: 'Tenant details', v: 'Used only to arrange repairs, stored securely and never shared beyond the trade doing the job.' },
-                { k: 'The business', v: `${SITE.legalName}, ABN ${SITE.abn}. Adelaide owned and run by its owner, who you deal with directly.` },
+                { k: 'Tenant details', v: 'Used only to arrange repairs and never shared beyond the trade doing the job.' },
+                { k: 'Insurance', v: 'Briks holds public liability insurance. Ask for the certificate of currency and we will email it the same day.' },
+                { k: 'The business', v: `${SITE.legalName}, ABN ${SITE.abn}. Adelaide owned and run by its founder, ${SITE.founderName}, who you deal with directly.` },
               ]}
             />
           </div>

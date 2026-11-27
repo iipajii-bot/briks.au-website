@@ -23,7 +23,7 @@ const values = [
   {
     n: '01',
     title: 'Accountability, not explanations',
-    body: 'Every job Briks accepts, Briks carries. Bad outcome? We remediate. No finger-pointing at subcontractors, no hiding behind fine print, no "contact the tradie direct" redirects.',
+    body: 'If a job is not right, tell us. We get the trade back to fix it under their workmanship warranty, and you deal with us, not the trade. No finger-pointing and no "contact the tradie direct" redirects.',
   },
   {
     n: '02',
@@ -32,8 +32,8 @@ const values = [
   },
   {
     n: '03',
-    title: 'Fast quotes, real timelines',
-    body: '4-hour quote turnaround on standard work. 48-hour quote on renovations. We give you a real start date when we quote, not a "when we can get to it." The friction goes away.',
+    title: 'Written quotes, clear timelines',
+    body: 'Written quotes within 2 business days, renovations included. Once you approve, we book a date and tell you, not a "when we can get to it."',
   },
   {
     n: '04',
@@ -264,10 +264,10 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-12">
             {[
-              { label: 'Tradies', value: 'Experienced' },
+              { label: 'Founder', value: 'Pargat Singh' },
               { label: 'City', value: 'Adelaide' },
-              { label: 'Trades covered', value: '12' },
-              { label: 'Suburbs served', value: '38+' },
+              { label: 'Insurance', value: 'Public liability' },
+              { label: 'Quotes', value: 'Within 2 business days' },
             ].map((item) => (
               <div
                 key={item.label}

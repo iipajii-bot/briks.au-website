@@ -228,7 +228,7 @@ export default function Footer() {
               </li>
               <li className="pt-2">
                 <div className="text-white/35 text-xs">
-                  <span className="block">Mon – Fri: 8am – 6pm ACST</span>
+                  <span className="block">Mon – Fri: 8am – 6pm (Adelaide time)</span>
                   <span className="block text-[#8a6e3f]">Emergency? Call 000 first</span>
                 </div>
               </li>

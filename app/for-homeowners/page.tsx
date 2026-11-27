@@ -158,6 +158,8 @@ export default async function ForHomeownersPage({ searchParams }: { searchParams
                 { k: 'The quote', v: 'Before any work. It names the work, the trade and the price.' },
                 { k: 'Photos', v: 'Before and after, sent with the finished job.' },
                 { k: 'The invoice', v: 'One invoice from Briks for the whole job.' },
+                { k: 'Paying', v: 'Jobs under $500 and make-safe visits: pay when the work is done. Bigger jobs: 60% to book and 40% on completion, shown on your quote before you accept.' },
+                { k: 'Insurance', v: 'Briks holds public liability insurance, and every trade is licensed in South Australia for their work. Certificate on request.' },
               ]}
             />
           </div>

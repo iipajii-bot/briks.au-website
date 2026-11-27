@@ -156,7 +156,7 @@ export default function ContactPage() {
                           Hours
                         </p>
                         <p className="text-sm text-[#1a1a1a]">
-                          Mon – Fri · 8am – 6pm ACST
+                          Mon – Fri · 8am – 6pm (Adelaide time)
                         </p>
                         <p className="text-sm text-[#8a6e3f]">Emergencies · call 000 if in danger</p>
                       </div>

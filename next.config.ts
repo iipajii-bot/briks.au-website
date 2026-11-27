@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
       { source: '/terms', destination: '/legal/terms', permanent: true },
     ]
   },
+  // Interactive "how a repair runs" demo is a static page in public/demo.
+  async rewrites() {
+    return [{ source: '/demo', destination: '/demo/index.html' }]
+  },
   // ─── Security headers — applied to every response ─────────────────────────
   async headers() {
     return [

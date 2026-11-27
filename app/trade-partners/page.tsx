@@ -55,7 +55,7 @@ const FAQS = [
   { q: 'Are jobs guaranteed?', a: 'No. Briks does not guarantee volume. Briks organises repairs, maintenance and renovation work, and the work is done by independent trades licensed in South Australia for their own work.' },
   { q: 'Can I work part-time?', a: 'Yes. The work is done by independent trades licensed in South Australia for their own work. Tell us your availability when you send your details.' },
   { q: 'What is the application process?', a: 'Send your details via the form below or WhatsApp. Include your trade and availability. The work is done by independent trades licensed in South Australia for their own work.' },
-  { q: 'How does Briks pricing flow work?', a: 'Tradies set their own job pricing on each quote, submitted through the Briks coordinator. Briks adds a coordination margin and presents a single all-in quote to the customer. You get paid your quoted amount; Briks earns the coordination margin.' },
+  { q: 'How does Briks pricing flow work?', a: 'You set your own price on each quote and submit it through the Briks coordinator. Briks presents one quote to the customer, and you are paid the amount you quoted.' },
   { q: 'Do I deal with customers directly?', a: 'During jobs, yes — at the property only. Pre-job comms (booking, access, briefing) and post-job comms (sign-off, follow-up, invoice questions) are handled by the Briks coordinator. You focus on the work.' },
 ]
 

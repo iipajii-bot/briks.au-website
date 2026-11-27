@@ -3,6 +3,7 @@ import './globals.css'
 import { interTight, inter, bricolage, spaceMono } from '@/lib/fonts'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import HideOn from '@/components/layout/HideOn'
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB'
 import StickyQuoteBar from '@/components/layout/StickyQuoteBar'
 
@@ -100,11 +101,15 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Navbar />
+        <HideOn paths={['/card']}>
+          <Navbar />
+        </HideOn>
         <main id="main" className="flex-1 pb-16 md:pb-0">{children}</main>
-        <Footer />
-        <WhatsAppFAB />
-        <StickyQuoteBar />
+        <HideOn paths={['/card']}>
+          <Footer />
+          <WhatsAppFAB />
+          <StickyQuoteBar />
+        </HideOn>
       </body>
     </html>
   )

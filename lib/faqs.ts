@@ -132,7 +132,7 @@ export const FAQ_TRADES: QA[] = [
   },
   {
     q: 'What does Briks pay tradies?',
-    a: 'Your normal hourly or job rate. We do not squeeze trades on margin. The customer pays our markup on top of your rate, not out of it.',
+    a: 'Your normal hourly or job rate. We do not squeeze your rate.',
   },
   {
     q: 'How do you allocate jobs?',

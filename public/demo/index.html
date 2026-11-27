@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="See how Briks runs one repair, from the tenant's call to the Friday report.">
+<link rel="icon" href="/icon.png">
+<style>
+@font-face { font-family: "Bricolage Grotesque"; src: url("/demo/fonts/bricolage-grotesque-var.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("/demo/fonts/inter-tight-var.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/demo/fonts/inter-var.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+</style>
+<title>How Briks Works | Briks</title>
+<style>
+/* Layout: a 1920x1080 stage scaled to fit, driven by one clock (seek(t)); the meeting version adds chapters, play/pause and an approval gate. One deliberate light look with ink title and end cards. */
+:root {
+  --paper: #fafaf7; --white: #ffffff; --panel: #f3efe5; --panel-2: #ebe4d4;
+  --ink: #1a1a1a; --body: #3a3735; --dim: #5a5650; --brass: #8a6e3f; --brass-light: #b89868; --brass-deep: #6a5530;
+  --line: #e2ddd3; --line-strong: #c0bcb4; --done-bg: #e7efe9; --done-fg: #2f5a40; --on-ink: #fafaf7; --on-ink-dim: #d6d0c4;
+  --display: "Bricolage Grotesque", "Inter Tight", system-ui, sans-serif;
+  --label: "Inter Tight", "Inter", system-ui, sans-serif;
+  --text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+html, body { height: 100%; }
+body { margin: 0; background: #e9e5dc; color: var(--ink); font-family: var(--text); -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+.player { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding-block: 20px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.screen { position: relative; width: min(100%, calc((100vh - 170px) * 16 / 9)); min-width: 0; aspect-ratio: 16 / 9; max-width: 100%;
+  border-radius: 8px; overflow: hidden; box-shadow: 0 30px 80px -40px rgba(26,26,26,0.55); background: var(--paper); }
+.stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; background: var(--paper); overflow: hidden; }
+body.render { background: var(--paper); overflow: hidden; }
+body.render .player { padding: 0; display: block; }
+body.render .screen { width: 1920px; height: 1080px; border-radius: 0; box-shadow: none; aspect-ratio: auto; max-width: none; }
+body.render .controls, body.render .overlay, body.render .gate-hint { display: none !important; }
+
+/* Scenes and items: opacity/transform set by seek(t) */
+.scene { position: absolute; inset: 0; opacity: 0; }
+[data-t] { will-change: opacity, transform; }
+.ink { background: var(--ink); color: var(--on-ink); }
+.paper { background: var(--paper); }
+
+.cap { position: absolute; left: 130px; top: 0; bottom: 0; width: 700px; display: flex; flex-direction: column; justify-content: center; }
+.eyebrow { display: flex; align-items: flex-start; gap: 18px; font-family: var(--label); font-weight: 600; font-size: 26px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); margin: 0 0 30px; }
+.eyebrow::before { content: ""; width: 48px; height: 3px; background: currentColor; flex: none; margin-top: 14px; }
+.ink .eyebrow { color: var(--brass-light); }
+.capline { font-family: var(--display); font-weight: 700; font-size: 70px; line-height: 1.02; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.capstack { position: relative; min-height: 300px; }
+.capstack .capline { position: absolute; left: 0; top: 0; right: 0; }
+.vis { position: absolute; left: 920px; right: 130px; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; }
+
+/* Title + end */
+.center { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 160px; }
+.big { font-family: var(--display); font-weight: 700; font-size: 118px; line-height: 0.98; letter-spacing: -0.025em; margin: 0; max-width: 1400px; text-wrap: balance; }
+.sub { font-size: 38px; color: var(--on-ink-dim); margin: 34px 0 0; max-width: 1500px; }
+.mark { height: 150px; width: auto; display: block; margin-bottom: 56px; align-self: flex-start; object-fit: contain; }
+.endrow { margin-top: 64px; display: flex; gap: 56px; font-family: var(--label); font-weight: 600; font-size: 34px; color: var(--on-ink-dim); }
+.endrow b { color: var(--brass-light); font-weight: 700; }
+
+/* Phone chat */
+.phone { width: 520px; height: 900px; border-radius: 64px; background: var(--ink); padding: 18px; box-shadow: 0 50px 90px -50px rgba(26,26,26,0.6); }
+.phone-in { height: 100%; border-radius: 48px; background: var(--white); overflow: hidden; display: flex; flex-direction: column; }
+.phone-top { padding: 54px 30px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 16px; }
+.avatar { width: 58px; height: 58px; border-radius: 50%; background: var(--panel); display: grid; place-items: center; }
+.avatar img { height: 34px; }
+.phone-top b { font-family: var(--label); font-size: 24px; display: block; }
+.phone-top span { font-size: 18px; color: var(--dim); }
+.chat { flex: 1; padding: 26px 22px; display: flex; flex-direction: column; gap: 16px; justify-content: flex-start; }
+.bub { max-width: 82%; padding: 16px 20px; font-size: 22px; line-height: 1.38; border-radius: 8px 24px 24px 24px; background: var(--panel); }
+.bub.us { align-self: flex-end; border-radius: 24px 8px 24px 24px; background: var(--ink); color: var(--on-ink); }
+.bub small { display: block; font-family: var(--label); font-size: 15px; opacity: 0.65; margin-bottom: 4px; }
+
+/* Cards */
+.card { width: 820px; background: var(--white); border: 2px solid var(--line-strong); border-radius: 16px; box-shadow: 0 50px 90px -60px rgba(26,26,26,0.55); overflow: hidden; position: relative; }
+.card-head { display: flex; justify-content: space-between; align-items: center; padding: 28px 36px; border-bottom: 2px solid var(--line); }
+.label { font-family: var(--label); font-weight: 600; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.tag { font-family: var(--label); font-weight: 700; font-size: 19px; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 14px; border-radius: 6px; background: var(--panel); color: var(--brass-deep); white-space: nowrap; }
+.tag.ok { background: var(--done-bg); color: var(--done-fg); }
+.tag.you { background: var(--ink); color: var(--on-ink); }
+.rows { padding: 12px 36px 22px; }
+.row { display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-items: center; padding: 20px 0; border-bottom: 2px solid var(--line); font-size: 30px; }
+.row:last-child { border-bottom: 0; }
+.row .ic { width: 44px; height: 44px; border-radius: 50%; background: var(--done-bg); display: grid; place-items: center; }
+.row .ic svg { width: 26px; height: 26px; }
+.row small { display: block; font-family: var(--label); font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 2px; }
+.row.warn .ic { background: var(--panel); }
+.stamp { position: absolute; right: 36px; bottom: 34px; transform-origin: right bottom; }
+.stamp .tag { font-size: 22px; padding: 12px 18px; }
+
+/* Email */
+.mail-top { padding: 26px 36px; border-bottom: 2px solid var(--line); background: var(--paper); font-size: 24px; display: grid; gap: 6px; }
+.mail-top b { font-family: var(--label); }
+.mail-body { padding: 28px 36px 34px; font-size: 26px; line-height: 1.45; display: grid; gap: 22px; }
+.mail-body p { margin: 0; }
+.files { display: flex; gap: 12px; }
+.file { font-family: var(--label); font-weight: 600; font-size: 20px; padding: 10px 16px; border: 2px solid var(--line); border-radius: 6px; background: var(--paper); }
+.approve-row { display: flex; align-items: center; gap: 24px; min-height: 76px; position: relative; }
+.approve { display: inline-flex; align-items: center; gap: 12px; height: 74px; padding: 0 34px; border-radius: 8px; border: 0; background: var(--ink); color: var(--on-ink); font-family: var(--label); font-weight: 700; font-size: 28px; }
+.approve.pulse { box-shadow: 0 0 0 0 rgba(138,110,63,0.6); animation: pulse 1.4s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 22px rgba(138,110,63,0); } 100% { box-shadow: 0 0 0 0 rgba(138,110,63,0); } }
+.approved { position: absolute; left: 0; top: 0; height: 74px; display: flex; align-items: center; gap: 14px; font-family: var(--label); font-weight: 700; font-size: 30px; color: var(--done-fg); background: var(--white); padding-right: 20px; }
+.toast { position: absolute; top: -44px; right: -40px; display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: var(--ink); color: var(--on-ink); border-radius: 14px; box-shadow: 0 30px 60px -30px rgba(26,26,26,0.7); font-family: var(--label); font-size: 24px; font-weight: 600; }
+.toast .dot { width: 16px; height: 16px; border-radius: 50%; background: #6fbf8a; }
+.toast small { display: block; font-weight: 500; font-size: 18px; color: var(--on-ink-dim); }
+.cursor { position: absolute; left: 0; top: 0; width: 44px; height: 44px; pointer-events: none; z-index: 5; opacity: 0; }
+
+/* Photos */
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; width: 860px; }
+.shot { aspect-ratio: 4 / 5; border-radius: 14px; border: 2px solid var(--line); position: relative; overflow: hidden; display: grid; place-items: center; }
+.shot.before { background: linear-gradient(160deg, #ece5d6, #ddd3bf); }
+.shot.after { background: linear-gradient(160deg, #f1f4f0, #e2eae4); }
+.shot .tag { position: absolute; left: 20px; top: 20px; }
+.shot svg { width: 58%; height: auto; }
+.invoice { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; padding: 24px 30px; border-radius: 14px; background: var(--ink); color: var(--on-ink); font-family: var(--label); font-size: 28px; font-weight: 600; }
+.invoice span { color: var(--brass-light); }
+
+/* Report */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 2px solid var(--line); text-align: center; }
+.stats div { padding: 20px 10px; }
+.stats div + div { border-left: 2px solid var(--line); }
+.stats b { display: block; font-family: var(--label); font-size: 52px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats span { font-family: var(--label); font-size: 17px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.rrow { display: grid; grid-template-columns: 1fr auto; gap: 2px 20px; align-items: center; padding: 16px 36px; border-bottom: 2px solid var(--line); position: relative; }
+.rrow:last-child { border-bottom: 0; }
+.rrow .j { font-size: 26px; font-weight: 500; }
+.rrow .d { font-size: 19px; color: var(--dim); }
+.rrow .tag { grid-row: span 2; font-size: 16px; }
+.rrow.hi::after { content: ""; position: absolute; inset: 4px 10px; border: 3px solid var(--brass); border-radius: 8px; opacity: var(--hi, 0); }
+
+/* Controls (meeting version) */
+.controls { width: min(100%, calc((100vh - 170px) * 16 / 9)); max-width: 100%; display: grid; gap: 10px; }
+.bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.ctl { height: 44px; min-width: 44px; padding: 0 16px; border-radius: 4px; border: 1px solid var(--line-strong); background: var(--white); font-family: var(--label); font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+.ctl.primary { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.ctl:hover { border-color: var(--ink); }
+.ctl[aria-pressed="false"] { color: var(--dim); }
+.time { font-family: var(--label); font-size: 13px; color: var(--dim); font-variant-numeric: tabular-nums; margin-left: auto; }
+.track { position: relative; height: 26px; cursor: pointer; touch-action: none; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: 11px; height: 4px; border-radius: 2px; background: var(--line-strong); }
+.fill { position: absolute; left: 0; top: 11px; height: 4px; border-radius: 2px; background: var(--ink); width: 0; }
+.tick { position: absolute; top: 8px; width: 2px; height: 10px; background: var(--paper); }
+.chapters { display: flex; gap: 6px; flex-wrap: wrap; }
+.chap { min-height: 36px; padding: 6px 12px; border-radius: 4px; border: 1px solid var(--line); background: var(--white); font-family: var(--label); font-size: 13px; font-weight: 600; color: var(--dim); }
+.chap[aria-current="true"] { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.overlay { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(26,26,26,0.35); border: 0; padding: 0; z-index: 10; }
+.overlay span { display: inline-flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 8px; background: var(--white); font-family: var(--label); font-weight: 700; font-size: 20px; color: var(--ink); }
+.overlay svg { width: 22px; height: 22px; }
+.gate-hint { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); z-index: 9; padding: 10px 18px; border-radius: 6px; background: var(--brass); color: var(--on-ink); font-family: var(--label); font-weight: 700; font-size: 15px; white-space: nowrap; }
+@media (max-width: 640px) { .chapters { display: none; } }
+</style>
+
+</head>
+<body>
+<div class="player">
+  <div class="screen" id="screen">
+    <div class="stage" id="stage">
+
+      <!-- TITLE -->
+      <section class="scene ink" data-t="0,5.2" data-fade="0">
+        <div class="center">
+          <img class="mark rise" src="/demo/mark_light.png" alt="Briks logo" data-t="0.2">
+          <p class="eyebrow rise" data-t="0.6">Briks Building Services</p>
+          <h1 class="big rise" data-t="0.9">One repair, start to finish.</h1>
+          <p class="sub rise" data-t="1.5">How we run a job for your agency, from the tenant's call to your Friday report.</p>
+        </div>
+      </section>
+
+      <!-- 1 TENANT -->
+      <section class="scene paper" data-t="5,17.6" data-chapter="Tenant calls">
+        <div class="cap">
+          <p class="eyebrow rise" data-t="5.4">01 · The tenant calls Briks</p>
+          <div class="capstack">
+            <p class="capline rise" data-t="5.7,11.3">Tenants call us, not your property manager.</p>
+            <p class="capline rise" data-t="11.5">Easy fixes first. If they don't work, we book a licensed trade.</p>
+          </div>
+        </div>
+        <div class="vis">
+          <div class="phone rise" data-t="5.3">
+            <div class="phone-in">
+              <div class="phone-top"><div class="avatar"><img src="/demo/mark.png" alt=""></div><div><b>Briks</b><span>Tenant line · 7:55am</span></div></div>
+              <div class="chat">
+                <div class="bub rise" data-t="6.2"><small>Tenant</small>We've had no hot water since last night.</div>
+                <div class="bub us rise" data-t="7.9"><small>Briks</small>Sorry to hear that. Have you tried the walkthrough steps on our help page? They cover easy fixes for common issues like this one.</div>
+                <div class="bub rise" data-t="10.3"><small>Tenant</small>Yes, we tried the steps but nothing worked.</div>
+                <div class="bub us rise" data-t="12.2"><small>Briks</small>Thanks for checking. We're booking a plumber now and will be in touch soon with a time.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 BOOKING -->
+      <section class="scene paper" data-t="17.4,25.6" data-chapter="Trade booked">
+        <div class="cap">
+          <p class="eyebrow rise" data-t="17.8">02 · We book the trade</p>
+          <p class="capline rise" data-t="18.1">We book a licensed plumber and arrange access with the tenant.</p>
+        </div>
+        <div class="vis">
+          <div class="card rise" data-t="18.0">
+            <div class="card-head"><span class="label">Booking · Modbury</span><span class="tag ok">Booked</span></div>
+            <div class="rows">
+              <div class="row rise" data-t="18.9"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Trade</small>Licensed plumber</div></div>
+              <div class="row rise" data-t="19.7"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Booked</small>Today, 11:30am</div></div>
+              <div class="row rise" data-t="20.5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Access</small>Confirmed with the tenant</div></div>
+              <div class="row rise" data-t="21.3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Tenant</small>Told the time by text</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 FINDING -->
+      <section class="scene paper" data-t="25.4,33.6" data-chapter="Plumber's finding">
+        <div class="cap">
+          <p class="eyebrow rise" data-t="25.8">03 · The plumber finds the cause</p>
+          <p class="capline rise" data-t="26.1">Bigger than your approval limit? It comes to you first.</p>
+        </div>
+        <div class="vis">
+          <div class="card rise" data-t="26.0" style="padding-bottom:96px">
+            <div class="card-head"><span class="label">Site report · 11:48am</span><span class="tag">On site</span></div>
+            <div class="rows">
+              <div class="row warn rise" data-t="26.9"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a5530" stroke-width="2.4"><path d="M12 7v6M12 17h.01"/></svg></span><div><small>Finding</small>Hot water unit has failed and is leaking</div></div>
+              <div class="row rise" data-t="27.7"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Made safe</small>Water to the unit isolated</div></div>
+              <div class="row warn rise" data-t="28.5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a5530" stroke-width="2.4"><path d="M5 12h14M12 5v14"/></svg></span><div><small>Needed</small>Replace the unit</div></div>
+            </div>
+            <div class="stamp pop" data-t="29.6"><span class="tag you">Over your approval limit</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 APPROVAL -->
+      <section class="scene paper" data-t="33.4,46.2" data-chapter="You approve">
+        <div class="cap">
+          <p class="eyebrow rise" data-t="33.8">04 · You approve in writing</p>
+          <div class="capstack">
+            <p class="capline rise" data-t="34.1,40.6">We email you the quote with photos, then call you the same day.</p>
+            <p class="capline rise" data-t="40.8">Work starts only once you approve. No approval, no work.</p>
+          </div>
+        </div>
+        <div class="vis">
+          <div class="card rise" data-t="34.0" style="overflow:visible">
+            <div class="mail-top"><span><b>To:</b> Your property manager</span><span><b>Subject:</b> Approval needed: hot water system, Modbury</span></div>
+            <div class="mail-body">
+              <p>The hot water unit has failed. The plumber's quote and photos are attached. Reply "Approved" and we'll book the replacement.</p>
+              <div class="files rise" data-t="35.0"><span class="file">Quote.pdf</span><span class="file">Photos (4)</span></div>
+              <div class="approve-row rise" data-t="35.6">
+                <button class="approve" type="button" id="approveBtn">Reply: Approved</button>
+                <div class="approved" id="approvedStamp" data-t="39.9"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg>Approved in writing, 2:14pm</div>
+              </div>
+            </div>
+            <div class="toast rise" data-t="36.6,39.4"><span class="dot"></span><div>Briks is calling<small>Same-day call about the quote</small></div></div>
+          </div>
+        </div>
+        <svg class="cursor" id="cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z" fill="#1a1a1a" stroke="#fafaf7" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </section>
+
+      <!-- 5 DONE -->
+      <section class="scene paper" data-t="46,55.8" data-chapter="Job done">
+        <div class="cap">
+          <p class="eyebrow rise" data-t="46.4">05 · The work gets done</p>
+          <p class="capline rise" data-t="46.7">Before and after photos. One invoice per job, through your agency.</p>
+        </div>
+        <div class="vis">
+          <div class="shots">
+            <div class="shot before rise" data-t="47.0"><span class="tag">Before</span>
+              <svg viewBox="0 0 120 160" fill="none"><rect x="30" y="20" width="60" height="110" rx="14" fill="#cbbfa6" stroke="#6a5530" stroke-width="3"/><path d="M45 20V8M75 20V8" stroke="#6a5530" stroke-width="5" stroke-linecap="round"/><rect x="48" y="58" width="24" height="16" rx="3" fill="#ddd3bf" stroke="#6a5530" stroke-width="2.5"/><path d="M60 136c0 0-7 9-7 13a7 7 0 0 0 14 0c0-4-7-13-7-13z" fill="#8a6e3f"/></svg>
+            </div>
+            <div class="shot after rise" data-t="48.0"><span class="tag ok">After</span>
+              <svg viewBox="0 0 120 160" fill="none"><rect x="30" y="20" width="60" height="110" rx="14" fill="#ffffff" stroke="#2f5a40" stroke-width="3"/><path d="M45 20V8M75 20V8" stroke="#2f5a40" stroke-width="5" stroke-linecap="round"/><rect x="48" y="58" width="24" height="16" rx="3" fill="#e7efe9" stroke="#2f5a40" stroke-width="2.5"/><circle cx="60" cy="145" r="11" fill="#2f5a40"/><path d="M55 145l3.5 3.5L66 141" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="invoice rise" data-t="49.6"><div>One invoice for the job</div><span>Through your agency</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 REPORT -->
+      <section class="scene paper" data-t="55.6,66.2" data-chapter="Friday report">
+        <div class="cap">
+          <p class="eyebrow rise" data-t="56.0">06 · Every Friday</p>
+          <p class="capline rise" data-t="56.3">One report instead of a week of emails.</p>
+        </div>
+        <div class="vis">
+          <div class="card rise" data-t="56.2">
+            <div class="card-head"><div><span class="label" style="color:var(--brass)">Friday report</span><div style="font-family:var(--label);font-weight:600;font-size:28px;margin-top:4px">Week ending Friday 20 November</div></div><span class="tag" style="background:transparent;border:2px solid var(--line-strong);color:var(--dim)">Example</span></div>
+            <div class="stats rise" data-t="56.9"><div><b>5</b><span>Requests</span></div><div><b>4</b><span>Done</span></div><div><b>1</b><span>Needs you</span></div></div>
+            <div class="rrow hi rise" data-t="57.5" id="hiRow"><span class="j">Hot water system replaced</span><span class="tag ok">Done</span><span class="d">Modbury · Plumber · Wed</span></div>
+            <div class="rrow rise" data-t="58.0"><span class="j">Gutter overflowing at the back</span><span class="tag ok">Done</span><span class="d">Paralowie · Roof plumber · Tue</span></div>
+            <div class="rrow rise" data-t="58.5"><span class="j">Bedroom door sticking</span><span class="tag ok">Done</span><span class="d">Elizabeth Park · Carpenter · Thu</span></div>
+            <div class="rrow rise" data-t="59.0"><span class="j">Rangehood not extracting</span><span class="tag ok">Done</span><span class="d">Golden Grove · Electrician · Thu</span></div>
+            <div class="rrow rise" data-t="59.5"><span class="j">Shower screen leaking</span><span class="tag you">Quote to you</span><span class="d">Salisbury · Glazier · Over limit</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- END -->
+      <section class="scene ink" data-t="66,999" data-chapter="Start">
+        <div class="center">
+          <img class="mark rise" src="/demo/mark_light.png" alt="" data-t="66.4">
+          <h2 class="big rise" data-t="66.8">Tenants call us. We save you the headache.</h2>
+          <p class="sub rise" data-t="68.2">Every repair handled, approved by you, and on one report every Friday.</p>
+          <p class="sub rise" data-t="69.2" style="margin-top:14px;color:var(--brass-light)">Start with one property manager for 30 days.</p>
+          <div class="endrow rise" data-t="70.2"><b>briks.au</b><span>0449 517 367</span><span>admin@briks.au</span></div>
+        </div>
+      </section>
+
+    </div>
+    <button class="overlay" id="overlay" type="button" aria-label="Play the film"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>Play the film</span></button>
+    <div class="gate-hint" id="gateHint" hidden>Tap "Reply: Approved" to continue</div>
+  </div>
+
+  <div class="controls" id="controls">
+    <div class="track" id="track" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="76" aria-valuenow="0" tabindex="0"><div class="fill" id="fill"></div></div>
+    <div class="bar">
+      <button class="ctl primary" type="button" id="playBtn">Play</button>
+      <button class="ctl" type="button" id="restartBtn">Restart</button>
+      <button class="ctl" type="button" id="soundBtn" aria-pressed="true">Music on</button>
+      <div class="chapters" id="chapters"></div>
+      <a class="ctl" href="/card" style="text-decoration:none;color:var(--ink)">Contact Briks</a>
+      <span class="time" id="time">0:00 / 1:16</span>
+    </div>
+  </div>
+  <audio id="music" src="/demo/briks-film-music.mp3" preload="auto" loop></audio>
+</div>
+
+<script>
+(() => {
+  const DURATION = 76, GATE = 39.6, RENDER = /render/.test(location.search);
+  if (RENDER) document.body.classList.add('render');
+  const stage = document.getElementById('stage'), screen = document.getElementById('screen');
+  const items = [...stage.querySelectorAll('[data-t]')].map(el => {
+    const [a, b] = el.dataset.t.split(',').map(Number);
+    return { el, a, b: isNaN(b) ? Infinity : b, scene: el.classList.contains('scene'), rise: el.classList.contains('rise'), pop: el.classList.contains('pop') };
+  });
+  const scenes = items.filter(i => i.scene);
+  const ease = x => x <= 0 ? 0 : x >= 1 ? 1 : 1 - Math.pow(1 - x, 4);
+  const approveBtn = document.getElementById('approveBtn'), approvedStamp = document.getElementById('approvedStamp');
+  const cursor = document.getElementById('cursor'), hiRow = document.getElementById('hiRow');
+  let approved = RENDER;
+
+  function fit() {
+    if (RENDER) { stage.style.transform = 'none'; return; }
+    stage.style.transform = 'scale(' + (screen.clientWidth / 1920) + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+
+  function seek(t) {
+    for (const it of items) {
+      const fadeIn = it.scene ? (it.el.dataset.fade === '0' ? 0.001 : 0.45) : 0.6;
+      const pin = it.scene && it.a === 0 ? 1 : ease((t - it.a) / fadeIn);
+      const pout = ease((t - it.b) / 0.4);
+      let op = pin * (1 - pout);
+      if (it.el === approvedStamp) op = approved ? op : 0;
+      it.el.style.opacity = op.toFixed(3);
+      if (it.scene) { it.el.style.visibility = op > 0.001 ? 'visible' : 'hidden'; continue; }
+      if (it.rise) it.el.style.transform = 'translateY(' + ((1 - pin) * 30 - pout * 10).toFixed(1) + 'px)';
+      if (it.pop) it.el.style.transform = 'scale(' + (1.25 - 0.25 * pin).toFixed(3) + ')';
+    }
+    // approve button state
+    const pressed = approved && t >= GATE && t < GATE + 0.25;
+    approveBtn.style.transform = pressed ? 'scale(0.95)' : 'none';
+    approveBtn.style.opacity = approved && t >= GATE + 0.3 ? '0' : '1';
+    approveBtn.classList.toggle('pulse', !RENDER && !approved && t > 36 && t < 46);
+    // cursor path (render version only)
+    if (RENDER) {
+      const p = ease((t - 37.6) / 1.8), vis = t > 37.3 && t < 41.2 ? Math.min(1, (t - 37.3) / 0.3) * (1 - Math.max(0, (t - 40.8) / 0.4)) : 0;
+      const r = approveBtn.getBoundingClientRect(), s = stage.getBoundingClientRect();
+      const tx = (r.left - s.left) + r.width * 0.55, ty = (r.top - s.top) + r.height * 0.6;
+      const x = 1700 + (tx - 1700) * p, y = 1000 + (ty - 1000) * p;
+      cursor.style.opacity = vis.toFixed(3);
+      cursor.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) scale(' + (pressed ? 0.85 : 1) + ')';
+    }
+    hiRow.style.setProperty('--hi', Math.min(1, Math.max(0, (t - 60.2) / 0.5)).toFixed(3));
+  }
+  window.seek = seek;
+
+  if (RENDER) { seek(0); window.__ready = document.fonts.ready.then(() => true); return; }
+
+  /* Meeting version */
+  const playBtn = document.getElementById('playBtn'), overlay = document.getElementById('overlay'), gateHint = document.getElementById('gateHint');
+  const fill = document.getElementById('fill'), track = document.getElementById('track'), timeEl = document.getElementById('time');
+  const music = document.getElementById('music'), soundBtn = document.getElementById('soundBtn'), chapEl = document.getElementById('chapters');
+  let t = 2.4, playing = false, last = 0, soundOn = true, started = false;
+  const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+
+  const chapters = scenes.filter(s => s.el.dataset.chapter).map(s => ({ name: s.el.dataset.chapter, at: s.a + 0.5 }));
+  chapters.forEach(c => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'chap'; b.textContent = c.name;
+    b.addEventListener('click', () => go(c.at)); chapEl.appendChild(b); c.btn = b;
+    const tk = document.createElement('span'); tk.className = 'tick'; tk.style.left = (c.at / DURATION * 100) + '%'; track.appendChild(tk);
+  });
+
+  function ui() {
+    fill.style.width = (t / DURATION * 100) + '%';
+    track.setAttribute('aria-valuenow', Math.round(t));
+    timeEl.textContent = fmt(t) + ' / ' + fmt(DURATION);
+    playBtn.textContent = playing ? 'Pause' : (t >= DURATION ? 'Replay' : 'Play');
+    let cur = null; chapters.forEach(c => { if (t >= c.at - 0.6) cur = c; });
+    chapters.forEach(c => c.btn.setAttribute('aria-current', c === cur ? 'true' : 'false'));
+    gateHint.hidden = !(t >= GATE - 0.01 && !approved && started);
+  }
+  function go(to) {
+    started = true; overlay.hidden = true;
+    if (to > GATE + 0.5) approved = true;
+    t = Math.max(0, Math.min(DURATION, to)); seek(t); ui();
+    syncMusic();
+  }
+  function syncMusic() {
+    try {
+      if (playing && soundOn) { if (music.paused) music.play().catch(() => {}); }
+      else music.pause();
+    } catch (e) {}
+  }
+  function play() {
+    if (t >= DURATION || !started) { t = 0; if (!started) approved = false; }
+    started = true; overlay.hidden = true; playing = true; last = performance.now();
+    syncMusic(); ui(); requestAnimationFrame(loop);
+  }
+  function pause() { playing = false; syncMusic(); ui(); }
+  function loop(now) {
+    if (!playing) return;
+    const dt = Math.min(0.1, (now - last) / 1000); last = now;
+    t += dt;
+    if (!approved && t >= GATE) t = GATE;
+    if (t >= DURATION) { t = DURATION; playing = false; syncMusic(); }
+    seek(t); ui();
+    if (playing) requestAnimationFrame(loop);
+  }
+  approveBtn.addEventListener('click', () => { if (!approved && t >= 35.6) { approved = true; if (t < GATE) t = GATE; last = performance.now(); seek(t); ui(); } });
+  overlay.addEventListener('click', play);
+  playBtn.addEventListener('click', () => playing ? pause() : play());
+  document.getElementById('restartBtn').addEventListener('click', () => { approved = false; t = 0; started = true; overlay.hidden = true; playing = true; last = performance.now(); try { music.currentTime = 0; } catch (e) {} syncMusic(); requestAnimationFrame(loop); });
+  soundBtn.addEventListener('click', () => { soundOn = !soundOn; soundBtn.setAttribute('aria-pressed', String(soundOn)); soundBtn.textContent = soundOn ? 'Music on' : 'Music off'; syncMusic(); });
+  music.volume = 0.6;
+  const scrub = e => { const r = track.getBoundingClientRect(); go((e.clientX - r.left) / r.width * DURATION); };
+  track.addEventListener('pointerdown', e => { scrub(e); track.setPointerCapture(e.pointerId); const mv = ev => scrub(ev); track.addEventListener('pointermove', mv); track.addEventListener('pointerup', () => track.removeEventListener('pointermove', mv), { once: true }); });
+  track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(t + 5); if (e.key === 'ArrowLeft') go(t - 5); });
+  document.addEventListener('keydown', e => { if (e.key === ' ' && e.target === document.body) { e.preventDefault(); playing ? pause() : play(); } });
+  seek(t); ui();
+})();
+</script>
+
+</body>
+</html>

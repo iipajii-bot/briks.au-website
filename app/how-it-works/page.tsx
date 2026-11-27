@@ -33,7 +33,7 @@ const steps = [
     number: '03',
     title: 'On-site, work done',
     body: `Briks organises an independent trade, licensed in South Australia for the work. You get before and after photos and one invoice for each finished job.`,
-    aux: 'Failed job? Briks carries the remediation. One name on the hook.',
+    aux: 'Job not right? Tell us and we get the trade back to fix it. One name to call.',
   },
   {
     number: '04',
@@ -83,7 +83,7 @@ const benefits = [
   },
   {
     title: 'Single accountable supplier',
-    body: 'One name carries the job. Briks coordinates trades, manages quality, covers remediation if anything fails.',
+    body: 'One name carries the job. Briks coordinates trades, manages quality, manages the fix if anything is not right.',
   },
   {
     title: 'Documented audit trail',

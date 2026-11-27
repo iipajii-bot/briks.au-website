@@ -32,7 +32,7 @@ const FAQS = [
   { q: 'Do I need a property manager to use Briks?', a: 'No. Briks works directly with landlords who manage their own rentals. You stay the landlord; we handle the repair calls.' },
   { q: 'Who approves the work?', a: 'You do. Routine repairs under the approval limit you set go ahead straight away. For anything bigger we send you the quote and call you; nothing starts until you approve it in writing.' },
   { q: 'What is my approval limit?', a: 'An amount you choose. Jobs under it go ahead without asking you. Anything over it is quoted to you first and waits for your yes.' },
-  { q: 'What about emergencies?', a: 'Your tenant calls the same number. We triage it when it comes in, organise a make-safe or a licensed trade, then tell you what was done. We do not offer 24-hour cover. In a life-threatening emergency, call 000 first.' },
+  { q: 'What about emergencies?', a: 'Your tenant calls the same number. We triage it when it comes in, organise a make-safe or a licensed trade, then tell you what was done. Office hours are Monday to Friday, 8am to 6pm. After hours, tenants follow the make-safe steps on our help page (turn off the water or power), call 000 if anyone is in danger, and leave a message; we call back from 8am the next business day.' },
   { q: 'Do you do flooring?', a: 'Yes. Hybrid, laminate, vinyl and carpet, supplied and installed, with a written quote first. Useful between tenancies.' },
   { q: 'What does Briks not do?', a: 'Renovations, structural work and building projects are outside what we coordinate for landlords.' },
   { q: 'Which areas do you cover?', a: 'The Adelaide metropolitan area.' },
