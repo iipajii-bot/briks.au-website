@@ -33,7 +33,7 @@ const AGENCY_FAQS = [
   ...FAQS.filter((f) => f.q !== APPROVAL_FAQ.q && !f.q.startsWith('What is an outsourced') && !f.q.startsWith('Does the Briks') && !f.q.startsWith('How do we start')),
   {
     q: 'How do we start?',
-    a: 'On one property manager’s portfolio. You add Briks as a supplier, send us one tenant contact list and tell us your approval limit. We write the email that tells tenants the new number. After the first month you decide whether to roll it out. No lock-in contract.',
+    a: 'With one job. Send us your next repair, or give one tenant our number, and tell us your approval limit. We arrange it, you approve as normal, and you judge us on how it went. If it works, send the next one. No contract and nothing to install.',
   },
   {
     q: 'Do you need access to our property management software?',
@@ -101,7 +101,7 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
                 See your numbers
               </CtaLink>
             </div>
-            <p className="mt-6 text-[14px] text-[#5a5650]">See it working on one portfolio first. After the first month, you decide whether to roll it out.</p>
+            <p className="mt-6 text-[14px] text-[#5a5650]">One job. Judge us on that. If we don’t make it easier, you’ve lost nothing.</p>
           </div>
           <div className="home-enter home-enter--late min-w-0">
             <JobTimeline />
@@ -235,8 +235,8 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
       <section aria-labelledby="start-h" className={ground.ink}>
         <div className={`${cls.wrap} ${cls.section} grid items-center gap-12 lg:grid-cols-12`}>
           <div className="lg:col-span-6">
-            <SectionHead dark id="start-h" eyebrow="Getting started" title="See it working on one portfolio first.">
-              <p>Pick one property manager. We agree your approval limit, write the tenant email and send a report every Friday. After the first month, you decide whether to roll it out. No lock-in contract.</p>
+            <SectionHead dark id="start-h" eyebrow="Getting started" title="One job. Judge us on that.">
+              <p>Send us your next repair, or give one tenant our number. We agree your approval limit, arrange the trade and send the Friday report. If it works, send the next one. No lock-in contract.</p>
             </SectionHead>
             <div className="mt-8">
               <CtaLink href="#enquiry" variant="light">

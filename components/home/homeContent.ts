@@ -81,6 +81,6 @@ export const FAQS = [
   },
   {
     q: 'How do we start?',
-    a: 'Start with one property manager for 30 days. We write the email that tells their tenants the new number, and at day 30 you decide whether to keep it, expand it or stop.',
+    a: 'With one job. Send us your next repair, or give one tenant our number, and tell us your approval limit. We arrange it, you approve as normal, and you judge us on how it went. If it works, send the next one. No contract and nothing to install.',
   },
 ] as const

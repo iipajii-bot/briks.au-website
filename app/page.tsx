@@ -134,6 +134,21 @@ export default function HomePage() {
       <section aria-labelledby="hero-h" className="border-b border-[#e2ddd3] bg-[#fafaf7]">
         <div className={`${wrap} grid items-center gap-12 pb-16 pt-32 md:pb-20 md:pt-36 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pb-24 lg:pt-36`}>
           <div className="home-enter min-w-0">
+            <p className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-[14px] text-[#5a5650]">
+              <span>
+                Own your home?{' '}
+                <Link href="/for-homeowners" className="font-medium text-[#1a1a1a] underline decoration-[#c0bcb4] underline-offset-4 hover:decoration-[#8a6e3f]">
+                  Home repairs
+                </Link>
+              </span>
+              <span aria-hidden="true">·</span>
+              <span>
+                Self-managing landlord?{' '}
+                <Link href="/for-landlords" className="font-medium text-[#1a1a1a] underline decoration-[#c0bcb4] underline-offset-4 hover:decoration-[#8a6e3f]">
+                  Landlord repairs
+                </Link>
+              </span>
+            </p>
             <p className={eyebrow}>Maintenance coordination for real estate agencies</p>
             <h1
               id="hero-h"
@@ -154,17 +169,6 @@ export default function HomePage() {
                 Read the 5 steps
               </a>
             </div>
-            <p className="mt-8 text-[14px] leading-relaxed text-[#5a5650]">
-              Self-managing a rental?{' '}
-              <Link href="/for-landlords" className="font-medium text-[#1a1a1a] underline decoration-[#c0bcb4] underline-offset-4 hover:decoration-[#8a6e3f]">
-                Repairs for landlords
-              </Link>
-              <span aria-hidden="true" className="mx-2">·</span>
-              Your own home?{' '}
-              <Link href="/for-homeowners" className="font-medium text-[#1a1a1a] underline decoration-[#c0bcb4] underline-offset-4 hover:decoration-[#8a6e3f]">
-                Get a written quote
-              </Link>
-            </p>
           </div>
           <div className="home-enter home-enter--late min-w-0">
             <FridayReport />
@@ -285,11 +289,11 @@ export default function HomePage() {
           <div className="md:col-span-6">
             <p className="eyebrow text-[#b89868]!">The first step</p>
             <h2 id="start-h" className="font-display mt-4 text-[clamp(30px,4vw,48px)] font-bold leading-[1.04] [text-wrap:balance]">
-              Start with one property manager for 30 days.
+              One job. Judge us on that.
             </h2>
             <p className="mt-6 max-w-[32rem] text-[17px] leading-relaxed text-[#d6d0c4]">
-              No contract. We agree your approval limit, write the email that tells tenants the new
-              number, and send a report every Friday. At day 30 you decide: keep it, expand it or stop.
+              Send us your next repair. We arrange it, you approve it as normal, and you judge us on how
+              it went. If we don't make it easier, you've lost nothing. No contract, nothing to install.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -396,7 +400,7 @@ export default function HomePage() {
         <div className={`${wrap} flex flex-col gap-8 py-20 md:flex-row md:items-end md:justify-between md:py-24`}>
           <div className="max-w-[40rem]">
             <h2 id="close-h" className={h2}>
-              One property manager. Thirty days. One Friday report to judge it by.
+              Your next repair, start to finish. Judge us on that.
             </h2>
             <p className="mt-5 text-[17px] leading-relaxed text-[#3a3735]">
               A 15-minute call: we go through your approval limits, after-hours rules and preferred trades. You get a sample

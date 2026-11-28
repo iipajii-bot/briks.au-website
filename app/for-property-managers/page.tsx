@@ -189,7 +189,7 @@ export default async function ForPropertyManagersPage({ searchParams }: { search
               <Faq
                 items={[
                   { q: 'Will you contact my principal?', a: 'Only if you ask us to. You can send the email yourself, and we follow up once you reply.' },
-                  { q: 'What do I have to do in the first month?', a: 'Send one email to your tenants with the Briks number. We write it. Then approve anything over your limit and read the Friday report.' },
+                  { q: 'What do I have to do?', a: 'Send one email to your tenants with the Briks number. We write it. Then approve anything over your limit and read the Friday report.' },
                 ]}
               />
             </div>

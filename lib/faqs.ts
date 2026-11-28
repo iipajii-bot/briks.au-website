@@ -94,7 +94,7 @@ export const FAQ_PROPERTY_MANAGERS: QA[] = [
   },
   {
     q: 'How do we start?',
-    a: 'Add Briks as a supplier, send one tenant contact list for the portfolio we start with, and agree your approval limit and rules. It starts on one property manager’s portfolio; after the first month you decide whether to roll it out.',
+    a: 'With one job. Send us your next repair, or give one tenant our number, and tell us your approval limit. We arrange it, you approve as normal, and you judge us on how it went. If it works, send the next one. No contract and nothing to install.',
   },
   {
     q: 'What if we want to stop?',

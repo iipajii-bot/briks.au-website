@@ -16,7 +16,7 @@ Briks Building Services Pty Ltd coordinates property repairs and maintenance acr
 - Simple problems are often sorted on the phone.
 - Approvals: routine repairs under the agency's approval limit go ahead; bigger jobs are emailed to the property manager as a quote, followed by a phone call, and start only after written approval.
 - Briks invoices the agency for approved work. Briks never contacts owners without the agency's written permission.
-- How to start: one property manager's portfolio first; after the first month the agency decides whether to roll it out.
+- How to start: one job. The agency sends its next repair and judges Briks on it. No contract, nothing to install.
 
 ### Other customers
 
@@ -27,7 +27,7 @@ Briks Building Services Pty Ltd coordinates property repairs and maintenance acr
 ## Key pages
 
 - [Home](https://www.briks.au/): the Briks Maintenance Line in one page, with an FAQ
-- [For agencies](https://www.briks.au/for-agencies): how the desk works for an agency, approval limits, the 30-day start
+- [For agencies](https://www.briks.au/for-agencies): how the desk works for an agency, approval limits, starting with one job
 - [For property managers](https://www.briks.au/for-property-managers): how a property manager brings the desk to their agency
 - [For landlords](https://www.briks.au/for-landlords): repairs for self-managing landlords
 - [For homeowners](https://www.briks.au/for-homeowners): written quotes for home repairs
