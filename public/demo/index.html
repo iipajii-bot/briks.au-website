@@ -152,6 +152,33 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
 .overlay svg { width: 22px; height: 22px; }
 .gate-hint { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); z-index: 9; padding: 10px 18px; border-radius: 6px; background: var(--brass); color: var(--on-ink); font-family: var(--label); font-weight: 700; font-size: 15px; white-space: nowrap; }
 @media (max-width: 640px) { .chapters { display: none; } }
+
+/* Phone call scene */
+.callscreen { background: #1d1c1a; color: #fafaf7; position: relative; }
+.incoming { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; padding-top: 110px; }
+.ic-k { font-family: var(--label); font-size: 22px; color: #bdb6aa; }
+.ic-av { position: relative; width: 150px; height: 150px; margin-top: 60px; display: grid; place-items: center; }
+.ic-av .av { width: 150px; height: 150px; border-radius: 50%; background: var(--brass); display: grid; place-items: center; position: relative; z-index: 2; }
+.ic-av .av svg { width: 64px; height: 64px; }
+.pulse { position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--brass-light); opacity: 0; }
+.ic-n { margin-top: 44px; font-family: var(--display); font-weight: 700; font-size: 40px; letter-spacing: -0.01em; }
+.ic-s { margin-top: 6px; font-size: 20px; color: #bdb6aa; }
+.ic-btns { position: absolute; left: 0; right: 0; bottom: 90px; display: flex; justify-content: space-around; }
+.ic-btns span { width: 100px; height: 100px; border-radius: 50%; display: grid; place-items: center; }
+.ic-btns svg { width: 44px; height: 44px; }
+.dec { background: #c0392b; } .acc { background: #2e9e5b; }
+.lock { position: absolute; inset: 0; padding: 80px 22px 0; text-align: center; background: linear-gradient(170deg, #2a2724, #141312); }
+.lk-t { font-family: var(--display); font-weight: 600; font-size: 104px; letter-spacing: -0.03em; line-height: 1; margin-top: 30px; }
+.lk-d { font-family: var(--label); font-size: 22px; color: #d6d0c4; margin-top: 8px; }
+.note { margin-top: 26px; text-align: left; background: rgba(250,250,247,0.94); color: var(--ink); border-radius: 26px; padding: 18px 22px; display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; }
+.note + .note { margin-top: 14px; }
+.note b { font-family: var(--label); font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--dim); }
+.note span { font-size: 16px; color: var(--dim); }
+.note p { grid-column: 1 / -1; font-size: 23px; line-height: 1.3; }
+.note strong { display: block; font-family: var(--label); font-weight: 700; }
+/* End card */
+.huge { font-family: var(--display); font-weight: 700; font-size: 150px; line-height: 0.93; letter-spacing: -0.03em; margin: 0; }
+.huge em { font-style: normal; color: var(--brass-light); }
 </style>
 
 </head>
@@ -161,33 +188,61 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
     <div class="stage" id="stage">
 
       <!-- TITLE -->
-      <section class="scene ink" data-t="0,5.2" data-fade="0">
+      <section class="scene ink" data-t="0,4.9" data-fade="0">
         <div class="center">
           <img class="mark rise" src="/demo/mark_light.png" alt="Briks logo" data-t="0.2">
-          <p class="eyebrow rise" data-t="0.6">Briks Building Services</p>
-          <h1 class="big rise" data-t="0.9">One repair, start to finish.</h1>
-          <p class="sub rise" data-t="1.5">How we run a job for your agency, from the tenant's call to your Friday report.</p>
+          <p class="eyebrow rise" data-t="0.5">Briks</p>
+          <h1 class="big rise" data-t="0.8">Tenants call us. We save you the headache.</h1>
+        </div>
+      </section>
+
+      <!-- 0 THE CALL: phone rings, then the notifications land -->
+      <section class="scene paper" data-t="4.7,10.3" data-chapter="Tenant calls">
+        <div class="cap">
+          <p class="eyebrow rise" data-t="5.0">01 · The tenant calls Briks</p>
+          <div class="capstack">
+            <p class="capline rise" data-t="5.3,7.7">One number for every repair.</p>
+            <p class="capline rise" data-t="7.9">Calls and texts come to us, not your property manager.</p>
+          </div>
+        </div>
+        <div class="vis">
+          <div class="phone rise ringphone" data-t="4.9">
+            <div class="phone-in callscreen">
+              <div class="incoming" data-t="4.9,7.6">
+                <p class="ic-k">Incoming call</p>
+                <div class="ic-av"><span class="pulse" data-pulse="0"></span><span class="pulse" data-pulse="0.5"></span><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fafaf7" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span></div>
+                <p class="ic-n">Tenant, Modbury</p>
+                <p class="ic-s">mobile</p>
+                <div class="ic-btns"><span class="dec"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 9c-1.6 0-3.2.3-4.6.8v3.1c0 .4-.2.7-.6.9-.9.4-1.8 1-2.5 1.7-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L.3 13c-.2-.2-.3-.4-.3-.7 0-.3.1-.5.3-.7C3.4 8.7 7.5 7 12 7s8.6 1.7 11.7 4.6c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-2.6 2.5c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.7-.7-1.6-1.3-2.5-1.7-.4-.2-.6-.5-.6-.9V9.8C15.2 9.3 13.6 9 12 9z"/></svg></span><span class="acc"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></span></div>
+              </div>
+              <div class="lock" data-t="7.6">
+                <p class="lk-t">7:56</p><p class="lk-d">Thursday 27 November</p>
+                <div class="note rise" data-t="7.9"><b>Messages</b><span>now</span><p><strong>Tenant, Modbury</strong>We've had no hot water since last night.</p></div>
+                <div class="note rise" data-t="8.7"><b>Phone</b><span>now</span><p><strong>Missed call</strong>Tenant, Modbury</p></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- 1 TENANT -->
-      <section class="scene paper" data-t="5,17.6" data-chapter="Tenant calls">
+      <section class="scene paper" data-t="10,22.6" data-chapter="Easy fixes first">
         <div class="cap">
-          <p class="eyebrow rise" data-t="5.4">01 · The tenant calls Briks</p>
+          <p class="eyebrow rise" data-t="10.4">01 · The tenant calls Briks</p>
           <div class="capstack">
-            <p class="capline rise" data-t="5.7,11.3">Tenants call us, not your property manager.</p>
-            <p class="capline rise" data-t="11.5">Easy fixes first. If they don't work, we book a licensed trade.</p>
+            <p class="capline rise" data-t="10.7,16.3">We answer and ask the right questions.</p>
+            <p class="capline rise" data-t="16.5">Easy fixes first. If they don't work, we book a licensed trade.</p>
           </div>
         </div>
         <div class="vis">
-          <div class="phone rise" data-t="5.3">
+          <div class="phone rise" data-t="10.3">
             <div class="phone-in">
               <div class="phone-top"><div class="avatar"><img src="/demo/mark.png" alt=""></div><div><b>Briks</b><span>Tenant line · 7:55am</span></div></div>
               <div class="chat">
-                <div class="bub rise" data-t="6.2"><small>Tenant</small>We've had no hot water since last night.</div>
-                <div class="bub us rise" data-t="7.9"><small>Briks</small>Sorry to hear that. Have you tried the walkthrough steps on our help page? They cover easy fixes for common issues like this one.</div>
-                <div class="bub rise" data-t="10.3"><small>Tenant</small>Yes, we tried the steps but nothing worked.</div>
-                <div class="bub us rise" data-t="12.2"><small>Briks</small>Thanks for checking. We're booking a plumber now and will be in touch soon with a time.</div>
+                <div class="bub rise" data-t="11.2"><small>Tenant</small>We've had no hot water since last night.</div>
+                <div class="bub us rise" data-t="12.9"><small>Briks</small>Sorry to hear that. Have you tried the walkthrough steps on our help page? They cover easy fixes for common issues like this one.</div>
+                <div class="bub rise" data-t="15.3"><small>Tenant</small>Yes, we tried the steps but nothing worked.</div>
+                <div class="bub us rise" data-t="17.2"><small>Briks</small>Thanks for checking. We're booking a plumber now and will be in touch soon with a time.</div>
               </div>
             </div>
           </div>
@@ -195,115 +250,114 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
       </section>
 
       <!-- 2 BOOKING -->
-      <section class="scene paper" data-t="17.4,25.6" data-chapter="Trade booked">
+      <section class="scene paper" data-t="22.4,30.6" data-chapter="Trade booked">
         <div class="cap">
-          <p class="eyebrow rise" data-t="17.8">02 · We book the trade</p>
-          <p class="capline rise" data-t="18.1">We book a licensed plumber and arrange access with the tenant.</p>
+          <p class="eyebrow rise" data-t="22.8">02 · We book the trade</p>
+          <p class="capline rise" data-t="23.1">We book a licensed plumber and arrange access with the tenant.</p>
         </div>
         <div class="vis">
-          <div class="card rise" data-t="18.0">
+          <div class="card rise" data-t="23">
             <div class="card-head"><span class="label">Booking · Modbury</span><span class="tag ok">Booked</span></div>
             <div class="rows">
-              <div class="row rise" data-t="18.9"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Trade</small>Licensed plumber</div></div>
-              <div class="row rise" data-t="19.7"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Booked</small>Today, 11:30am</div></div>
-              <div class="row rise" data-t="20.5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Access</small>Confirmed with the tenant</div></div>
-              <div class="row rise" data-t="21.3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Tenant</small>Told the time by text</div></div>
+              <div class="row rise" data-t="23.9"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Trade</small>Licensed plumber</div></div>
+              <div class="row rise" data-t="24.7"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Booked</small>Today, 11:30am</div></div>
+              <div class="row rise" data-t="25.5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Access</small>Confirmed with the tenant</div></div>
+              <div class="row rise" data-t="26.3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Tenant</small>Told the time by text</div></div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- 3 FINDING -->
-      <section class="scene paper" data-t="25.4,33.6" data-chapter="Plumber's finding">
+      <section class="scene paper" data-t="30.4,38.6" data-chapter="Plumber's finding">
         <div class="cap">
-          <p class="eyebrow rise" data-t="25.8">03 · The plumber finds the cause</p>
-          <p class="capline rise" data-t="26.1">Bigger than your approval limit? It comes to you first.</p>
+          <p class="eyebrow rise" data-t="30.8">03 · The plumber finds the cause</p>
+          <p class="capline rise" data-t="31.1">Bigger than your approval limit? It comes to you first.</p>
         </div>
         <div class="vis">
-          <div class="card rise" data-t="26.0" style="padding-bottom:96px">
+          <div class="card rise" data-t="31" style="padding-bottom:96px">
             <div class="card-head"><span class="label">Site report · 11:48am</span><span class="tag">On site</span></div>
             <div class="rows">
-              <div class="row warn rise" data-t="26.9"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a5530" stroke-width="2.4"><path d="M12 7v6M12 17h.01"/></svg></span><div><small>Finding</small>Hot water unit has failed and is leaking</div></div>
-              <div class="row rise" data-t="27.7"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Made safe</small>Water to the unit isolated</div></div>
-              <div class="row warn rise" data-t="28.5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a5530" stroke-width="2.4"><path d="M5 12h14M12 5v14"/></svg></span><div><small>Needed</small>Replace the unit</div></div>
+              <div class="row warn rise" data-t="31.9"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a5530" stroke-width="2.4"><path d="M12 7v6M12 17h.01"/></svg></span><div><small>Finding</small>Hot water unit has failed and is leaking</div></div>
+              <div class="row rise" data-t="32.7"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><small>Made safe</small>Water to the unit isolated</div></div>
+              <div class="row warn rise" data-t="33.5"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6a5530" stroke-width="2.4"><path d="M5 12h14M12 5v14"/></svg></span><div><small>Needed</small>Replace the unit</div></div>
             </div>
-            <div class="stamp pop" data-t="29.6"><span class="tag you">Over your approval limit</span></div>
+            <div class="stamp pop" data-t="34.6"><span class="tag you">Over your approval limit</span></div>
           </div>
         </div>
       </section>
 
       <!-- 4 APPROVAL -->
-      <section class="scene paper" data-t="33.4,46.2" data-chapter="You approve">
+      <section class="scene paper" data-t="38.4,51.2" data-chapter="You approve">
         <div class="cap">
-          <p class="eyebrow rise" data-t="33.8">04 · You approve in writing</p>
+          <p class="eyebrow rise" data-t="38.8">04 · You approve in writing</p>
           <div class="capstack">
-            <p class="capline rise" data-t="34.1,40.6">We email you the quote with photos, then call you the same day.</p>
-            <p class="capline rise" data-t="40.8">Work starts only once you approve. No approval, no work.</p>
+            <p class="capline rise" data-t="39.1,45.6">We email you the quote with photos, then call you the same day.</p>
+            <p class="capline rise" data-t="45.8">Work starts only once you approve. No approval, no work.</p>
           </div>
         </div>
         <div class="vis">
-          <div class="card rise" data-t="34.0" style="overflow:visible">
+          <div class="card rise" data-t="39" style="overflow:visible">
             <div class="mail-top"><span><b>To:</b> Your property manager</span><span><b>Subject:</b> Approval needed: hot water system, Modbury</span></div>
             <div class="mail-body">
               <p>The hot water unit has failed. The plumber's quote and photos are attached. Reply "Approved" and we'll book the replacement.</p>
-              <div class="files rise" data-t="35.0"><span class="file">Quote.pdf</span><span class="file">Photos (4)</span></div>
-              <div class="approve-row rise" data-t="35.6">
+              <div class="files rise" data-t="40"><span class="file">Quote.pdf</span><span class="file">Photos (4)</span></div>
+              <div class="approve-row rise" data-t="40.6">
                 <button class="approve" type="button" id="approveBtn">Reply: Approved</button>
-                <div class="approved" id="approvedStamp" data-t="39.9"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg>Approved in writing, 2:14pm</div>
+                <div class="approved" id="approvedStamp" data-t="44.9"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f5a40" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg>Approved in writing, 2:14pm</div>
               </div>
             </div>
-            <div class="toast rise" data-t="36.6,39.4"><span class="dot"></span><div>Briks is calling<small>Same-day call about the quote</small></div></div>
+            <div class="toast rise" data-t="41.6,44.4"><span class="dot"></span><div>Briks is calling<small>Same-day call about the quote</small></div></div>
           </div>
         </div>
         <svg class="cursor" id="cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z" fill="#1a1a1a" stroke="#fafaf7" stroke-width="1.4" stroke-linejoin="round"/></svg>
       </section>
 
       <!-- 5 DONE -->
-      <section class="scene paper" data-t="46,55.8" data-chapter="Job done">
+      <section class="scene paper" data-t="51,60.8" data-chapter="Job done">
         <div class="cap">
-          <p class="eyebrow rise" data-t="46.4">05 · The work gets done</p>
-          <p class="capline rise" data-t="46.7">Before and after photos. One invoice per job, through your agency.</p>
+          <p class="eyebrow rise" data-t="51.4">05 · The work gets done</p>
+          <p class="capline rise" data-t="51.7">Before and after photos. One invoice per job, through your agency.</p>
         </div>
         <div class="vis">
           <div class="shots">
-            <div class="shot before rise" data-t="47.0"><span class="tag">Before</span>
+            <div class="shot before rise" data-t="52"><span class="tag">Before</span>
               <svg viewBox="0 0 120 160" fill="none"><rect x="30" y="20" width="60" height="110" rx="14" fill="#cbbfa6" stroke="#6a5530" stroke-width="3"/><path d="M45 20V8M75 20V8" stroke="#6a5530" stroke-width="5" stroke-linecap="round"/><rect x="48" y="58" width="24" height="16" rx="3" fill="#ddd3bf" stroke="#6a5530" stroke-width="2.5"/><path d="M60 136c0 0-7 9-7 13a7 7 0 0 0 14 0c0-4-7-13-7-13z" fill="#8a6e3f"/></svg>
             </div>
-            <div class="shot after rise" data-t="48.0"><span class="tag ok">After</span>
+            <div class="shot after rise" data-t="53"><span class="tag ok">After</span>
               <svg viewBox="0 0 120 160" fill="none"><rect x="30" y="20" width="60" height="110" rx="14" fill="#ffffff" stroke="#2f5a40" stroke-width="3"/><path d="M45 20V8M75 20V8" stroke="#2f5a40" stroke-width="5" stroke-linecap="round"/><rect x="48" y="58" width="24" height="16" rx="3" fill="#e7efe9" stroke="#2f5a40" stroke-width="2.5"/><circle cx="60" cy="145" r="11" fill="#2f5a40"/><path d="M55 145l3.5 3.5L66 141" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <div class="invoice rise" data-t="49.6"><div>One invoice for the job</div><span>Through your agency</span></div>
+            <div class="invoice rise" data-t="54.6"><div>One invoice for the job</div><span>Through your agency</span></div>
           </div>
         </div>
       </section>
 
       <!-- 6 REPORT -->
-      <section class="scene paper" data-t="55.6,66.2" data-chapter="Friday report">
+      <section class="scene paper" data-t="60.6,71.2" data-chapter="Friday report">
         <div class="cap">
-          <p class="eyebrow rise" data-t="56.0">06 · Every Friday</p>
-          <p class="capline rise" data-t="56.3">One report instead of a week of emails.</p>
+          <p class="eyebrow rise" data-t="61">06 · Every Friday</p>
+          <p class="capline rise" data-t="61.3">One report instead of a week of emails.</p>
         </div>
         <div class="vis">
-          <div class="card rise" data-t="56.2">
+          <div class="card rise" data-t="61.2">
             <div class="card-head"><div><span class="label" style="color:var(--brass)">Friday report</span><div style="font-family:var(--label);font-weight:600;font-size:28px;margin-top:4px">Week ending Friday 20 November</div></div><span class="tag" style="background:transparent;border:2px solid var(--line-strong);color:var(--dim)">Example</span></div>
-            <div class="stats rise" data-t="56.9"><div><b>5</b><span>Requests</span></div><div><b>4</b><span>Done</span></div><div><b>1</b><span>Needs you</span></div></div>
-            <div class="rrow hi rise" data-t="57.5" id="hiRow"><span class="j">Hot water system replaced</span><span class="tag ok">Done</span><span class="d">Modbury · Plumber · Wed</span></div>
-            <div class="rrow rise" data-t="58.0"><span class="j">Gutter overflowing at the back</span><span class="tag ok">Done</span><span class="d">Paralowie · Roof plumber · Tue</span></div>
-            <div class="rrow rise" data-t="58.5"><span class="j">Bedroom door sticking</span><span class="tag ok">Done</span><span class="d">Elizabeth Park · Carpenter · Thu</span></div>
-            <div class="rrow rise" data-t="59.0"><span class="j">Rangehood not extracting</span><span class="tag ok">Done</span><span class="d">Golden Grove · Electrician · Thu</span></div>
-            <div class="rrow rise" data-t="59.5"><span class="j">Shower screen leaking</span><span class="tag you">Quote to you</span><span class="d">Salisbury · Glazier · Over limit</span></div>
+            <div class="stats rise" data-t="61.9"><div><b>5</b><span>Requests</span></div><div><b>4</b><span>Done</span></div><div><b>1</b><span>Needs you</span></div></div>
+            <div class="rrow hi rise" data-t="62.5" id="hiRow"><span class="j">Hot water system replaced</span><span class="tag ok">Done</span><span class="d">Modbury · Plumber · Wed</span></div>
+            <div class="rrow rise" data-t="63"><span class="j">Gutter overflowing at the back</span><span class="tag ok">Done</span><span class="d">Paralowie · Roof plumber · Tue</span></div>
+            <div class="rrow rise" data-t="63.5"><span class="j">Bedroom door sticking</span><span class="tag ok">Done</span><span class="d">Elizabeth Park · Carpenter · Thu</span></div>
+            <div class="rrow rise" data-t="64"><span class="j">Rangehood not extracting</span><span class="tag ok">Done</span><span class="d">Golden Grove · Electrician · Thu</span></div>
+            <div class="rrow rise" data-t="64.5"><span class="j">Shower screen leaking</span><span class="tag you">Quote to you</span><span class="d">Salisbury · Glazier · Over limit</span></div>
           </div>
         </div>
       </section>
 
       <!-- END -->
-      <section class="scene ink" data-t="66,999" data-chapter="Start">
+      <section class="scene ink" data-t="71,999" data-chapter="Start">
         <div class="center">
-          <img class="mark rise" src="/demo/mark_light.png" alt="" data-t="66.4">
-          <h2 class="big rise" data-t="66.8">Tenants call us. We save you the headache.</h2>
-          <p class="sub rise" data-t="68.2">Every repair handled, approved by you, and on one report every Friday.</p>
-          <p class="sub rise" data-t="69.2" style="margin-top:14px;color:var(--brass-light)">Send us one job. Judge us on that.</p>
-          <div class="endrow rise" data-t="70.2"><b>briks.au</b><span>0449 517 367</span><span>admin@briks.au</span></div>
+          <img class="mark rise" src="/demo/mark_light.png" alt="" data-t="71.4">
+          <h2 class="huge rise" data-t="71.8">Send us <em>one job.</em><br>Judge us on that.</h2>
+          <p class="sub rise" data-t="73.4">Every repair handled, approved by you, and on one report every Friday.</p>
+          <div class="endrow rise" data-t="74.4"><b>briks.au</b><span>0449 517 367</span><span>admin@briks.au</span></div>
         </div>
       </section>
 
@@ -313,14 +367,14 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
   </div>
 
   <div class="controls" id="controls">
-    <div class="track" id="track" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="76" aria-valuenow="0" tabindex="0"><div class="fill" id="fill"></div></div>
+    <div class="track" id="track" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="81" aria-valuenow="0" tabindex="0"><div class="fill" id="fill"></div></div>
     <div class="bar">
       <button class="ctl primary" type="button" id="playBtn">Play</button>
       <button class="ctl" type="button" id="restartBtn">Restart</button>
       <button class="ctl" type="button" id="soundBtn" aria-pressed="true">Music on</button>
       <div class="chapters" id="chapters"></div>
       <a class="ctl" href="/card" style="text-decoration:none;color:var(--ink)">Contact Briks</a>
-      <span class="time" id="time">0:00 / 1:16</span>
+      <span class="time" id="time">0:00 / 1:21</span>
     </div>
   </div>
   <audio id="music" src="/demo/briks-film-music.mp3" preload="auto" loop></audio>
@@ -328,7 +382,7 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
 
 <script>
 (() => {
-  const DURATION = 76, GATE = 39.6, RENDER = /render/.test(location.search);
+  const DURATION = 81, GATE = 44.6, RENDER = /render/.test(location.search);
   if (RENDER) document.body.classList.add('render');
   const stage = document.getElementById('stage'), screen = document.getElementById('screen');
   const items = [...stage.querySelectorAll('[data-t]')].map(el => {
@@ -339,6 +393,7 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
   const ease = x => x <= 0 ? 0 : x >= 1 ? 1 : 1 - Math.pow(1 - x, 4);
   const approveBtn = document.getElementById('approveBtn'), approvedStamp = document.getElementById('approvedStamp');
   const cursor = document.getElementById('cursor'), hiRow = document.getElementById('hiRow');
+  const pulses = [...stage.querySelectorAll('[data-pulse]')], ringPhone = stage.querySelector('.ringphone');
   let approved = RENDER;
 
   function fit() {
@@ -363,17 +418,21 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
     const pressed = approved && t >= GATE && t < GATE + 0.25;
     approveBtn.style.transform = pressed ? 'scale(0.95)' : 'none';
     approveBtn.style.opacity = approved && t >= GATE + 0.3 ? '0' : '1';
-    approveBtn.classList.toggle('pulse', !RENDER && !approved && t > 36 && t < 46);
+    approveBtn.classList.toggle('pulse', !RENDER && !approved && t > 41 && t < 51);
     // cursor path (render version only)
     if (RENDER) {
-      const p = ease((t - 37.6) / 1.8), vis = t > 37.3 && t < 41.2 ? Math.min(1, (t - 37.3) / 0.3) * (1 - Math.max(0, (t - 40.8) / 0.4)) : 0;
+      const p = ease((t - 42.6) / 1.8), vis = t > 42.3 && t < 46.2 ? Math.min(1, (t - 42.3) / 0.3) * (1 - Math.max(0, (t - 45.8) / 0.4)) : 0;
       const r = approveBtn.getBoundingClientRect(), s = stage.getBoundingClientRect();
       const tx = (r.left - s.left) + r.width * 0.55, ty = (r.top - s.top) + r.height * 0.6;
       const x = 1700 + (tx - 1700) * p, y = 1000 + (ty - 1000) * p;
       cursor.style.opacity = vis.toFixed(3);
       cursor.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) scale(' + (pressed ? 0.85 : 1) + ')';
     }
-    hiRow.style.setProperty('--hi', Math.min(1, Math.max(0, (t - 60.2) / 0.5)).toFixed(3));
+    // phone rings: two pulses and a small shake while the call is incoming
+    const ringing = t > 5.1 && t < 7.6;
+    pulses.forEach(el => { const ph = ((t * 0.9) + Number(el.dataset.pulse)) % 1; el.style.opacity = ringing ? (0.8 * (1 - ph)).toFixed(3) : '0'; el.style.transform = 'scale(' + (1 + ph * 0.9).toFixed(3) + ')'; });
+    if (ringPhone) ringPhone.style.rotate = ringing ? (Math.sin(t * 46) * 1.6 * (Math.sin(t * 5) > 0 ? 1 : 0)).toFixed(2) + 'deg' : '0deg';
+    hiRow.style.setProperty('--hi', Math.min(1, Math.max(0, (t - 65.2) / 0.5)).toFixed(3));
   }
   window.seek = seek;
 
@@ -429,7 +488,7 @@ body.render .controls, body.render .overlay, body.render .gate-hint { display: n
     seek(t); ui();
     if (playing) requestAnimationFrame(loop);
   }
-  approveBtn.addEventListener('click', () => { if (!approved && t >= 35.6) { approved = true; if (t < GATE) t = GATE; last = performance.now(); seek(t); ui(); } });
+  approveBtn.addEventListener('click', () => { if (!approved && t >= 40.6) { approved = true; if (t < GATE) t = GATE; last = performance.now(); seek(t); ui(); } });
   overlay.addEventListener('click', play);
   playBtn.addEventListener('click', () => playing ? pause() : play());
   document.getElementById('restartBtn').addEventListener('click', () => { approved = false; t = 0; started = true; overlay.hidden = true; playing = true; last = performance.now(); try { music.currentTime = 0; } catch (e) {} syncMusic(); requestAnimationFrame(loop); });
