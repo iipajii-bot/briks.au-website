@@ -63,7 +63,7 @@ export default function CardPage() {
           <div className="flex flex-col gap-3">
             <Link href="/for-agencies" className={row}>
               <Building2 className={icon} aria-hidden />
-              <span className="min-w-0 flex-1"><span className={rowLabel}>For real estate agencies</span><span className={rowSub}>One job. Judge us on that.</span></span>
+              <span className="min-w-0 flex-1"><span className={rowLabel}>For real estate agencies</span><span className={rowSub}>Send us one job. Judge us on that.</span></span>
               <ArrowRight className="h-4 w-4 shrink-0 text-[#5a5650]" aria-hidden />
             </Link>
             <Link href="/for-landlords" className={row}>

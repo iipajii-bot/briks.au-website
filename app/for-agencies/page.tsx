@@ -101,7 +101,7 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
                 See your numbers
               </CtaLink>
             </div>
-            <p className="mt-6 text-[14px] text-[#5a5650]">One job. Judge us on that. If we don’t make it easier, you’ve lost nothing.</p>
+            <p className="mt-6 text-[14px] text-[#5a5650]">Send us one job. Judge us on that. If we don’t make it easier, you’ve lost nothing.</p>
           </div>
           <div className="home-enter home-enter--late min-w-0">
             <JobTimeline />
@@ -235,8 +235,8 @@ export default async function ForAgenciesPage({ searchParams }: { searchParams: 
       <section aria-labelledby="start-h" className={ground.ink}>
         <div className={`${cls.wrap} ${cls.section} grid items-center gap-12 lg:grid-cols-12`}>
           <div className="lg:col-span-6">
-            <SectionHead dark id="start-h" eyebrow="Getting started" title="One job. Judge us on that.">
-              <p>Send us your next repair, or give one tenant our number. We agree your approval limit, arrange the trade and send the Friday report. If it works, send the next one. No lock-in contract.</p>
+            <SectionHead dark id="start-h" eyebrow="Getting started" title="Send us one job. Judge us on that.">
+              <p>Forward your next repair, or give one tenant our number. We agree your approval limit, arrange the trade and send the Friday report. If it works, send the next one. No lock-in contract.</p>
             </SectionHead>
             <div className="mt-8">
               <CtaLink href="#enquiry" variant="light">

@@ -289,11 +289,11 @@ export default function HomePage() {
           <div className="md:col-span-6">
             <p className="eyebrow text-[#b89868]!">The first step</p>
             <h2 id="start-h" className="font-display mt-4 text-[clamp(30px,4vw,48px)] font-bold leading-[1.04] [text-wrap:balance]">
-              One job. Judge us on that.
+              Send us one job. Judge us on that.
             </h2>
             <p className="mt-6 max-w-[32rem] text-[17px] leading-relaxed text-[#d6d0c4]">
-              Send us your next repair. We arrange it, you approve it as normal, and you judge us on how
-              it went. If we don't make it easier, you've lost nothing. No contract, nothing to install.
+              Your next repair is the test. We arrange it, you approve it as normal, and you judge us on
+              how it went. If we don't make it easier, you've lost nothing. No contract, nothing to install.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
